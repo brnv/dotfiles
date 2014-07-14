@@ -1,0 +1,49 @@
+set ssl_verify_dates=no
+set ssl_verify_host=no
+
+set sleep_time=0
+
+mailboxes =INBOX
+
+alternative_order text/plain text/html
+auto_view text/html
+
+set sleep_time=0
+set index_format="%4C %Z %{%d/%m %T} %-20.20L %s"
+
+set header_cache="~/.mutt_headers_cache"
+
+set sendmail="/usr/bin/msmtp"
+
+
+account-hook imap://{{ADDRESS}}@{{SERVER}}/ '\
+    set \
+    imap_pass={{PASSWORD}}\
+    from="{{FROM}}"\
+    folder=imap://{{ADDRESS}}@{{SERVER}}/\
+    record="+Sent"\
+    postponed="+Drafts"'
+set spoolfile='imap://{{ADDRESS}}@{{SERVER}}/'
+
+set markers=no
+
+set editor="vim"
+
+set imap_check_subscribed
+unset imap_passive
+
+# Reduce polling frequency to a sane level
+set mail_check=60
+
+set sort=threads
+
+set alias_file=~/.mutt_aliases
+source $alias_file
+source ~/.mutt-colors-solarized-light-16.muttrc
+set metoo
+
+bind index \e[7~ first-entry
+bind index \e[8~ last-entry
+bind pager \e[7~ top
+bind pager \e[8~ bottom
+bind index @ imap-fetch-mail

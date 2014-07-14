@@ -1,0 +1,7 @@
+[user]
+	email = a.baranov@office.ngs.ru
+	name = Alexey Baranov
+[core]
+	editor = vim
+[push]
+	default = simple

@@ -1,0 +1,16 @@
+URxvt.loginShell: true
+URxvt.transparent: false
+URxvt.scrollBar: false
+URxvt.cursorBlink: true
+URxvt.saveLines: 4096
+URxvt.font: xft:Monaco:style=Regular:pixelsize=12
+URxvt.boldFont: xft:Monaco:style=Bold:pixelsize=12
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.termName: rxvt-unicode-256color
+URxvt.iso14755: False
+URxvt.iso14755_52: False
+URxvt.internalBorder: 0
+URxvt.perl-ext-common: -scrollback-selection,url-select,keyboard-select
+URxvt.url-select.launcher: /usr/bin/google-chrome-stable
+URxvt.keysym.M-u: perl:url-select:select_next
