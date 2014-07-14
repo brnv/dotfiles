@@ -168,4 +168,3 @@ client.unfocused #262626 #262626 #657b83 #ffffff
 
 bindsym $mod+Ctrl+l exec "sed -i 's/dark/light/' ~/.{xsetup,vimrc,mcabber/mcabberrc} && ~/.xsetup"
 bindsym $mod+Ctrl+d exec "sed -i 's/light/dark/' ~/.{xsetup,vimrc,mcabber/mcabberrc} && ~/.xsetup"
-bindsym $mod+Shift+Ctrl+s exec mysleep

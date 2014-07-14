@@ -30,7 +30,7 @@ rm ~/.terminfo
 set_link terminfo
 
 
-ln -sf `pwd`/i3/config.default `pwd`/i3/config
+cp `pwd`/i3/config.default `pwd`/i3/config
 cat `pwd`/i3/config.`hostname` >> `pwd`/i3/config
 rm ~/.i3
 set_link i3
