@@ -5,3 +5,7 @@ setxkbmap -layout "us, ru" -option "grp:caps_toggle"
 xset b off && xset s off 
 xset r rate 130 27 
 xrandr --auto
+
+if [[ home = `hostname` ]]; then
+	xrandr --output HDMI-0 --right-of LVDS-0
+fi
