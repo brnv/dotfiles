@@ -32,7 +32,6 @@ nnoremap <C-k> <C-b>
 vnoremap <C-j> <C-f>
 vnoremap <C-k> <C-b>
 nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :q<CR>
 nnoremap <S-l> :tabmove +1<CR>
 nnoremap <S-h> :tabmove -1<CR>
 nmap <F2> :w<CR>
@@ -73,6 +72,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " !UltiSnips works fine with YCM
 
+let g:airline_powerline_fonts = 1
+
 filetype plugin indent on
 
 set laststatus=2
@@ -91,3 +92,6 @@ augroup end
 set list
 set lcs=trail:·,tab:\ \ 
 set noexpandtab
+
+let mapleader="\<space>"
+noremap <leader>~ :tabnew ~/.vimrc<CR>
