@@ -51,5 +51,5 @@ load {
 }
 
 disk "/" {
-        format = "%free (or: %percentage_used used, %percentage_used_of_avail used of avail, %percentage_free free, %percentage_avail avail)"
+        format = "disk: %free, used: %used"
 }
