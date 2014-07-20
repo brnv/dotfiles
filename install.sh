@@ -33,6 +33,9 @@ set_link i3
 ln -sf ./i3/status.`hostname` ./i3status.conf
 set_link i3status.conf
 
+if [[ ! -e $HOME/.oh-my-zsh ]]; then
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+fi
 set_link zshrc
 
 rm ~/.vimrc
