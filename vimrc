@@ -16,9 +16,10 @@ Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kana/vim-smartinput'
-Bundle 'Blackrush/vim-gocode'
+"Bundle 'Blackrush/vim-gocode'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'osyo-manga/vim-over'
+Bundle 'fatih/vim-go'
 
 syntax on
 
@@ -70,6 +71,7 @@ set autoread
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
 " !UltiSnips works fine with YCM
 
 let g:airline_powerline_fonts = 1
