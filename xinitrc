@@ -11,7 +11,6 @@ if [[ work = `hostname` ]]; then
 fi
 
 localectl set-locale LANG=en_US.utf8
-localectl set-keymap "us, ru"
-localectl set-x11-keymap "us, ru -option grp:caps_toggle"
+localectl set-keymap ru
 
 exec i3
