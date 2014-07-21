@@ -6,8 +6,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " !vundle
 
-set rtp+=~/goandroid/go/misc/vim
-
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-scripts/UltiSnips'
