@@ -20,6 +20,8 @@ set_link Xresources.dark
 
 rm ~/.fonts
 set_link fonts
+rm ~/.local/share/fonts
+ln -sf `pwd`/fonts ~/.local/share/fonts
 fc-cache -rf
 
 rm ~/.terminfo
