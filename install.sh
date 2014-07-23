@@ -22,7 +22,7 @@ rm ~/.fonts
 set_link fonts
 rm ~/.local/share/fonts
 ln -sf `pwd`/fonts ~/.local/share/fonts
-fc-cache -rf
+fc-cache -vf
 
 rm ~/.terminfo
 set_link terminfo
