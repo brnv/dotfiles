@@ -18,6 +18,7 @@ Bundle 'kana/vim-smartinput'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'osyo-manga/vim-over'
 Bundle 'fatih/vim-go'
+Bundle 'tpope/vim-surround'
 
 syntax on
 
