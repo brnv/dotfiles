@@ -37,28 +37,16 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym Ctrl+Home focus left
+bindsym Ctrl+Prior focus up
+bindsym Ctrl+Next focus down
+bindsym Ctrl+End focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+colon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym Ctrl+Shift+Home move left
+bindsym Ctrl+Shift+Prior move up
+bindsym Ctrl+Shift+Next move down
+bindsym Ctrl+Shift+End move right
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -167,5 +155,5 @@ client.focused_inactive #262626 #262626 #657b83 #ffffff
 client.unfocused #262626 #262626 #657b83 #ffffff
 
 #TODO why sed is breaking symlinks?
-bindsym $mod+Ctrl+l exec "sed -i 's/dark/light/' ~/.{xsetup,vimrc,mcabber/mcabberrc} && ~/.xsetup"
+bindsym $mod+Ctrl+f exec "sed -i 's/dark/light/' ~/.{xsetup,vimrc,mcabber/mcabberrc} && ~/.xsetup"
 bindsym $mod+Ctrl+d exec "sed -i 's/light/dark/' ~/.{xsetup,vimrc,mcabber/mcabberrc} && ~/.xsetup"

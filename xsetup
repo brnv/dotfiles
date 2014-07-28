@@ -1,7 +1,20 @@
 #!/bin/bash
 
 xrdb ~/.Xresources && xrdb -merge ~/.Xresources.dark
+
+export XAUTHORITY=~/.Xauthority
+export DISPLAY=${DISPLAY:-:0.0}
+
 xset b off && xset s off
-xset r rate 130 27
+xset r rate 130 80
+
 setxkbmap -layout "us, ru" -option "grp:caps_toggle"
+setxkbmap \
+	-keycodes \
+	"evdev+aliases(qwerty)+disable-arrows" \
+	-symbols \
+	"pc+us+ru:2+hjkl-ru+level3(lwin_switch)+mod4-lvl3+terminate(ctrl_alt_bksp)+capslock-groupshift" \
+	-compat \
+	"complete+hjkl"
+
 xrandr --auto
