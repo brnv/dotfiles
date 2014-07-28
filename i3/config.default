@@ -136,7 +136,7 @@ bar {
 	position top
 }
 
-bindsym $mod+Shift+Ctrl+l exec slock
+bindsym $mod+Shift+Ctrl+s exec slock
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
