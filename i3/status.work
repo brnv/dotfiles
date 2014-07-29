@@ -51,5 +51,5 @@ load {
 }
 
 disk "/" {
-        format = "disk: %free, used: %used"
+        format = "disk free: %free, used: %used"
 }
