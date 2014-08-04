@@ -20,3 +20,14 @@ export ERLC=erlc
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 SAVEHIST=1500
+
+zle -N prepend-sudo prepend_sudo
+bindkey "^T" prepend-sudo
+function prepend_sudo() {
+	if [ "$BUFFER" ]; then
+		BUFFER="sudo "$BUFFER
+	else
+		BUFFER="sudo "$(fc -ln -1)
+	fi
+	CURSOR=$(($CURSOR+5))
+}
