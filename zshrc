@@ -31,3 +31,5 @@ function prepend_sudo() {
 	fi
 	CURSOR=$(($CURSOR+5))
 }
+
+alias -g sctl=systemctl

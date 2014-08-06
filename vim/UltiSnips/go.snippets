@@ -105,3 +105,33 @@ var (
 endsnippet
 
 # vim:ft=snippets:
+
+snippet ife "If err != nil" !b
+if err != nil {
+	${0}
+}
+endsnippet
+
+snippet s "time.Sleep(...)" !b
+time.Sleep(time.Second${0})
+endsnippet
+
+snippet lp "log.Println" !b
+log.Println(${0})
+endsnippet
+
+snippet lf "log.Fatal" !b
+log.Fatal(${0})
+endsnippet
+
+snippet st "Struct" !b
+type ${1:name} struct {
+	${2}
+}
+endsnippet
+
+snippet r "Range" !b
+for ${1:index}, ${2:value} := range ${3:array} {
+	${4}
+}
+endsnippet
