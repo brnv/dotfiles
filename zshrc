@@ -33,3 +33,4 @@ function prepend_sudo() {
 }
 
 alias -g sctl=systemctl
+alias gpl="git pull --rebase"
