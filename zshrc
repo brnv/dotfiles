@@ -35,3 +35,6 @@ function prepend_sudo() {
 alias -g sctl=systemctl
 alias gpl="git pull --rebase"
 alias gpo="git push origin"
+
+alias ssh='TERM=xterm ssh'
+export TERM=rxvt-unicode-256color
