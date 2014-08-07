@@ -70,4 +70,6 @@ bind 514 = buffer down
 # Sample alias to join mcabber channel with "/jmc"
 #alias jmc = room join mcabber@conf.lilotux.net
 
-source ~/.mcabber/mcabberrc.theme.dark
+set events_command = ~/.mcabber/eventcmd
+
+source ~/.mcabber/mcabberrc.theme.light
