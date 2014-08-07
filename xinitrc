@@ -1,5 +1,4 @@
 #!/bin/bash
-urxvtd -q -o -f &
 ~/.xsetup
 
 if [[ home = `hostname` ]]; then
