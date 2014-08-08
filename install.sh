@@ -61,6 +61,8 @@ set_link muttrc
 rm ~/.msmtprc
 set_link msmtprc
 
+mkdir -p ~/.bin
+
 # all is done
 echo installation done
 ~/.xsetup
