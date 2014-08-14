@@ -19,6 +19,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'osyo-manga/vim-over'
 Bundle 'fatih/vim-go'
 Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
 
 syntax on
 

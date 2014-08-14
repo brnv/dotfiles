@@ -13,6 +13,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
 export DOTFILES=$HOME/.dotfiles/
+export GITHUB=$HOME/sources/github.com
 
 alias am=alsamixer
 alias gs=gss

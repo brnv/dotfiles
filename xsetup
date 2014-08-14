@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xrdb ~/.Xresources && xrdb -merge ~/.Xresources.dark
+xrdb ~/.Xresources && xrdb -merge ~/.Xresources.light
 
 export XAUTHORITY=~/.Xauthority
 export DISPLAY=${DISPLAY:-:0.0}
