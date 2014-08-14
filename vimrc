@@ -24,7 +24,7 @@ Bundle 'scrooloose/nerdcommenter'
 syntax on
 
 colorscheme solarized
-set background=dark
+set background=light
 
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-h> :tabp<CR>
