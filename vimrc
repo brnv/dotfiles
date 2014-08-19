@@ -1,10 +1,13 @@
 " vundle
 set nocompatible              " be iMproved
 filetype off                  " required!
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " !vundle
+
+syntax on
+colorscheme solarized
+set background=light
 
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
@@ -21,11 +24,6 @@ Bundle 'fatih/vim-go'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 
-syntax on
-
-colorscheme solarized
-set background=light
-
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-j> <C-f>
@@ -35,37 +33,40 @@ vnoremap <C-k> <C-b>
 nnoremap <C-t> :tabnew<CR>
 nnoremap <S-l> :tabmove +1<CR>
 nnoremap <S-h> :tabmove -1<CR>
+nnoremap <S-Tab> %
+vnoremap <S-Tab> %
 nmap <F2> :w<CR>
+nnoremap <Bslash> :nohl<CR>
+noremap <leader>~ :tabnew ~/.vimrc<CR>
 
 set encoding=utf-8
 set autoindent
-
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
 set showcmd
 set ruler
 set relativenumber
 set backspace=indent,eol,start
-
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
 set showmatch
 set hlsearch
-
-nnoremap <S-Tab> %
-vnoremap <S-Tab> %
-
 set wrap
 set textwidth=75
 set formatoptions=qrn1
 set colorcolumn=80
-
 set autoread
+set laststatus=2
+set directory=~/tmp/
+set list
+set lcs=trail:·,tab:\ \ 
+set noexpandtab
+
+filetype plugin indent on
 
 " UltiSnips works fine with YCM
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -73,27 +74,17 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " !UltiSnips works fine with YCM
-
 let g:airline_powerline_fonts = 1
-
-filetype plugin indent on
-
-set laststatus=2
-
 let g:Powerline_symbols = 'fancy'
-
-nnoremap <Bslash> :nohl<CR>
-
-set directory=~/tmp/
+let mapleader="\<space>"
 
 augroup hilight_over_80
 	au!
 	au VimResized,VimEnter * set cc= | for i in range(80, &columns > 80 ? &columns : 80) | exec "set cc+=" . i | endfor
 augroup end
 
-set list
-set lcs=trail:·,tab:\ \ 
-set noexpandtab
+augroup html_fmt
+	au!
+	au BufWritePost *.html silent !tidy -mi % &> /dev/null
+augroup end
 
-let mapleader="\<space>"
-noremap <leader>~ :tabnew ~/.vimrc<CR>
