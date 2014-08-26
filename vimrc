@@ -5,7 +5,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " !vundle
 
-syntax on
 colorscheme solarized
 set background=light
 
@@ -23,6 +22,8 @@ Bundle 'osyo-manga/vim-over'
 Bundle 'fatih/vim-go'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
+
+syntax on
 
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-h> :tabp<CR>
