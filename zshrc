@@ -10,6 +10,7 @@ export DOTFILES=$HOME/.dotfiles/
 export GITHUB=$HOME/sources/github.com
 export TERM=rxvt-unicode-256color
 export ERLC=erlc
+export EDITOR=vim
 
 alias am=alsamixer
 alias gs=gss
