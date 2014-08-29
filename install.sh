@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function set_link {
-	if [ -e `pwd`/$@ ]; then
-		FROM=`pwd`/$@
+	if [ -e $DOTFILES/$@ ]; then
+		FROM=$DOTFILES/$@
 		TO=/home/`whoami`/.$@
 		COMMAND="ln -sf $FROM $TO"
 		echo $COMMAND
@@ -10,59 +10,35 @@ function set_link {
 	fi
 }
 
-set_link gitconfig
-
-set_link xinitrc
-set_link xsetup
-set_link Xresources
-set_link Xresources.light
-set_link Xresources.dark
-
-rm ~/.fonts
-set_link fonts
-rm ~/.local/share/fonts
-ln -sf `pwd`/fonts ~/.local/share/fonts
-fc-cache -vf
-
-rm ~/.terminfo
-set_link terminfo
-
-cp `pwd`/i3/config.default `pwd`/i3/config
-cat `pwd`/i3/config.`hostname` >> `pwd`/i3/config
-rm ~/.i3
-set_link i3
-
-ln -sf ./i3/status.`hostname` ./i3status.conf
-set_link i3status.conf
-
 if [[ ! -e $HOME/.oh-my-zsh ]]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi
-set_link zshrc
 
-rm ~/.vimrc
-set_link vimrc
-
-mkdir -p `pwd`/vim/bundle/
 if [[ ! -e `pwd`/vim/bundle/vundle ]]; then
+	mkdir -p `pwd`/vim/bundle/
     git clone https://github.com/gmarik/Vundle.vim.git `pwd`/vim/bundle/vundle
 fi
-rm ~/.vim
-set_link vim
-
-#TODO user input for passwords/hosts/etc && pattern substitution for next files
-mkdir -p `pwd`/mcabber/histo
-rm ~/.mcabber
-set_link mcabber
-
-rm ~/.muttrc
-set_link muttrc
 
 rm ~/.msmtprc
-set_link msmtprc
+rm ~/.fonts
+rm ~/.local/share/fonts
+rm ~/.terminfo
+rm ~/.i3
+rm ~/.vimrc
+rm ~/.vim
+rm ~/.mcabber
+rm ~/.muttrc
+rm ~/.bin
 
-mkdir -p ~/.bin
+cp `pwd`/i3/config.default `pwd`/i3/config
+cat `pwd`/i3/config.`hostname` >> `pwd`/i3/config
+ln -sf ./i3/status.`hostname` ./i3status.conf
 
-# all is done
-echo installation done
+export -f set_link
+git ls-files | cut -f1 -d / | uniq | sort | xargs -n1 -I{} bash -c "set_link {}"
+
+ln -sf ~/.fonts ~/.local/share/fonts
+fc-cache -f
+
 ~/.xsetup
+echo done

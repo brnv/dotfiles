@@ -6,7 +6,7 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
-export DOTFILES=$HOME/.dotfiles/
+export DOTFILES=$HOME/.dotfiles
 export GITHUB=$HOME/sources/github.com
 export TERM=rxvt-unicode-256color
 export ERLC=erlc
