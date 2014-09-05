@@ -10,6 +10,6 @@ if [[ work = `hostname` ]]; then
 fi
 
 localectl set-locale LANG=en_US.utf8
-localectl set-keymap ru
+localectl set-x11-keymap "ru, us"
 
 exec i3

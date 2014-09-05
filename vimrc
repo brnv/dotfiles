@@ -25,20 +25,25 @@ Bundle 'scrooloose/nerdcommenter'
 
 syntax on
 
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-h> :tabp<CR>
+" UltiSnips works fine with YCM
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
+" !UltiSnips works fine with YCM
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+let mapleader="\<space>"
+
 nnoremap <C-j> <C-f>
 nnoremap <C-k> <C-b>
 vnoremap <C-j> <C-f>
 vnoremap <C-k> <C-b>
-nnoremap <C-t> :tabnew<CR>
-nnoremap <S-l> :tabmove +1<CR>
-nnoremap <S-h> :tabmove -1<CR>
 nnoremap <S-Tab> %
 vnoremap <S-Tab> %
 nmap <F2> :w<CR>
 nnoremap <Bslash> :nohl<CR>
-noremap <leader>~ :tabnew ~/.vimrc<CR>
+map <leader>~ :tabnew ~/.vimrc<CR>
 
 set encoding=utf-8
 set autoindent
@@ -68,16 +73,6 @@ set lcs=trail:·,tab:\ \
 set noexpandtab
 
 filetype plugin indent on
-
-" UltiSnips works fine with YCM
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsEditSplit="vertical"
-" !UltiSnips works fine with YCM
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols = 'fancy'
-let mapleader="\<space>"
 
 augroup hilight_over_80
 	au!
