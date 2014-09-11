@@ -20,6 +20,8 @@ alias gplo="git pull --rebase origin"
 alias gpo="git push origin"
 alias ssh='TERM=xterm ssh'
 
+alias gl="git log --graph --decorate --oneline --all"
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 SAVEHIST=1500
