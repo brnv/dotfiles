@@ -22,6 +22,7 @@ Bundle 'osyo-manga/vim-over'
 Bundle 'fatih/vim-go'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'cespare/vim-toml'
 
 syntax on
 
@@ -31,6 +32,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " !UltiSnips works fine with YCM
+
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let mapleader="\<space>"
@@ -44,13 +46,13 @@ vnoremap <S-Tab> %
 nmap <F2> :w<CR>
 nnoremap <Bslash> :nohl<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
+vnoremap <leader>s :<C-w>UltiSnipsEdit<CR>GOsnippet name "desc" !b<CR><C-r>*<CR><c-w>endsnippet
 
 set encoding=utf-8
 set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
 set showcmd
 set ruler
 set relativenumber
@@ -83,4 +85,3 @@ augroup html_fmt
 	au!
 	au BufWritePost *.html silent !tidy -mi % &> /dev/null
 augroup end
-
