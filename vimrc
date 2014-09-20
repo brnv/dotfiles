@@ -46,7 +46,9 @@ vnoremap <S-Tab> %
 nmap <F2> :w<CR>
 nnoremap <Bslash> :nohl<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
-vnoremap <leader>s :<C-w>UltiSnipsEdit<CR>GOsnippet name "desc" !b<CR><C-r>*<CR><c-w>endsnippet
+vnoremap <leader>a :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
+map <leader>s :UltiSnipsEdit<CR>G
+map <leader>p :CtrlPClearAllCaches<CR>
 
 set encoding=utf-8
 set autoindent
