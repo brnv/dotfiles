@@ -22,6 +22,8 @@ alias ssh='TERM=xterm ssh'
 
 alias gl="git log --graph --decorate --oneline --all"
 
+alias ps="ps auxf"
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 SAVEHIST=1500
