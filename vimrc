@@ -24,6 +24,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'cespare/vim-toml'
 
+source ~/.vim/bundle/vim-go/ftplugin/go/godoc.vim
+
 syntax on
 
 " UltiSnips works fine with YCM
@@ -32,7 +34,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " !UltiSnips works fine with YCM
-
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let mapleader="\<space>"
@@ -49,6 +50,7 @@ map <leader>~ :tabnew ~/.vimrc<CR>
 vnoremap <leader>a :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
 map <leader>s :UltiSnipsEdit<CR>G
 map <leader>p :CtrlPClearAllCaches<CR>
+map <leader>d :Godoc<CR>
 
 set encoding=utf-8
 set autoindent
