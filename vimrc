@@ -8,23 +8,22 @@ call vundle#rc()
 colorscheme solarized
 set background=light
 
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-scripts/UltiSnips'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'kana/vim-smartinput'
+Plugin 'gmarik/vundle'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/UltiSnips'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'kana/vim-smartinput'
 "Bundle 'Blackrush/vim-gocode'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'osyo-manga/vim-over'
-Bundle 'fatih/vim-go'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'cespare/vim-toml'
-
-source ~/.vim/bundle/vim-go/ftplugin/go/godoc.vim
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'osyo-manga/vim-over'
+Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'cespare/vim-toml'
+Plugin 'majutsushi/tagbar'
 
 syntax on
 
