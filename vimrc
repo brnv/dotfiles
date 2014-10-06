@@ -36,6 +36,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let mapleader="\<space>"
+let g:go_fmt_command = "goimports"
 
 nnoremap <C-j> <C-f>
 nnoremap <C-k> <C-b>
