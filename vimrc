@@ -87,7 +87,18 @@ augroup end
 
 augroup html_fmt
 	au!
-	au BufWritePost *.html silent !tidy -mi % &> /dev/null
+	"au BufWritePost *.html silent !tidy -mi % &> /dev/null
+augroup end
+
+augroup expandtab
+       au!
+       au FileType erlang set et
+       au FileType php set et
+augroup end
+
+augroup skeletons
+       au!
+       au BufNewFile *.php exec "normal I<?php\<ESC>2o"
 augroup end
 
 augroup syntax_hacks
