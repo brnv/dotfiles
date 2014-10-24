@@ -101,6 +101,17 @@ augroup skeletons
        au BufNewFile *.php exec "normal I<?php\<ESC>2o"
 augroup end
 
+augroup expandtab
+	au!
+	au FileType erlang set et
+	au FileType php set et
+augroup end
+
+augroup skeletons
+	au!
+	au BufNewFile *.php exec "normal I<?php\<ESC>2o"
+augroup end
+
 augroup syntax_hacks
 	au!
 	au FileType diff syn match DiffComment "^#.*"
