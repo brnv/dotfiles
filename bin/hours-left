@@ -1,6 +1,0 @@
-#!/bin/bash
-
-HOUR=`date +%H`
-MINUTE=`date +%M`
-
-echo $((23 - $HOUR)):$((60 - $MINUTE))
