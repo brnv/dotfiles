@@ -47,7 +47,7 @@ vnoremap <S-Tab> %
 nmap <F2> :w<CR>
 nnoremap <Bslash> :nohl<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
-vnoremap <leader>a :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
+vnoremap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
 map <leader>s :UltiSnipsEdit<CR>G
 map <leader>p :CtrlPClearAllCaches<CR>
 map <leader>d :Godoc<CR>

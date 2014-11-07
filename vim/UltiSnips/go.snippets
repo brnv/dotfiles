@@ -41,5 +41,19 @@ log.Fatal(${0})
 endsnippet
 
 snippet ln "log.Notice" !b
-log.Notice(${0})
+log.Notice("%v", ${0})
+endsnippet
+
+snippet fu "function" !b
+func ${1:name}(${2:args}) ${3:return_type}{
+	${0:#body}
+}
+endsnippet
+
+snippet r "return" !b
+return ${0:value}
+endsnippet
+
+snippet pack "package" !b
+package ${0:name}
 endsnippet
