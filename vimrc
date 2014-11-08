@@ -5,9 +5,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " !vundle
 
-colorscheme solarized
-set background=light
-
 Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/UltiSnips'
@@ -24,6 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'cespare/vim-toml'
 Plugin 'majutsushi/tagbar'
+Plugin 'junegunn/seoul256.vim'
 
 syntax on
 
@@ -99,3 +97,19 @@ augroup skeletons
 	au!
 	au BufNewFile *.php exec "normal I<?php\<ESC>2o"
 augroup end
+
+if system('cat ~/.background') == "dark\n"
+	set background=dark
+	let g:seoul256_background = 233
+else
+	set background=light
+	let g:seoul256_background = 256
+endif
+
+if system('cat ~/.colorscheme') == "solarized\n"
+	colorscheme solarized
+endif
+
+if system('cat ~/.colorscheme') == "seoul256\n"
+	colo seoul256
+endif

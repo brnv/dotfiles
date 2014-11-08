@@ -154,6 +154,6 @@ client.focused #585858 #585858 #fdf6e3 #ffffff
 client.focused_inactive #262626 #262626 #657b83 #ffffff
 client.unfocused #262626 #262626 #657b83 #ffffff
 
-bindsym $mod+Ctrl+f exec "sed -i --follow-symlinks 's/dark/light/' ~/.{xsetup,vimrc,mcabber/mcabberrc} && ~/.xsetup"
-bindsym $mod+Ctrl+d exec "sed -i --follow-symlinks 's/light/dark/' ~/.{xsetup,vimrc,mcabber/mcabberrc} && ~/.xsetup"
+bindsym $mod+Ctrl+f exec "echo light > ~/.background && ~/.xsetup"
+bindsym $mod+Ctrl+d exec "echo dark > ~/.background && ~/.xsetup"
 bindsym $mod+Ctrl+r exec "redshift -l55.2:82.55 -o"
