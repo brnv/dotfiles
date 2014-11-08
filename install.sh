@@ -29,6 +29,7 @@ rm ~/.vim
 rm ~/.mcabber
 rm ~/.muttrc
 rm ~/.bin
+rm ~/.Xresources.colors
 
 cp `pwd`/i3/config.default `pwd`/i3/config
 cat `pwd`/i3/config.`hostname` >> `pwd`/i3/config

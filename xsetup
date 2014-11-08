@@ -1,6 +1,7 @@
 #!/bin/bash
 
-xrdb ~/.Xresources && xrdb -merge ~/.Xresources.light
+export COLORSCHEME=solarized
+xrdb ~/.Xresources && xrdb -merge ~/.Xresources.colors/$COLORSCHEME/light
 
 export XAUTHORITY=~/.Xauthority
 export DISPLAY=${DISPLAY:-:0.0}

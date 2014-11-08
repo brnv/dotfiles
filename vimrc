@@ -85,46 +85,17 @@ augroup hilight_over_80
 	au VimResized,VimEnter * set cc= | for i in range(80, &columns > 80 ? &columns : 80) | exec "set cc+=" . i | endfor
 augroup end
 
-augroup html_fmt
+augroup filetypes
 	au!
-	"au BufWritePost *.html silent !tidy -mi % &> /dev/null
-augroup end
-
-augroup expandtab
-       au!
-       au FileType erlang set et
-       au FileType php set et
-augroup end
-
-augroup skeletons
-       au!
-       au BufNewFile *.php exec "normal I<?php\<ESC>2o"
+	au BufEnter *.pl,*.pro,*.P set ft=prolog
 augroup end
 
 augroup expandtab
 	au!
-	au FileType erlang set et
-	au FileType php set et
+	au FileType php,erlang,prolog set et
 augroup end
 
 augroup skeletons
 	au!
 	au BufNewFile *.php exec "normal I<?php\<ESC>2o"
 augroup end
-
-augroup syntax_hacks
-	au!
-	au FileType diff syn match DiffComment "^#.*"
-	au FileType diff syn match DiffCommentIgnore "^###.*"
-	au FileType diff call g:ApplySyntaxForDiffComments()
-augroup end
-
-fun! g:ApplySyntaxForDiffComments()
-	if &background == 'light'
-		hi DiffCommentIgnore ctermfg=249 ctermbg=none
-		hi DiffComment ctermfg=16 ctermbg=254
-	else
-		hi DiffCommentIgnore ctermfg=249 ctermbg=none
-		hi DiffComment ctermfg=15 ctermbg=237
-	endif
-endfun
