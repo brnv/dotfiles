@@ -98,7 +98,7 @@ augroup skeletons
 	au BufNewFile *.php exec "normal I<?php\<ESC>2o"
 augroup end
 
-if system('cat ~/.background') == "dark\n"
+if system('cat ~/.background') == "dark"
 	set background=dark
 	let g:seoul256_background = 233
 else
@@ -106,10 +106,10 @@ else
 	let g:seoul256_background = 256
 endif
 
-if system('cat ~/.colorscheme') == "solarized\n"
-	colorscheme solarized
+if system('cat ~/.colorscheme') == "seoul256"
+	colo seoul256
 endif
 
-if system('cat ~/.colorscheme') == "seoul256\n"
-	colo seoul256
+if system('cat ~/.colorscheme') == "solarized"
+	colo solarized
 endif

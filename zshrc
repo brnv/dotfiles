@@ -13,16 +13,19 @@ export ERLC=erlc
 export EDITOR=vim
 
 alias am=alsamixer
-alias gs=gss
 alias -g sctl=systemctl
-alias gpl="git pull --rebase"
-alias gplo="git pull --rebase origin"
-alias gpo="git push origin"
 alias ssh='TERM=xterm ssh'
-
-alias gl="git log --graph --decorate --oneline --all"
-
 alias ps="ps auxf"
+
+alias gs=gss
+alias gl="git log --graph --decorate --oneline --all"
+alias gaa="git add --all"
+alias gpo="git push origin"
+alias gpl="git pull --rebase"
+alias gpff="git pull --ff-only"
+alias gplo="git pull --rebase origin"
+alias gd="git diff"
+alias gdc="git diff --cached"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
