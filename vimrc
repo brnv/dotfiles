@@ -98,6 +98,11 @@ augroup skeletons
 	au BufNewFile *.php exec "normal I<?php\<ESC>2o"
 augroup end
 
+augroup cursor_position
+	autocmd!
+	autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup end
+
 if system('cat ~/.background') == "dark"
 	set background=dark
 	let g:seoul256_background = 233
