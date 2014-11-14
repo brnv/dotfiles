@@ -49,6 +49,8 @@ vnoremap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>
 map <leader>s :UltiSnipsEdit<CR>G
 map <leader>p :CtrlPClearAllCaches<CR>
 map <leader>d :Godoc<CR>
+map <leader>gr :w\|!go run %<CR>
+map <leader>gt :w\|!go test<CR>
 
 set encoding=utf-8
 set autoindent

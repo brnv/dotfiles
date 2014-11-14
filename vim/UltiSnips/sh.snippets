@@ -1,5 +1,17 @@
-snippet fun "function" !b
+snippet fu "function" !b
 function ${1:foo} {
 	${0}
 }
+endsnippet
+
+snippet f "for" !b
+for ${1:value} in ${2:list}; do
+	${0:body}
+done
+endsnippet
+
+snippet if "if" !b
+if [[ ${1:condition} ]]; then
+	${0:body}
+fi
 endsnippet
