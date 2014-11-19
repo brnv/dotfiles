@@ -120,3 +120,20 @@ endif
 if system('cat ~/.colorscheme') == "solarized"
 	colo solarized
 endif
+
+augroup syntax_hacks
+	au!
+	au FileType diff syn match DiffComment "^#.*"
+	au FileType diff syn match DiffCommentIgnore "^###.*"
+	au FileType diff call g:ApplySyntaxForDiffComments()
+augroup end
+
+fun! g:ApplySyntaxForDiffComments()
+	if &background == 'light'
+		hi DiffCommentIgnore ctermfg=249 ctermbg=none
+		hi DiffComment ctermfg=16 ctermbg=254
+	else
+		hi DiffCommentIgnore ctermfg=249 ctermbg=none
+		hi DiffComment ctermfg=15 ctermbg=237
+	endif
+endfun
