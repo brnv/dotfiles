@@ -107,10 +107,10 @@ augroup end
 
 if system('cat ~/.background') == "dark"
 	set background=dark
-	let g:seoul256_background = 233
+	let g:seoul256_background = 234
 else
 	set background=light
-	let g:seoul256_background = 256
+	let g:seoul256_background = 255
 endif
 
 if system('cat ~/.colorscheme') == "seoul256"
