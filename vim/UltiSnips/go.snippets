@@ -1,66 +1,97 @@
-snippet v "var" !b
-var ${1} = ${2}
+snippet tf "func (type)" !b
+func (${1/.*([A-Z0-9]|\W)([a-z0-9]+([A-Z0-9]|$))/\l$1$2/} ${1:Type}) ${2:FuncName}($3)${4: }{
+	$0
+}
 endsnippet
 
 snippet fr "for range" !b
-for _, ${1} := range ${2} {
-	${0}
+for _, ${1:element} := range ${2:slice} {
+	$0
 }
 endsnippet
 
-snippet f "for" !b
+snippet fi "for iteration" !b
+for i := 0; i < ${1:iterations}; i++ {
+	$0
+}
+endsnippet
+
+snippet fl "for loop" !b
 for {
-	${1}
+	$0
 }
 endsnippet
 
-snippet if "If" !b
+snippet i "if" !b
 if ${1:condition} {
-	${2}
+	$0
 }
 endsnippet
 
-snippet s "Struct" !b
-type ${1:name} struct {
-	${0}
+snippet ie "if else" !b
+if ${1:condition} {
+	$2
+} else {
+	$0
 }
 endsnippet
 
-snippet ife "If err != nil" !b
+snippet e "if err != nil" !b
 if err != nil {
-	${0}
+	$0
 }
 endsnippet
 
 snippet li "log.Info" !b
-log.Info(${0})
+log.Info($0)
 endsnippet
 
 snippet lf "log.Fatal" !b
-log.Fatal(${0})
+log.Fatal($0)
 endsnippet
 
 snippet ln "log.Notice" !b
-log.Notice("%v", ${0})
+log.Notice("%v", ${0:variable})
 endsnippet
 
-snippet fu "function" !b
-func ${1:name}(${2:args}) ${3:return_type} {
-	${0:#body}
+snippet ts "struct" !b
+type ${1:name} struct {
+	$0
+}
+endsnippet
+
+snippet f "function" !b
+func ${1:name}(${2:args}) ${3: }{
+	$0
 }
 endsnippet
 
 snippet r "return" !b
-return ${0:value}
+return $0
 endsnippet
 
 snippet p "package" !b
-package ${0:name}
+package $0
 endsnippet
 
 snippet sw "switch" !b
-switch ${1:var} {
-case ${2:first_case}:
-	${0:#code}
+switch ${1:variable} {
+case $2:
+	$0
 }
+endsnippet
+
+snippet st "switch type" !b
+switch ${1:variable}.(type) {
+case $2:
+	$0
+}
+endsnippet
+
+snippet s "string" !b
+string
+endsnippet
+
+snippet vl "var log" !b
+var log = logging.MustGetLogger("$0")
 endsnippet
