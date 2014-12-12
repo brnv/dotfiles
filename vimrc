@@ -22,6 +22,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'cespare/vim-toml'
 Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc'
+Plugin 'kovetskiy/ash.vim'
 
 syntax on
 
@@ -35,6 +38,7 @@ let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let mapleader="\<space>"
 let g:go_fmt_command = "goimports"
+let g:syntastic_python_python_exec = '/usr/bin/python2.7'
 
 nnoremap <C-j> <C-f>
 nnoremap <C-k> <C-b>

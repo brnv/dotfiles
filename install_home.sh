@@ -47,5 +47,7 @@ if [[ home = `hostname` ]]; then
 	fi
 fi
 
+localectl set-locale LANG=en_US.utf8
+
 ~/.xsetup
 echo done
