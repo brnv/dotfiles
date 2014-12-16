@@ -26,6 +26,7 @@ alias gpff="git pull --ff-only"
 alias gplo="git pull --rebase origin"
 alias gd="git diff"
 alias gdc="git diff --cached"
+alias gcl="git clone"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
