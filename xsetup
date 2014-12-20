@@ -1,5 +1,9 @@
 #!/bin/bash
 
+localectl set-locale LANG=en_US.utf8
+
+timedatectl set-ntp 1
+
 xrdb ~/.Xresources && xrdb -merge \
 	~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
 
@@ -18,4 +22,4 @@ setxkbmap \
 	-compat \
 	"complete+hjkl"
 
-xrandr --auto
+xrandr --output HDMI-0 --mode 1920x1080 --right-of eDP --output eDP --off
