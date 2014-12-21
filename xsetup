@@ -22,4 +22,4 @@ setxkbmap \
 	-compat \
 	"complete+hjkl"
 
-xrandr --output HDMI-0 --mode 1920x1080 --right-of eDP --output eDP --off
+xrandr --output DFP1 --mode 1920x1080 --right-of LVDS --output LVDS --off
