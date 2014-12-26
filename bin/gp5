@@ -3,6 +3,6 @@
 timidity -iA &
 PID=$!
 sleep 1
-wine ~/.wine/drive_c/Program\ Files/Guitar\ Pro\ 5/GP5.exe
+WINEPREFIX="/home/brnv/.wine" WINEARCH='win32' wine ~/.wine/drive_c/Program\ Files/Guitar\ Pro\ 5/GP5.exe
 sleep 1
 kill $PID
