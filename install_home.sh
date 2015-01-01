@@ -43,7 +43,8 @@ fc-cache -f
 
 if [[ home = `hostname` ]]; then
 	if [[ -e /dev/video1 ]]; then
-		echo '1-1.1:1.0' | sudo tee /sys/bus/usb/drivers/uvcvideo/unbind
+		echo -n '3-5' | sudo tee /sys/bus/usb/drivers/usb/unbind
+		sudo ln -sf /dev/video1 /dev/video0
 	fi
 fi
 
