@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#
+# android ndk
+# https://developer.android.com/tools/sdk/ndk/index.html
+# extract to ~/android/ndk
+#
+export NDK=~/android/ndk
+export PATH=$NDK:$PATH
+
+#
+# ndk toolchain
+# $NDK/build/tools/make-standalone-toolchain.sh \
+#	--platform=android-15 --arch=arm --install-dir=$HOME/android/ndk-toolchain
+#
+export NDK_ROOT=~/android/ndk-toolchain
+
+#
+# go with android/arm support
+# https://golang.org/dl/
+# unpack into $dir && change to $dir/src
+# export NDK_CC=$NDK/bin/arm-linux-androideabi-gcc
+# CC_FOR_TARGET=$NDK_CC GOOS=android GOARCH=arm GOARM=7 ./make.bash
+#
+export GOROOT=~/android/go/
+export PATH=$GOROOT/bin:$PATH
+
+#
+# android sdk
+# https://aur.archlinux.org/packages/android-sdk/
+# ln -s /opt/android-sdk $HOME/android/sdk (optional)
+#
+# adb
+# pacman -S android-tools
+#
+# udev rules for device recognition (optional)
+# pacman -S android-udev
+#
+export ANDROID_HOME=$HOME/android/sdk # (optional)
+
+export CGO_ENABLED=1
+export GOOS=android
+export GOARCH=arm
+export GOARM=7
+export CC=$NDK_ROOT/bin/arm-linux-androideabi-gcc
+
+. $@
