@@ -28,6 +28,8 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gcl="git clone"
 
+alias t="tree"
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 SAVEHIST=1500

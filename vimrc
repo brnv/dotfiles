@@ -135,6 +135,13 @@ augroup syntax_hacks
 	au FileType diff call g:ApplySyntaxForDiffComments()
 augroup end
 
+augroup javac_classpath
+	au!
+	au FileType java let g:syntastic_java_javac_classpath = $ANDROID_HOME.
+				\"/platforms/android-19/android.jar".
+				\":".substitute(expand("%:p"), "\\(.*/src\\).*", "\\1", "")
+augroup end
+
 fun! g:ApplySyntaxForDiffComments()
 	if &background == 'light'
 		hi DiffCommentIgnore ctermfg=249 ctermbg=none
