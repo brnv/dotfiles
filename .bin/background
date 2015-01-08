@@ -1,0 +1,15 @@
+#!/bin/bash
+
+declare -A backgrounds
+
+backgrounds[light]=1
+backgrounds[dark]=1
+
+if [[ ${backgrounds[$1]} -eq 1 ]]; then $();
+else
+	echo wrong argument
+	exit 1
+fi
+
+echo -n $1 > ~/.background
+xsetup > /dev/null

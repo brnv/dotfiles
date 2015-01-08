@@ -45,4 +45,4 @@ function prepend_sudo() {
 	CURSOR=$(($CURSOR+5))
 }
 
-eval $(dircolors $DOTFILES/dircolors.$(cat $DOTFILES/background))
+eval $(dircolors $DOTFILES/.dircolors.$(cat $DOTFILES/.background))

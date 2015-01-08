@@ -44,4 +44,4 @@ export GOARCH=arm
 export GOARM=7
 export CC=$NDK_ROOT/bin/arm-linux-androideabi-gcc
 
-. $@
+"$@"

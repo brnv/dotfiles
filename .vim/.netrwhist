@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/brnv/Desktop'
+let g:netrw_dirhist_2='/etc/udev/rules.d'
+let g:netrw_dirhist_3='/home/brnv/.go/src/golang.org/x/mobile/bind/seq'
+let g:netrw_dirhist_4='/home/brnv/.go/src/golang.org/x/mobile/example/button/bin'
