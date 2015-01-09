@@ -1,5 +1,5 @@
 #!/bin/bash
 
-. ~/.xsetup
+xsetup
 
 exec i3
