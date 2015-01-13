@@ -24,12 +24,6 @@ function cleanup {
 	rm ~/.Xresources.colors
 }
 
-function pre_install {
-	if [[ ! -e $HOME/.oh-my-zsh ]]; then
-	    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
-	fi
-}
-
 function install_i3_config {
 	cp `pwd`/.i3/config.default `pwd`/.i3/config
 	cat `pwd`/.i3/config.`hostname` >> `pwd`/.i3/config
@@ -48,7 +42,6 @@ function post_install {
 }
 
 cleanup
-pre_install
 install_i3_config
 install
 post_install
