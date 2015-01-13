@@ -1,30 +1,36 @@
-" vundle
-set nocompatible              " be iMproved
-filetype off                  " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" !vundle
+set nocompatible
 
-Plugin 'gmarik/vundle'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-scripts/UltiSnips'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kana/vim-smartinput'
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !mkdir -p ~/.vim/autoload
+	silent !curl -fLo ~/.vim/autoload/plug.vim
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin('~/.vim/bundle')
+
+Plug 'gmarik/vundle'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/UltiSnips'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'kana/vim-smartinput'
 "Bundle 'Blackrush/vim-gocode'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'osyo-manga/vim-over'
-Plugin 'fatih/vim-go'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'cespare/vim-toml'
-Plugin 'majutsushi/tagbar'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc'
-Plugin 'kovetskiy/ash.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'cespare/vim-toml'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/seoul256.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc'
+Plug 'kovetskiy/ash.vim'
+
+call plug#end()
 
 syntax on
 

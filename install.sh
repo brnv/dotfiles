@@ -28,11 +28,6 @@ function pre_install {
 	if [[ ! -e $HOME/.oh-my-zsh ]]; then
 	    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 	fi
-
-	if [[ ! -e `pwd`/.vim/bundle/vundle ]]; then
-		mkdir -p `pwd`/.vim/bundle/
-		git clone https://github.com/gmarik/Vundle.vim.git `pwd`/.vim/bundle/vundle
-	fi
 }
 
 function install_i3_config {
