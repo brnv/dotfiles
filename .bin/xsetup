@@ -22,6 +22,10 @@ setxkbmap \
 	-compat \
 	"complete+hjkl"
 
-xrandr --output HDMI-0 --mode 1920x1080 --right-of eDP --output eDP --off
+if [ home = `hostname` ]; then
+	xrandr --output HDMI-0 --mode 1920x1080 --right-of eDP --output eDP --off
+else
+	xrandr --auto
+fi
 
-redshift -l55.2:82.55 -o
+redshift -l55.2:82.55 -o > /dev/null
