@@ -45,6 +45,7 @@ let g:Powerline_symbols = 'fancy'
 let mapleader="\<space>"
 let g:go_fmt_command = "goimports"
 let g:syntastic_python_python_exec = '/usr/bin/python2.7'
+let g:EclimCompletionMethod = 'omnifunc'
 
 nnoremap <C-j> <C-f>
 nnoremap <C-k> <C-b>
@@ -105,7 +106,7 @@ augroup end
 
 augroup expandtab
 	au!
-	au FileType php,erlang,prolog set et
+	au FileType php,erlang,prolog,java set et
 augroup end
 
 augroup skeletons
