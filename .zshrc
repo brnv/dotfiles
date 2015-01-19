@@ -16,9 +16,9 @@ alias -g sctl=systemctl
 alias ssh='TERM=xterm ssh'
 alias ps="ps auxf"
 
-alias gs=gss
+# git aliases
 alias gl="git log --graph --decorate --oneline --all"
-alias gaa="git add --all"
+alias ga="git add"
 alias gpo="git push origin"
 alias gpl="git pull --rebase"
 alias gpff="git pull --ff-only"
@@ -26,6 +26,12 @@ alias gplo="git pull --rebase origin"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gcl="git clone"
+alias gcm="git commit -m"
+alias grm="git rm"
+alias gs="git show"
+alias gss="git status -s"
+alias gst="git status -s"
+alias gr="git reset"
 
 alias t="tree"
 
