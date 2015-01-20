@@ -29,7 +29,6 @@ alias gcl="git clone"
 alias gcm="git commit -m"
 alias grm="git rm"
 alias gs="git show"
-alias gss="git status -s"
 alias gst="git status -s"
 alias gr="git reset"
 
