@@ -1,9 +1,9 @@
 snippet i "import" !b
-import $0;
+import $1;
 endsnippet
 
 snippet l "log" !b
-Log.v("", $0);
+Log.v("!!!", $1);
 endsnippet
 
 snippet pv "public void" !b
@@ -23,11 +23,19 @@ package $0;
 endsnippet
 
 snippet r "return" !b
-return $0
+return $0;
 endsnippet
 
 snippet pc "public class" !b
 public class $1 {
 	$0
+}
+endsnippet
+
+snippet t "try" !b
+try {
+	${1:${VISUAL}}
+} catch (Exception e) {
+	$2
 }
 endsnippet
