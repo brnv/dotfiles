@@ -1,3 +1,7 @@
+snippet p "desc" !b
+package ${1:main}
+endsnippet
+
 snippet tf "func (type)" !b
 func (${1/.*([A-Z0-9]|\W)([a-z0-9]+([A-Z0-9]|$))/\l$1$2/} ${1:Type}) ${2:FuncName}($3)${4: }{
 	$0
@@ -71,10 +75,6 @@ snippet r "return" !b
 return $0
 endsnippet
 
-snippet p "package" !b
-package $0
-endsnippet
-
 snippet sw "switch" !b
 switch ${1:variable} {
 case $2:
@@ -89,10 +89,18 @@ case $2:
 }
 endsnippet
 
-snippet s "string" !b
+snippet s "string"
 string
 endsnippet
 
-snippet vl "var log" !b
+snippet dbg "log.Printf()" !b
+log.Printf("!!! %#v", $0)
+endsnippet
+
+snippet vl "var log"
 var log = logging.MustGetLogger("$0")
+endsnippet
+
+snippet msi "map[string]interface{}"
+map[string]interface{}
 endsnippet
