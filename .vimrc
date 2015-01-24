@@ -32,6 +32,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc'
 Plug 'kovetskiy/ash.vim'
+Plug 'vim-scripts/EasyMotion'
 
 call plug#end()
 
@@ -57,6 +58,7 @@ let mapleader="\<space>"
 nnoremap <C-j> <C-f>
 vnoremap <C-k> <C-b>
 vnoremap <S-Tab> %
+map <leader>f <Space><Space>w
 
 " File operations
 map <F2> <ESC>:w<CR>
@@ -102,6 +104,7 @@ set list
 set lcs=trail:·,tab:\ \ 
 set noexpandtab
 set number
+set timeoutlen=100
 
 filetype plugin indent on
 
