@@ -34,6 +34,8 @@ alias gr="git reset"
 
 alias t="tree"
 
+alias b="acpi"
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 SAVEHIST=1500
