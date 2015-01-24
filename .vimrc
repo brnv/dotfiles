@@ -18,7 +18,8 @@ Plug 'vim-scripts/UltiSnips'
 Plug 'tpope/vim-fugitive'
 "Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kana/vim-smartinput'
 "Bundle 'Blackrush/vim-gocode'
 Plug 'Valloric/YouCompleteMe'
@@ -35,6 +36,9 @@ Plug 'kovetskiy/ash.vim'
 Plug 'vim-scripts/EasyMotion'
 
 call plug#end()
+
+" Ctrlp options
+let g:ctrlp_follow_symlinks = 1
 
 " UltiSnips works fine with YCM
 let g:UltiSnipsExpandTrigger="<c-j>"
