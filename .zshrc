@@ -45,12 +45,16 @@ alias alc="sudo adb logcat"
 
 # shell shortcuts
 alias -g G="| grep"
+alias -g L="| less"
 alias -g H="| head"
 alias -g T="| tail"
 alias ps="ps auxf"
 alias -g sctl=systemctl
 alias ssh='TERM=xterm ssh'
 
+# speeding up
+alias v="vim ~/.vimrc"
+alias z="vim ~/.zshrc"
 
 # functions
 zle -N prepend-sudo prepend_sudo
