@@ -76,8 +76,9 @@ nnoremap <Bslash> :nohl<CR>
 
 " Speeding up work
 map <leader>~ :tabnew ~/.vimrc<CR>
+map <leader>j <Space>cl
 
-" Snippets
+" UltiSnips section
 vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
 map <leader>s :UltiSnipsEdit<CR>G
 
