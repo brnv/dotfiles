@@ -42,6 +42,7 @@ alias gr="git reset"
 alias gar="cd $GOPATH/src/github.com/seletskiy/go-android-rpc/"
 alias tlen="cd $GOPATH/src/github.com/gophergala/tlen/"
 alias alc="sudo adb logcat"
+alias ad="sudo adb devices"
 
 # shell shortcuts
 alias -g G="| grep"
