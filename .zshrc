@@ -1,8 +1,14 @@
+# shell settings
 ZSH=/usr/share/oh-my-zsh/
 ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+HISTFILE=~/.zsh_history
+HISTSIZE=1500
+SAVEHIST=1500
+eval $(dircolors $DOTFILES/.dircolors.$(cat $DOTFILES/.background))
 
+# exports
 export GOPATH=$HOME/.go
 export PATH=$HOME/.bin:/usr/local/bin:$GOPATH/bin:$PATH
 export DOTFILES=$HOME/.dotfiles
@@ -11,10 +17,10 @@ export TERM=rxvt-unicode-256color
 export ERLC=erlc
 export EDITOR=vim
 
+# user shortcuts
 alias am=alsamixer
-alias -g sctl=systemctl
-alias ssh='TERM=xterm ssh'
-alias ps="ps auxf"
+alias t="tree"
+alias b="acpi"
 
 # git aliases
 alias gl="git log --graph --decorate --oneline --all"
@@ -32,14 +38,21 @@ alias gs="git status -s"
 alias gsh="git show"
 alias gr="git reset"
 
-alias t="tree"
+# Go android Tlen
+alias gar="cd $GOPATH/src/github.com/seletskiy/go-android-rpc/"
+alias tlen="cd $GOPATH/src/github.com/gophergala/tlen/"
+alias alc="sudo adb logcat"
 
-alias b="acpi"
+# shell shortcuts
+alias -g G="| grep"
+alias -g H="| head"
+alias -g T="| tail"
+alias ps="ps auxf"
+alias -g sctl=systemctl
+alias ssh='TERM=xterm ssh'
 
-HISTFILE=~/.zsh_history
-HISTSIZE=1500
-SAVEHIST=1500
 
+# functions
 zle -N prepend-sudo prepend_sudo
 bindkey "^T" prepend-sudo
 function prepend_sudo() {
@@ -50,5 +63,3 @@ function prepend_sudo() {
 	fi
 	CURSOR=$(($CURSOR+5))
 }
-
-eval $(dircolors $DOTFILES/.dircolors.$(cat $DOTFILES/.background))
