@@ -53,6 +53,8 @@ Plug 'vim-scripts/EasyMotion'
 	map <leader>f <Space><Space>w
 	map <leader>r <Space><Space>b
 
+Plug 'wojtekmach/vim-rename'
+
 "Plug 'gmarik/vundle'
 "Bundle 'Blackrush/vim-gocode'
 "Plug 'scrooloose/syntastic'
@@ -109,7 +111,7 @@ vmap <C-k> <C-b>
 let g:EclimCompletionMethod = 'omnifunc'
 nnoremap <Bslash> :nohl<CR>
 
-" autocommands
+" Autocommands
 augroup hilight_over_80
 	au!
 	au VimResized,VimEnter * set cc= | for i in range(80, &columns > 80 ? &columns : 80) | exec "set cc+=" . i | endfor
