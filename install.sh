@@ -1,12 +1,14 @@
 #!/bin/bash
 
+export dotfiles=~/.dotfiles
+
 function set_link {
-	if [ -e $DOTFILES/$@ ]; then
-		FROM=$DOTFILES/$@
-		TO=/home/`whoami`/$@
-		COMMAND="ln -sf $FROM $TO"
-		echo $COMMAND
-		exec 2>&1 $COMMAND &
+	if [ -e $dotfiles/$@ ]; then
+		from=$dotfiles/$@
+		to=/home/`whoami`/$@
+		command="ln -sf $from $to"
+		echo $command
+		exec 2>&1 $command &
 	fi
 }
 

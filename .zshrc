@@ -5,12 +5,11 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
-eval $(dircolors .dotfiles/.dircolors.$(cat .dotfiles/.background))
+eval $(dircolors ~/.dircolors.$(cat ~/.background))
 
 # exports
 export GOPATH=$HOME/.go
 export PATH=$HOME/.bin:/usr/local/bin:$GOPATH/bin:$PATH
-export DOTFILES=$HOME/.dotfiles
 export GITHUB=$HOME/sources/github.com
 export TERM=rxvt-unicode-256color
 export ERLC=erlc
@@ -30,6 +29,10 @@ alias -g G="| grep"
 alias -g L="| less"
 alias -g H="| head"
 alias -g T="| tail"
+alias -g X="| xargs"
+alias -g S="| sort"
+alias -g U="| uniq"
+alias -g W="| wc"
 
 # git aliases
 alias gcl="git clone"
