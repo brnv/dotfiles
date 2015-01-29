@@ -98,6 +98,8 @@ map <leader>~ :tabnew ~/.vimrc<CR>
 map <leader>j <Space>cl
 map <leader>u <Space>cu
 map <leader>w <ESC>:w<CR>
+map Q qq
+map ! :g//norm @q<CR>
 
 " Motions
 map <M-j> <Esc>
