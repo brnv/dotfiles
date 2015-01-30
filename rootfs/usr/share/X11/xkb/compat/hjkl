@@ -65,4 +65,37 @@ xkb_compatibility "hjkl" {
         repeat= True;
         action= RedirectKey(keycode=<END>, clearmods=Super);
     };
+    interpret Pointer_Up {
+        action = MovePtr(x=+0,y=-5);
+    };
+    interpret Pointer_UpLeft {
+        action = MovePtr(x=-3,y=-5);
+    };
+    interpret Pointer_UpRight {
+        action = MovePtr(x=+3,y=-5);
+    };
+    interpret Pointer_Left {
+        action = MovePtr(x=-5,y=-0);
+    };
+    interpret Pointer_Right {
+        action = MovePtr(x=+5,y=+0);
+    };
+    interpret Pointer_DownLeft {
+        action = MovePtr(x=-3,y=+5);
+    };
+    interpret Pointer_DownRight {
+        action = MovePtr(x=+3,y=+5);
+    };
+    interpret Pointer_Down {
+        action = MovePtr(x=+0,y=+5);
+    };
+    interpret Pointer_ClickLeft {
+        action = PointerButton(button=1);
+    };
+    interpret Pointer_ClickMiddle {
+        action = PointerButton(button=3);
+    };
+    interpret Pointer_ClickRight {
+        action = PointerButton(button=2);
+    };
 };

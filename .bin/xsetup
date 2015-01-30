@@ -13,8 +13,13 @@ export DISPLAY=${DISPLAY:-:0.0}
 xset b off && xset s off
 xset r rate 130 80
 
+xkbset m
+xkbset ma 1 5 100 10 500
+
 setxkbmap -layout "us, ru" -option "grp:caps_toggle"
 setxkbmap \
+	-types \
+	"complete+mouse" \
 	-keycodes \
 	"evdev+aliases(qwerty)+disable-arrows" \
 	-symbols \
