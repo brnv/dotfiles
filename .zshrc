@@ -15,6 +15,12 @@ export TERM=rxvt-unicode-256color
 export ERLC=erlc
 export EDITOR=vim
 
+# go shortcuts
+alias gog="go get"
+alias goi="go install"
+alias gor="go run"
+alias gob="go build"
+
 # user shortcuts
 alias am=alsamixer
 alias t="tree"
@@ -22,6 +28,7 @@ alias b="acpi"
 alias ps="ps auxf"
 alias -g sctl=systemctl
 alias ssh='TERM=xterm ssh'
+alias sus="sudo systemctl suspend"
 
 # pipe shortcuts
 alias -g C="| cut"
