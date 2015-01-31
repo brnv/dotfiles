@@ -1,5 +1,9 @@
 #
+set $win Mod4
+set $alt Mod1
+
 set $mod Mod4
+
 set $terminal urxvt
 
 bindsym $mod+Shift+c reload #config
@@ -32,7 +36,7 @@ bindsym $mod+Ctrl+s layout stacking
 bindsym $mod+Ctrl+w layout tabbed
 bindsym $mod+Ctrl+e layout toggle split
 
-#bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -70,3 +74,7 @@ client.focused_inactive #262626 #262626 #657b83 #ffffff
 client.unfocused #262626 #262626 #657b83 #ffffff
 
 bindsym $mod+Ctrl+r exec "redshift -l55.2:82.55 -o"
+
+bindsym $mod+$alt+b exec "xdotool click 1"
+bindsym $mod+$alt+n exec "xdotool click 2"
+bindsym $mod+$alt+m exec "xdotool click 3"
