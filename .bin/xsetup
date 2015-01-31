@@ -11,7 +11,7 @@ export XAUTHORITY=~/.Xauthority
 export DISPLAY=${DISPLAY:-:0.0}
 
 xset b off && xset s off
-xset r rate 130 80
+xset r rate 120 100
 
 xkbset m
 xkbset ma 1 5 100 10 500
