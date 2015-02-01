@@ -21,8 +21,11 @@ Plug 'vim-scripts/UltiSnips'
 	let g:UltiSnipsJumpForwardTrigger="<c-j>"
 	let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 	let g:UltiSnipsEditSplit="vertical"
+	let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 	vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
 	map <leader>s :UltiSnipsEdit<CR>G
+	py import go
+	py import util
 
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'

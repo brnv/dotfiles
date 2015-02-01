@@ -1,0 +1,3 @@
+[submodule ".vim/pythonx"]
+	path = .vim/pythonx
+	url = git@github.com:seletskiy/vim-pythonx
