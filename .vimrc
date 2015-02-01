@@ -25,7 +25,6 @@ Plug 'vim-scripts/UltiSnips'
 	vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
 	map <leader>s :UltiSnipsEdit<CR>G
 	py import go
-	py import util
 
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
@@ -34,6 +33,7 @@ Plug 'bling/vim-airline'
 
 Plug 'ctrlpvim/ctrlp.vim'
 	let g:ctrlp_follow_symlinks = 1
+	let g:ctrlp_show_hidden = 1
 	map <leader>p :CtrlPClearAllCaches<CR>
 
 Plug 'kana/vim-smartinput'
