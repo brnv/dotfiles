@@ -1,0 +1,8 @@
+#!/bin/bash
+
+threshold=15
+percentage_current=$(acpi | grep -Po '[[:digit:]]+%' | tr -d %)
+
+if [[ $percentage_current -le $threshold ]]; then
+	i3-nagbar -t warning -m "Battery level is low ($percentage_current%)" -b "Suspend" "sudo systemctl suspend"
+fi
