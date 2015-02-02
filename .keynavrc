@@ -1,0 +1,22 @@
+ctrl+semicolon start, grid 4x4
+
+1 cell-select 1x1
+2 cell-select 2x1
+3 cell-select 3x1
+4 cell-select 4x1
+q cell-select 1x2
+w cell-select 2x2
+e cell-select 3x2
+r cell-select 4x2
+a cell-select 1x3
+s cell-select 2x3
+d cell-select 3x3
+f cell-select 4x3
+z cell-select 1x4
+x cell-select 2x4
+c cell-select 3x4
+v cell-select 4x4
+
+ctrl+z click 1
+ctrl+x click 2
+ctrl+c click 3
