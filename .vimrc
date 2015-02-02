@@ -92,7 +92,7 @@ set list
 set lcs=trail:·,tab:\ \ 
 set noexpandtab
 set number
-set timeoutlen=100
+set timeoutlen=400
 
 filetype plugin indent on
 
