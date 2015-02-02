@@ -1,8 +1,26 @@
 #!/bin/bash
 
 threshold=15
-percentage_current=$(acpi | grep -Po '[[:digit:]]+%' | tr -d %)
 
-if [[ $percentage_current -le $threshold ]]; then
-	i3-nagbar -t warning -m "Battery level is low ($percentage_current%)" -b "Suspend" "sudo systemctl suspend"
-fi
+while true; do
+	stats=$(acpi)
+
+	if [[ $stats == *"Charging"* ]]; then
+		sleep 1m
+		continue
+	fi
+
+	# great success
+	percentage_current=$(
+		echo $stats | \
+		awk 'match($4, /[[:digit:]]+/) { print substr($4, RSTART, RLENGTH) }'
+	)
+
+	if [[ $percentage_current -le $threshold ]]; then
+		i3-nagbar -t warning -m \
+			"Battery level is low ($percentage_current%)" \
+			-b "Suspend" "sudo systemctl suspend"
+	fi
+
+	sleep 1m
+done
