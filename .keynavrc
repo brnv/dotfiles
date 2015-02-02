@@ -1,22 +1,24 @@
 ctrl+semicolon start, grid 4x4
 
-1 cell-select 1x1
-2 cell-select 2x1
-3 cell-select 3x1
-4 cell-select 4x1
-q cell-select 1x2
-w cell-select 2x2
-e cell-select 3x2
-r cell-select 4x2
-a cell-select 1x3
-s cell-select 2x3
-d cell-select 3x3
-f cell-select 4x3
-z cell-select 1x4
-x cell-select 2x4
-c cell-select 3x4
-v cell-select 4x4
+1 cell-select 1x1,warp
+2 cell-select 2x1,warp
+3 cell-select 3x1,warp
+4 cell-select 4x1,warp
+q cell-select 1x2,warp
+w cell-select 2x2,warp
+e cell-select 3x2,warp
+r cell-select 4x2,warp
+a cell-select 1x3,warp
+s cell-select 2x3,warp
+d cell-select 3x3,warp
+f cell-select 4x3,warp
+z cell-select 1x4,warp
+x cell-select 2x4,warp
+c cell-select 3x4,warp
+v cell-select 4x4,warp
 
-ctrl+z click 1
-ctrl+x click 2
-ctrl+c click 3
+shift+space drag 1
+
+shift+z click 1
+shift+x click 2
+shift+c click 3
