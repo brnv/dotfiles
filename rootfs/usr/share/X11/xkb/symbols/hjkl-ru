@@ -53,7 +53,7 @@ xkb_symbols "hjkl" {
     };
     key <AB07> {
         type= "FOUR_LEVEL+ALT",
-        symbols[Group1]= [                     m,                   m,  Pointer_ClickRight ],
+        symbols[Group1]= [                     m,                   M,  Pointer_ClickRight ],
         symbols[Group2]= [     Cyrillic_softsign,   Cyrillic_SOFTSIGN,  Pointer_ClickRight ]
     };
     key  <ARRT> {         [          Pointer_Right ] };
