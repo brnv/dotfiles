@@ -55,6 +55,7 @@ alias gplo="git pull --rebase origin"
 alias gpl="git pull --rebase"
 alias grm="git rm"
 alias gr="git reset"
+alias gst="git stash"
 
 # dotfiles editing
 alias v="vim ~/.vimrc"
@@ -88,3 +89,7 @@ alias gar="cd $GOPATH/src/github.com/seletskiy/go-android-rpc/"
 alias tlen="cd $GOPATH/src/github.com/gophergala/tlen/"
 alias alc="sudo adb logcat"
 alias ad="sudo adb devices"
+
+function gocd() {
+	cd `find $GOPATH/src/ -name "$1*" -type d | head -n 1`
+}
