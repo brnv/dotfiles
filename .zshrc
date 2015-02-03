@@ -54,8 +54,9 @@ alias gpo="git push origin"
 alias gplo="git pull --rebase origin"
 alias gpl="git pull --rebase"
 alias grm="git rm"
-alias gr="git reset"
+alias grt="git reset"
 alias gst="git stash"
+alias gr="git remote"
 
 # dotfiles editing
 alias v="vim ~/.vimrc"
