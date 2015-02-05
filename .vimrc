@@ -78,7 +78,6 @@ set shiftwidth=4
 set softtabstop=4
 set showcmd
 set ruler
-set relativenumber
 set backspace=indent,eol,start
 set ignorecase
 set smartcase
