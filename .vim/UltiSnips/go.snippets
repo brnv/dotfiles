@@ -6,13 +6,13 @@ endsnippet
 
 snippet f "function" !b
 func ${1:name}(${2:args}) ${3: }{
-	$4
+	$0
 }
 endsnippet
 
 snippet s "struct" !b
 type ${1:name} struct {
-	$2
+	$0
 }
 endsnippet
 
@@ -38,19 +38,19 @@ endsnippet
 
 snippet fs "slice for" !b
 for _, ${1:element} := range ${2:slice} {
-	$0
+	$3
 }
 endsnippet
 
 snippet fl "loop for" !b
 for {
-	$0
+	$1
 }
 endsnippet
 
 snippet fi "times for" !b
 for i := 0; i < ${1:iterations}; i++ {
-	$0
+	$2
 }
 endsnippet
 
@@ -60,7 +60,6 @@ snippet e "if err != nil" !b
 if err != nil {
 	${1:return err}
 }
-$0
 endsnippet
 
 snippet sw "switch" !b
@@ -72,31 +71,35 @@ endsnippet
 
 snippet swt "switch type" !b
 switch ${1:variable}.(type) {
-case $2:
-	$0
+	$2
 }
+endsnippet
+
+snippet c "case" !b
+case $1:
+	$2
 endsnippet
 
 # logging
 
 snippet li "log.Info" !b
-log.Info("%#v", $0)
+log.Info("%#v", $1)
 endsnippet
 
 snippet lf "log.Fatal" !b
-log.Fatal($0)
+log.Fatal($1)
 endsnippet
 
 snippet ln "log.Notice" !b
-log.Notice("%v", ${0:variable})
+log.Notice("%v", ${1:variable})
 endsnippet
 
 snippet dbg "log.Printf()" !b
-log.Printf("!!! %#v\n", $0)
+log.Printf("!!! %#v\n", $1)
 endsnippet
 
 snippet vl "var log"
-var log = logging.MustGetLogger("$0")
+var log = logging.MustGetLogger("$1")
 endsnippet
 
 # tricky ones
