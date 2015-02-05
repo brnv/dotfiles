@@ -1,7 +1,21 @@
-snippet v "var_dump" !b
+snippet v "var_dump"
 var_dump($$1);
 endsnippet
 
 snippet e "exit" !b
 exit($1);
+endsnippet
+
+snippet i "if" !b
+if ($1) {
+	$0
+}
+endsnippet
+
+snippet t "try" !b
+try {
+	${1:${VISUAL}}
+} catch(Ngs_Exception $e) {
+	error_log($e->getMessage());
+}
 endsnippet
