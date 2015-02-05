@@ -51,6 +51,23 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc'
 Plug 'kovetskiy/ash.vim'
+	augroup ash
+		au!
+		au FileType diff syn match DiffComment "^#.*"
+		au FileType diff syn match DiffCommentIgnore "^###.*"
+		au FileType diff call g:ApplySyntaxForDiffComments()
+	augroup end
+
+	fun! g:ApplySyntaxForDiffComments()
+		if &background == 'light'
+			hi DiffCommentIgnore ctermfg=249 ctermbg=none
+			hi DiffComment ctermfg=16 ctermbg=254
+		else
+			hi DiffCommentIgnore ctermfg=249 ctermbg=none
+			hi DiffComment ctermfg=15 ctermbg=237
+		endif
+	endfun
+
 Plug 'vim-scripts/EasyMotion'
 	map <leader>f <Space><Space>w
 	map <leader>r <Space><Space>b
@@ -121,6 +138,11 @@ let g:EclimCompletionMethod = 'omnifunc'
 nnoremap <Bslash> :nohl<CR>
 
 " Autocommands
+augroup starting_cursor_position
+	au!
+	au BufReadPost * call setpos(".", getpos("'\""))
+augroup end
+
 augroup hilight_over_80
 	au!
 	au VimResized,VimEnter * set cc= | for i in range(80, &columns > 80 ? &columns : 80) | exec "set cc+=" . i | endfor
@@ -135,28 +157,6 @@ augroup expandtab
 	au!
 	au FileType php,erlang,prolog,java set et
 augroup end
-
-augroup default_cursor_position
-	au!
-	au BufReadPost * call setpos(".", getpos("'\""))
-augroup end
-
-augroup syntax_hacks
-	au!
-	au FileType diff syn match DiffComment "^#.*"
-	au FileType diff syn match DiffCommentIgnore "^###.*"
-	au FileType diff call g:ApplySyntaxForDiffComments()
-augroup end
-
-	fun! g:ApplySyntaxForDiffComments()
-		if &background == 'light'
-			hi DiffCommentIgnore ctermfg=249 ctermbg=none
-			hi DiffComment ctermfg=16 ctermbg=254
-		else
-			hi DiffCommentIgnore ctermfg=249 ctermbg=none
-			hi DiffComment ctermfg=15 ctermbg=237
-		endif
-	endfun
 
 augroup javac_classpath_for_eclimd
 	au!
