@@ -112,6 +112,7 @@ set directory=~/tmp/
 set list
 set lcs=trail:·,tab:\ \ 
 set noexpandtab
+set relativenumber
 set number
 set timeoutlen=400
 
