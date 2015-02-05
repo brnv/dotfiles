@@ -24,7 +24,6 @@ Plug 'vim-scripts/UltiSnips'
 	let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 	vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
 	map <leader>s :UltiSnipsEdit<CR>G
-	py import go
 
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
@@ -57,6 +56,7 @@ Plug 'vim-scripts/EasyMotion'
 	map <leader>r <Space><Space>b
 
 Plug 'wojtekmach/vim-rename'
+Plug 'seletskiy/vim-pythonx'
 
 "Plug 'gmarik/vundle'
 "Bundle 'Blackrush/vim-gocode'
