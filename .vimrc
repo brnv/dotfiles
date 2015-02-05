@@ -57,6 +57,11 @@ Plug 'vim-scripts/EasyMotion'
 
 Plug 'wojtekmach/vim-rename'
 Plug 'seletskiy/vim-pythonx'
+	augroup go_helpers
+		au!
+		au FileType go inoremap <C-L> <C-\><C-O>:py go.cycle_by_var_name()<CR>
+		au FileType go smap <C-L> <BS><C-L>
+	augroup end
 
 "Plug 'gmarik/vundle'
 "Bundle 'Blackrush/vim-gocode'
