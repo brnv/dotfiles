@@ -10,6 +10,11 @@ while true; do
 		continue
 	fi
 
+	if [[ $stats == *"Full"* ]]; then
+		i3-nagbar -t warning -m \
+			"Battery is full"
+	fi
+
 	# great success
 	percentage_current=$(
 		echo $stats | \
