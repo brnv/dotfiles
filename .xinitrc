@@ -2,7 +2,7 @@
 
 xsetup
 
-check-battery-life
+battery-life-checker
 
 keynav
 
