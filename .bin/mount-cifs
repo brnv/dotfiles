@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# stub for future implementation or just reminder, as you like
+
+mount.cifs '\\host\path\' $target_dir \
+	-o user=$username,domain=$domain,password=$password
+
+	#or
+	#-o credentials=/home/../.smb-host-credentials
+	# $ cat /home/../.smb-host-credentials
+	# username=name
+	# password=pass
+	# domain=domain
