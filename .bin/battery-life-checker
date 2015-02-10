@@ -1,12 +1,17 @@
 #!/bin/bash
 
-threshold=15
+threshold_warning=15
+
+threshold_force_suspend=5
+
+sleep_interval=1m
 
 while true; do
 	stats=$(acpi)
 
 	if [[ $stats == *"Charging"* ]]; then
-		sleep 1m
+		sleep_interval=1m
+		sleep $sleep_interval
 		continue
 	fi
 
@@ -15,17 +20,22 @@ while true; do
 			"Battery is full"
 	fi
 
-	# great success
 	percentage_current=$(
 		echo $stats | \
 		awk 'match($4, /[[:digit:]]+/) { print substr($4, RSTART, RLENGTH) }'
 	)
 
-	if [[ $percentage_current -le $threshold ]]; then
+	if [[ $percentage_current -le $threshold_warning ]]; then
+
 		i3-nagbar -t warning -m \
 			"Battery level is low ($percentage_current%)" \
 			-b "Suspend" "sudo systemctl suspend"
+
+		if [[ $percentage_current -le $threshold_force_suspend ]]; then
+			sleep_interval=5s
+			sudo systemctl suspend
+		fi
 	fi
 
-	sleep 1m
+	sleep $sleep_interval
 done
