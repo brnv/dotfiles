@@ -24,3 +24,8 @@ shift+space drag 1
 shift+z click 1
 shift+x click 2
 shift+c click 3
+
+h move-left,warp
+j move-down,warp
+k move-up,warp
+l move-right,warp
