@@ -22,7 +22,7 @@ Plug 'vim-scripts/UltiSnips'
 	let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 	let g:UltiSnipsEditSplit="vertical"
 	let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
-	vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc" !b<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
+	vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc"<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
 	map <leader>s :UltiSnipsEdit<CR>G
 
 Plug 'tpope/vim-fugitive'
