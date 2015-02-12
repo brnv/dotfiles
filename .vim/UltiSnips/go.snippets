@@ -10,6 +10,12 @@ func ${1:name}(${2:args}) ${3: }{
 }
 endsnippet
 
+snippet gof "go anonymous func"
+go func() {
+	$1
+}()
+endsnippet
+
 snippet s "struct" !b
 type ${1:name} struct {
 	$0
@@ -32,6 +38,10 @@ endsnippet
 
 snippet in "interface{}"
 interface{}
+endsnippet
+
+snippet ve "var err error"
+var err error
 endsnippet
 
 # iterators
@@ -108,6 +118,10 @@ snippet tf "func (type)" !b
 func (${1/.*([A-Z0-9]|\W)([a-z0-9]+([A-Z0-9]|$))/\l$1$2/} ${1:Type}) ${2:FuncName}($3)${4: }{
 	$0
 }
+endsnippet
+
+snippet sf "struct field with json notation"
+${1:fieldName} ${2:fieldType} \`json:"${1/(.*)/\l$1/}"\`
 endsnippet
 
 # vim-pythonx powered
