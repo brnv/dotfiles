@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Firefox setup
+# open about:config
+# add new boolean preference
+# network.protocol-handler.expose.magnet = false
+# use this script as magnet links handler
+
+[[ "$1" =~ xt=urn:btih:([^&/]+) ]] || exit;
+echo "d10:magnet-uri${#1}:${1}e" > ~/Downloads/"${BASH_REMATCH[1]}.torrent"
