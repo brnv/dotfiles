@@ -24,7 +24,7 @@ endsnippet
 
 # types
 
-snippet st "string"
+snippet s "string"
 string
 endsnippet
 
@@ -44,6 +44,22 @@ snippet ve "var err error"
 var err error
 endsnippet
 
+snippet ts "type struct" !b
+type ${1:name} struct {
+	$0
+}
+endsnippet
+
+snippet ti "type interface" !b
+type ${1:name} interface {
+	$0
+}
+endsnippet
+
+snippet v "var" !b
+var ${1:variable} ${2:type}
+endsnippet
+
 # iterators
 
 snippet fs "slice for" !b
@@ -59,7 +75,7 @@ for {
 endsnippet
 
 snippet fi "times for" !b
-for i := 0; i < ${1:iterations}; i++ {
+for index := 0; index < ${1:iterations}; index++ {
 	$2
 }
 endsnippet
@@ -104,7 +120,7 @@ snippet ln "log.Notice" !b
 log.Notice("%v", ${1:variable})
 endsnippet
 
-snippet dbg "log.Printf()" !b
+snippet lp "log.Printf()" !b
 log.Printf("!!! %#v\n", $1)
 endsnippet
 
@@ -139,3 +155,9 @@ endsnippet
 snippet r "return" !b
 return ${1:`!p snip.rv=go.get_last_var_for_snippet()`}
 endsnippet
+
+snippet a "append"
+append(${1:`!p snip.rv=go.get_last_var_for_snippet()`})
+endsnippet
+
+
