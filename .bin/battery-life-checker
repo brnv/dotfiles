@@ -6,18 +6,22 @@ threshold_force_suspend=5
 
 sleep_interval=1m
 
+confirmed=0
+
 while true; do
 	stats=$(acpi)
 
 	if [[ $stats == *"Charging"* ]]; then
+		confirmed=0
 		sleep_interval=1m
 		sleep $sleep_interval
 		continue
 	fi
 
-	if [[ $stats == *"Full"* ]]; then
+	if [[ $stats == *"Full"* ]] && [[ $confirmed == 0 ]]; then
 		i3-nagbar -t warning -m \
 			"Battery is full"
+		confirmed=1
 	fi
 
 	percentage_current=$(
