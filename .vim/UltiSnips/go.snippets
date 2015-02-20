@@ -1,3 +1,9 @@
+# comments
+
+snippet td "todo stub" !b
+//@TODO: $1
+endsnippet
+
 # base
 
 snippet p "package" !b
@@ -5,7 +11,7 @@ package ${1:main}
 endsnippet
 
 snippet f "function" !b
-func ${1:name}(${2:args}) ${3: }{
+func ${1:main}(${2:args}) $3 {
 	$0
 }
 endsnippet
@@ -16,7 +22,7 @@ go func() {
 }()
 endsnippet
 
-snippet s "struct" !b
+snippet st "struct" !b
 type ${1:name} struct {
 	$0
 }
@@ -116,6 +122,10 @@ snippet lf "log.Fatal" !b
 log.Fatal($1)
 endsnippet
 
+snippet lfe "log.Fatal(err.Error())" !b
+log.Fatal(err.Error())
+endsnippet
+
 snippet ln "log.Notice" !b
 log.Notice("%v", ${1:variable})
 endsnippet
@@ -147,8 +157,8 @@ import go
 endglobal
 
 snippet i "if"
-if ${1:`!p snip.rv=go.get_last_var_for_snippet()`} {
-	${2:${VISUAL}}
+if ${1:`!p snip.rv=go.get_last_var_for_snippet()`} $2 {
+	${3:${VISUAL}}
 }
 endsnippet
 
@@ -159,5 +169,3 @@ endsnippet
 snippet a "append"
 append(${1:`!p snip.rv=go.get_last_var_for_snippet()`})
 endsnippet
-
-
