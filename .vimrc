@@ -108,7 +108,7 @@ set formatoptions=qrn1
 set colorcolumn=80
 set autoread
 set laststatus=2
-set directory=~/tmp/
+set directory=~/.tmp/
 set list
 set lcs=trail:·,tab:\ \ 
 set noexpandtab
