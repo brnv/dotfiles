@@ -30,6 +30,10 @@ alias -g sctl=systemctl
 alias ssh='TERM=xterm ssh'
 alias sus="sudo systemctl suspend"
 
+# android tools
+alias alc="sudo adb logcat"
+alias ad="sudo adb devices"
+
 # pipe shortcuts
 alias -g C="| cut"
 alias -g G="| grep"
@@ -84,12 +88,6 @@ zle -N word-prepend-dot-slash word_prepend_dot_slash
 function word_prepend_dot_slash() {
 	# todo
 }
-
-# Go android Tlen
-alias gar="cd $GOPATH/src/github.com/seletskiy/go-android-rpc/"
-alias tlen="cd $GOPATH/src/github.com/gophergala/tlen/"
-alias alc="sudo adb logcat"
-alias ad="sudo adb devices"
 
 function gocd() {
 	cd `find $GOPATH/src/ -name "$1*" -type d | head -n 1`
