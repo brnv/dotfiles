@@ -1,9 +1,3 @@
-# comments
-
-snippet td "todo stub" !b
-//@TODO: $1
-endsnippet
-
 # base
 
 snippet p "package" !b
@@ -68,12 +62,6 @@ endsnippet
 
 # iterators
 
-snippet fs "slice for" !b
-for _, ${1:element} := range ${2:slice} {
-	$3
-}
-endsnippet
-
 snippet fl "loop for" !b
 for {
 	$1
@@ -87,12 +75,6 @@ for index := 0; index < ${1:iterations}; index++ {
 endsnippet
 
 # conditional
-
-snippet e "if err != nil" !b
-if err != nil {
-	${1:return err}
-}
-endsnippet
 
 snippet sw "switch" !b
 switch ${1:variable} {
@@ -147,7 +129,7 @@ func (${1/.*([A-Z0-9]|\W)([a-z0-9]+([A-Z0-9]|$))/\l$1$2/} ${1:Type}) ${2:FuncNam
 endsnippet
 
 snippet sf "struct field with json notation"
-${1:fieldName} ${2:fieldType} \`json:"${1/(.*)/\l$1/}"\`
+${1:fieldName} ${2:fieldType} \`${3:json}:"${1/(.*)/\l$1/}"\`
 endsnippet
 
 # vim-pythonx powered
@@ -168,4 +150,23 @@ endsnippet
 
 snippet a "append"
 append(${1:`!p snip.rv=go.get_last_var_for_snippet()`})
+endsnippet
+
+snippet fs "slice for" !b
+for _, ${1:element} := range ${2:`!p snip.rv=go.get_last_var_for_snippet()`} {
+	$3
+}
+endsnippet
+
+# miscellaneous
+snippet oe "os.Exit()"
+os.Exit(${1:0})
+endsnippet
+
+# errors handling
+
+snippet ife "if err != nil"
+if err != nil {
+	return $1, err
+}
 endsnippet

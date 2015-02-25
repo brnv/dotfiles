@@ -15,7 +15,7 @@ endsnippet
 snippet t "try" !b
 try {
 	${1:${VISUAL}}
-} catch(Ngs_Exception $e) {
+} catch(Exception $e) {
 	error_log($e->getMessage());
 }
 endsnippet
