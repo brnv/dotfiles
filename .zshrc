@@ -29,6 +29,7 @@ alias ps="ps auxf"
 alias -g sctl=systemctl
 alias ssh='TERM=xterm ssh'
 alias sus="sudo systemctl suspend"
+alias yaourt="yaourt --noconfirm"
 
 # android tools
 alias alc="sudo adb logcat"
@@ -52,6 +53,7 @@ alias gd="git diff"
 alias ga="git add"
 alias gdc="git diff --cached"
 alias gcm="git commit -m"
+alias gca="git commit --amend"
 alias gsh="git show"
 alias gl="git log --graph --decorate --oneline --all"
 alias gpo="git push origin"
