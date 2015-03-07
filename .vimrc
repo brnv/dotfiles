@@ -78,6 +78,7 @@ Plug 'seletskiy/vim-pythonx'
 		au!
 		au FileType go inoremap <C-L> <C-\><C-O>:py go.cycle_by_var_name()<CR>
 		au FileType go smap <C-L> <BS><C-L>
+		au FileType go inoremap <buffer> . <C-\><C-O>:py go.autoimport()<CR>.
 	augroup end
 
 "Plug 'gmarik/vundle'
