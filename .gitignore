@@ -1,2 +1,5 @@
 .mcabber/histo/*
-
+.config/
+.vim/plugins/
+.vim/autoload/
+.i3/config
