@@ -22,6 +22,10 @@ type ${1:name} struct {
 }
 endsnippet
 
+snippet fm "fmt.Print" !b
+fmt.Print$1($2)
+endsnippet
+
 # types
 
 snippet s "string"
@@ -159,6 +163,7 @@ for _, ${1:element} := range ${2:`!p snip.rv=go.get_last_var_for_snippet()`} {
 endsnippet
 
 # miscellaneous
+
 snippet oe "os.Exit()"
 os.Exit(${1:0})
 endsnippet
