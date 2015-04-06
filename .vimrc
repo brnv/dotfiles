@@ -81,6 +81,9 @@ Plug 'seletskiy/vim-pythonx'
 		au FileType go inoremap <buffer> . <C-\><C-O>:py go.autoimport()<CR>.
 	augroup end
 
+Plug 'kovetskiy/vim-ski'
+    let g:skeletons_dir=$HOME.'/.vim/skeletons/'
+
 "Plug 'gmarik/vundle'
 "Bundle 'Blackrush/vim-gocode'
 "Plug 'scrooloose/syntastic'
