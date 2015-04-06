@@ -1,29 +1,29 @@
-pcm.usb
-{
-	type hw
-	card U0x46d0x825
-}
-pcm.!default
-{
-	type asym
-	playback.pcm
-	{
-		type plug
-		slave.pcm "dmix"
+!defaults.pcm.card USB
+defaults.ctl.card USB
+
+defaults.pcm {
+	device 0
+
+	ipc_key 5678293
+	ipc_gid audio
+	ipc_perm 0660
+
+	rate 0
+
+	dmix {
+		format "unchanged"
+		rate defaults.pcm.rate
+		card defaults.pcm.card
+		device defaults.pcm.device
 	}
-	capture.pcm
-	{
-		type plug
-		slave.pcm "usb"
+
+	dsnoop {
+		card defaults.pcm.card
+		device defaults.pcm.device
 	}
+
+	file_format "raw"
+	file_truncate true
 }
 
-pcm.!default {
-	type hw
-	card 1
-}
-
-ctl.!default {
-	type hw
-	card 1
-}
+defaults.namehint.extended 0
