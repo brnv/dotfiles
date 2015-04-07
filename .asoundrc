@@ -3,6 +3,7 @@ defaults.ctl.card USB
 
 defaults.pcm {
 	device 0
+	subdevice -1
 
 	ipc_key 5678293
 	ipc_gid audio
