@@ -1,3 +1,9 @@
 #!/bin/bash
 
-xrandr --output HDMI-0 --mode 1920x1080 --right-of eDP --output eDP --mode 1366x768
+position=$1
+
+if [[ -z $position ]]; then
+	position=right
+fi
+
+xrandr --output HDMI-0 --mode 1920x1080 --$position-of eDP --output eDP --mode 1366x768
