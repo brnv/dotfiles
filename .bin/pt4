@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# ~/.wine/drive_c/handhistory -> /zstorage/data/poker/handhistory
+
+sudo -upostgres postgres -D /zstorage/data/poker/postgresql &
+
+wine regedit ~/.wine/drive_c/Program\ Files/PokerTracker\ 4/PT4.reg
+
+rm ~/.wine/drive_c/users/Public/Application Data/flwjycbm.bab
+
+wine ~/.wine/drive_c/Program\ Files/PokerTracker\ 4/PokerTracker4.exe
