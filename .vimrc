@@ -84,6 +84,9 @@ Plug 'seletskiy/vim-pythonx'
 Plug 'kovetskiy/vim-ski'
     let g:skeletons_dir=$HOME.'/.vim/skeletons/'
 
+Plug 'kovetskiy/vim-go-complete-utils'
+	inoremap <C-Y> <C-R>=GoCompleteSnippet()<CR>
+
 "Plug 'gmarik/vundle'
 "Bundle 'Blackrush/vim-gocode'
 "Plug 'scrooloose/syntastic'
@@ -160,7 +163,7 @@ augroup end
 
 augroup expandtab
 	au!
-	au FileType php,erlang,prolog,java set et
+	au FileType php,erlang,prolog,java,vim set et
 augroup end
 
 augroup javac_classpath_for_eclimd
