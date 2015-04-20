@@ -1,2 +1,15 @@
 set gui=none
-set hintchars=hjklasdf
+set hintchars=sdfjkl;
+set editor="urxvt -e vim"
+set cpt=b
+
+silent qmark g https://github.com/
+silent qmark m https://mail.google.com/
+silent qmark h https://news.ycombinator.com/
+silent qmark s http://uprt.slack.com/
+silent qmark p http://pokerstrategy.com/
+silent qmark a http://arts2003.ru/
+silent qmark y http://youtube.com/
+silent qmark v http://vk.com/
+
+set focuscontent
