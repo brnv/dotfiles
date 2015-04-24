@@ -89,8 +89,10 @@ Plug 'seletskiy/vim-pythonx'
 Plug 'kovetskiy/vim-ski'
     let g:skeletons_dir=$HOME.'/.vim/skeletons/'
 
-Plug 'kovetskiy/vim-go-complete-utils'
-    inoremap <C-Y> <C-R>=GoCompleteSnippet()<CR>
+Plug 'kovetskiy/vim-go-complete-utils', { 'for': 'go' }
+    augroup go_functions
+    au FileType go inoremap <C-Y> <C-R>=GoCompleteSnippet()<CR>
+    augroup end
 
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
