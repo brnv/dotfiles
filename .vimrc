@@ -196,6 +196,11 @@ augroup javac_classpath_for_eclimd
                 \":".substitute(expand("%:p"), "\\(.*/src\\).*", "\\1", "")
 augroup end
 
+augroup eclimd
+    au!
+    au FileType java nmap <leader>, :Java %<CR>
+augroup end
+
 " Colorschemes
 if system('cat ~/.background') == "dark"
     set background=dark
