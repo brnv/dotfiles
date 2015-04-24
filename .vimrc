@@ -152,6 +152,7 @@ map <leader>u <Space>cu
 map <leader>w <ESC>:w<CR>
 map Q qq
 map ! :g//norm @q<CR>
+nmap <leader>n :vnew<CR>
 
 " Motions
 map <M-j> <Esc>
