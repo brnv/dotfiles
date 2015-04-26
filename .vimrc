@@ -73,7 +73,6 @@ Plug 'vim-scripts/EasyMotion'
     map <leader>b <Space><Space>b
 
 Plug 't9md/vim-choosewin'
-    let g:choosewin_overlay_enable = 1
     let g:choosewin_label = 'SDFHJKL'
     nmap <leader>d :ChooseWin<CR>
 
