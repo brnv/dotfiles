@@ -19,3 +19,4 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.keysym.M-slash: perl:aAtt:WORD-complete
 URxvt.keysym.M-question: perl:aAtt:skeleton-complete
 URxvt.buffered: false
+URxvt.modifier: mod4
