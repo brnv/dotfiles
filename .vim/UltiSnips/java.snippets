@@ -1,15 +1,29 @@
+# oop
+
+snippet pv "public void" !b
+public void $1($2) {
+	$0
+}
+endsnippet
+
+snippet pc "public class" !b
+public class $1 {
+	$0
+}
+endsnippet
+
+snippet pci "public class implements" !b
+public class $1 implements $2 {
+	$0
+}
+endsnippet
+
 snippet i "import" !b
 import $1;
 endsnippet
 
 snippet l "log" !b
 Log.v("!!!", $1);
-endsnippet
-
-snippet pv "public void" !b
-public void $1($2) {
-	$0
-}
 endsnippet
 
 snippet if "if" !b
@@ -24,12 +38,6 @@ endsnippet
 
 snippet r "return" !b
 return $0;
-endsnippet
-
-snippet pc "public class" !b
-public class $1 {
-	$0
-}
 endsnippet
 
 snippet t "try" !b

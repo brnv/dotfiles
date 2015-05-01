@@ -19,7 +19,7 @@ export NDK_ROOT=~/.android-tools/ndk-toolchain
 # go with android/arm support
 # https://golang.org/dl/
 # unpack into $dir && change to $dir/src
-# export NDK_CC=$NDK/bin/arm-linux-androideabi-gcc
+# export NDK_CC=$NDK_ROOT/bin/arm-linux-androideabi-gcc
 # CC_FOR_TARGET=$NDK_CC GOOS=android GOARCH=arm GOARM=7 ./make.bash
 #
 export GOROOT=~/.android-tools/go/
