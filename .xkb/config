@@ -1,0 +1,185 @@
+xkb_keymap {
+    xkb_keycodes {
+        include "evdev+aliases(qwerty)"
+
+        <END>  = 248;
+        <HOME> = 249;
+        <PGUP> = 250;
+        <PGDN> = 251;
+        <LEFT> = 252;
+        <RGHT> = 253;
+        <UP>   = 254;
+        <DOWN> = 255;
+
+        <ARLF> = 113;
+        <ARRT> = 114;
+        <ARUP> = 111;
+        <ARDN> = 116;
+    };
+
+    xkb_compat {
+        include "complete"
+
+        interpret KP_Left {
+            repeat= True;
+            action= RedirectKey(keycode=<LEFT>, clearmods=Super);
+        };
+
+        interpret Left {
+            repeat= True;
+            action= RedirectKey(keycode=<LEFT>, clearmods=Super);
+        };
+
+        interpret KP_Right {
+            repeat= True;
+            action= RedirectKey(keycode=<RGHT>, clearmods=Super);
+        };
+
+        interpret Right {
+            repeat= True;
+            action= RedirectKey(keycode=<RGHT>, clearmods=Super);
+        };
+
+        interpret KP_Up {
+            repeat= True;
+            action= RedirectKey(keycode=<UP>, clearmods=Super);
+        };
+
+        interpret Up {
+            repeat= True;
+            action= RedirectKey(keycode=<UP>, clearmods=Super);
+        };
+
+        interpret KP_Down {
+            repeat= True;
+            action= RedirectKey(keycode=<DOWN>, clearmods=Super);
+        };
+
+        interpret Down {
+            repeat= True;
+            action= RedirectKey(keycode=<DOWN>, clearmods=Super);
+        };
+
+        interpret KP_Prior {
+            repeat= True;
+            action= RedirectKey(keycode=<PGUP>, clearmods=Super);
+        };
+
+        interpret Prior {
+            repeat= True;
+            action= RedirectKey(keycode=<PGUP>, clearmods=Super);
+        };
+
+        interpret KP_Next {
+            repeat= True;
+            action= RedirectKey(keycode=<PGDN>, clearmods=Super);
+        };
+
+        interpret Next {
+            repeat= True;
+            action= RedirectKey(keycode=<PGDN>, clearmods=Super);
+        };
+
+        interpret KP_Home {
+            repeat= True;
+            action= RedirectKey(keycode=<HOME>, clearmods=Super);
+        };
+
+        interpret Home {
+            repeat= True;
+            action= RedirectKey(keycode=<HOME>, clearmods=Super);
+        };
+
+        interpret KP_End {
+            repeat= True;
+            action= RedirectKey(keycode=<END>, clearmods=Super);
+        };
+
+        interpret End {
+            repeat= True;
+            action= RedirectKey(keycode=<END>, clearmods=Super);
+        };
+    };
+
+    xkb_symbols {
+        include "pc+us+ru:2+level3(lwin_switch)+terminate(ctrl_alt_bksp)"
+
+        replace key <CAPS> { [ ISO_Next_Group, ISO_Next_Group ] };
+
+        modifier_map Mod4 { <LVL3> };
+
+        key <AC06> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [h, H, KP_Left,  KP_Left],
+            symbols[Group2] = [Cyrillic_er, Cyrillic_ER, KP_Left,  KP_Left]
+        };
+
+        key <AC07> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [j, J, KP_Down, KP_Down],
+            symbols[Group2] = [Cyrillic_o, Cyrillic_O, KP_Down, KP_Down]
+        };
+
+        key <AC08> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [k, K, KP_Up,    KP_Up],
+            symbols[Group2] = [Cyrillic_el, Cyrillic_EL, KP_Up, KP_Up]
+        };
+
+        key <AC09> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [l, L, KP_Right, KP_Right],
+            symbols[Group2] = [Cyrillic_de, Cyrillic_DE, KP_Right, KP_Right]
+        };
+
+        key <AD07> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [u, U, KP_Home, KP_Home],
+            symbols[Group2] = [Cyrillic_ghe, Cyrillic_GHE, KP_Home, KP_Home]
+        };
+
+        key <AD08> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [i, I, KP_Next, KP_Next],
+            symbols[Group2] = [Cyrillic_sha, Cyrillic_SHA, KP_Next, KP_Next]
+        };
+
+        key <AD09> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [o, O, KP_Prior, KP_Prior],
+            symbols[Group2] = [Cyrillic_shcha, Cyrillic_SHCHA, KP_Prior, KP_Prior]
+        };
+
+        key <AD10> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [p, P, KP_End, KP_End],
+            symbols[Group2] = [Cyrillic_ze, Cyrillic_ZE, KP_End, KP_End]
+        };
+
+        key <AB05> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [b, B],
+            symbols[Group2] = [Cyrillic_i, Cyrillic_I]
+        };
+
+        key <AB06> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [n, N],
+            symbols[Group2] = [Cyrillic_te, Cyrillic_TE]
+        };
+
+        key <AB07> {
+            type= "FOUR_LEVEL",
+            symbols[Group1] = [m, M],
+            symbols[Group2] = [Cyrillic_softsign, Cyrillic_SOFTSIGN]
+        };
+    };
+
+    xkb_geometry {
+        include "pc(pc105)"
+    };
+
+    xkb_types {
+        include "complete"
+    };
+};

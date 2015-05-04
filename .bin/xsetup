@@ -9,23 +9,12 @@ xrdb ~/.Xresources && xrdb -merge \
 
 export XAUTHORITY=~/.Xauthority
 export DISPLAY=${DISPLAY:-:0.0}
+export XDG_CONFIG_HOME=~/.xkb
+
+xkbcomp $XDG_CONFIG_HOME/config $DISPLAY 2> /dev/null
 
 xset b off && xset s off
 xset r rate 120 100
-
-xkbset m
-xkbset ma 1 5 100 10 500
-
-setxkbmap -layout "us, ru" -option "grp:caps_toggle"
-setxkbmap \
-	-types \
-	"complete+mouse" \
-	-keycodes \
-	"evdev+aliases(qwerty)+disable-arrows" \
-	-symbols \
-	"pc+us+ru:2+hjkl-ru+level3(lwin_switch)+mod4-lvl3+terminate(ctrl_alt_bksp)+capslock-groupshift" \
-	-compat \
-	"complete+hjkl"
 
 redshift -l55.2:82.55 -o > /dev/null
 

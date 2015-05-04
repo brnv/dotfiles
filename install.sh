@@ -19,6 +19,7 @@ function cleanup {
 	rm ~/.terminfo
 	rm ~/.i3
 	rm ~/.vimrc
+	rm ~/.xkb
 	rm ~/.vim
 	rm ~/.mcabber
 	rm ~/.muttrc
