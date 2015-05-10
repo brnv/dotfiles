@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pulseaudio --kill
+
+qjackctl &
+
+wine ~/.wine/drive_c/Program\ Files/Native\ Instruments/Guitar\ Rig\ 5/Guitar\ Rig\ 5.exe
