@@ -151,6 +151,7 @@ map <leader>~ :tabnew ~/.vimrc<CR>
 map <leader>j <Space>cl
 map <leader>u <Space>cu
 map <leader>w <ESC>:w<CR>
+map <leader>q <ESC>:q<CR>
 map Q qq
 map ! :g//norm @q<CR>
 nmap <leader>n :vnew<CR>
