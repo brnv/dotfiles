@@ -1,4 +1,15 @@
 # oop
+snippet prv "private void" !b
+private void $1($2) {
+	$0
+}
+endsnippet
+
+snippet prb "private boolean" !b
+private boolean $1($2) {
+	$0
+}
+endsnippet
 
 snippet pv "public void" !b
 public void $1($2) {
@@ -18,15 +29,23 @@ public class $1 implements $2 {
 }
 endsnippet
 
-snippet i "import" !b
+snippet im "import" !b
 import $1;
+endsnippet
+
+snippet ia "import android" !b
+import android.$1;
+endsnippet
+
+snippet iaw "import android widget" !b
+import android.widget.$1;
 endsnippet
 
 snippet l "log" !b
 Log.v("!!!", $1);
 endsnippet
 
-snippet if "if" !b
+snippet i "if" !b
 if ($1) {
 	$0
 }
@@ -45,5 +64,32 @@ try {
 	${1:${VISUAL}}
 } catch (Exception e) {
 	$2
+}
+endsnippet
+
+snippet sw "switch" !b
+switch ($1) {
+case $2:
+	$0
+}
+endsnippet
+
+snippet c "case"
+case "$1":
+	$0
+	break;
+endsnippet
+
+snippet f "for"
+for (int i = 0; i < ${1:length}; i++) {
+	$0
+}
+endsnippet
+
+snippet ie "if else"
+if ($1) {
+	$2
+} else {
+	$0
 }
 endsnippet
