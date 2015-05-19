@@ -186,7 +186,7 @@ augroup end
 
 augroup expandtab
     au!
-    au FileType php,erlang,prolog,java,vim set et
+    au FileType php,erlang,prolog,java,vim,xml set et
 augroup end
 
 augroup javac_classpath_for_eclimd
