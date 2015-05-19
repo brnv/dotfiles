@@ -30,6 +30,8 @@ alias -g sctl=systemctl
 alias ssh='TERM=xterm ssh'
 alias sus="sudo systemctl suspend"
 alias yaourt="yaourt --noconfirm"
+alias zi="sudo zpool import"
+alias ze="sudo zpool export"
 
 # android tools
 alias alc="sudo adb logcat"
