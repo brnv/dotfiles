@@ -33,11 +33,15 @@ snippet im "import" !b
 import $1;
 endsnippet
 
-snippet ia "import android" !b
+snippet ima "import android" !b
 import android.$1;
 endsnippet
 
-snippet iaw "import android widget" !b
+snippet imj "import java" !b
+import java.$1;
+endsnippet
+
+snippet imaw "import android widget" !b
 import android.widget.$1;
 endsnippet
 
@@ -51,7 +55,15 @@ if ($1) {
 }
 endsnippet
 
-snippet p "package" !b
+snippet p "public" !b
+public $0
+endsnippet
+
+snippet ps "public static" !b
+public static $0
+endsnippet
+
+snippet pk "package" !b
 package $0;
 endsnippet
 
@@ -59,7 +71,11 @@ snippet r "return" !b
 return $0;
 endsnippet
 
-snippet t "try" !b
+snippet t "this." !b
+this.$0;
+endsnippet
+
+snippet tr "try" !b
 try {
 	${1:${VISUAL}}
 } catch (Exception e) {
@@ -69,7 +85,6 @@ endsnippet
 
 snippet sw "switch" !b
 switch ($1) {
-case $2:
 	$0
 }
 endsnippet
