@@ -68,6 +68,8 @@ alias grm="git rm"
 alias grs="git reset"
 alias gst="git stash"
 alias gr="git remote"
+alias grb="git rebase"
+alias grbo="git rebase --onto"
 
 # dotfiles editing
 alias v="vim ~/.vimrc"
