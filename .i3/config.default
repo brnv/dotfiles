@@ -6,8 +6,8 @@ set $mod Mod4
 
 set $terminal urxvt
 
-bindsym $mod+Shift+c reload #config
-bindsym $mod+Shift+r restart #i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
 
 floating_modifier $mod
 
