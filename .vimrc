@@ -16,7 +16,8 @@ call plug#begin('~/.vim/plugins')
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'Valloric/YouCompleteMe'
-Plug 'vim-scripts/UltiSnips'
+
+Plug 'SirVer/UltiSnips'
     let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -26,6 +27,7 @@ Plug 'vim-scripts/UltiSnips'
     map <leader>s :UltiSnipsEdit<CR>G
 
 Plug 'tpope/vim-fugitive'
+
 Plug 'bling/vim-airline'
     let g:airline_theme = 'raven'
     let g:airline_powerline_fonts = 1
@@ -37,6 +39,7 @@ Plug 'ctrlpvim/ctrlp.vim'
     map <leader>p :CtrlPClearAllCaches<CR>
 
 Plug 'kana/vim-smartinput'
+
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
     nmap H :OverCommandLine %s/<CR>
     vmap H :OverCommandLine s/<CR>
@@ -50,6 +53,7 @@ Plug 'cespare/vim-toml'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/seoul256.vim'
 Plug 'Shougo/unite.vim'
+
 Plug 'kovetskiy/ash.vim'
     augroup ash
         au!
@@ -76,7 +80,8 @@ Plug 't9md/vim-choosewin'
     let g:choosewin_label = 'SDFHJKL'
     nmap <leader>d :ChooseWin<CR>
 
-Plug 'wojtekmach/vim-rename'
+Plug 'danro/rename.vim'
+
 Plug 'seletskiy/vim-pythonx'
     augroup go_helpers
         au!
@@ -101,6 +106,7 @@ Plug 'kovetskiy/vim-go-complete-utils', { 'for': 'go' }
 "let g:syntastic_python_python_exec = '/usr/bin/python2.7'
 "Plug 'kien/ctrlp.vim'
 "Plug 'Shougo/vimproc.vim'
+"Plug 'wojtekmach/vim-rename'
 call plug#end()
 
 " Options
