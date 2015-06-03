@@ -1,10 +1,8 @@
-# base
-
-snippet p "package" !b
-package ${1:main}
+snippet pm "package main" "line == 1" be
+package main
 endsnippet
 
-snippet f "function" !b
+snippet f "function" b
 func ${1:main}(${2:args}) $3 {
 	$0
 }
@@ -16,17 +14,17 @@ go func() {
 }()
 endsnippet
 
-snippet st "struct" !b
-type ${1:name} struct {
-	$0
-}
+snippet ms "make slice" w
+make([]$1, ${2:0})
 endsnippet
 
-snippet fm "fmt.Print" !b
-fmt.Print$1($2)
+snippet mc "make chan" w
+make(chan $1, ${2:0})
 endsnippet
 
-# types
+snippet mm "make map" w
+make(map[${1:string}]${2:interface\{\}})
+endsnippet
 
 snippet s "string"
 string
@@ -48,68 +46,58 @@ snippet ve "var err error"
 var err error
 endsnippet
 
-snippet ts "type struct" !b
+snippet st "struct" b
 type ${1:name} struct {
 	$0
 }
 endsnippet
 
-snippet ti "type interface" !b
+snippet ti "type interface" b
 type ${1:name} interface {
 	$0
 }
 endsnippet
 
-snippet v "var" !b
+snippet v "var" b
 var ${1:variable} ${2:type}
 endsnippet
 
-# iterators
-
-snippet fl "loop for" !b
+snippet fl "loop for" b
 for {
 	$1
 }
 endsnippet
 
-snippet fi "times for" !b
+snippet fi "times for" b
 for index := 0; index < ${1:iterations}; index++ {
 	$2
 }
 endsnippet
 
-# conditional
-
-snippet swt "switch type" !b
+snippet swt "switch type" b
 switch ${1:variable}.(type) {
 	$2
 }
 endsnippet
 
-snippet c "case" !b
+snippet c "case" b
 case $1:
 	$2
 endsnippet
 
-# logging
-
-snippet li "log.Info" !b
+snippet li "log.Info" b
 log.Info("%#v", $1)
 endsnippet
 
-snippet lf "log.Fatal" !b
+snippet lf "log.Fatal" b
 log.Fatal($1)
 endsnippet
 
-snippet lfe "log.Fatal(err.Error())" !b
-log.Fatal(err.Error())
-endsnippet
-
-snippet ln "log.Notice" !b
+snippet ln "log.Notice" b
 log.Notice("%v", ${1:variable})
 endsnippet
 
-snippet lp "log.Printf()" !b
+snippet lp "log.Printf()" b
 log.Printf("!!! %#v\n", $1)
 endsnippet
 
@@ -117,9 +105,11 @@ snippet vl "var log"
 var log = logging.MustGetLogger("$1")
 endsnippet
 
-# tricky ones
+snippet fm "fmt.Print" b
+fmt.Print$1($2)
+endsnippet
 
-snippet tf "func (type)" !b
+snippet tf "func (type)" b
 func (${1/.*([A-Z0-9]|\W)([a-z0-9]+([A-Z0-9]|$))/\l$1$2/} ${1:Type}) ${2:FuncName}($3)${4: }{
 	$0
 }
@@ -129,41 +119,6 @@ snippet sf "struct field with json notation"
 ${1:fieldName} ${2:fieldType} \`${3:json}:"${1/(.*)/\l$1/}"\`
 endsnippet
 
-# vim-pythonx powered
-
-global !p
-import go
-endglobal
-
-snippet i "if"
-if ${1:`!p snip.rv=go.get_last_var_for_snippet()`} $2 {
-	${3:${VISUAL}}
-}
-endsnippet
-
-snippet r "return" !b
-return ${1:`!p snip.rv=go.get_last_var_for_snippet()`}
-endsnippet
-
-snippet a "append"
-append(${1:`!p snip.rv=go.get_last_var_for_snippet()`})
-endsnippet
-
-snippet fs "slice for" !b
-for _, ${1:element} := range ${2:`!p snip.rv=go.get_last_var_for_snippet()`} {
-	$3
-}
-endsnippet
-
-snippet sw "switch" !b
-switch ${1:`!p snip.rv=go.get_last_var_for_snippet()`} {
-case $2:
-	$0
-}
-endsnippet
-
-# miscellaneous
-
 snippet oe "os.Exit()"
 os.Exit(${1:0})
 endsnippet
@@ -172,10 +127,70 @@ snippet rn "return nil"
 return nil
 endsnippet
 
-# errors handling
-
 snippet ife "if err != nil"
 if err != nil {
 	return $1, err
 }
+endsnippet
+
+snippet "return n" "return nil" bw
+return nil
+endsnippet
+
+global !p
+import px
+import go
+endglobal
+
+snippet p "panic" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(buffer, line))" bwe
+panic(err)
+endsnippet
+
+snippet lf "log.Fatal(err)" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(buffer, line))" bwe
+log.Fatal(err)
+endsnippet
+
+snippet p "package" "line == 1" bwe
+package ${1:`!p snip.rv=go.guess_package_name_from_file_name(snip.fn)`}
+
+$0
+endsnippet
+
+snippet i "if"
+if ${1:`!p snip.rv=go.get_last_var_for_snippet()`} $2 {
+	${3:${VISUAL}}
+}
+endsnippet
+
+snippet r "return" b
+return ${1:`!p snip.rv=go.get_last_var_for_snippet()`}
+endsnippet
+
+snippet r "return" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(buffer, line))" eb
+return err
+endsnippet
+
+snippet a "append"
+append(${1:`!p snip.rv=go.get_last_var_for_snippet()`})
+endsnippet
+
+snippet fr "for range" b
+for _, ${1:element} := range ${2:`!p snip.rv=go.get_last_var_for_snippet()`} {
+	$3
+}
+endsnippet
+
+snippet sw "switch" b
+switch ${1:`!p snip.rv=go.get_last_var_for_snippet()`} {
+case $2:
+	$0
+}
+endsnippet
+
+snippet i "integer field" "px.go.is_func_declaration(buffer, line)" we
+$1 int,
+endsnippet
+
+snippet m "map field" "px.go.is_type_declaration(buffer, line)" bwe
+$1 map[${2:string}]${3:interface{}}
 endsnippet
