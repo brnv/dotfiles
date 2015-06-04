@@ -14,7 +14,7 @@ try {
 }
 endsnippet
 
-snippet => "" !b
+snippet . "" b
 $1 => $0;
 endsnippet
 
@@ -72,7 +72,7 @@ $${1:array} = [
 ];
 endsnippet
 
-snippet ? "<?php"
+snippet / "<?php"
 <?php
 	$0
 ?>
@@ -81,3 +81,12 @@ endsnippet
 snippet a "$var = "
 $$1 = $0;
 endsnippet
+
+#@TODO: hmm...
+snippet /fe "foreach"
+<?php foreach ($$1 as $$2) : ?>
+	$0
+<?php endforeach ?>
+endsnippet
+
+#@TODO: need to use pythonx
