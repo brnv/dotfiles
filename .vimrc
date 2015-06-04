@@ -232,7 +232,19 @@ function! TogglePhpHtmlFiletype()
     endif
 endfunction
 
+function! FormatHtmlInPhp()
+    set ft=html
+    normal gg=G
+    set ft=php
+    normal gg=G
+endfunction
+
 augroup filetype_toggle_php_html
     au!
-    au FileType php,html map <leader>t :call TogglePhpHtmlFiletype()<CR>
+    au FileType php map <leader>e :call TogglePhpHtmlFiletype()<CR>
+augroup end
+
+augroup format_html_in_php
+    au!
+    au FileType php map <leader>t :call FormatHtmlInPhp()<CR>
 augroup end
