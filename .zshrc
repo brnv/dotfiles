@@ -26,12 +26,14 @@ alias am=alsamixer
 alias t="tree"
 alias b="acpi"
 alias ps="ps auxf"
-alias -g sctl=systemctl
+alias -g sctl="sudo systemctl"
 alias ssh='TERM=xterm ssh'
 alias sus="sudo systemctl suspend"
 alias yaourt="yaourt --noconfirm"
 alias zi="sudo zpool import"
 alias ze="sudo zpool export"
+alias rr="rm -r"
+alias pwgen="pwgen 12"
 
 # android tools
 alias alc="sudo adb logcat"
