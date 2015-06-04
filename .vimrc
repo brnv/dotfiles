@@ -223,3 +223,16 @@ endif
 if system('cat ~/.colorscheme') == "solarized"
     colo solarized
 endif
+
+function! TogglePhpHtmlFiletype()
+    if &ft == "html"
+        set ft=php
+    elseif &ft == "php"
+        set ft=html
+    endif
+endfunction
+
+augroup filetype_toggle_php_html
+    au!
+    au FileType php,html map <leader>t :call TogglePhpHtmlFiletype()<CR>
+augroup end

@@ -6,16 +6,78 @@ snippet e "exit" !b
 exit($1);
 endsnippet
 
-snippet i "if" !b
-if ($1) {
-	$0
-}
-endsnippet
-
 snippet t "try" !b
 try {
 	${1:${VISUAL}}
 } catch(Exception $e) {
 	error_log($e->getMessage());
 }
+endsnippet
+
+snippet => "" !b
+$1 => $0;
+endsnippet
+
+snippet f "for"
+for($i = 0; $i < $1; $i++) {
+
+}
+endsnippet
+
+
+snippet r "return"
+return $0;
+endsnippet
+
+### new
+
+snippet i "if" !b
+if($1) {
+	$0
+}
+endsnippet
+
+snippet c "class"
+class $1
+{
+	$0
+}
+endsnippet
+
+snippet prf "protected function"
+protected function _$1($2)
+{
+	$0
+}
+endsnippet
+
+snippet pf "public function"
+public function $1($2)
+{
+	$0
+}
+endsnippet
+
+snippet pm "public member"
+public $${1:name} = $0;
+endsnippet
+
+snippet prm "protected member"
+protected $_${1:name} = $0;
+endsnippet
+
+snippet ar "$array"
+$${1:array} = [
+	$0
+];
+endsnippet
+
+snippet ? "<?php"
+<?php
+	$0
+?>
+endsnippet
+
+snippet a "$var = "
+$$1 = $0;
 endsnippet

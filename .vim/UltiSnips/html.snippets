@@ -59,3 +59,25 @@ snippet a "<a>"
 	$1
 </a>
 endsnippet
+
+snippet f "form"
+<form action="$1" method="${2:POST}">
+	$0
+</form>
+endsnippet
+
+snippet i "input"
+<input type="${1:text}" name="$2" id="$2" value="$3" />
+$0
+endsnippet
+
+snippet is "input type submit"
+<input type="submit" value="$1" />
+$0
+endsnippet
+
+snippet d "<div>"
+<div class="$1">
+	$0
+</div>
+endsnippet
