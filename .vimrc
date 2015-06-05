@@ -161,6 +161,7 @@ map <leader>q <ESC>:q<CR>
 map Q qq
 map ! :g//norm @q<CR>
 nmap <leader>n :vnew<CR>
+map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 
 " Motions
 map <M-j> <Esc>
