@@ -40,9 +40,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'kana/vim-smartinput'
 
-Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
-    nmap H :OverCommandLine %s/<CR>
-    vmap H :OverCommandLine s/<CR>
+Plug 'osyo-manga/vim-over'
+    vmap H :OverCommandLine %s/<C-R>*/&<CR>
 
 Plug 'fatih/vim-go', { 'for': 'go' }
     let g:go_fmt_command = "goimports"
@@ -98,11 +97,12 @@ Plug 'kovetskiy/vim-go-complete-utils', { 'for': 'go' }
     au FileType go inoremap <C-Y> <C-R>=GoCompleteSnippet()<CR>
     augroup end
 
+Plug 'scrooloose/syntastic', { 'for': 'php' }
+
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
 "Plug 'gmarik/vundle'
 "Bundle 'Blackrush/vim-gocode'
-"Plug 'scrooloose/syntastic'
 "let g:syntastic_python_python_exec = '/usr/bin/python2.7'
 "Plug 'kien/ctrlp.vim'
 "Plug 'Shougo/vimproc.vim'
@@ -247,5 +247,10 @@ augroup end
 
 augroup format_html_in_php
     au!
-    au FileType php map <leader>t :call FormatHtmlInPhp()<CR>
+    au FileType html map <leader>t :call FormatHtmlInPhp()<CR>
+augroup end
+
+augroup format
+    au!
+    au FileType php map <leader>t ggvG=
 augroup end
