@@ -1,40 +1,280 @@
-snippet v "var_dump"
-var_dump($$1);
+global !p
+import px.php
+endglobal
+
+snippet fe "foreach" bw
+`!p
+if snip.c == "":
+	last_variable=px.php.get_last_var_for_snippet()
+
+if t[1][-1:] == 's':
+	value_var = t[1][:-1]
+else:
+	value_var = t[2]
+`foreach (${1:`!p snip.rv=last_variable`} as ${2:`!p snip.rv=value_var`}) {
+	$3
+}
+endsnippet
+
+snippet n "New class instance" b
+$1 = new $2($3);
+endsnippet
+
+snippet rt "return true" bw
+return true;
+endsnippet
+
+snippet rf "return false" bw
+return false;
+endsnippet
+
+snippet rn "return null" bw
+return null;
+endsnippet
+
+snippet t "$this" w
+$this->$0
+endsnippet
+
+snippet td "$this->_di->get" bw
+$this->_di->get$1()${2:->}
+endsnippet
+
+snippet pr "log debug" bw
+$this->_di->getLogger()->debug($1);
+endsnippet
+
+snippet ld "log debug" bw
+$this->_di->getLogger()->debug("$1");
+endsnippet
+
+snippet lrn "log notice" bw
+$this->_di->getLogger()->notice("$1");
+endsnippet
+
+snippet lr "log error" bw
+$this->_di->getLogger()->error("$1");
+endsnippet
+
+snippet li "log info" bw
+$this->_di->getLogger()->info("$1");
+endsnippet
+
+snippet le "log exception" bw
+$this->_di->getLogger()->exception(`!p snip.rv=px.php.get_last_var_for_snippet()`);
+endsnippet
+
+snippet ei "elseif" iw
+ elseif ($1) {
+	$2
+}
+endsnippet
+
+snippet e "else" iw
+ else {
+	$1
+}
+endsnippet
+
+snippet uf "public function" bw
+/**
+ * $3
+ *
+ * $4
+ */
+public function $1($2)
+{
+	${5:${VISUAL}}
+}
+endsnippet
+
+snippet vf "private function" bw
+/**
+ * $3
+ *
+ * $4
+ */
+private function _$1($2)
+{
+	${5:${VISUAL}}
+}
+endsnippet
+
+snippet pf "protected function" bw
+/**
+ * $3
+ *
+ * $4
+ */
+protected function _$1($2)
+{
+	${5:${VISUAL}}
+}
+endsnippet
+
+snippet u "public variable" bw
+/**
+ * $2
+ *
+ * @var $3
+ */
+public $$1;
+endsnippet
+
+snippet u= "public variable with variable" bw
+/**
+ * $3
+ *
+ * @var $4
+ */
+public $$1 = $2;
+endsnippet
+
+snippet v "private variable" bw
+/**
+ * $2
+ *
+ * @var $3
+ */
+private $_$1;
+endsnippet
+
+snippet v= "private variable with variable" bw
+/**
+ * $3
+ *
+ * @var $4
+ */
+private $_$1 = $2;
+endsnippet
+
+snippet p "protected variable" bw
+/**
+ * $2
+ *
+ * @var $3
+ */
+protected $_$1;
+endsnippet
+
+snippet p= "protected variable with variable" bw
+/**
+ * $3
+ *
+ * @var $4
+ */
+protected $_$1 = $2;
+endsnippet
+
+snippet ar "array" w
+array($0)
+endsnippet
+
+snippet vd "variable declaration" bw
+${1:`!p snip.rv=px.php.get_last_var_for_snippet()`} = $2
+endsnippet
+
+snippet vdt "variable declaration" bw
+${1:`!p snip.rv=px.php.get_last_var_for_snippet()`} = $this->$2
+endsnippet
+
+snippet dv "variable declaration" bw
+$1 = ${2:`!p snip.rv=px.php.get_last_var_for_snippet()`}
+endsnippet
+
+snippet tdv "variable declaration" bw
+$this->$1 = ${2:`!p snip.rv=px.php.get_last_var_for_snippet()`}
+endsnippet
+
+snippet em "empty" !w
+empty($0)
+endsnippet
+
+snippet is "isset" !w
+isset($0)
+endsnippet
+
+snippet te "throw exception" bw
+throw new $1($2);
+endsnippet
+
+snippet try "try catch" bw
+try {
+	${1:${VISUAL}}
+} catch ($2 $e) {
+	${3:te }
+}
+endsnippet
+
+snippet l "error_log" w
+error_log(print_r([$1], true));
+endsnippet
+
+snippet lv "error_log variable" w
+error_log(print_r(['$1' => $1], true));
+endsnippet
+
+snippet > "=>" w
+$1 => $2,
+endsnippet
+
+snippet "* c" "PhpDoc for class" b
+`!p
+import subprocess;
+import vim;
+
+_fp = vim.eval('expand("%p")').split('/')
+_category = _fp[0]
+_package = '_'.join(_fp[:2])
+
+_name = subprocess.check_output(["git", "config", "user.name"]).strip()
+_email = subprocess.check_output(["git", "config", "user.email"]).strip()
+_author = _name + " <" + _email + ">"
+
+`* @category `!p snip.rv=_category`
+* @package `!p snip.rv=_package`
+* @author `!p snip.rv=_author`
+endsnippet
+
+## my snippets
+
+snippet d "var_dump"
+var_dump(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`});
 endsnippet
 
 snippet e "exit" !b
 exit($1);
 endsnippet
 
-snippet t "try" !b
-try {
-	${1:${VISUAL}}
-} catch(Exception $e) {
-	error_log($e->getMessage());
-}
+snippet . "" i
+$1 => $0
 endsnippet
 
-snippet . "" b
-$1 => $0;
-endsnippet
-
-snippet f "for"
+snippet fr "for"
 for($i = 0; $i < $1; $i++) {
 
 }
 endsnippet
 
-
 snippet r "return"
-return $0;
+return ${0:`!p snip.rv=px.php.get_last_var_for_snippet()`};
 endsnippet
 
-### new
-
 snippet i "if" !b
-if($1) {
+if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}) {
 	$0
 }
+endsnippet
+
+snippet ia "if array key" !b
+if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}['$2']$3) {
+	$0
+}
+endsnippet
+
+
+snippet un "unset"
+unset(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`});
 endsnippet
 
 snippet c "class"
@@ -51,8 +291,15 @@ protected function _$1($2)
 }
 endsnippet
 
-snippet pf "public function"
+snippet f "public function"
 public function $1($2)
+{
+	$0
+}
+endsnippet
+
+snippet psf "public static function"
+public static function $1($2)
 {
 	$0
 }
@@ -82,11 +329,26 @@ snippet a "$var = "
 $$1 = $0;
 endsnippet
 
-#@TODO: hmm...
 snippet /fe "foreach"
 <?php foreach ($$1 as $$2) : ?>
 	$0
 <?php endforeach ?>
 endsnippet
 
-#@TODO: need to use pythonx
+snippet /i "foreach"
+<?php if ($1) : ?>
+	$0
+<?php endif ?>
+endsnippet
+
+snippet /e "else"
+<?php else : ?>
+endsnippet
+
+snippet /= "" i
+<?= $0 ?>
+endsnippet
+
+snippet G "$_GET" i
+$_GET['$0']
+endsnippet
