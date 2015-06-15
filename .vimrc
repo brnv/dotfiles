@@ -33,15 +33,11 @@ Plug 'bling/vim-airline'
     let g:airline_powerline_fonts = 1
     let g:Powerline_symbols = 'fancy'
 
-Plug 'ctrlpvim/ctrlp.vim'
-    let g:ctrlp_follow_symlinks = 1
-    let g:ctrlp_show_hidden = 1
-    map <leader>p :CtrlPClearAllCaches<CR>
-
 Plug 'kana/vim-smartinput'
 
 Plug 'osyo-manga/vim-over'
-    vmap H :OverCommandLine %s/<C-R>*/&<CR>
+    vmap H :OverCommandLine s/<CR>
+    nmap H :OverCommandLine %s//&<CR>
 
 Plug 'fatih/vim-go', { 'for': 'go' }
     let g:go_fmt_command = "goimports"
@@ -99,6 +95,10 @@ Plug 'kovetskiy/vim-go-complete-utils', { 'for': 'go' }
 
 Plug 'scrooloose/syntastic', { 'for': 'php' }
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+    map <C-P> :FZF<CR>
+    "@TODO: follow symlinks & dotfiles visible
+
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
 "Plug 'gmarik/vundle'
@@ -107,6 +107,11 @@ Plug 'scrooloose/syntastic', { 'for': 'php' }
 "Plug 'kien/ctrlp.vim'
 "Plug 'Shougo/vimproc.vim'
 "Plug 'wojtekmach/vim-rename'
+""Plug 'ctrlpvim/ctrlp.vim'
+"    let g:ctrlp_follow_symlinks = 1
+"    let g:ctrlp_show_hidden = 1
+"    map <leader>p :CtrlPClearAllCaches<CR>
+
 call plug#end()
 
 " Options
@@ -238,6 +243,7 @@ function! FormatHtmlInPhp()
     normal gg=G
     set ft=php
     normal gg=G
+    set ft=html
 endfunction
 
 augroup filetype_toggle_php_html

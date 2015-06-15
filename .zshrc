@@ -103,3 +103,5 @@ function word_prepend_dot_slash() {
 function gocd() {
 	cd `find $GOPATH/src/ -name "$1*" -type d | head -n 1`
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
