@@ -96,7 +96,7 @@ Plug 'kovetskiy/vim-go-complete-utils', { 'for': 'go' }
 Plug 'scrooloose/syntastic', { 'for': 'php' }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-    map <C-P> :FZF<CR>
+    map <C-P> :FZF -m<CR>
     "@TODO: follow symlinks & dotfiles visible
 
 "Plug 'Shougo/vimproc'
