@@ -188,6 +188,12 @@ snippet tdv "variable declaration" bw
 $this->$1 = ${2:`!p snip.rv=px.php.get_last_var_for_snippet()`}
 endsnippet
 
+snippet ine "if not empty" !w
+if (!empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
+	$0
+}
+endsnippet
+
 snippet em "empty" !w
 empty($0)
 endsnippet
@@ -322,9 +328,7 @@ $${1:array} = [
 endsnippet
 
 snippet / "<?php"
-<?php
-	$0
-?>
+<?php $0 ?>
 endsnippet
 
 snippet a "$var = "
@@ -332,13 +336,25 @@ $$1 = $0;
 endsnippet
 
 snippet /fe "foreach"
-<?php foreach ($$1 as $$2) : ?>
+<?php foreach($$1 as $$2) : ?>
 	$0
 <?php endforeach ?>
 endsnippet
 
-snippet /i "foreach"
-<?php if ($1) : ?>
+snippet /f "for"
+<?php for($$1 as $$2) : ?>
+	$0
+<?php endfor ?>
+endsnippet
+
+snippet /i "if"
+<?php if($1) : ?>
+	$0
+<?php endif ?>
+endsnippet
+
+snippet /ine "if not empty"
+<?php if(!empty($1)) : ?>
 	$0
 <?php endif ?>
 endsnippet
@@ -347,8 +363,12 @@ snippet /e "else"
 <?php else : ?>
 endsnippet
 
+snippet /ei "endif"
+<?php endif ?>
+endsnippet
+
 snippet /= "" i
-<?= $0 ?>
+<?= ${0:`!p snip.rv=px.php.get_last_var_for_snippet()`} ?>
 endsnippet
 
 snippet G "$_GET" i
