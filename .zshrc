@@ -7,6 +7,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1500
 eval $(dircolors ~/.dircolors.$(cat ~/.background))
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # exports
 export GOPATH=$HOME/.go
 export PATH=$HOME/.bin:/usr/local/bin:$GOPATH/bin:$PATH
@@ -65,6 +67,7 @@ alias gl="git log --graph --decorate --oneline --all"
 alias gpo="git push origin"
 alias gpom="git push origin master"
 alias gplo="git pull --rebase origin"
+alias gplos="git stash && git pull --rebase origin && git stash pop"
 alias gpl="git pull --rebase"
 alias grm="git rm"
 alias grs="git reset"
@@ -103,5 +106,3 @@ function word_prepend_dot_slash() {
 function gocd() {
 	cd `find $GOPATH/src/ -name "$1*" -type d | head -n 1`
 }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

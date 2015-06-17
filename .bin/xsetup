@@ -18,4 +18,6 @@ xset r rate 120 100
 
 redshift -l55.2:82.55 -o > /dev/null
 
+pkill keynav; keynav
+
 hdmi-head || one-head
