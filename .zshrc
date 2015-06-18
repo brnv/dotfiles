@@ -85,7 +85,8 @@ alias h="bindkey L"
 bindkey "^U" undo
 bindkey "^T" prepend-sudo
 bindkey "^B" backward-word
-bindkey "^F" forward-word
+#bindkey "^F" forward-word
+bindkey '^F' fzf-file-widget
 
 # custom widgets
 zle -N prepend-sudo prepend_sudo
