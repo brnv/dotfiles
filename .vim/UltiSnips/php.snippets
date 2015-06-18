@@ -194,6 +194,12 @@ if (!empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
 }
 endsnippet
 
+snippet ie "if empty" !w
+if (empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
+	$0
+}
+endsnippet
+
 snippet em "empty" !w
 empty($0)
 endsnippet
@@ -368,9 +374,35 @@ snippet /ei "endif"
 endsnippet
 
 snippet /= "" i
-<?= ${0:`!p snip.rv=px.php.get_last_var_for_snippet()`} ?>
+<?= ${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}$0 ?>
 endsnippet
 
 snippet G "$_GET" i
 $_GET['$0']
+endsnippet
+
+snippet to "Url::to" i
+<?= Url::to(['$0']) ?>
+endsnippet
+
+snippet n " = null" i
+ = null$0
+endsnippet
+
+snippet ucfirst "ucfirst"
+ucfirst(${0:${VISUAL}})
+endsnippet
+
+snippet /c "comment block"
+<?php /*
+${0:${VISUAL}}
+*/ ?>
+endsnippet
+
+snippet /d "<?php var_dump"
+<?php var_dump(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`}) ?>
+endsnippet
+
+snippet /td "<?php //@TODO"
+<?php //@TODO: $0 ?>
 endsnippet
