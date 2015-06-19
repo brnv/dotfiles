@@ -152,7 +152,6 @@ set timeoutlen=400
 set splitright
 set updatetime=1000
 set showtabline=1
-set pastetoggle=<F11>
 
 filetype plugin indent on
 
@@ -161,13 +160,14 @@ map <leader>r :so ~/.vimrc<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
 map <leader>j <Space>cl
 map <leader>u <Space>cu
-map <leader>w <ESC>:w<CR>
-map <leader>q <ESC>:q<CR>
+map <leader>w <Esc>:w<CR>
+map <leader>q <Esc>:q<CR>
 map Q qq
 map ! :g//norm @q<CR>
 nmap <leader>n :vnew<CR>
 map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 nmap # #N
+nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
 
 " Motions
 map <M-j> <Esc>
