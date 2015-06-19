@@ -1,21 +1,21 @@
-snippet if "if" !b
-if (${1}) {
-	${0}
+snippet i "if" !b
+if(${1}) {
+	${2}
 }
 endsnippet
 
 snippet l "console.log();" !b
-console.log(${0});
+console.log(${1});
 endsnippet
 
 snippet of "object function" !b
 ${1}: function(${2}) {
-	${0}
+	${3}
 },
 endsnippet
 
 snippet a "alert"
-alert($1);
+alert(${1:1});
 endsnippet
 
 snippet ajax "jquery ajax"
@@ -29,11 +29,15 @@ $.ajax(${1:url}).
 endsnippet
 
 snippet r "return"
-return $0;
+return $1;
 endsnippet
 
 snippet af "function" i
 function($1) {
-	$0
+	$2
 }
+endsnippet
+
+snippet vtt "var that = this;"
+var that = this;
 endsnippet
