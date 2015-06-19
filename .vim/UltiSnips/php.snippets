@@ -190,13 +190,13 @@ endsnippet
 
 snippet ine "if not empty" !w
 if (!empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
-	$0
+	$2
 }
 endsnippet
 
 snippet ie "if empty" !w
 if (empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
-	$0
+	$2
 }
 endsnippet
 
@@ -276,16 +276,15 @@ endsnippet
 
 snippet i "if" !b
 if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}$2) {
-	$0
+	$3
 }
 endsnippet
 
 snippet ia "if array key" !b
 if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}['$2']$3) {
-	$0
+	$4
 }
 endsnippet
-
 
 snippet un "unset"
 unset(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`});
@@ -329,7 +328,7 @@ endsnippet
 
 snippet ar "$array"
 $${1:array} = [
-	$0
+	$2
 ];
 endsnippet
 
@@ -343,25 +342,25 @@ endsnippet
 
 snippet /fe "foreach"
 <?php foreach($$1 as $$2) : ?>
-	$0
+	$3
 <?php endforeach ?>
 endsnippet
 
 snippet /f "for"
 <?php for($$1 as $$2) : ?>
-	$0
+	$3
 <?php endfor ?>
 endsnippet
 
 snippet /i "if"
 <?php if($1) : ?>
-	$0
+	$2
 <?php endif ?>
 endsnippet
 
 snippet /ine "if not empty"
 <?php if(!empty($1)) : ?>
-	$0
+	$2
 <?php endif ?>
 endsnippet
 
@@ -405,4 +404,25 @@ endsnippet
 
 snippet /td "<?php //@TODO"
 <?php //@TODO: $0 ?>
+endsnippet
+
+snippet af "yii2 active form"
+<?php $form = ActiveForm::begin(); ?>
+	$1
+	<?=  Html::submitButton('Submit', ['class' => 'btn btn-primary']); ?>
+<?php ActiveForm::end(); ?>
+endsnippet
+
+snippet ff "yii2 form field"
+<?= $form->field($${1}Model, '${2:field}')->label('${3}') ?>
+endsnippet
+
+snippet ip "yii2 is post"
+if(\yii::$app->request->isPost) {
+	$1
+}
+endsnippet
+
+snippet rp "yii2 request" i
+\yii::$app->request->post${1:('$2')};
 endsnippet
