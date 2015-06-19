@@ -1,6 +1,6 @@
 snippet p "<p>"
 <p>
-${0:${VISUAL}}
+${1:${VISUAL}}
 </p>
 endsnippet
 
@@ -52,92 +52,90 @@ endsnippet
 
 snippet b "<b>"
 <b>
-${0:${VISUAL}}
+${1:${VISUAL}}
 </b>
 endsnippet
 
 snippet a "<a>"
 <a href="$1">
-	$0
+	$2
 </a>
 endsnippet
 
 snippet f "form"
 <form action="$1" method="${2:POST}">
-	$0
+	$3
 </form>
 endsnippet
 
 snippet i "input"
 <input type="${1:text}" name="$2" id="$2" value="$3" />
-$0
+$4
 endsnippet
 
 snippet is "input type submit"
 <input type="submit" value="$1" />
-$0
 endsnippet
 
 snippet d "<div>"
 <div ${1:class="$2"} ${3:id="$4"}>
-	$0
+	${5:${VISUAL}}
 </div>
 endsnippet
 
 snippet s "<span>"
 <span${1: class="$2"}>
-	$0
+	$3
 </span>
 endsnippet
 
 snippet scr "script"
 <script type="text/javascript">
-	$0
+	$1
 </script>
 endsnippet
 
 snippet scrs "script"
-<script type="text/javascript" src="$0">
-</script>
+<script type="text/javascript" src="$1"></script>
 endsnippet
 
 snippet container "bootstrap container"
 <div class="container-fluid">
-	$0
+	$1
 </div>
 endsnippet
 
 snippet row "bootstrap row"
 <div class="row">
-	$0
+	$1
 </div>
 endsnippet
 
 snippet md1 "col-md-1"
 <div class="col-md-1">
-	$0
+	$1
 </div>
 endsnippet
 
 snippet md6 "col-md-6"
 <div class="col-md-6">
-	$0
+	$1
 </div>
 endsnippet
 
 snippet img "<img/>"
-<img src="$0" />
+<img src="$1" />
 endsnippet
 
 snippet button "button"
 <button>
-	$0
+	$1
 </button>
 endsnippet
 
 snippet center "center"
 <center>
-${0:${VISUAL}}
+${1:${VISUAL}}
 </center>
 endsnippet
 
@@ -146,15 +144,15 @@ snippet n "new line"
 endsnippet
 
 snippet link "<link>"
-<link href="$0" rel="stylesheet">
+<link href="$1" rel="stylesheet">
 endsnippet
 
 snippet l "label"
 <label>
-	${0:${VISUAL}}
+	${1:${VISUAL}}
 </label>
 endsnippet
 
 snippet c "class" i
-class="$0"
+class="$1"
 endsnippet
