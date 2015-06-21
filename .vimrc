@@ -23,7 +23,7 @@ Plug 'SirVer/UltiSnips'
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
-    vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>snippet name "desc"<CR><C-r>*<CR><CR><C-w>endsnippet<ESC>
+    vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>s<C-J><C-r>*<C-J>
     map <leader>s :UltiSnipsEdit<CR>G
 
 Plug 'tpope/vim-fugitive'
@@ -98,6 +98,8 @@ Plug 'scrooloose/syntastic', { 'for': 'php' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     map <C-P> :FZF -m<CR>
     "@TODO: follow symlinks & dotfiles visible
+
+"Plug 'hallettj/jslint.vim'
 
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
