@@ -7,3 +7,5 @@ if [[ -z $position ]]; then
 fi
 
 xrandr --output HDMI-0 --mode 1920x1080 --$position-of eDP --output eDP --mode 1366x768
+
+xsetup
