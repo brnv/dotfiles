@@ -1,0 +1,57 @@
+snippet yut "yii2 Url::to" i
+<?= Url::to(['$0']) ?>
+endsnippet
+
+snippet yaf "yii2 active form"
+<?php $form = ActiveForm::begin([
+    'method' => '${1:get}',
+    'id' => '${2:form-id}',
+    'action' => Url::to(['${3:action}']),
+]) ?>
+	$4
+	<?= Html::submitButton('Submit', ['class' => 'btn btn-primary']); ?>
+<?php ActiveForm::end() ?>
+endsnippet
+
+snippet ff "yii2 form field"
+<?= $form->field($${1}Model, '${2:field}')->label('${3}') ?>
+endsnippet
+
+snippet ip "yii2 is post"
+if(\yii::$app->request->isPost) {
+	$1
+}
+endsnippet
+
+snippet yrp "yii2 request" i
+\yii::$app->request->post${1:('$2')};
+endsnippet
+
+snippet ffh "yii2 form field hidden"
+<?= $form->field($${1}Model, '${2:field}')->hiddenInput([
+		'value' => '${3:value}'])->label(false) ?>
+endsnippet
+
+snippet uam "use app\models"
+use app\models\\$1;
+endsnippet
+
+snippet yp "yii app params" i
+\yii::$app->params['$1']
+endsnippet
+
+snippet ypj "pjax"
+<?php \yii\widgets\Pjax::begin(['id' => '${1:pjax-id}']) ?>
+	$2
+<?php \yii\widgets\Pjax::end() ?>
+endsnippet
+
+snippet uyh "use yii\helpers"
+use yii\helpers\\$1;
+endsnippet
+
+snippet te "$this->execute()"
+$this->execute("
+	$1
+");
+endsnippet

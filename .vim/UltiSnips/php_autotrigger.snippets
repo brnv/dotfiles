@@ -1,0 +1,44 @@
+global !p
+import px.php
+endglobal
+
+snippet i "if" A
+if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}$2) {
+	$3
+}
+endsnippet
+
+#@TODO: check not to lose prev snippet placeholders
+snippet e "empty" Aw
+empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})
+endsnippet
+
+snippet t "$this" bA
+$this->$0
+endsnippet
+
+snippet $ "$var = " iA
+$$1 = $2;
+endsnippet
+
+snippet ? "<?php tag" bA
+<?php
+
+$0
+endsnippet
+
+snippet > "$var->" wA
+$${1:var}->$0
+endsnippet
+
+snippet d "var_dump" A
+var_dump(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`});
+endsnippet
+
+snippet . "" Ai
+$1 => $0
+endsnippet
+
+snippet r "return" bA
+return ${0:`!p snip.rv=px.php.get_last_var_for_snippet()`};
+endsnippet

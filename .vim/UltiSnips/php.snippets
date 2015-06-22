@@ -18,158 +18,8 @@ else:
 }
 endsnippet
 
-snippet n "New class instance" b
-$1 = new $2($3);
-endsnippet
-
-snippet rt "return true" bw
-return true;
-endsnippet
-
-snippet rf "return false" bw
-return false;
-endsnippet
-
-snippet rn "return null" bw
-return null;
-endsnippet
-
-snippet t "$this" w
-$this->$0
-endsnippet
-
-snippet td "$this->_di->get" bw
-$this->_di->get$1()${2:->}
-endsnippet
-
-snippet pr "log debug" bw
-$this->_di->getLogger()->debug($1);
-endsnippet
-
-snippet ld "log debug" bw
-$this->_di->getLogger()->debug("$1");
-endsnippet
-
-snippet lrn "log notice" bw
-$this->_di->getLogger()->notice("$1");
-endsnippet
-
-snippet lr "log error" bw
-$this->_di->getLogger()->error("$1");
-endsnippet
-
-snippet li "log info" bw
-$this->_di->getLogger()->info("$1");
-endsnippet
-
 snippet le "log exception" bw
 $this->_di->getLogger()->exception(`!p snip.rv=px.php.get_last_var_for_snippet()`);
-endsnippet
-
-snippet ei "elseif" iw
- elseif ($1) {
-	$2
-}
-endsnippet
-
-snippet e "else" iw
- else {
-	$1
-}
-endsnippet
-
-snippet uf "public function" bw
-/**
- * $3
- *
- * $4
- */
-public function $1($2)
-{
-	${5:${VISUAL}}
-}
-endsnippet
-
-snippet vf "private function" bw
-/**
- * $3
- *
- * $4
- */
-private function _$1($2)
-{
-	${5:${VISUAL}}
-}
-endsnippet
-
-snippet pf "protected function" bw
-/**
- * $3
- *
- * $4
- */
-protected function _$1($2)
-{
-	${5:${VISUAL}}
-}
-endsnippet
-
-snippet u "public variable" bw
-/**
- * $2
- *
- * @var $3
- */
-public $$1;
-endsnippet
-
-snippet u= "public variable with variable" bw
-/**
- * $3
- *
- * @var $4
- */
-public $$1 = $2;
-endsnippet
-
-snippet v "private variable" bw
-/**
- * $2
- *
- * @var $3
- */
-private $_$1;
-endsnippet
-
-snippet v= "private variable with variable" bw
-/**
- * $3
- *
- * @var $4
- */
-private $_$1 = $2;
-endsnippet
-
-snippet p "protected variable" bw
-/**
- * $2
- *
- * @var $3
- */
-protected $_$1;
-endsnippet
-
-snippet p= "protected variable with variable" bw
-/**
- * $3
- *
- * @var $4
- */
-protected $_$1 = $2;
-endsnippet
-
-snippet ar "array" w
-array($0)
 endsnippet
 
 snippet vd "variable declaration" bw
@@ -200,39 +50,7 @@ if(empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
 }
 endsnippet
 
-snippet em "empty" !w
-empty($0)
-endsnippet
-
-snippet is "isset" !w
-isset($0)
-endsnippet
-
-snippet te "throw exception" bw
-throw new $1($2);
-endsnippet
-
-snippet try "try catch" bw
-try {
-	${1:${VISUAL}}
-} catch ($2 $e) {
-	${3:te }
-}
-endsnippet
-
-snippet l "error_log" w
-error_log(print_r([$1], true));
-endsnippet
-
-snippet lv "error_log variable" w
-error_log(print_r(['$1' => $1], true));
-endsnippet
-
-snippet > "$var->" w
-$${1:var}->$0
-endsnippet
-
-snippet "* c" "PhpDoc for class" b
+snippet "* c" "phpdoc for class" b
 `!p
 import subprocess;
 import vim;
@@ -252,34 +70,6 @@ endsnippet
 
 ## my snippets
 
-snippet d "var_dump"
-var_dump(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`});
-endsnippet
-
-snippet e "exit" !b
-exit($1);
-endsnippet
-
-snippet . "" i
-$1 => $0
-endsnippet
-
-snippet fr "for"
-for($i = 0; $i < $1; $i++) {
-
-}
-endsnippet
-
-snippet r "return"
-return ${0:`!p snip.rv=px.php.get_last_var_for_snippet()`};
-endsnippet
-
-snippet i "if" !b
-if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}$2) {
-	$3
-}
-endsnippet
-
 snippet ia "if array key" !b
 if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}['$2']$3) {
 	$4
@@ -297,150 +87,165 @@ class $1
 }
 endsnippet
 
-snippet prf "protected function"
-protected function _$1($2)
-{
-	$0
-}
-endsnippet
-
-snippet f "public function"
-public function $1($2)
-{
-	$0
-}
-endsnippet
-
-snippet psf "public static function"
-public static function $1($2)
-{
-	$0
-}
-endsnippet
-
-snippet pm "public member"
-public $${1:name} = $0;
-endsnippet
-
-snippet prm "protected member"
-protected $_${1:name} = $0;
-endsnippet
-
-snippet ar "$array"
-$${1:array} = [
-	$2
-];
-endsnippet
-
-snippet / "<?php"
-<?php $0 ?>
-endsnippet
-
-snippet a "$var = "
-$$1 = $0;
-endsnippet
-
-snippet /fe "foreach"
-<?php foreach($$1 as $$2) : ?>
-	$3
-<?php endforeach ?>
-endsnippet
-
-snippet /f "for"
-<?php for($$1 as $$2) : ?>
-	$3
-<?php endfor ?>
-endsnippet
-
-snippet /i "if"
-<?php if($1) : ?>
-	$2
-<?php endif ?>
-endsnippet
-
-snippet /ine "if not empty"
-<?php if(!empty($1)) : ?>
-	$2
-<?php endif ?>
-endsnippet
-
-snippet /e "else"
-<?php else : ?>
-endsnippet
-
-snippet /ei "endif"
-<?php endif ?>
-endsnippet
-
 snippet /= "" i
 <?= ${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}$0 ?>
-endsnippet
-
-snippet G "$_GET" i
-$_GET['$0']
-endsnippet
-
-snippet to "Url::to" i
-<?= Url::to(['$0']) ?>
 endsnippet
 
 snippet n " = null" i
  = null$0
 endsnippet
 
-snippet ucfirst "ucfirst"
-ucfirst(${0:${VISUAL}})
-endsnippet
-
-snippet /c "comment block"
-<?php /*
-${0:${VISUAL}}
-*/ ?>
-endsnippet
-
 snippet /d "<?php var_dump"
 <?php var_dump(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`}) ?>
 endsnippet
 
-snippet /td "<?php //@TODO"
-<?php //@TODO: $0 ?>
-endsnippet
+snippet "(protected \$([\w.]+).*ps)" "protected setter" rm
+`!p
+_line = match.group(1)[:-2]
+_cid = px.php.get_camelcase_identifier_from_string(_line, False)
+_id = px.php.get_identifier_from_string(_line, False)
+_phpdoc = px.php.get_phpdoc_variables_before_cursor()
+_var = ''
+if 'var' in _phpdoc:
+	_var = _phpdoc['var']
+snip.rv=_line`$0
 
-snippet af "yii2 active form"
-<?php $form = ActiveForm::begin(); ?>
-	$1
-	<?=  Html::submitButton('Submit', ['class' => 'btn btn-primary']); ?>
-<?php ActiveForm::end(); ?>
-endsnippet
 
-snippet ff "yii2 form field"
-<?= $form->field($${1}Model, '${2:field}')->label('${3}') ?>
-endsnippet
+/**
+ * $1
+ *
+ * @param ${2:`!p snip.rv=_var`} $$3
+ * @return $this
+ */
+protected function _set`!p snip.rv=_cid`($$3)
+{
+    $this->`!p snip.rv=_id` = $$3;
 
-snippet ip "yii2 is post"
-if(\yii::$app->request->isPost) {
-	$1
+    return $this;
 }
 endsnippet
 
-snippet rp "yii2 request" i
-\yii::$app->request->post${1:('$2')};
+snippet "((protected|public|private) \$([\w.]+).*pg)" "protected getter" rm
+`!p
+_line = match.group(1)[:-2]
+_cid = px.php.get_camelcase_identifier_from_string(_line, False)
+_id = px.php.get_identifier_from_string(_line, False)
+_phpdoc = px.php.get_phpdoc_variables_before_cursor()
+_var = ''
+if 'var' in _phpdoc:
+	_var = _phpdoc['var']
+snip.rv=_line`$0
+
+
+/**
+ * $1
+ *
+ * @return ${2:`!p snip.rv=_var`}
+ */
+protected function _get`!p snip.rv=_cid`()
+{
+    return $this->`!p snip.rv=_id`;
+}
 endsnippet
 
-snippet /n "<br/>"
-<br/>
+snippet "((protected|public|private) \$([\w.]+).*vs)" "private setter" rm
+`!p
+_line = match.group(1)[:-2]
+_cid = px.php.get_camelcase_identifier_from_string(_line, False)
+_id = px.php.get_identifier_from_string(_line, False)
+_phpdoc = px.php.get_phpdoc_variables_before_cursor()
+_var = ''
+if 'var' in _phpdoc:
+	_var = _phpdoc['var']
+snip.rv=_line`$0
+
+
+/**
+ * $1
+ *
+ * @param ${2:`!p snip.rv=_var`} $$3
+ * @return $this
+ */
+private _set`!p snip.rv=_cid`($$3)
+{
+    $this->`!p snip.rv=_id` = $$3;
+
+    return $this;
+}
 endsnippet
 
-snippet ffh "yii2 form field hidden"
-<?= $form->field($${1}Model, '${2:field}')->hiddenInput([
-		'value' => ${3:value},
-	])->label(false) ?>
+snippet "((protected|public|private) \$([\w.]+).*vg)" "private getter" rm
+`!p
+_line = match.group(1)[:-2]
+_cid = px.php.get_camelcase_identifier_from_string(_line, False)
+_id = px.php.get_identifier_from_string(_line, False)
+_phpdoc = px.php.get_phpdoc_variables_before_cursor()
+_var = ''
+if 'var' in _phpdoc:
+	_var = _phpdoc['var']
+snip.rv=_line`$0
+
+
+/**
+ * $1
+ *
+ * @return ${2:`!p snip.rv=_var`}
+ */
+private _get`!p snip.rv=_cid`()
+{
+    return $this->`!p snip.rv=_id`;
+}
 endsnippet
 
-snippet uam "use app\models"
-use app\models\\$1;
+snippet "((protected|public|private) \$([\w.]+).*us)" "public setter" rm
+`!p
+_line = match.group(1)[:-2]
+_cid = px.php.get_camelcase_identifier_from_string(_line, False)
+_id = px.php.get_identifier_from_string(_line, False)
+_phpdoc = px.php.get_phpdoc_variables_before_cursor()
+_var = ''
+if 'var' in _phpdoc:
+	_var = _phpdoc['var']
+snip.rv=_line`$0
+
+
+/**
+ * $1
+ *
+ * @param ${2:`!p snip.rv=_var`} $$3
+ * @return $this
+ */
+public function set`!p snip.rv=_cid`($$3)
+{
+    $this->`!p snip.rv=_id` = $$3;
+
+    return $this;
+}
 endsnippet
 
-snippet yp "yii app params" i
-\yii::$app->params['$1']
+snippet "((protected|public|private) \$([\w.]+).*ug)" "public getter" rm
+`!p
+_line = match.group(1)[:-2]
+_cid = px.php.get_camelcase_identifier_from_string(_line, False)
+_id = px.php.get_identifier_from_string(_line, False)
+_phpdoc = px.php.get_phpdoc_variables_before_cursor()
+_var = ''
+if 'var' in _phpdoc:
+	_var = _phpdoc['var']
+snip.rv=_line`$0
+
+
+/**
+ * $1
+ *
+ * @return ${2:`!p snip.rv=_var`}
+ */
+public function get`!p snip.rv=_cid`()
+{
+    return $this->`!p snip.rv=_id`;
+}
+endsnippet
+
+snippet "^(.*?class\s+[\w_]+)\s([\w+]+)" "expand extends" rm
+`!p snip.rv=match.group(1) + " extends " + match.group(2)`
 endsnippet
