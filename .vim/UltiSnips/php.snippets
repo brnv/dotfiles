@@ -189,13 +189,13 @@ $this->$1 = ${2:`!p snip.rv=px.php.get_last_var_for_snippet()`}
 endsnippet
 
 snippet ine "if not empty" !w
-if (!empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
+if(!empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
 	$2
 }
 endsnippet
 
 snippet ie "if empty" !w
-if (empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
+if(empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) {
 	$2
 }
 endsnippet
@@ -228,8 +228,8 @@ snippet lv "error_log variable" w
 error_log(print_r(['$1' => $1], true));
 endsnippet
 
-snippet > "=>" w
-$1 => $2,
+snippet > "$var->" w
+$${1:var}->$0
 endsnippet
 
 snippet "* c" "PhpDoc for class" b
@@ -425,4 +425,22 @@ endsnippet
 
 snippet rp "yii2 request" i
 \yii::$app->request->post${1:('$2')};
+endsnippet
+
+snippet /n "<br/>"
+<br/>
+endsnippet
+
+snippet ffh "yii2 form field hidden"
+<?= $form->field($${1}Model, '${2:field}')->hiddenInput([
+		'value' => ${3:value},
+	])->label(false) ?>
+endsnippet
+
+snippet uam "use app\models"
+use app\models\\$1;
+endsnippet
+
+snippet yp "yii app params" i
+\yii::$app->params['$1']
 endsnippet
