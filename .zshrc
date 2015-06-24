@@ -36,6 +36,8 @@ alias zi="sudo zpool import"
 alias ze="sudo zpool export"
 alias rr="rm -r"
 alias pwgen="pwgen 12"
+alias me="mysql uveliria-idfly-ru -e"
+alias ym="./yii migrate"
 
 # android tools
 alias alc="sudo adb logcat"

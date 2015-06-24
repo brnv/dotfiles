@@ -101,6 +101,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     "@TODO: follow symlinks & dotfiles visible
 
 Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
+    let JSHintUpdateWriteOnly=1
 
 Plug 'Shougo/vimshell.vim'
 
