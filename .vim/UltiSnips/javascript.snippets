@@ -41,3 +41,39 @@ endsnippet
 snippet vtt "var that = this;"
 var that = this;
 endsnippet
+
+snippet get "$.get"
+$.get(${1:url}, function(text) {
+	$2
+});
+endsnippet
+
+snippet im "idfly modal"
+IdFly.Components.Modal.create({
+	title: '',
+	contents: ${1:contents},
+});
+endsnippet
+
+snippet o "new object"
+var ${1} = {
+
+    init: function() {
+		$2
+    },
+};
+endsnippet
+
+snippet pj "pjax"
+$(document).on('submit', 'form#${1:form-id}', function(event) {
+	$2$.pjax.defaults.push = false;
+	$.pjax.submit(event, '#pjax-$1');
+	return false;
+});
+
+$(document).on('pjax:success', function(event) {
+	if($(event.relatedTarget).attr('id') === '$1') {
+		$3
+	}
+});
+endsnippet

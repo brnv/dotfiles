@@ -74,12 +74,7 @@ private function _$1($2)
 }
 endsnippet
 
-snippet pf "protected function" bw
-/**
- * $3
- *
- * $4
- */
+snippet prf "protected function" bw
 protected function _$1($2)
 {
 	${5:${VISUAL}}
@@ -178,13 +173,6 @@ for($i = 0; $i < $1; $i++) {
 }
 endsnippet
 
-snippet prf "protected function"
-protected function _$1($2)
-{
-	$0
-}
-endsnippet
-
 snippet f "public function"
 public function $1($2)
 {
@@ -241,6 +229,12 @@ snippet /ine "if not empty"
 <?php endif ?>
 endsnippet
 
+snippet /ie "if empty"
+<?php if(empty($1)) : ?>
+	$2
+<?php endif ?>
+endsnippet
+
 snippet /e "else"
 <?php else : ?>
 endsnippet
@@ -265,4 +259,8 @@ endsnippet
 
 snippet /n "<br/>"
 <br/>
+endsnippet
+
+snippet ne "not empty" i
+!empty($$1) 
 endsnippet

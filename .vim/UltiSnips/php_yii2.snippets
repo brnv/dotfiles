@@ -2,19 +2,26 @@ snippet yut "yii2 Url::to" i
 <?= Url::to(['$0']) ?>
 endsnippet
 
+snippet ycu "yii2 current url"
+Yii::$app->request->url
+endsnippet
+
 snippet yaf "yii2 active form"
 <?php $form = ActiveForm::begin([
     'method' => '${1:get}',
     'id' => '${2:form-id}',
-    'action' => Url::to(['${3:action}']),
+    'action' => Url::to([${3:Yii::$app->request->url}]),
 ]) ?>
+
 	$4
+
 	<?= Html::submitButton('Submit', ['class' => 'btn btn-primary']); ?>
+
 <?php ActiveForm::end() ?>
 endsnippet
 
-snippet ff "yii2 form field"
-<?= $form->field($${1}Model, '${2:field}')->label('${3}') ?>
+snippet yff "yii2 form field"
+<?= $form->field($${1}Model, '${2:${VISUAL}}')->$3label('${4}') ?>
 endsnippet
 
 snippet ip "yii2 is post"
@@ -27,13 +34,18 @@ snippet yrp "yii2 request" i
 \yii::$app->request->post${1:('$2')};
 endsnippet
 
-snippet ffh "yii2 form field hidden"
-<?= $form->field($${1}Model, '${2:field}')->hiddenInput([
-		'value' => '${3:value}'])->label(false) ?>
+snippet yffh "yii2 form field hidden"
+<?= $form->field($${1}Model, '${2:${VISUAL}}')->hiddenInput([
+	'value' => '${3:value}'
+	])->label(false) ?>
 endsnippet
 
 snippet uam "use app\models"
 use app\models\\$1;
+endsnippet
+
+snippet uyw "use yii\widgets"
+use yii\widgets\\$1;
 endsnippet
 
 snippet yp "yii app params" i
@@ -42,7 +54,9 @@ endsnippet
 
 snippet ypj "pjax"
 <?php \yii\widgets\Pjax::begin(['id' => '${1:pjax-id}']) ?>
-	$2
+
+	${2:${VISUAL}}
+
 <?php \yii\widgets\Pjax::end() ?>
 endsnippet
 
@@ -54,4 +68,22 @@ snippet te "$this->execute()"
 $this->execute("
 	$1
 ");
+endsnippet
+
+snippet ac "controller action"
+public function action$1($2)
+{
+	$3
+	return $this->render('${1/(.*)/\l$1/}', [
+	
+	]);
+}
+endsnippet
+
+snippet ysp "yii save post data"
+if(\yii::$app->request->isPost) {
+	if($${1:}Model->load(\yii::$app->request->post())) {
+		$$1Model->save();
+	}
+}
 endsnippet
