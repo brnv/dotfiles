@@ -100,8 +100,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     map <C-P> :FZF -m<CR>
     "@TODO: follow symlinks & dotfiles visible
 
-"Plug 'hallettj/jslint.vim'
+Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
 
+Plug 'Shougo/vimshell.vim'
+
+"Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
 "Plug 'gmarik/vundle'
