@@ -147,7 +147,6 @@ set hlsearch
 set nowrap
 set textwidth=75
 set formatoptions=qrn1
-set colorcolumn=80
 set autoread
 set laststatus=2
 set list
@@ -172,6 +171,7 @@ map <leader>q <Esc>:q<CR>
 map Q qq
 map ! :g//norm @q<CR>
 nmap <leader>n :vnew<CR>
+nmap <leader>m :vnew<CR>:VimShell<CR>
 map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 nmap # #N
 nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
@@ -194,9 +194,9 @@ augroup starting_cursor_position
     au BufReadPost * call setpos(".", getpos("'\""))
 augroup end
 
-augroup hilight_over_80
+augroup colorcolumn_80_120
     au!
-    au VimResized,VimEnter * set cc= | for i in range(80, &columns > 80 ? &columns : 80) | exec "set cc+=" . i | endfor
+    au VimResized,VimEnter * set cc= | for i in range(80, 120) | exec "set cc+=" . i | endfor
 augroup end
 
 augroup filetypes
