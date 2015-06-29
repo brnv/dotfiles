@@ -1,4 +1,4 @@
-snippet pm "package main" "line == 1" be
+snippet pm "package main" "snip.line == 1" be
 package main
 endsnippet
 
@@ -138,26 +138,25 @@ return nil
 endsnippet
 
 global !p
-import px
-import go
+import px.go
 endglobal
 
-snippet p "panic" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(buffer, line))" bwe
+snippet p "panic" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(snip.buffer, snip.line))" bwe
 panic(err)
 endsnippet
 
-snippet lf "log.Fatal(err)" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(buffer, line))" bwe
+snippet lf "log.Fatal(err)" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(snip.buffer, snip.line))" bwe
 log.Fatal(err)
 endsnippet
 
-snippet p "package" "line == 1" bwe
+snippet p "package" "snip.line == 1" bwe
 package ${1:`!p snip.rv=go.guess_package_name_from_file_name(snip.fn)`}
 
 $0
 endsnippet
 
 snippet i "if"
-if ${1:`!p snip.rv=go.get_last_var_for_snippet()`} $2 {
+if ${1:`!p snip.rv=px.all.get_last_var_for_snippet()`} $2 {
 	${3:${VISUAL}}
 }
 endsnippet
@@ -166,7 +165,7 @@ snippet r "return" b
 return ${1:`!p snip.rv=go.get_last_var_for_snippet()`}
 endsnippet
 
-snippet r "return" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(buffer, line))" eb
+snippet r "return" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(snip.buffer, snip.line))" eb
 return err
 endsnippet
 
@@ -187,10 +186,12 @@ case $2:
 }
 endsnippet
 
-snippet i "integer field" "px.go.is_func_declaration(buffer, line)" we
+snippet i "integer field" "px.go.is_func_declaration(snip.buffer, snip.line)" we
 $1 int,
 endsnippet
 
-snippet m "map field" "px.go.is_type_declaration(buffer, line)" bwe
+snippet m "map field" "px.go.is_type_declaration(snip.buffer, snip.line)" bwe
 $1 map[${2:string}]${3:interface{}}
 endsnippet
+
+
