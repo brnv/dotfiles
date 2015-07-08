@@ -44,6 +44,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
     let g:go_fmt_command = "goimports"
 
 Plug 'tpope/vim-surround'
+    nmap <leader>( <ESC>ysw)
+
 Plug 'scrooloose/nerdcommenter'
 Plug 'cespare/vim-toml'
 Plug 'majutsushi/tagbar'
@@ -78,13 +80,7 @@ Plug 't9md/vim-choosewin'
 
 Plug 'danro/rename.vim'
 
-Plug 'seletskiy/vim-pythonx'
-    augroup go_helpers
-        au!
-        au FileType go inoremap <C-L> <C-\><C-O>:py go.cycle_by_var_name()<CR>
-        au FileType go smap <C-L> <BS><C-L>
-        au FileType go inoremap <buffer> . <C-\><C-O>:py go.autoimport()<CR>.
-    augroup end
+Plug 'reconquest/vim-pythonx'
 
 Plug 'kovetskiy/vim-ski'
     let g:skeletons_dir=$HOME.'/.vim/skeletons/'
@@ -101,7 +97,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     "@TODO: follow symlinks & dotfiles visible
 
 Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
-    let JSHintUpdateWriteOnly=1
+    let g:JSHintUpdateWriteOnly=1
 
 Plug 'Shougo/vimshell.vim'
 
@@ -151,13 +147,14 @@ set autoread
 set laststatus=2
 set list
 set lcs=trail:·,tab:\ \ 
-set noexpandtab
+set expandtab
 set relativenumber
 set number
 set timeoutlen=400
 set splitright
 set updatetime=1000
 set showtabline=1
+set cc=80,120
 
 filetype plugin indent on
 
@@ -171,7 +168,7 @@ map <leader>q <Esc>:q<CR>
 map Q qq
 map ! :g//norm @q<CR>
 nmap <leader>n :vnew<CR>
-nmap <leader>m :vnew<CR>:VimShell<CR>
+nmap <leader>m :vnew<CR>:VimShell<CR>mysql<CR>
 map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 nmap # #N
 nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
@@ -194,11 +191,6 @@ augroup starting_cursor_position
     au BufReadPost * call setpos(".", getpos("'\""))
 augroup end
 
-augroup colorcolumn_80_120
-    au!
-    au VimResized,VimEnter * set cc= | for i in range(80, 120) | exec "set cc+=" . i | endfor
-augroup end
-
 augroup filetypes
     au!
     au BufEnter *.pl,*.pro,*.P set ft=prolog
@@ -206,7 +198,7 @@ augroup end
 
 augroup expandtab
     au!
-    au FileType php,erlang,prolog,java,vim,xml,javascript set et
+    au FileType php,erlang,prolog,java,vim,xml,javascript,json set et
 augroup end
 
 augroup javac_classpath_for_eclimd
