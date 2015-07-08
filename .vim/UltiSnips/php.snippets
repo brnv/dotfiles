@@ -13,7 +13,7 @@ elif t[1][-1:] == 's':
 	value_var = t[1][:-1]
 else:
 	value_var = t[2]
-`foreach (${1:`!p snip.rv=last_variable`} as ${2:`!p snip.rv=value_var`}) {
+`foreach(${1:`!p snip.rv=last_variable`} as ${2:`!p snip.rv=value_var`}) {
 	$3
 }
 endsnippet
@@ -91,7 +91,7 @@ snippet /= "" i
 <?= ${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}$0 ?>
 endsnippet
 
-snippet n " = null" i
+snippet n " = null" b
  = null$0
 endsnippet
 
@@ -248,4 +248,20 @@ endsnippet
 
 snippet "^(.*?class\s+[\w_]+)\s([\w+]+)" "expand extends" rm
 `!p snip.rv=match.group(1) + " extends " + match.group(2)`
+endsnippet
+
+snippet /ine "if not empty"
+<?php if(!empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})) : ?>
+	$2
+<?php endif ?>
+endsnippet
+
+snippet /fe "foreach"
+<?php foreach(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`} as $$2) : ?>
+	$3
+<?php endforeach ?>
+endsnippet
+
+snippet /r "<?php require '' ?>"
+<?php require '$1' ?>
 endsnippet

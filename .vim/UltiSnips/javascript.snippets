@@ -18,7 +18,21 @@ snippet a "alert"
 alert(${1:1});
 endsnippet
 
-snippet ajax "jquery ajax"
+snippet ajax "ajax"
+$.ajax({
+	url: ${1:url},
+	type: '${2:POST}',
+	data: ${3:data},
+	success: function(result) {
+		${4:alert(1);}
+	},
+	error: function(result) {
+		${5:alert(2);}
+	}
+});
+endsnippet
+
+snippet aj "jquery ajax"
 $.ajax(${1:url}).
 	done(function() {
 		$2
@@ -48,10 +62,11 @@ $.get(${1:url}, function(text) {
 });
 endsnippet
 
-snippet im "idfly modal"
+snippet modal "idfly modal"
 IdFly.Components.Modal.create({
 	title: '',
 	contents: ${1:contents},
+	${3:class: 'modal-md',}
 });
 endsnippet
 
@@ -65,15 +80,35 @@ var ${1} = {
 endsnippet
 
 snippet pj "pjax"
-$(document).on('submit', 'form#${1:form-id}', function(event) {
+$('form#$1').off('submit');
+$('form#${1:form-id}').on('submit', function(event) {
 	$2$.pjax.defaults.push = false;
 	$.pjax.submit(event, '#pjax-$1');
 	return false;
 });
+$('#pjax-$1').off('pjax:success');
+$('#pjax-$1').on('pjax:success', function(event) {
+	$3
+});
+endsnippet
 
-$(document).on('pjax:success', function(event) {
-	if($(event.relatedTarget).attr('id') === '$1') {
-		$3
-	}
+snippet cl "jquery on click event"
+$('${1:selector}').on('click', function() {
+	$2
+});
+endsnippet
+
+snippet rf "return false"
+return false;
+endsnippet
+
+snippet t "this."
+this.$1
+endsnippet
+
+snippet onc "on click"
+$('$1').off('click');
+$('${1}').on('click', function() {
+	$3
 });
 endsnippet

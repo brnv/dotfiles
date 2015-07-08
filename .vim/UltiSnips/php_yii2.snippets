@@ -24,7 +24,7 @@ snippet yff "yii2 form field"
 <?= $form->field($${1}Model, '${2:${VISUAL}}')->$3label('${4}') ?>
 endsnippet
 
-snippet ip "yii2 is post"
+snippet yip "yii2 is post"
 if(\yii::$app->request->isPost) {
 	$1
 }
@@ -42,6 +42,14 @@ endsnippet
 
 snippet uam "use app\models"
 use app\models\\$1;
+endsnippet
+
+snippet uaf "use app\forms"
+use app\forms\\$1;
+endsnippet
+
+snippet uac "use app\controllers"
+use app\controllers\\$1;
 endsnippet
 
 snippet uyw "use yii\widgets"
@@ -74,9 +82,9 @@ snippet yca "controller action"
 public function action$1($2)
 {
 	$3
-	return $this->render('${1/(.*)/\l$1/}', [
+	return $this->render('${1/(.*)/\l$1/}', [${4:
 	
-	]);
+	}]);
 }
 endsnippet
 
@@ -86,4 +94,49 @@ if(\yii::$app->request->isPost) {
 		$$1Model->save();
 	}
 }
+endsnippet
+
+snippet yuy "use yii\"
+use yii\\$1\\$2;
+endsnippet
+
+snippet ycr "yii2 config route"
+'$1' => '$2/$1',
+endsnippet
+
+snippet ah "yii2 allan holdsworth" i
+ArrayHelper::getValue($${1:from}, '${2:key}', ${3:default});
+endsnippet
+
+snippet ycc "yii2 console controller"
+<?php
+
+namespace console\controllers;
+
+use yii\console\Controller;
+
+class $1Controller extends Controller
+{
+
+    public function action$2()
+	{
+		$3
+    }
+}
+endsnippet
+
+snippet ya "yii html a"
+<?= Html::a('$1', ['$2']) ?>
+endsnippet
+
+snippet tr "$this->redirect(['${1:url}']);"
+$this->redirect(['${1:url}']);
+endsnippet
+
+snippet 404 "throw not found"
+throw new \yii\web\NotFoundHttpException();
+endsnippet
+
+snippet yht "html text input"
+<?= Html::textInput('${1:name}', '${2:value}', [${3}]) ?>
 endsnippet
