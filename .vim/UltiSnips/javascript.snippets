@@ -80,15 +80,22 @@ var ${1} = {
 endsnippet
 
 snippet pj "pjax"
-$('form#$1').off('submit');
-$('form#${1:form-id}').on('submit', function(event) {
+var formSelector = 'form#$1';
+var pjaxSelector = '#pjax-$1';
+
+$(formSelector).off('submit');
+$(formSelector).on('submit', function(event) {
 	$2$.pjax.defaults.push = false;
-	$.pjax.submit(event, '#pjax-$1');
+	$.pjax.submit(event, pjaxSelector);
 	return false;
 });
-$('#pjax-$1').off('pjax:success');
-$('#pjax-$1').on('pjax:success', function(event) {
-	$3
+
+$(pjaxSelector).off('pjax:success');
+$(pjaxSelector).on('pjax:success', function(event) {
+	if($(formSelector).find('.has-error').length === 0) {
+		alert('form $1 was successfully submitted, closing modal...');
+		$(formSelector).closest('.modal').modal('hide');
+	}
 });
 endsnippet
 
@@ -107,8 +114,40 @@ this.$1
 endsnippet
 
 snippet onc "on click"
-$('$1').off('click');
-$('${1}').on('click', function() {
+$('#$1').off('click');
+$('#${1}').on('click', function() {
 	$3
 });
 endsnippet
+
+snippet notify "IdFly.Components.Notify.display();"
+IdFly.Components.Notify.display($1);
+endsnippet
+
+snippet fsa "form submit ajax"
+var formSelector = 'form#$1';
+
+$(formSelector).off('submit');
+$(formSelector).on('submit', function(event) {
+	$.ajax({
+		url: $(this).attr('action'),
+		type: 'POST',
+		data: $(this).serialize(),
+		success: function(result) {
+			console.log(result);
+		},
+		error: function(error) {
+			console.log(error);
+		}
+	});
+
+	return false;
+});
+endsnippet
+
+snippet each "jquery each"
+$('#$1').each(function(){
+	$2
+});
+endsnippet
+
