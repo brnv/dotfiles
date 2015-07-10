@@ -1,4 +1,4 @@
-snippet pm "package main" "snip.line == 1" be
+snippet pm "package main" b
 package main
 endsnippet
 
@@ -94,7 +94,7 @@ log.Fatal($1)
 endsnippet
 
 snippet ln "log.Notice" b
-log.Notice("%v", ${1:variable})
+log.Notice("%v", ${1:`!p snip.rv=px.all.get_last_var_for_snippet()`})
 endsnippet
 
 snippet lp "log.Printf()" b
@@ -150,19 +150,19 @@ log.Fatal(err)
 endsnippet
 
 snippet p "package" "snip.line == 1" bwe
-package ${1:`!p snip.rv=go.guess_package_name_from_file_name(snip.fn)`}
+package ${1:`!p snip.rv=px.go.guess_package_name_from_file_name(snip.fn)`}
 
 $0
 endsnippet
 
-snippet i "if"
+snippet i "if" bA
 if ${1:`!p snip.rv=px.all.get_last_var_for_snippet()`} $2 {
 	${3:${VISUAL}}
 }
 endsnippet
 
 snippet r "return" b
-return ${1:`!p snip.rv=go.get_last_var_for_snippet()`}
+return ${1:`!p snip.rv=px.all.get_last_var_for_snippet()`}
 endsnippet
 
 snippet r "return" "re.match('^\s+if err ', px.util.get_prev_nonempty_line(snip.buffer, snip.line))" eb
@@ -170,17 +170,17 @@ return err
 endsnippet
 
 snippet a "append"
-append(${1:`!p snip.rv=go.get_last_var_for_snippet()`})
+append(${1:`!p snip.rv=px.all.get_last_var_for_snippet()`})
 endsnippet
 
 snippet fr "for range" b
-for _, ${1:element} := range ${2:`!p snip.rv=go.get_last_var_for_snippet()`} {
+for _, ${1:element} := range ${2:`!p snip.rv=px.all.get_last_var_for_snippet()`} {
 	$3
 }
 endsnippet
 
 snippet sw "switch" b
-switch ${1:`!p snip.rv=go.get_last_var_for_snippet()`} {
+switch ${1:`!p snip.rv=px.all.get_last_var_for_snippet()`} {
 case $2:
 	$0
 }
@@ -194,4 +194,18 @@ snippet m "map field" "px.go.is_type_declaration(snip.buffer, snip.line)" bwe
 $1 map[${2:string}]${3:interface{}}
 endsnippet
 
+snippet args "args init"
+args, _ := docopt.Parse(usage, nil, true, "1.0", false)
+endsnippet
 
+snippet . "$1 = $2" bA
+$1 = $2
+endsnippet
+
+snippet atoi "string to integer"
+${1}, _ := strconv.Atoi(${2:`!p snip.rv=px.all.get_last_var_for_snippet()`})
+endsnippet
+
+snippet tss "time.sleep(time.Second)"
+time.sleep(time.Second)
+endsnippet
