@@ -16,6 +16,6 @@ xkbcomp $XDG_CONFIG_HOME/config $DISPLAY 2> /dev/null
 xset b off && xset s off
 xset r rate 120 100
 
-redshift -l55.2:82.55 -o > /dev/null
+redshift -l55.2:82.55 -o >/dev/null
 
-pkill keynav; keynav
+pkill keynav; keynav 2>&1 >/dev/null
