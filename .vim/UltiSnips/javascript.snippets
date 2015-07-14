@@ -10,6 +10,7 @@ endsnippet
 
 snippet of "object function" !b
 ${1}: function(${2}) {
+	var that = this;
 	${3}
 },
 endsnippet
@@ -26,8 +27,8 @@ $.ajax({
 	success: function(result) {
 		${4:alert(1);}
 	},
-	error: function(result) {
-		${5:alert(2);}
+	error: function(error) {
+		console.log(error);
 	}
 });
 endsnippet
@@ -92,6 +93,8 @@ $(formSelector).on('submit', function(event) {
 
 $(pjaxSelector).off('pjax:success');
 $(pjaxSelector).on('pjax:success', function(event) {
+	alert('form reinit required');
+
 	if($(formSelector).find('.has-error').length === 0) {
 		alert('form $1 was successfully submitted, closing modal...');
 		$(formSelector).closest('.modal').modal('hide');

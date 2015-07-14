@@ -206,6 +206,10 @@ snippet atoi "string to integer"
 ${1}, _ := strconv.Atoi(${2:`!p snip.rv=px.all.get_last_var_for_snippet()`})
 endsnippet
 
+snippet atof "string to float"
+${1}, _ := strconv.ParseFloat(${2:`!p snip.rv=px.all.get_last_var_for_snippet()`}, 64)
+endsnippet
+
 snippet tss "time.sleep(time.Second)"
-time.sleep(time.Second)
+time.Sleep(time.Second)
 endsnippet

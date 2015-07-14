@@ -30,8 +30,12 @@ if(\yii::$app->request->isPost) {
 }
 endsnippet
 
-snippet yrp "yii2 request post" i
+snippet yp "yii2 request post" i
 \yii::$app->request->post${1:('$2')};
+endsnippet
+
+snippet yg "yii2 request get" i
+\yii::$app->request->get${1:('$2')};
 endsnippet
 
 snippet yffh "yii2 form field hidden"
@@ -56,7 +60,7 @@ snippet uyw "use yii\widgets"
 use yii\widgets\\$1;
 endsnippet
 
-snippet yp "yii app params" i
+snippet yap "yii app params" i
 \yii::$app->params['$1']
 endsnippet
 
@@ -133,8 +137,16 @@ snippet tr "$this->redirect(['${1:url}']);"
 $this->redirect(['${1:url}']);
 endsnippet
 
+snippet 500 "throw server error"
+throw new \yii\web\ServerErrorHttpException();
+endsnippet
+
 snippet 404 "throw not found"
 throw new \yii\web\NotFoundHttpException();
+endsnippet
+
+snippet 403 "yii\web\ForbiddenHttpException"
+throw new \yii\web\ForbiddenHttpException();
 endsnippet
 
 snippet yht "html text input"
@@ -145,8 +157,38 @@ snippet uyc "use"
 use yii\console\\$1;
 endsnippet
 
-snippet yab "yii html a button"
+snippet abp "<a> like primary button (yii)"
+<?= Html::a('$1', ['$2'], ['class' => 'btn btn-primary']) ?>
+endsnippet
+
+snippet ab "<a> like default button (yii)"
 <?= Html::a('$1', ['$2'], ['class' => 'btn btn-default']) ?>
 endsnippet
 
+snippet ugc "user get current"
+$user = User::getCurrent();
+endsnippet
 
+snippet urc "user require current"
+$user = User::requireCurrent();
+endsnippet
+
+snippet C "migration create table" bA
+CREATE TABLE $1 (
+
+	id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(255) NOT NULL,
+
+	ref_id INT(10) UNSIGNED DEFAULT NULL,
+
+	FOREIGN KEY (ref_id)
+		REFERENCES ref_table (id)
+		ON DELETE SET NULL
+);
+endsnippet
+
+snippet /fg "form group"
+<div class="form-group">
+	$1
+</div>
+endsnippet
