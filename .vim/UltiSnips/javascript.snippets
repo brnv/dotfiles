@@ -21,7 +21,7 @@ endsnippet
 
 snippet ajax "ajax"
 $.ajax({
-	url: ${1:url},
+	url: ${1:$(this).attr('href')},
 	type: '${2:POST}',
 	data: ${3:data},
 	success: function(result) {
