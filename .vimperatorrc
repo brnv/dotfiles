@@ -3,12 +3,7 @@ set hintchars=sdfjkl;
 set editor="urxvt -e vim"
 set cpt=b
 
-silent qmark g https://github.com/
 silent qmark m https://mail.google.com/
-silent qmark h https://news.ycombinator.com/
-silent qmark s https://uprt.slack.com/
-silent qmark y https://youtube.com/
-silent qmark v https://vk.com/
 
 set focuscontent
 
