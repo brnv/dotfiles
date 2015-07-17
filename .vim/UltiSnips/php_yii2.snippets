@@ -192,3 +192,18 @@ snippet /fg "form group"
 	$1
 </div>
 endsnippet
+
+snippet controller "idfly web controller"
+<?php
+
+namespace app\controllers;
+
+class $1Controller extends \idfly\components\Controller
+{
+
+    public function action$2()
+	{
+		$3
+    }
+}
+endsnippet
