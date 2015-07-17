@@ -1,0 +1,25 @@
+<?php
+`!p
+import vim
+import re
+
+path = vim.eval('expand("%p")')
+path = path.replace('.php', '')
+
+_baseClass = ''
+if re.match('.*controllers\/.*', path):
+    _baseClass = '\idfly\components\Controller'
+    _namespace = 'app\controllers'
+
+if re.match('.*commands\/.*', path):
+    _baseClass = '\yii\console\Controller'
+    _namespace = 'app\commands'
+
+_classname=re.findall('.*\/(\w+)$', path)[0]
+`
+namespace `!p snip.rv=_namespace`;
+
+class ${1:`!p snip.rv=_classname`} extends ${2:`!p snip.rv=_baseClass`}
+{
+    $3
+}
