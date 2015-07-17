@@ -172,7 +172,8 @@ nmap <leader>n :vnew<CR>
 nmap <leader>m :vnew<CR>:VimShell<CR>mysql<CR>
 map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 nmap # #N
-nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
+"nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
+nmap <F11> :read !xsel<CR>
 
 " Motions
 map <M-j> <Esc>
