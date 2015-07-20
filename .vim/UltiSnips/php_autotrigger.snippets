@@ -2,14 +2,13 @@ global !p
 import px.php
 endglobal
 
-snippet i "if" A
-if(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}$2) {
-	$3
+snippet i "if" bA
+if($1) {
+	$2
 }
 endsnippet
 
-#@TODO: check not to lose prev snippet placeholders
-snippet e "empty" Aw
+snippet e "empty" wA
 empty(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})
 endsnippet
 
@@ -17,7 +16,7 @@ snippet t "$this" bA
 $this->$0
 endsnippet
 
-snippet $ "$var = " iA
+snippet a "$var = " bA
 $$1 = $2;
 endsnippet
 
@@ -28,15 +27,11 @@ $0
 endsnippet
 
 snippet > "$var->" wA
-$${1:var}->$0
+${1:`!p snip.rv=px.php.get_last_var_for_snippet()`}->$2
 endsnippet
 
-snippet d "var_dump" A
+snippet d "var_dump" bA
 var_dump(${0:`!p snip.rv=px.php.get_last_var_for_snippet()`});
-endsnippet
-
-snippet . "" Ai
-$1 => $0
 endsnippet
 
 snippet r "return" bA
