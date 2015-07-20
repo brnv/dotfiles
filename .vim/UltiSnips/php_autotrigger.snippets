@@ -37,3 +37,7 @@ endsnippet
 snippet r "return" bA
 return ${0:`!p snip.rv=px.php.get_last_var_for_snippet()`};
 endsnippet
+
+snippet . "" bA
+'$1' => $${1/([a-z0-9]+)_(\w)([a-z0-9]+)$/\$1\U$2\E$3/},
+endsnippet
