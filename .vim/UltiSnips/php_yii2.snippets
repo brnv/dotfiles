@@ -11,6 +11,9 @@ snippet yaf "yii2 active form"
     'method' => '${1:get}',
     'id' => '${2:form-id}',
     'action' => Url::to([${3:Yii::$app->request->url}]),
+    'options' => [
+        'enctype' => 'multipart/form-data',
+    ],
 ]) ?>
 
 	$4
@@ -21,7 +24,7 @@ snippet yaf "yii2 active form"
 endsnippet
 
 snippet yff "yii2 form field"
-<?= $form->field($${1}Model, '${2:${VISUAL}}')->$3label('${4}') ?>
+<?= $form->field($${1}, '${2:${VISUAL}}')->$3label('${4}') ?>
 endsnippet
 
 snippet yip "yii2 is post"
@@ -39,7 +42,7 @@ snippet yg "yii2 request get" i
 endsnippet
 
 snippet yffh "yii2 form field hidden"
-<?= $form->field($${1}Model, '${2:${VISUAL}}')->hiddenInput([
+<?= $form->field($${1}, '${2:${VISUAL}}')->hiddenInput([
 	'value' => '${3:value}'
 	])->label(false) ?>
 endsnippet
@@ -76,7 +79,7 @@ snippet uyh "use yii\helpers"
 use yii\helpers\\$1;
 endsnippet
 
-snippet te "$this->execute()"
+snippet yme "$this->execute()"
 $this->execute("
 	$1
 ");
@@ -94,8 +97,8 @@ endsnippet
 
 snippet ysp "yii save post data"
 if(\yii::$app->request->isPost) {
-	if($${1:}Model->load(\yii::$app->request->post())) {
-		$$1Model->save();
+	if($${1:}->load(\yii::$app->request->post())) {
+		$$1->save();
 	}
 }
 endsnippet
@@ -133,7 +136,7 @@ snippet ya "yii html a"
 <?= Html::a('$1', ['$2']) ?>
 endsnippet
 
-snippet tr "$this->redirect(['${1:url}']);"
+snippet ycr "$this->redirect(['${1:url}']);"
 $this->redirect(['${1:url}']);
 endsnippet
 
@@ -157,11 +160,11 @@ snippet uyc "use"
 use yii\console\\$1;
 endsnippet
 
-snippet abp "<a> like primary button (yii)"
+snippet yabp "<a> like primary button (yii)"
 <?= Html::a('$1', ['$2'], ['class' => 'btn btn-primary']) ?>
 endsnippet
 
-snippet ab "<a> like default button (yii)"
+snippet yab "<a> like default button (yii)"
 <?= Html::a('$1', ['$2'], ['class' => 'btn btn-default']) ?>
 endsnippet
 
@@ -206,4 +209,16 @@ class $1Controller extends \idfly\components\Controller
 		$3
 	}
 }
+endsnippet
+
+global !p
+import px.php
+endglobal
+
+snippet /= "" i
+<?= Html::encode(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})$0 ?>
+endsnippet
+
+snippet yuf "uploaded file"
+$file = UploadedFile::getInstance($this, '$1');
 endsnippet
