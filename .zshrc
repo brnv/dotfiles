@@ -80,6 +80,7 @@ alias gstp="git stash pop"
 alias gr="git remote"
 alias grb="git rebase"
 alias grbo="git rebase --onto"
+alias gbl="git blame"
 
 # dotfiles editing
 alias v="vim ~/.vimrc"
