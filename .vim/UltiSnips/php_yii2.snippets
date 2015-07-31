@@ -111,7 +111,7 @@ snippet ycr "yii2 config route"
 '$1' => '$2/$1',
 endsnippet
 
-snippet ah "yii2 allan holdsworth" i
+snippet yah "yii2 allan holdsworth" i
 ArrayHelper::getValue($${1:from}, '${2:key}', ${3:default});
 endsnippet
 
@@ -221,4 +221,45 @@ endsnippet
 
 snippet yuf "uploaded file"
 $file = UploadedFile::getInstance($this, '$1');
+endsnippet
+
+snippet yge "get element"
+$${1:element} = $this->_getElement(['${2:id}' => $$3], 'app\models\\${4:Model}');
+endsnippet
+
+snippet yf ""
+${1:Model}::find()->where(
+	'${2:sql}',
+	[${3:params}]
+)->
+endsnippet
+
+snippet ymas "yii after save"
+public function afterSave($insert, $changedAttributes)
+{
+	$1
+
+	return parent::afterSave($insert, $changedAttributes);
+}
+endsnippet
+
+snippet ymbs "yii before save"
+public function beforeSave($insert)
+{
+	$1
+
+	return parent::beforeSave($insert);
+}
+endsnippet
+
+snippet ysm "yii send mail"
+Yii::$app->mail->send(
+	Yii::$app->view->render('@app/${1:template}', [
+		${2:options}
+	]), [
+		'to' => ${3:$email},
+		'from' => Yii::$app->params['mailerFrom'],
+		'subject' => ${4:subject},
+	]
+);
 endsnippet
