@@ -112,7 +112,7 @@ snippet ycr "yii2 config route"
 endsnippet
 
 snippet yah "yii2 allan holdsworth" i
-ArrayHelper::getValue($${1:from}, '${2:key}', ${3:default});
+\yii\helpers\ArrayHelper::getValue($${1:from}, '${2:key}', ${3:default});
 endsnippet
 
 snippet ycc "yii2 console controller"
@@ -152,7 +152,7 @@ snippet 403 "yii\web\ForbiddenHttpException"
 throw new \yii\web\ForbiddenHttpException();
 endsnippet
 
-snippet yht "html text input"
+snippet yhti "html text input"
 <?= Html::textInput('${1:name}', '${2:value}', [${3}]) ?>
 endsnippet
 
