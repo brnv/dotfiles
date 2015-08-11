@@ -263,3 +263,11 @@ Yii::$app->mail->send(
 	]
 );
 endsnippet
+
+snippet yrc "yii2 request cookies" i
+\yii::$app->request->cookies->getValue('$1');
+endsnippet
+
+snippet ymfa "yii2 model find all"
+$${1:models} = ${2:Model}::find()->all();
+endsnippet

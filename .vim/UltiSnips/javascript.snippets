@@ -64,9 +64,10 @@ $.get(${1:url}, function(text) {
 endsnippet
 
 snippet modal "idfly modal"
-IdFly.Components.Modal.create({
-	title: '',
-	contents: ${1:contents},
+var ${1:modal} = IdFly.Components.Modal.create({
+	title: '${2:title}',
+	contents: $(result).find(
+		'.container-fluid')[0].innerHTML,
 	${3:class: 'modal-md',}
 });
 endsnippet
@@ -160,4 +161,10 @@ endsnippet
 
 snippet redirect "redirect"
 window.location = "${1:url}";
+endsnippet
+
+snippet fe "find each"
+$(${1:selector}).find(${2:findSelector}).each(function(){
+	$3
+});
 endsnippet
