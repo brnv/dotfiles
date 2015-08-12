@@ -133,7 +133,7 @@ class $1Controller extends Controller
 endsnippet
 
 snippet ya "yii html a"
-<?= Html::a('$1', ['$2']) ?>
+<?= Html::a('${1:text}', ['${2:href}']) ?>
 endsnippet
 
 snippet ycr "$this->redirect(['${1:url}']);"
@@ -142,6 +142,10 @@ endsnippet
 
 snippet 500 "throw server error"
 throw new \yii\web\ServerErrorHttpException();
+endsnippet
+
+snippet 400 "throw bad request"
+throw new \yii\web\BadRequestHttpException();
 endsnippet
 
 snippet 404 "throw not found"
@@ -270,4 +274,20 @@ endsnippet
 
 snippet ymfa "yii2 model find all"
 $${1:models} = ${2:Model}::find()->all();
+endsnippet
+
+snippet yrca "yii2 response cookies add"
+\yii::$app->response->cookies->add(new \yii\web\Cookie([
+	'domain' => '${1:domain}',
+	'expire' => '${2:expire}',
+	'httpOnly' => ${3:true},
+	'name' => '${4:name}',
+	'path' => '${5:path}',
+	'secure' => ${6:true},
+	'value' => '${7:value}',
+]));
+endsnippet
+
+snippet yrcg "yii2 request cookies get"
+$${1:value} = \yii::$app->request->cookies->getValue('${2:name}');
 endsnippet
