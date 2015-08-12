@@ -15,11 +15,14 @@ if re.match('.*commands\/.*', path):
     _baseClass = '\yii\console\Controller'
     _namespace = 'app\commands'
 
-_classname=re.findall('.*\/(\w+)$', path)[0]
+_className=re.findall('.*\/(\w+)$', path)[0]
+_modelName = _className.replace('Controller', '')
 `
 namespace `!p snip.rv=_namespace`;
 
-class ${1:`!p snip.rv=_classname`} extends ${2:`!p snip.rv=_baseClass`}
+use app\models\\`!p snip.rv=_modelName`;
+
+class ${1:`!p snip.rv=_className`} extends ${2:`!p snip.rv=_baseClass`}
 {
     $3
 }
