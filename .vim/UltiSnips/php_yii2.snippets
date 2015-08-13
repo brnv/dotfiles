@@ -291,3 +291,9 @@ endsnippet
 snippet yrcg "yii2 request cookies get"
 $${1:value} = \yii::$app->request->cookies->getValue('${2:name}');
 endsnippet
+
+snippet ymaf "yii2 migration add field"
+$this->execute('
+	ALTER TABLE ${1:tableName} ADD COLUMN ${2:columnName} ${3:columnType} ${4:NOT NULL} DEFAULT ${5:defaultValue}
+');
+endsnippet

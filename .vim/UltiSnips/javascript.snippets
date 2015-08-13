@@ -168,3 +168,25 @@ $(${1:selector}).find(${2:findSelector}).each(function(){
 	$3
 });
 endsnippet
+
+snippet mh "modal hide"
+${1:modal}.modal('hide');
+endsnippet
+
+snippet wr "window reload"
+window.location.reload();
+endsnippet
+
+snippet # "get element by id"
+$('${1:element}#${2:id}')$3
+endsnippet
+
+snippet oa  "object attribute"
+$1: $2,
+endsnippet
+
+snippet st "setTimeout"
+setTimeout(function(){
+	${1:callback}
+}, ${2:timeMs});
+endsnippet
