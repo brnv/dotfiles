@@ -160,6 +160,12 @@ snippet yhti "html text input"
 <?= Html::textInput('${1:name}', '${2:value}', [${3}]) ?>
 endsnippet
 
+snippet yhd "html text input"
+<?= Html::dropDownList('${1:id}', null,
+	ArrayHelper::map(\app\models\\$2::find()->all(), '$3', '$4'),
+	['class' => 'form-control']) ?>
+endsnippet
+
 snippet uyc "use"
 use yii\console\\$1;
 endsnippet
@@ -174,6 +180,10 @@ endsnippet
 
 snippet ugc "user get current"
 $user = User::getCurrent();
+endsnippet
+
+snippet pgc "partner get current"
+$partner = Partner::getCurrent();
 endsnippet
 
 snippet urc "user require current"
@@ -294,6 +304,29 @@ endsnippet
 
 snippet ymaf "yii2 migration add field"
 $this->execute('
-	ALTER TABLE ${1:tableName} ADD COLUMN ${2:columnName} ${3:columnType} ${4:NOT NULL} DEFAULT ${5:defaultValue}
+	ALTER TABLE ${1:tableName} ADD COLUMN ${2:columnName}
+	${3:columnType} ${4:NOT NULL} DEFAULT ${5:defaultValue}
+	COMMENT "$6" AFTER $7
 ');
+endsnippet
+
+snippet ydbe "yii2 db command execute"
+\yii::$app->getDb()->createCommand(
+	'${1:query}',
+	[${2:placeholderValues}]
+)->execute();
+endsnippet
+
+snippet ydbg "yii2 db command get results"
+\yii::$app->getDb()->createCommand(
+	'${1:query}',
+	[${2:placeholderValues}]
+)->queryAll();
+endsnippet
+
+snippet yffd "yii2 form field dropdown"
+<?= $form->field($${1:model}, '$2')->
+	dropDownList([
+		$3
+	]) ?>
 endsnippet
