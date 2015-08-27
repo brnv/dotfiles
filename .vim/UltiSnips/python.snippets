@@ -16,7 +16,7 @@ for ${1:element} in ${2:array}:
 endsnippet
 
 snippet f "def function" !b
-def ${1:name}(${2:args}):
+def ${1:name}(self, ${2:args}):
 	$0
 endsnippet
 
@@ -30,4 +30,9 @@ endsnippet
 
 snippet r "return" !b
 return $0
+endsnippet
+
+snippet c "class"
+class ${1:ClassName}($2):
+	$3
 endsnippet

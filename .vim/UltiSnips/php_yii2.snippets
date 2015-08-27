@@ -182,10 +182,6 @@ snippet ugc "user get current"
 $user = User::getCurrent();
 endsnippet
 
-snippet pgc "partner get current"
-$partner = Partner::getCurrent();
-endsnippet
-
 snippet urc "user require current"
 $user = User::requireCurrent();
 endsnippet
@@ -329,4 +325,10 @@ snippet yffd "yii2 form field dropdown"
 	dropDownList([
 		$3
 	]) ?>
+endsnippet
+
+snippet ymfi "yii2 model find in"
+${1:Model}::find()->
+where(['IN', '${2:field}', $${3:values}])->
+all();
 endsnippet
