@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pulseaudio --kill
+qjackctl &
+/usr/bin/guitarix &
+stress -c 1
