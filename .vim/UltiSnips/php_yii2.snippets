@@ -190,7 +190,7 @@ snippet C "migration create table" b
 CREATE TABLE $1 (
 
 	id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	name VARCHAR(255) NOT NULL,
+	name VARCHAR(255) NOT NULL COMMENT '',
 
 	ref_id INT(10) UNSIGNED DEFAULT NULL,
 
@@ -299,11 +299,11 @@ $${1:value} = \yii::$app->request->cookies->getValue('${2:name}');
 endsnippet
 
 snippet ymaf "yii2 migration add field"
-$this->execute('
+$this->execute("
 	ALTER TABLE ${1:tableName} ADD COLUMN ${2:columnName}
 	${3:columnType} ${4:NOT NULL} DEFAULT ${5:defaultValue}
 	COMMENT "$6" AFTER $7
-');
+");
 endsnippet
 
 snippet ydbe "yii2 db command execute"
@@ -331,4 +331,18 @@ snippet ymfi "yii2 model find in"
 ${1:Model}::find()->
 where(['IN', '${2:field}', $${3:values}])->
 all();
+endsnippet
+
+snippet pac "parent::actionCreate()"
+parent::actionCreate();
+endsnippet
+
+snippet ymd "yii2 migration add date field"
+date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+endsnippet
+
+snippet \af "\app\models\Model"
+\app\models\\$1::find()->
+	$2->
+	all();
 endsnippet
