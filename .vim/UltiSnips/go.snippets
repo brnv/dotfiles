@@ -2,6 +2,32 @@ snippet pm "package main" b
 package main
 endsnippet
 
+snippet fm "func main"
+const usage = \`Usage sample text.
+
+Usage:
+    \$0
+    \$0 -h | --help
+
+Options:
+    -h --help  Show this help.
+\`
+
+func main() {
+	args, err := docopt.Parse(
+		strings.Replace(usage, "\$0", os.Args[0], -1),
+		nil, true, "${1:program_name}", false,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	args = args
+
+	$2
+}
+endsnippet
+
 snippet f "function" b
 func ${1:main}(${2:args}) $3 {
 	$0
@@ -155,7 +181,7 @@ package ${1:`!p snip.rv=px.go.guess_package_name_from_file_name(snip.fn)`}
 $0
 endsnippet
 
-snippet i "if" bA
+snippet i "if" b
 if ${1:`!p snip.rv=px.all.get_last_var_for_snippet()`} $2 {
 	${3:${VISUAL}}
 }
