@@ -1,0 +1,5 @@
+#!/bin/bash
+
+audio-external
+
+/usr/bin/jackd -v -P6 -t1000 -m -dalsa -dhw:USB -r88200 -p128 -n3 -s -m -S -H -M -o2 -zs
