@@ -142,7 +142,7 @@ func (${1/.*([A-Z0-9]|\W)([a-z0-9]+([A-Z0-9]|$))/\l$1$2/} ${1:Type}) ${2:FuncNam
 endsnippet
 
 snippet sf "struct field with json notation"
-${1:fieldName} ${2:fieldType} \`${3:json}:"${1/(.*)/\l$1/}"\`
+${1:fieldName} ${2:fieldType} \`${3:json}:"${1/([A-Z])/_\l$1/g}"\`
 endsnippet
 
 snippet oe "os.Exit()"
@@ -238,4 +238,15 @@ endsnippet
 
 snippet tss "time.sleep(time.Second)"
 time.Sleep(time.Second)
+endsnippet
+
+snippet rf "read file"
+file, err := ioutil.ReadFile("$1")
+if err != nil {
+	log.Fatal(err)
+}
+endsnippet
+
+snippet ju "json.Unmarshal"
+json.Unmarshal(${1:fromFile}, &${2:toStruct})
 endsnippet

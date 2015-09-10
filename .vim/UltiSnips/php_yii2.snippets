@@ -7,10 +7,10 @@ Yii::$app->request->url
 endsnippet
 
 snippet yaf "yii2 active form"
-<?php $form = ActiveForm::begin([
+<?php $form = \yii\widgets\ActiveForm::begin([
     'method' => '${1:get}',
     'id' => '${2:form-id}',
-    'action' => Url::to([${3:Yii::$app->request->url}]),
+    'action' => \yii\helpers\Url::to([${3:Yii::$app->request->url}]),
     'options' => [
         'enctype' => 'multipart/form-data',
     ],
@@ -18,9 +18,9 @@ snippet yaf "yii2 active form"
 
 	$4
 
-	<?= Html::submitButton('Submit', ['class' => 'btn btn-primary']); ?>
+	<?= \yii\helpers\Html::submitButton('Submit', ['class' => 'btn btn-primary']); ?>
 
-<?php ActiveForm::end() ?>
+<?php \yii\widgets\ActiveForm::end() ?>
 endsnippet
 
 snippet yff "yii2 form field"
@@ -133,7 +133,7 @@ class $1Controller extends Controller
 endsnippet
 
 snippet ya "yii html a"
-<?= Html::a('${1:text}', ['${2:href}']) ?>
+<?= \yii\helpers\Html::a('${1:text}', ['${2:href}']) ?>
 endsnippet
 
 snippet ycr "$this->redirect(['${1:url}']);"
@@ -157,11 +157,11 @@ throw new \yii\web\ForbiddenHttpException();
 endsnippet
 
 snippet yhti "html text input"
-<?= Html::textInput('${1:name}', '${2:value}', [${3}]) ?>
+<?= \yii\helpers\Html::textInput('${1:name}', '${2:value}', ['class' => 'form-control']) ?>
 endsnippet
 
 snippet yhd "html text input"
-<?= Html::dropDownList('${1:id}', null,
+<?= \yii\helpers\Html::dropDownList('${1:id}', null,
 	ArrayHelper::map(\app\models\\$2::find()->all(), '$3', '$4'),
 	['class' => 'form-control']) ?>
 endsnippet
@@ -171,19 +171,19 @@ use yii\console\\$1;
 endsnippet
 
 snippet yabp "<a> like primary button (yii)"
-<?= Html::a('${1:text}', ['${2:href}'], ['class' => 'btn btn-primary']) ?>
+<?= \yii\helpers\Html::a('${1:text}', ['${2:href}'], ['class' => 'btn btn-primary']) ?>
 endsnippet
 
 snippet yab "<a> like default button (yii)"
-<?= Html::a('${1:text}', ['${2:href}'], ['class' => 'btn btn-default']) ?>
+<?= \yii\helpers\Html::a('${1:text}', ['${2:href}'], ['class' => 'btn btn-default']) ?>
 endsnippet
 
 snippet ugc "user get current"
-$user = User::getCurrent();
+$user = \app\models\User::getCurrent();
 endsnippet
 
 snippet urc "user require current"
-$user = User::requireCurrent();
+$user = \app\models\User::requireCurrent();
 endsnippet
 
 snippet C "migration create table" b
@@ -226,7 +226,7 @@ import px.php
 endglobal
 
 snippet /= "" i
-<?= Html::encode(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})$0 ?>
+<?= \yii\helpers\Html::encode(${1:`!p snip.rv=px.php.get_last_var_for_snippet()`})$0 ?>
 endsnippet
 
 snippet yuf "uploaded file"
@@ -237,11 +237,17 @@ snippet yge "get element"
 $${1:element} = $this->_getElement(['${2:id}' => $$3], 'app\models\\${4:Model}');
 endsnippet
 
-snippet yf ""
-${1:Model}::find()->where(
+snippet yf "yii find"
+\app\models\\${1:Model}::find()->where(
+	['${2:field}' => ${3:value}]
+)->all();
+endsnippet
+
+snippet yfs "yii find by sql"
+\app\models\\${1:Model}::find()->where(
 	'${2:sql}',
 	[${3:params}]
-)->
+)->all();
 endsnippet
 
 snippet ymas "yii after save"
@@ -345,4 +351,16 @@ snippet \af "\app\models\Model"
 \app\models\\$1::find()->
 	$2->
 	all();
+endsnippet
+
+snippet ymcf "yii2 migration add field"
+$this->execute("
+	ALTER TABLE ${1:tableName}
+		CHANGE ${2:columnName} $2 ${3:columnType} DEFAULT $4
+		COMMENT '$5';
+");
+endsnippet
+
+snippet vrj "$this->view->registerJs"
+$this->view->registerJs('$1');
 endsnippet

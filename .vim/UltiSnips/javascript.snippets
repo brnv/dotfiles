@@ -138,6 +138,7 @@ $(formSelector).on('submit', function(event) {
 		type: 'POST',
 		data: $(this).serialize(),
 		success: function(result) {
+			alert(1);
 			console.log(result);
 		},
 		error: function(error) {
