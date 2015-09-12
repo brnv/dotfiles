@@ -24,7 +24,7 @@ snippet yaf "yii2 active form"
 endsnippet
 
 snippet yff "yii2 form field"
-<?= $form->field($${1}, '${2:${VISUAL}}')->$3label('${4}') ?>
+<?= $form->field($${1}Model, '${2:${VISUAL}}')->$3label('${4}') ?>
 endsnippet
 
 snippet yip "yii2 is post"
@@ -42,7 +42,7 @@ snippet yg "yii2 request get" i
 endsnippet
 
 snippet yffh "yii2 form field hidden"
-<?= $form->field($${1}, '${2:${VISUAL}}')->hiddenInput([
+<?= $form->field($${1}Model, '${2:${VISUAL}}')->hiddenInput([
 	'value' => '${3:value}'
 	])->label(false) ?>
 endsnippet
@@ -97,8 +97,9 @@ endsnippet
 
 snippet ysp "yii save post data"
 if(\yii::$app->request->isPost) {
-	if($${1:}->load(\yii::$app->request->post())) {
-		$$1->save();
+	$${1:}->load(\yii::$app->request->post());
+	if($$1->save()) {
+		return $this->redirect($2);
 	}
 }
 endsnippet
@@ -237,6 +238,12 @@ snippet yge "get element"
 $${1:element} = $this->_getElement(['${2:id}' => $$3], 'app\models\\${4:Model}');
 endsnippet
 
+snippet yfo "yii find one"
+\app\models\\${1:Model}::find()->where(
+	['${2:field}' => ${3:value}]
+)->one();
+endsnippet
+
 snippet yf "yii find"
 \app\models\\${1:Model}::find()->where(
 	['${2:field}' => ${3:value}]
@@ -327,7 +334,7 @@ snippet ydbg "yii2 db command get results"
 endsnippet
 
 snippet yffd "yii2 form field dropdown"
-<?= $form->field($${1:model}, '$2')->
+<?= $form->field($${1:model}Model, '$2')->
 	dropDownList([
 		$3
 	]) ?>
@@ -363,4 +370,64 @@ endsnippet
 
 snippet vrj "$this->view->registerJs"
 $this->view->registerJs('$1');
+endsnippet
+
+snippet ynm "yii2 new model instance"
+$${1:model}Model = new \\app\\models\\${1/(.*)/\u$1/};
+endsnippet
+
+snippet ypa "yii2 porto theme admin view template"
+<section class="panel">
+    <div class="panel-heading with-actions clearfix">
+        <h2 class="panel-title inline"><?= \yii\helpers\Html::encode('${1:title}') ?></h2>
+        <div class="action-list inline to-right">
+            <a class="action btn btn-sm btn-primary" href="${2:cancelUrl}">Отмена</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <?php $form = idfly\porto\ActiveForm::begin([
+            'options' => [
+                'class' => '${3:formId}-form',
+                'enctype' => 'multipart/form-data',
+            ]
+        ]); ?>
+            <?php require 'form.php' ?>
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <input type="submit" class="btn btn-success" value="Добавить">
+                </div>
+            </div>
+        <?php idfly\porto\ActiveForm::end(); ?>
+    </div>
+</section>
+endsnippet
+
+snippet ypf "yii2 porto theme form"
+<div class="${1:moduleAndController}-form">
+    <div class="tabs">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#tab-main" data-toggle="tab">Основное</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="tab-main" class="tab-pane active">
+            </div>
+        </div>
+    </div>
+</div>
+endsnippet
+
+snippet ypfg "yii2 porto form group"
+<br/>
+<br/>
+
+<div class="form-group field-${1:fieldName} ${2:required}">
+	<label class="control-label col-sm-3" for="$1">$3</label>
+	<div class="col-sm-6">
+		${4:input goes here}
+		<div class="help-block help-block-error "></div>
+	</div>
+</div>
 endsnippet
