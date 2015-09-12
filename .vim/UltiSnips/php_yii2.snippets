@@ -431,3 +431,19 @@ snippet ypfg "yii2 porto form group"
 	</div>
 </div>
 endsnippet
+
+snippet ypfgt "yii2 porto form group title"
+<div class="form-group field-ware-active required">
+    <div class="col-sm-6 col-sm-offset-3">
+        <label for="ware-active">
+            <h4>
+                ${1:title}
+            </h4>
+        </label>
+    </div>
+</div>
+endsnippet
+
+snippet yvr "yii2 view render"
+<?= $this->render('${1:pathToTemplate}', [${2:variables}]); ?>
+endsnippet
