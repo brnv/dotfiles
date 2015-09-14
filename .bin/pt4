@@ -4,4 +4,4 @@
 
 sudo -upostgres postgres -D /zstorage/data/poker/postgresql &
 
-wine ~/.wine/drive_c/Program\ Files/PokerTracker\ 4/PokerTracker4.exe
+wine ~/.wine/drive_c/Program\ Files\ \(x86\)/PokerTracker\ 4/PokerTracker4.exe
