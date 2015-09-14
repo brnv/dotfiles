@@ -91,6 +91,10 @@ Plug 'kovetskiy/vim-go-complete-utils', { 'for': 'go' }
     augroup end
 
 Plug 'scrooloose/syntastic', { 'for': 'php' }
+    let g:syntastic_php_checkers = ["php"]
+    augroup php_helpers
+    au FileType php map <leader>c :SyntasticCheck phpmd<CR>
+    augroup end
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     map <C-P> :FZF -m<CR>

@@ -238,6 +238,10 @@ snippet yge "get element"
 $${1:element} = $this->_getElement(['${2:id}' => $$3], 'app\models\\${4:Model}');
 endsnippet
 
+snippet yfoi "yii find one by id"
+\app\models\\${1:Model}::findOne(${2:id});
+endsnippet
+
 snippet yfo "yii find one"
 \app\models\\${1:Model}::find()->where(
 	['${2:field}' => ${3:value}]
