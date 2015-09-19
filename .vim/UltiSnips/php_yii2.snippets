@@ -316,11 +316,11 @@ $${1:value} = \yii::$app->request->cookies->getValue('${2:name}');
 endsnippet
 
 snippet ymaf "yii2 migration add field"
-$this->execute("
+$this->execute('
 	ALTER TABLE ${1:tableName} ADD COLUMN ${2:columnName}
 	${3:columnType} ${4:NOT NULL} DEFAULT ${5:defaultValue}
 	COMMENT "$6" AFTER $7
-");
+');
 endsnippet
 
 snippet ydbe "yii2 db command execute"
