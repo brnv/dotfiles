@@ -41,6 +41,7 @@ alias me="mysql uveliria-idfly-ru -e"
 alias ym="./yii migrate"
 alias pgrep="pgrep -f -a"
 alias pkill="pkill -f"
+alias ardour="ardour4"
 
 # android tools
 alias alc="sudo adb logcat"

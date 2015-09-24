@@ -1,3 +1,5 @@
 #!/bin/bash
 
+pulseaudio --kill
+
 ln -sf ~/.dotfiles/.asoundrc ~/.asoundrc
