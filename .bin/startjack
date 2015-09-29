@@ -2,6 +2,6 @@
 
 audio-external
 
-stress -c 1 &
+qjackctl &
 
-qjackctl
+stress -c 1
