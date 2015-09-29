@@ -1,5 +1,5 @@
 snippet yut "yii2 Url::to" i
-<?= Url::to(['$0']) ?>
+<?= \\yii\\helpers\\Url::to(['$0']) ?>
 endsnippet
 
 snippet ycu "yii2 current url"
@@ -163,7 +163,7 @@ endsnippet
 
 snippet yhd "html text input"
 <?= \yii\helpers\Html::dropDownList('${1:id}', null,
-	ArrayHelper::map(\app\models\\$2::find()->all(), '$3', '$4'),
+	\yii\helpers\ArrayHelper::map(\app\models\\$2::find()->all(), '${3:id}', '${4:name}'),
 	['class' => 'form-control']) ?>
 endsnippet
 
@@ -339,9 +339,10 @@ endsnippet
 
 snippet yffd "yii2 form field dropdown"
 <?= $form->field($${1:model}Model, '$2')->
-	dropDownList([
-		$3
-	]) ?>
+	dropDownList(
+		\yii\helpers\ArrayHelper::map(\app\models\\$3::find()->all(), '${4:id}', '${5:name}'),
+		['prompt' => '']
+	)->label('$6') ?>
 endsnippet
 
 snippet ymfi "yii2 model find in"

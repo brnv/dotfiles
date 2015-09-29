@@ -254,3 +254,9 @@ endsnippet
 snippet re "return errors.New()"
 return errors.New("$1")
 endsnippet
+
+snippet io "if ok"
+if _, ok := $1; ok {
+	$2
+}
+endsnippet
