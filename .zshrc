@@ -25,7 +25,6 @@ alias gob="go build"
 
 # user shortcuts
 alias am=alsamixer
-alias tr="tree"
 alias b="acpi"
 alias ps="ps auxf"
 alias -g sctl="sudo systemctl"
