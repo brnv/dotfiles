@@ -1,6 +1,5 @@
 # shell settings
 ZSH=/usr/share/oh-my-zsh/
-ZSH_THEME="daveverwer"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 HISTFILE=~/.zsh_history
@@ -26,7 +25,7 @@ alias gob="go build"
 
 # user shortcuts
 alias am=alsamixer
-alias t="tree"
+alias tr="tree"
 alias b="acpi"
 alias ps="ps auxf"
 alias -g sctl="sudo systemctl"
@@ -42,6 +41,7 @@ alias ym="./yii migrate"
 alias pgrep="pgrep -f -a"
 alias pkill="pkill -f"
 alias ardour="ardour4"
+alias t="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks"
 
 # android tools
 alias alc="sudo adb logcat"
@@ -95,6 +95,11 @@ bindkey "^T" prepend-sudo
 bindkey "^B" backward-word
 #bindkey "^F" forward-word
 bindkey '^F' fzf-file-widget
+
+#ZSH_THEME="daveverwer"
+PROMPT='%{$fg[red]%}%m($(t | wc -l))%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$) '
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
 
 # custom widgets
 zle -N prepend-sudo prepend_sudo
