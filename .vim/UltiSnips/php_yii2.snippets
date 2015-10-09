@@ -317,9 +317,9 @@ endsnippet
 
 snippet ymaf "yii2 migration add field"
 $this->execute('
-	ALTER TABLE ${1:tableName} ADD COLUMN ${2:columnName}
-	${3:columnType} ${4:NOT NULL} DEFAULT ${5:defaultValue}
-	COMMENT "$6" AFTER $7
+	ALTER TABLE ${1:tableName}
+		ADD COLUMN ${2:columnName} ${3:columnType} ${4:NOT NULL} DEFAULT ${5:defaultValue}
+		COMMENT "$6" AFTER $7
 ');
 endsnippet
 
@@ -451,4 +451,21 @@ endsnippet
 
 snippet yvr "yii2 view render"
 <?= $this->render('${1:pathToTemplate}', [${2:variables}]); ?>
+endsnippet
+
+snippet yam "\app\models\" i
+\\app\\models\\$1
+endsnippet
+
+snippet yilc "yii2 index list controls"
+<td style="width:80px">
+	<a class="btn btn-xs btn-primary inline fa fa-pencil" href="<?=
+	Html::encode(\Yii::$app->urlManager->createUrl(['admin/' .
+	$this->context->id . '/update', 'id' => $element->id]))
+	?>"></a>
+	<a class="btn btn-xs btn-danger inline fa fa-trash-o" href="<?=
+	Html::encode(\Yii::$app->urlManager->createUrl(['admin/' .
+	$this->context->id . '/delete', 'id' => $element->id]))
+	?>"></a>
+</td>
 endsnippet
