@@ -1,0 +1,3 @@
+#!/bin/bash
+
+WINEPREFIX=~/.wine32-studio WINEARCH=win32 vsthost $1 &
