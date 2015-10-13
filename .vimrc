@@ -45,6 +45,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 
 Plug 'tpope/vim-surround'
     nmap <leader>( <ESC>ysw)
+    nmap <leader>' <ESC>#ysw'\
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'cespare/vim-toml'
