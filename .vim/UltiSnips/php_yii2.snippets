@@ -242,7 +242,7 @@ snippet yfoi "yii find one by id"
 \app\models\\${1:Model}::findOne(${2:id});
 endsnippet
 
-snippet yfo "yii find one"
+snippet ymfo "yii model find one"
 \app\models\\${1:Model}::find()->where(
 	['${2:field}' => ${3:value}]
 )->one();
@@ -296,7 +296,7 @@ snippet yrc "yii2 request cookies" i
 endsnippet
 
 snippet ymfa "yii2 model find all"
-$${1:models} = ${2:Model}::find()->all();
+$${1:models} = \\app\\models\\${2:Model}::find()->all();
 endsnippet
 
 snippet yrca "yii2 response cookies add"
