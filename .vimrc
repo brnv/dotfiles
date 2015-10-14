@@ -106,6 +106,9 @@ Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
 
 Plug 'Shougo/vimshell.vim'
 
+Plug 'vim-autosurround'
+    inoremap ( (<C-O>:call AutoSurround(")")<CR>
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
