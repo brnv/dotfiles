@@ -197,3 +197,11 @@ for (var ${1:key} in ${2:array}) {
 	$3
 }
 endsnippet
+
+snippet onch "onchange event"
+$('$1').
+	off('change').
+	on('change', function() {
+		$2
+	});
+endsnippet
