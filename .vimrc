@@ -17,8 +17,7 @@ call plug#begin('~/.vim/plugins')
 Plug 'altercation/vim-colors-solarized'
 Plug 'Valloric/YouCompleteMe'
 
-"Plug 'SirVer/UltiSnips'
-Plug 'seletskiy/UltiSnips', {'branch': 'autotrigger'}
+Plug 'SirVer/UltiSnips'
     let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
