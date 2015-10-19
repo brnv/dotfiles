@@ -10,7 +10,7 @@ endsnippet
 
 snippet of "object function" !b
 ${1}: function(${2}) {
-	var that = this;
+	var self = this;
 	${3}
 },
 endsnippet
@@ -53,14 +53,24 @@ function($1) {
 }
 endsnippet
 
-snippet vtt "var that = this;"
-var that = this;
+snippet vst "var self = this;"
+var self = this;
 endsnippet
 
 snippet get "$.get"
-$.get(${1:url}, function(text) {
-	$2
-});
+$.
+	get('${1:url}').
+	then(function(html) {
+		$2
+	});
+endsnippet
+
+snippet getj "$.getJSON"
+$.
+	getJSON('${1:url}').
+	then(function(html) {
+		$2
+	});
 endsnippet
 
 snippet modal "idfly modal"
@@ -79,6 +89,10 @@ var ${1} = {
 		$2
     },
 };
+endsnippet
+
+snippet s "self"
+self.$1
 endsnippet
 
 snippet pj "pjax"
@@ -119,9 +133,10 @@ endsnippet
 
 snippet onc "on click"
 $('#$1').off('click');
-$('#${1}').on('click', function() {
-	$3
-});
+$('#${1}').
+	on('click', function() {
+		$3
+	});
 endsnippet
 
 snippet notify "IdFly.Components.Notify.display();"
@@ -165,9 +180,27 @@ window.location = "${1:url}";
 endsnippet
 
 snippet fe "find each"
-$(${1:selector}).find(${2:findSelector}).each(function(){
-	$3
-});
+$('${1:selector}').
+	find('${2:findSelector}').
+	each(function(){
+		$3
+	});
+endsnippet
+
+snippet fonc "find on click"
+$('${1:selector}').
+	find('${2:findSelector}').
+	on('click', function(){
+		$3
+	});
+endsnippet
+
+snippet fev "find event"
+$('${1:selector}').
+	find('${2:findSelector}').
+	on('$3', function() {
+		$4
+	});
 endsnippet
 
 snippet mh "modal hide"
@@ -204,4 +237,10 @@ $('$1').
 	on('change', function() {
 		$2
 	});
+endsnippet
+
+snippet trs "trim spaces regexp"
+$($1).
+text().
+replace(/^\s+|\s+$/g, '');
 endsnippet
