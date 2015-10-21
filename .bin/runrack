@@ -1,0 +1,4 @@
+#!/bin/bash
+
+runvst ~/.rack/amp.dll
+runvst ~/.rack/cab.dll
