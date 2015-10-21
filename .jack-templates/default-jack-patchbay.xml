@@ -1,0 +1,70 @@
+<!DOCTYPE patchbay>
+<patchbay version="0.4.0" name="default-jack-patchbay">
+ <output-sockets>
+  <socket exclusive="off" client="system" type="jack-audio" name="Line 1">
+   <plug>capture_2</plug>
+  </socket>
+  <socket exclusive="off" client="system" type="jack-audio" name="Line 2">
+   <plug>capture_2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar Input">
+   <plug>Guitar Input/audio_out 1</plug>
+   <plug>Guitar Input/audio_out 2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_wagnersharp" type="jack-audio" name="Amp">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_poulinlecabrev" type="jack-audio" name="Cab">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar FX">
+   <plug>Guitar FX/audio_out 1</plug>
+   <plug>Guitar FX/audio_out 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Master">
+   <plug>Master/audio_out 1</plug>
+   <plug>Master/audio_out 2</plug>
+  </socket>
+ </output-sockets>
+ <input-sockets>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar Input 1">
+   <plug>Guitar Input/audio_in 1</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar Input 2">
+   <plug>Guitar Input/audio_in 2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_wagnersharp" type="jack-audio" name="Amp">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_poulinlecabrev" type="jack-audio" name="Cab">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar FX">
+   <plug>Guitar FX/audio_in 1</plug>
+   <plug>Guitar FX/audio_in 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Master">
+   <plug>Master/audio_in 1</plug>
+   <plug>Master/audio_in 2</plug>
+  </socket>
+  <socket exclusive="off" client="system" type="jack-audio" name="System">
+   <plug>playback_1</plug>
+   <plug>playback_2</plug>
+  </socket>
+ </input-sockets>
+ <slots/>
+ <cables>
+  <cable output="Line 1" input="Guitar Input 1" type="jack-audio"/>
+  <cable output="Line 2" input="Guitar Input 2" type="jack-audio"/>
+  <cable output="Amp" input="Cab" type="jack-audio"/>
+  <cable output="Guitar Input" input="Amp" type="jack-audio"/>
+  <cable output="Cab" input="Guitar FX" type="jack-audio"/>
+  <cable output="Guitar FX" input="Master" type="jack-audio"/>
+  <cable output="Master" input="System" type="jack-audio"/>
+ </cables>
+</patchbay>
+
