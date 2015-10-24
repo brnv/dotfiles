@@ -57,6 +57,10 @@ snippet vst "var self = this;"
 var self = this;
 endsnippet
 
+snippet vtt "var that = this;"
+var that = this;
+endsnippet
+
 snippet get "$.get"
 $.
 	get('${1:url}').
@@ -243,4 +247,22 @@ snippet trs "trim spaces regexp"
 $($1).
 text().
 replace(/^\s+|\s+$/g, '');
+endsnippet
+
+snippet inu "if not undefined"
+if(typeof $1 !== "undefined") {
+	$2
+}
+endsnippet
+
+snippet tc "$(this).closest()"
+$(this).closest('$1')
+endsnippet
+
+snippet one "on event"
+$('#$1').off('$2');
+$('#${1}').
+	on('$2', function() {
+		$3
+	});
 endsnippet

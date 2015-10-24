@@ -63,6 +63,10 @@ snippet uyw "use yii\widgets"
 use yii\widgets\\$1;
 endsnippet
 
+snippet yw "use yii\widgets"
+\\yii\widgets\\$1
+endsnippet
+
 snippet yap "yii app params" i
 \yii::$app->params['$1']
 endsnippet
@@ -93,7 +97,7 @@ snippet yca "controller action"
 public function action$1($2)
 {
 	$3
-	return $this->render('${1/(.*)/\l$1/}', [${4:
+	return $this->render${4:Partial}('${1/(.*)/\l$1/}', [${5:
 	
 	}]);
 }
