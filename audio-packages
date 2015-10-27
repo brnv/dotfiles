@@ -1,4 +1,5 @@
 jack
+jack2
 ardour
 dssi-vst
 guitarix-git
@@ -9,3 +10,5 @@ yoshimi
 calf
 jack-keyboard
 ir-lv2-git
+carla-git
+airwave-git
