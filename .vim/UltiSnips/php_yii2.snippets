@@ -24,7 +24,11 @@ snippet yaf "yii2 active form"
 endsnippet
 
 snippet yff "yii2 form field"
-<?= $form->field($${1}Model, '${2:${VISUAL}}')->$3label('${4}') ?>
+<?= $form->field($${1}Model, '${2:${VISUAL}}', [
+	'inputOptions' => [
+		'class' => '$3'
+	]
+])->$4label('${5}') ?>
 endsnippet
 
 snippet yip "yii2 is post"
