@@ -28,7 +28,31 @@ snippet yff "yii2 form field"
 	'inputOptions' => [
 		'class' => '$3'
 	]
-])->$4label('${5}') ?>
+])->$4label(${5:false}) ?>
+endsnippet
+
+snippet yfff "yii2 form field file input"
+<?= $form->field($${1}Model, '${2:${VISUAL}}', [
+	'inputOptions' => [
+		'class' => '$3'
+	]
+])->$4label(${5:false})->fileInput(); ?>
+endsnippet
+
+snippet yffp "yii2 form field password"
+<?= $form->field($${1}Model, '${2:${VISUAL}}', [
+	'inputOptions' => [
+		'class' => '$3'
+	]
+])->$4label(${5:false})->passwordInput(); ?>
+endsnippet
+
+snippet yfft "yii2 form field password"
+<?= $form->field($${1}Model, '${2:${VISUAL}}', [
+	'inputOptions' => [
+		'class' => '$3'
+	]
+])->$4label(${5:false})->textarea(); ?>
 endsnippet
 
 snippet yip "yii2 is post"
@@ -350,11 +374,14 @@ snippet ydbg "yii2 db command get results"
 endsnippet
 
 snippet yffd "yii2 form field dropdown"
-<?= $form->field($${1:model}Model, '$2')->
+<?= $form->field($${1:model}Model, '$2', [
+	'inputOptions' => [
+		'class' => '$3'
+	]])->
 	dropDownList(
 		\yii\helpers\ArrayHelper::map(\app\models\\$3::find()->all(), '${4:id}', '${5:name}'),
 		['prompt' => '']
-	)->label('$6') ?>
+	)->label(${6:false}) ?>
 endsnippet
 
 snippet ymfi "yii2 model find in"
