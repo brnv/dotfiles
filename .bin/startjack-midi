@@ -2,4 +2,6 @@
 
 audio-external
 qjackctl &
+sleep 2s
+a2jmidid -e &
 stress -c 1
