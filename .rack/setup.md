@@ -1,1 +1,7 @@
-put some vst here as amp.dll and cab.dll
+put some vst here as:
+
+    booster.dll
+    amp.dll
+    cab.dll
+    delay.dll
+    reverb.dll
