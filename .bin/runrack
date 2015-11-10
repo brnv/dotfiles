@@ -1,4 +1,7 @@
 #!/bin/bash
 
+runvst ~/.rack/booster.dll
 runvst ~/.rack/amp.dll
 runvst ~/.rack/cab.dll
+runvst ~/.rack/delay.dll
+runvst ~/.rack/reverb.dll
