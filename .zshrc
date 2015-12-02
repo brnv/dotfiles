@@ -43,6 +43,7 @@ alias pkill="pkill -f"
 alias ardour="ardour4"
 alias t="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks"
 alias kill9="kill -9"
+alias i="issue"
 
 # android tools
 alias alc="sudo adb logcat"
