@@ -1,0 +1,150 @@
+<!DOCTYPE patchbay>
+<patchbay version="0.4.0" name="full-band-patchbay">
+ <output-sockets>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 1">
+   <plug>MIDI Drums/audio_out 1</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 2">
+   <plug>MIDI Drums/audio_out 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 3">
+   <plug>MIDI Drums/audio_out 3</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 4">
+   <plug>MIDI Drums/audio_out 4</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 5">
+   <plug>MIDI Drums/audio_out 5</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 6">
+   <plug>MIDI Drums/audio_out 6</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 7">
+   <plug>MIDI Drums/audio_out 7</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 8">
+   <plug>MIDI Drums/audio_out 8</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 9">
+   <plug>MIDI Drums/audio_out 9</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 10">
+   <plug>MIDI Drums/audio_out 10</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 11">
+   <plug>MIDI Drums/audio_out 11</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 12">
+   <plug>MIDI Drums/audio_out 12</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 13">
+   <plug>MIDI Drums/audio_out 13</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 14">
+   <plug>MIDI Drums/audio_out 14</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 15">
+   <plug>MIDI Drums/audio_out 15</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums 16">
+   <plug>MIDI Drums/audio_out 16</plug>
+  </socket>
+  <socket exclusive="off" client="system" type="jack-audio" name="Line 1">
+   <plug>capture_2</plug>
+  </socket>
+  <socket exclusive="off" client="system" type="jack-audio" name="Line 2">
+   <plug>capture_2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar Input">
+   <plug>Guitar Input/audio_out 1</plug>
+   <plug>Guitar Input/audio_out 2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_wagnersharp" type="jack-audio" name="Amp">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_poulinlecabrev" type="jack-audio" name="Cab">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar FX">
+   <plug>Guitar FX/audio_out 1</plug>
+   <plug>Guitar FX/audio_out 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums FX">
+   <plug>Drums FX/audio_out 1</plug>
+   <plug>Drums FX/audio_out 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Synth">
+   <plug>Synth/audio_out 1</plug>
+   <plug>Synth/audio_out 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Master">
+   <plug>Master/audio_out 1</plug>
+   <plug>Master/audio_out 2</plug>
+  </socket>
+ </output-sockets>
+ <input-sockets>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums FX 1">
+   <plug>Drums FX/audio_in 1</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Drums FX 2">
+   <plug>Drums FX/audio_in 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar Input 1">
+   <plug>Guitar Input/audio_in 1</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar Input 2">
+   <plug>Guitar Input/audio_in 2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_wagnersharp" type="jack-audio" name="Amp">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket exclusive="off" client="vst_poulinlecabrev" type="jack-audio" name="Cab">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Guitar FX">
+   <plug>Guitar FX/audio_in 1</plug>
+   <plug>Guitar FX/audio_in 2</plug>
+  </socket>
+  <socket exclusive="off" client="ardour" type="jack-audio" name="Master">
+   <plug>Master/audio_in 1</plug>
+   <plug>Master/audio_in 2</plug>
+  </socket>
+  <socket exclusive="off" client="system" type="jack-audio" name="System">
+   <plug>playback_1</plug>
+   <plug>playback_2</plug>
+  </socket>
+ </input-sockets>
+ <slots/>
+ <cables>
+  <cable output="Drums 1" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 2" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Drums 3" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 4" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Drums 5" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 6" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Drums 7" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 8" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Drums 9" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 10" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Drums 11" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 12" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Drums 13" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 14" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Drums 15" input="Drums FX 1" type="jack-audio"/>
+  <cable output="Drums 16" input="Drums FX 2" type="jack-audio"/>
+  <cable output="Line 1" input="Guitar Input 1" type="jack-audio"/>
+  <cable output="Line 2" input="Guitar Input 2" type="jack-audio"/>
+  <cable output="Guitar Input" input="Amp" type="jack-audio"/>
+  <cable output="Amp" input="Cab" type="jack-audio"/>
+  <cable output="Cab" input="Guitar FX" type="jack-audio"/>
+  <cable output="Guitar FX" input="Master" type="jack-audio"/>
+  <cable output="Drums FX" input="Master" type="jack-audio"/>
+  <cable output="Master" input="System" type="jack-audio"/>
+  <cable output="Synth" input="Master" type="jack-audio"/>
+ </cables>
+</patchbay>
+
