@@ -45,6 +45,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-surround'
     nmap <leader>( <ESC>ysw)
     nmap <leader>' <ESC>#ysw'\
+    nmap <leader>" <ESC>#ysw"\
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'cespare/vim-toml'
@@ -105,7 +106,7 @@ Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
 
 Plug 'Shougo/vimshell.vim'
 
-Plug 'vim-autosurround'
+Plug 'vim-autosurround', { 'for': 'php' }
     inoremap ( (<C-O>:call AutoSurround(")")<CR>
 
 "Plug 'hallettj/jslint.vim'

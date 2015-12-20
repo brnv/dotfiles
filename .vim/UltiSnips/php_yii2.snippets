@@ -508,3 +508,18 @@ snippet yilc "yii2 index list controls"
 	?>"></a>
 </td>
 endsnippet
+
+snippet ygtc "get total count"
+$provider = new \yii\data\ActiveDataProvider([
+	'query' => \app\models\\${1:Model}::find(),
+]);
+
+$totalCount = $provider->getTotalCount();
+endsnippet
+
+snippet yobf "yii2 order by field"
+orderBy(array(
+	new \yii\db\Expression('FIELD ($1, ' . implode(
+		',', $2). ')'))
+);
+endsnippet
