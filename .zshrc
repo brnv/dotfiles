@@ -98,6 +98,14 @@ bindkey "^B" backward-word
 #bindkey "^F" forward-word
 bindkey '^F' fzf-file-widget
 
+# docker aliases
+alias d="sudo docker"
+alias dps="sudo docker ps"
+alias dpsa="sudo docker ps -a"
+alias dr="sudo docker run -i -t"
+alias de="sudo docker exec -i -t"
+alias dl="sudo docker logs"
+
 #ZSH_THEME="daveverwer"
 PROMPT='%{$fg[red]%}%m($(t | wc -l))%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$) '
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}("
