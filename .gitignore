@@ -4,3 +4,4 @@
 .vim/autoload/
 .i3/config
 .rack/*dll
+.rack/delay
