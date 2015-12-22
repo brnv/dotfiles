@@ -41,7 +41,10 @@ alias ym="./yii migrate"
 alias pgrep="pgrep -f -a"
 alias pkill="pkill -f"
 alias ardour="ardour4"
-alias t="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks"
+alias tsd="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-day"
+alias tsw="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-week"
+alias tsm="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-month"
+alias tsy="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-year"
 alias kill9="kill -9"
 alias i="issue"
 
@@ -107,7 +110,7 @@ alias de="sudo docker exec -i -t"
 alias dl="sudo docker logs"
 
 #ZSH_THEME="daveverwer"
-PROMPT='%{$fg[red]%}%m($(t | wc -l))%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$) '
+PROMPT='%{$fg[red]%}%m($(tsd | wc -l)-$(tsw | wc -l)-$(tsm | wc -l)-$(tsy | wc -l))%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$) '
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[blue]%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
 
