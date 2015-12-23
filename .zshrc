@@ -108,6 +108,8 @@ alias dpsa="sudo docker ps -a"
 alias dr="sudo docker run -i -t"
 alias de="sudo docker exec -i -t"
 alias dl="sudo docker logs"
+alias dlf="docker logs --follow"
+alias da="docker attach --no-stdin"
 
 #ZSH_THEME="daveverwer"
 PROMPT='%{$fg[red]%}%m($(tsd | wc -l)-$(tsw | wc -l)-$(tsm | wc -l)-$(tsy | wc -l))%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$) '
