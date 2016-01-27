@@ -48,6 +48,7 @@ alias tsm="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --li
 alias tsy="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-year"
 alias kill9="kill -9"
 alias i="issue"
+alias mplayer="mplayer -zoom"
 
 # android tools
 alias alc="sudo adb logcat"
@@ -89,6 +90,8 @@ alias gr="git remote"
 alias grb="git rebase"
 alias grbo="git rebase --onto"
 alias gbl="git blame"
+alias grom="git rebase origin/master"
+alias grod="git rebase origin/development"
 
 # dotfiles editing
 alias v="vim ~/.vimrc"
@@ -111,6 +114,9 @@ alias de="sudo docker exec -i -t"
 alias dl="sudo docker logs"
 alias dlf="docker logs --follow"
 alias da="docker attach --no-stdin"
+alias drm="sudo docker rm"
+alias dst="sudo docker stop"
+alias dbld="sudo docker build -t"
 
 #ZSH_THEME="daveverwer"
 PROMPT='%{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$) '
