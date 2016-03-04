@@ -29,3 +29,6 @@ h move-left,warp
 j move-down,warp
 k move-up,warp
 l move-right,warp
+
+grave grid 1x1,cursorzoom 9 9
+Tab grid 1x1,cursorzoom 9 9,warp,click 1,end
