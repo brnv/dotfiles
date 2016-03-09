@@ -41,14 +41,11 @@ alias ym="./yii migrate"
 alias pgrep="pgrep -f -a"
 alias pkill="pkill -f"
 alias ardour="ardour4"
-alias tsd="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-day"
-alias t="tsd"
-alias tsw="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-week"
-alias tsm="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-month"
-alias tsy="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks-year"
+alias t="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --list tasks"
 alias kill9="kill -9"
 alias i="issue"
 alias mplayer="mplayer -zoom"
+alias rto='rtorrent "$(/usr/bin/ls --color=never -t ~/Downloads/*.torrent | head -n1)"'
 
 # android tools
 alias alc="sudo adb logcat"
