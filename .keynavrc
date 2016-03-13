@@ -21,6 +21,8 @@ v cell-select 4x4,warp
 
 shift+space drag 1
 
+space warp,click 1
+
 shift+z click 1
 shift+x click 2
 shift+c click 3

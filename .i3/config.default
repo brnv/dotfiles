@@ -14,7 +14,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 bindsym $mod+space exec $terminal
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec dmenu_run
+bindsym $mod+r exec dmenu_run
 
 bindsym Ctrl+Home focus left
 bindsym Ctrl+Prior focus up
@@ -40,12 +40,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+q workspace 4
+bindsym $mod+w workspace 5
+bindsym $mod+e workspace 6
+bindsym $mod+a workspace 7
+bindsym $mod+s workspace 8
+bindsym $mod+d workspace 9
 
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
