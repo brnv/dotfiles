@@ -29,7 +29,6 @@ Plug 'SirVer/UltiSnips'
 Plug 'tpope/vim-fugitive'
 
 Plug 'bling/vim-airline'
-    let g:airline_theme = 'raven'
     let g:airline_powerline_fonts = 1
     let g:Powerline_symbols = 'fancy'
 

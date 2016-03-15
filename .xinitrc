@@ -2,6 +2,8 @@
 
 xsetup
 
-battery-life-checker &
+if [[ `hostname` == "home" ]]; then
+    battery-life-checker &
+fi
 
 exec i3

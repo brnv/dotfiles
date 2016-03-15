@@ -15,7 +15,7 @@ URxvt.perl-ext-common: -scrollback-selection,url-select,keyboard-select,autocomp
 URxvt.url-select.launcher: /usr/bin/firefox
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-S: perl:keyboard-select:search
 URxvt.keysym.M-slash: perl:aAtt:WORD-complete
 URxvt.keysym.M-question: perl:aAtt:skeleton-complete
 URxvt.buffered: false
