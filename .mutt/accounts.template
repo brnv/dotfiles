@@ -1,0 +1,8 @@
+account-hook imap://{{ADDRESS}}@{{SERVER}}/ '\
+    set \
+    imap_pass={{PASSWORD}}\
+    from="{{FROM}}"\
+    folder=imap://{{ADDRESS}}@{{SERVER}}/\
+    record="+Sent"\
+    postponed="+Drafts"'
+set spoolfile='imap://{{ADDRESS}}@{{SERVER}}/'
