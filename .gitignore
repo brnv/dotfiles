@@ -5,3 +5,5 @@
 .i3/config
 .rack/*dll
 .rack/delay
+.mutt/accounts
+.vim/tmp
