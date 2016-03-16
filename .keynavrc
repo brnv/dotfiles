@@ -19,7 +19,7 @@ x cell-select 2x4,warp
 c cell-select 3x4,warp
 v cell-select 4x4,warp
 
-shift+space drag 1
+shift+space warp,drag 1
 
 space warp,click 1
 
