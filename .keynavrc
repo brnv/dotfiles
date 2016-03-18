@@ -37,3 +37,8 @@ Tab grid 1x1,cursorzoom 9 9,warp,click 1,end
 
 n warp,click 4
 m warp,click 5
+
+shift+h cut-left,warp
+shift+j cut-down,warp
+shift+k cut-up,warp
+shift+l cut-right,warp
