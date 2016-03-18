@@ -1,7 +1,12 @@
-# shell settings
-ZSH=/usr/share/oh-my-zsh/
+source "${HOME}/.zgen/zgen.zsh"
+
+if ! zgen saved; then
+    zgen oh-my-zsh
+    zgen load seletskiy/zsh-ssh-urxvt
+fi
+
 plugins=(git)
-source $ZSH/oh-my-zsh.sh
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 eval $(dircolors ~/.dircolors.$(cat ~/.background))
