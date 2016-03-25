@@ -1,8 +1,20 @@
 #!/bin/bash
 
-inotifywait -m -r -e modify --format %f ./tests |
+if [ -n "$1" ]; then
+    pattern=${1:-.}
+    shift
+fi
+
+cmd="${@}"
+
+inotifywait -r -m -e modify --format %w%f . |
     while read name
     do
+        if ! grep "$pattern" <<< "$name"; then
+            continue
+        fi
         echo -e '\e[1;44;1;37m:: '$name'\e[0m'
-        ${@}
+
+        eval "$(sed 's|%s|'"$name"'|' <<< "$cmd")"
     done
+
