@@ -18,11 +18,15 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'Valloric/YouCompleteMe'
 
 Plug 'SirVer/UltiSnips'
+    let g:UltiSnipsUsePythonVersion=2
     let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
     let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
+    let g:UltiSnipsSnippetDirectories = [
+    \   $HOME . '/.vim/plugins/snippets',
+    \   $HOME . '/.vim/UltiSnips',
+    \]
     vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>s<C-J><C-r>*<C-J>
     map <leader>s :UltiSnipsEdit<CR>G
 
@@ -40,6 +44,7 @@ Plug 'osyo-manga/vim-over'
 
 Plug 'fatih/vim-go', { 'for': 'go' }
     let g:go_fmt_command = "goimports"
+    let g:go_fmt_autosave = 0
 
 Plug 'tpope/vim-surround'
     nmap <leader>( <ESC>ysw)
@@ -81,14 +86,13 @@ Plug 't9md/vim-choosewin'
 Plug 'danro/rename.vim'
 
 Plug 'reconquest/vim-pythonx'
+Plug 'reconquest/snippets'
 
 Plug 'kovetskiy/vim-ski'
     let g:skeletons_dir=$HOME.'/.vim/skeletons/'
 
-Plug 'kovetskiy/vim-go-complete-utils', { 'for': 'go' }
-    augroup go_functions
-    au FileType go inoremap <C-Y> <C-R>=GoCompleteSnippet()<CR>
-    augroup end
+Plug 'kovetskiy/vim-go-utils', { 'for': 'go' }
+    inoremap <C-E> <C-R>=GoCompleteSnippet()<CR>
 
 Plug 'scrooloose/syntastic', { 'for': 'php' }
     let g:syntastic_php_checkers = ["php"]
@@ -100,12 +104,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
     map <C-P> :FZF -m<CR>
     "@TODO: follow symlinks & dotfiles visible
 
-Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
-    let g:JSHintUpdateWriteOnly=1
+"Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
+"    let g:JSHintUpdateWriteOnly=1
 
 Plug 'Shougo/vimshell.vim'
 
-Plug 'vim-autosurround', { 'for': 'php' }
+Plug 'seletskiy/vim-autosurround'
     inoremap ( (<C-O>:call AutoSurround(")")<CR>
 
 "Plug 'hallettj/jslint.vim'
@@ -182,6 +186,8 @@ nmap # #N
 "nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
 nmap <F11> :read !xsel<CR>
 map <leader>; <ESC>$a;<ESC>
+map <leader>g :GoFmt<CR>
+"map <C-b> <C-^>
 
 " Motions
 map <M-j> <Esc>
