@@ -1,3 +1,4 @@
+# vim: ft=zsh
 # go shortcuts
 alias gog="go get"
 alias goi="go install"
@@ -69,6 +70,7 @@ alias grbo="git rebase --onto"
 alias gbl="git blame"
 alias grom="git rebase origin/master"
 alias grod="git rebase origin/development"
+alias gco="git checkout"
 
 # dotfiles editing
 alias v="vim ~/.vimrc"
