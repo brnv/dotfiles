@@ -3,6 +3,7 @@ source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
     zgen oh-my-zsh
     zgen load seletskiy/zsh-ssh-urxvt
+    zgen load kovetskiy/zsh-fastcd
 fi
 
 plugins=(git)
