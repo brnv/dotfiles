@@ -19,6 +19,7 @@ export GOPATH=$HOME/.go
 export PATH=$HOME/.bin:/usr/local/bin:$GOPATH/bin:$PATH
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/.dotfiles/deadfiles/bin:$PATH
 export GITHUB=$HOME/sources/github.com
 export TERM=rxvt-unicode-256color
 export ERLC=erlc
