@@ -12,7 +12,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1500
 eval $(dircolors ~/.dircolors.$(cat ~/.background))
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /etc/profile.d/fzf.zsh ] && source /etc/profile.d/fzf.zsh
 
 # exports
 export GOPATH=$HOME/.go
@@ -51,3 +51,4 @@ function word_prepend_dot_slash() {
 function gocd() {
 	cd `find $GOPATH/src/ -name "$1*" -type d | head -n 1`
 }
+
