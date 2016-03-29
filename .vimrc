@@ -112,6 +112,15 @@ Plug 'Shougo/vimshell.vim'
 Plug 'seletskiy/vim-autosurround'
     inoremap ( (<C-O>:call AutoSurround(")")<CR>
 
+Plug 'takac/vim-hardtime'
+    let g:list_of_insert_keys = []
+    let g:list_of_visual_keys = []
+    let g:list_of_normal_keys = ["<Leader>w"]
+
+    let g:hardtime_showerr = 1
+    let g:hardtime_timeout = 5000
+    let g:hardtime_default_on = 1
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
@@ -175,7 +184,7 @@ map <leader>~ :tabnew ~/.vimrc<CR>
 map <leader>j <Space>cl
 map <leader>u <Space>cu
 map <leader>w <Esc>:w<CR>
-map <leader>q <Esc>:q<CR>
+map <leader>q <Esc>:wq<CR>
 nmap <leader>t :read !date<CR>
 map Q qq
 map ! :g//norm @q<CR>
