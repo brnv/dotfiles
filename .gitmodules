@@ -1,3 +1,6 @@
 [submodule ".fonts"]
 	path = .fonts
 	url = git://github.com/seletskiy/monaco-font
+[submodule "deadfiles"]
+	path = deadfiles
+	url = git@github.com:deadcrew/deadfiles.git
