@@ -184,7 +184,7 @@ map <leader>~ :tabnew ~/.vimrc<CR>
 map <leader>j <Space>cl
 map <leader>u <Space>cu
 map <leader>w <Esc>:w<CR>
-map <leader>q <Esc>:wq<CR>
+map <leader>q <Esc>:q<CR>
 nmap <leader>t :read !date<CR>
 map Q qq
 map ! :g//norm @q<CR>

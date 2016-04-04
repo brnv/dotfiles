@@ -13,6 +13,7 @@ HISTSIZE=1500
 eval $(dircolors ~/.dircolors.$(cat ~/.background))
 
 [ -f /etc/profile.d/fzf.zsh ] && source /etc/profile.d/fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # exports
 export GOPATH=$HOME/.go
@@ -47,8 +48,3 @@ zle -N word-prepend-dot-slash word_prepend_dot_slash
 function word_prepend_dot_slash() {
 	# todo
 }
-
-function gocd() {
-	cd `find $GOPATH/src/ -name "$1*" -type d | head -n 1`
-}
-

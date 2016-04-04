@@ -1,6 +1,7 @@
 # vim: ft=zsh
 # go shortcuts
 alias gog="go get"
+alias gogu="go get -u"
 alias goi="go install"
 alias gor="go run"
 alias gob="go build"
@@ -58,10 +59,12 @@ alias gl="git log --graph --decorate --oneline --all"
 alias gpo="git push origin"
 alias gpom="git push origin master"
 alias gplo="git pull --rebase origin"
+alias gpl="git pull"
 alias gplos="git stash && git pull --rebase origin && git stash pop"
-alias gpl="git pull --rebase"
+alias gplr="git pull --rebase"
 alias grm="git rm"
 alias grs="git reset"
+alias grsh="git reset --hard"
 alias gst="git stash"
 alias gstp="git stash pop"
 alias gr="git remote"
@@ -98,6 +101,12 @@ alias drm="sudo docker rm"
 alias dst="sudo docker stop"
 alias dbld="sudo docker build -t"
 
+#bitbucket
+alias bpr="bitbucket pull-request"
+
+#fastcd
+alias vicd="fastcd ~/.vim/plugins/ 1"
+alias gocd="fastcd $GOPATH/src/ 3"
 
 # 20.12.L -> ssh 192.168.20.12
 # 20.12.P -> ssh 172.16.20.12
