@@ -1,4 +1,7 @@
 # vim: ft=zsh
+
+aliases_context_init
+
 # go shortcuts
 alias gog="go get"
 alias gogu="go get -u"
@@ -46,34 +49,7 @@ alias -g W="| wc"
 
 # git aliases
 alias gi="git init"
-alias gcl="git clone"
-alias gs="git status -s"
-alias gd="git diff"
-alias ga="git add"
-alias gdc="git diff --cached"
-alias gcm="git commit -m"
-alias gcmi="git commit -m \"initial commit\""
-alias gca="git commit --amend"
-alias gsh="git show"
-alias gl="git log --graph --decorate --oneline --all"
-alias gpo="git push origin"
-alias gpom="git push origin master"
-alias gplo="git pull --rebase origin"
-alias gpl="git pull"
-alias gplos="git stash && git pull --rebase origin && git stash pop"
-alias gplr="git pull --rebase"
-alias grm="git rm"
-alias grs="git reset"
-alias grsh="git reset --hard"
-alias gst="git stash"
-alias gstp="git stash pop"
-alias gr="git remote"
-alias grb="git rebase"
-alias grbo="git rebase --onto"
-alias gbl="git blame"
-alias grom="git rebase origin/master"
-alias grod="git rebase origin/development"
-alias gco="git checkout"
+alias gc="git clone"
 
 # dotfiles editing
 alias v="vim ~/.vimrc"
@@ -131,3 +107,33 @@ function ssh-helper() {
 
     ssh-urxvt -t $prefix"${host%%$remove_suffix}"$suffix "${@}"
 }
+
+autoload is_inside_git_repo
+aliases_context is_inside_git_repo
+    alias s="git status -s"
+    alias d="git diff"
+    alias a="git add"
+    alias dc="git diff --cached"
+    alias cm="git commit -m"
+    alias cmi="git commit -m \"initial commit\""
+    alias ca="git commit --amend"
+    alias sh="git show"
+    alias l="git log --graph --decorate --oneline --all"
+    alias po="git push origin"
+    alias pom="git push origin master"
+    alias plo="git pull --rebase origin"
+    alias pl="git pull"
+    alias plos="git stash && git pull --rebase origin && git stash pop"
+    alias plr="git pull --rebase"
+    alias rm="git rm"
+    alias rs="git reset"
+    alias rsh="git reset --hard"
+    alias st="git stash"
+    alias stp="git stash pop"
+    alias r="git remote"
+    alias rb="git rebase"
+    alias rbo="git rebase --onto"
+    alias bl="git blame"
+    alias rom="git rebase origin/master"
+    alias rod="git rebase origin/development"
+    alias co="git checkout"
