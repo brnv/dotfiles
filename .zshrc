@@ -11,6 +11,13 @@ fi
 
 plugins=(git)
 
+zsh_autosuggest_dir=$ZSH_CUSTOM/plugins/zsh-autosuggestions
+if [[ ! -a $zsh_autosuggest_dir ]]; then
+    git clone git://github.com/zsh-users/zsh-autosuggestions $zsh_autosuggest_dir
+fi
+source $zsh_autosuggest_dir/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 eval $(dircolors ~/.dircolors.$(cat ~/.background))
