@@ -5,6 +5,7 @@ if ! zgen saved; then
     zgen load seletskiy/zsh-ssh-urxvt
     zgen load seletskiy/zsh-context-aliases
     zgen load kovetskiy/zsh-fastcd
+    zgen load seletskiy/zsh-hijack
 
     zgen save
 fi
