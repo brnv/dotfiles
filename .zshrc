@@ -58,3 +58,5 @@ zle -N word-prepend-dot-slash word_prepend_dot_slash
 function word_prepend_dot_slash() {
 	# todo
 }
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
