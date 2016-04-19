@@ -18,13 +18,17 @@ function cleanup {
 	rm ~/.local/share/fonts
 	rm ~/.terminfo
 	rm ~/.i3
-	rm ~/.vimrc
 	rm ~/.xkb
 	rm ~/.vim
 	rm ~/.mcabber
-	rm ~/.muttrc
 	rm ~/.bin
 	rm ~/.Xresources.colors
+	rm ~/.ardour-templates
+	rm ~/.jack-templates
+	rm ~/.guitarix
+	rm ~/.mutt
+	rm ~/.rack
+	rm ~/.icons
 }
 
 function install_i3_config {
