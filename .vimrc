@@ -209,6 +209,7 @@ vmap <C-k> <C-b>
 " Miscellaneous
 let g:EclimCompletionMethod = 'omnifunc'
 nnoremap <Bslash> :nohl<CR>
+nnoremap q: <NOP>
 
 " Autocommands
 augroup starting_cursor_position
