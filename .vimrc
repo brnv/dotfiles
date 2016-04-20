@@ -121,6 +121,9 @@ Plug 'takac/vim-hardtime'
     let g:hardtime_timeout = 5000
     let g:hardtime_default_on = 1
 
+Plug 'vim-scripts/grep.vim'
+    nnoremap <silent> <F3> yaw:Grep <C-R>" *<CR>
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
