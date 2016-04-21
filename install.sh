@@ -38,7 +38,7 @@ function install_i3_config {
 
 function install {
 	export -f set_link
-	git ls-files | grep -Ev "^\w.*" | cut -f1 -d / | uniq | sort | xargs -n1 -I{} bash -c "set_link {}"
+	git ls-files | grep -E "^\.|^bin" | cut -f1 -d / | uniq | sort | xargs -n1 -I{} bash -c "set_link {}"
 }
 
 function post_install {
