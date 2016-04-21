@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ls -t Downloads/*torrent | head -n1 | rtorrent

@@ -21,7 +21,7 @@ function cleanup {
 	rm ~/.xkb
 	rm ~/.vim
 	rm ~/.mcabber
-	rm ~/.bin
+	rm ~/bin
 	rm ~/.Xresources.colors
 	rm ~/.ardour-templates
 	rm ~/.jack-templates
