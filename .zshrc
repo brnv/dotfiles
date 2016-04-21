@@ -13,7 +13,12 @@ fi
 
 plugins=(git)
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
+if [ `cat ~/.background` = 'dark' ]; then
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
+else
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
+fi
+
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
