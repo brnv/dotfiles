@@ -17,11 +17,3 @@ xkbcomp $XDG_CONFIG_HOME/config $DISPLAY
 
 xset b off && xset s off
 xset r rate 120 100
-
-redshift -l55.2:82.55 -o
-
-if [[ `hostname` == "work" ]]; then
-    xrandr --output HDMI-2  --rotate left --left-of VGA-1
-fi
-
-pkill keynav; keynav
