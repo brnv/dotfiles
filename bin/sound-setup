@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ `hostname` = "work" ]; then
+    rm ~/.asoundrc
+fi
