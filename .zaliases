@@ -55,14 +55,12 @@ alias gc="git clone"
 alias v="vim ~/.vimrc"
 alias z="vim ~/.zshrc"
 alias za="vim ~/.zaliases"
+alias vs="vim .vim/plugins/snippets/go.snippets"
 
 # zsh controls
 alias h="bindkey L"
 bindkey "^U" undo
 bindkey "^T" prepend-sudo
-bindkey "^B" backward-word
-#bindkey "^F" forward-word
-bindkey '^F' fzf-file-widget
 
 # docker aliases
 alias d="sudo docker"
@@ -113,6 +111,7 @@ aliases_context is_inside_git_repo
     alias s="git status -s"
     alias d="git diff"
     alias a="git add"
+    alias aa="git add . -u"
     alias dc="git diff --cached"
     alias c="git commit -m"
     alias cmi="git commit -m \"initial commit\""
