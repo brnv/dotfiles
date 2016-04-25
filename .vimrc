@@ -191,10 +191,11 @@ map <leader>q <Esc>:q<CR>
 nmap <leader>t :read !date<CR>
 map Q qq
 map ! :g//norm @q<CR>
-nmap <leader>n :vnew<CR>
+nmap <leader>n :vsplit<CR>
 nmap <leader>m :vnew<CR>:VimShell<CR>mysql<CR>
 map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 nmap # #N
+nmap <leader>v :split<CR>
 "nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
 nmap <F11> :read !xsel<CR>
 map <leader>; <ESC>$a;<ESC>
