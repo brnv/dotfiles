@@ -31,6 +31,7 @@ alias kill9="kill -9"
 alias i="issue"
 alias mplayer="mplayer -zoom"
 alias rto='rtorrent "$(/usr/bin/ls --color=never -t ~/Downloads/*.torrent | head -n1)"'
+alias sw="sudo wifi-menu"
 
 # android tools
 alias alc="sudo adb logcat"
@@ -136,3 +137,4 @@ aliases_context is_inside_git_repo
     alias rom="git rebase origin/master"
     alias rod="git rebase origin/development"
     alias co="git checkout"
+    alias rso="git remote show origin"

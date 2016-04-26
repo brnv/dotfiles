@@ -7,6 +7,7 @@ if ! zgen saved; then
     zgen load kovetskiy/zsh-fastcd
     zgen load seletskiy/zsh-hijack
     zgen load seletskiy/zsh-autosuggestions
+    zgen load seletskiy/zsh-syntax-highlighting
 
     zgen save
 fi
@@ -60,5 +61,3 @@ zle -N word-prepend-dot-slash word_prepend_dot_slash
 function word_prepend_dot_slash() {
 	# todo
 }
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
