@@ -4,3 +4,6 @@
 [submodule "deadfiles"]
 	path = deadfiles
 	url = git@github.com:deadcrew/deadfiles.git
+[submodule "rootfs/usr/share/X11/xkb"]
+	path = rootfs/usr/share/X11/xkb
+	url = https://github.com/reconquest/rex
