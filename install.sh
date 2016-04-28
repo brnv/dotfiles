@@ -18,7 +18,6 @@ function cleanup {
     rm ~/.local/share/fonts
     rm ~/.terminfo
     rm ~/.i3
-    rm ~/.xkb
     rm ~/.vim
     rm ~/.mcabber
     rm ~/bin
