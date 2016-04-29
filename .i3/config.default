@@ -1,9 +1,4 @@
-set $win Mod4
-set $alt Mod1
-
 set $mod Mod4
-
-set $terminal marvex
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -12,8 +7,8 @@ floating_modifier $mod
 
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
-bindsym $mod+space exec $terminal
-bindsym $mod+Shift+q kill
+bindsym $mod+space exec marvex -c
+bindsym $mod+Ctrl+q kill
 bindsym $mod+r exec dmenu_run
 
 bindsym Ctrl+Home focus left
@@ -26,8 +21,8 @@ bindsym Ctrl+Shift+Prior move up
 bindsym Ctrl+Shift+Next move down
 bindsym Ctrl+Shift+End move right
 
-bindsym $mod+b split h
-bindsym $mod+v split v
+bindsym $mod+t split h
+bindsym $mod+g split v
 
 bindsym $mod+f fullscreen
 
@@ -41,7 +36,7 @@ bindsym $mod+Shift+space floating toggle
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+Shift+Ctrl+s exec slock
+bindsym Execute exec slock
 
 hide_edge_borders both
 
@@ -51,7 +46,3 @@ client.focused_inactive #262626 #262626 #657b83 #ffffff
 client.unfocused #262626 #262626 #657b83 #ffffff
 
 bindsym $mod+Ctrl+r exec "redshift -l55.2:82.55 -o"
-
-bindsym $mod+$alt+b exec "xdotool click 1"
-bindsym $mod+$alt+n exec "xdotool click 2"
-bindsym $mod+$alt+m exec "xdotool click 3"
