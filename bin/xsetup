@@ -43,3 +43,15 @@ setxkbmap \
     -print | (
             xkbcomp - $DISPLAY
     )
+
+sudo pkill shift-shift
+
+HANDLER_ENG="CAPSLOCK"
+HANDLER_RUS="RIGHTSHIFT"
+
+{
+    sudo shift-shift \
+        -match "$KEYBOARD" \
+        -first "$HANDLER_ENG" -second "$HANDLER_RUS" \
+        | systemd-cat -t shift-shift
+} &
