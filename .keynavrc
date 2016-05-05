@@ -1,6 +1,10 @@
+clear
+
 daemonize
 
 super+semicolon start, grid 4x4
+
+Escape end
 
 1 cell-select 1x1,warp
 2 cell-select 2x1,warp
