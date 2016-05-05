@@ -8,6 +8,7 @@ floating_modifier $mod
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 bindsym $mod+space exec marvex -c
+bindsym $mod+Return exec ssh-work
 bindsym $mod+Ctrl+q kill
 bindsym $mod+r exec dmenu_run
 
