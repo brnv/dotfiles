@@ -15,11 +15,13 @@ endif
 call plug#begin('~/.vim/plugins')
 
 Plug 'altercation/vim-colors-solarized'
+
 Plug 'Valloric/YouCompleteMe'
+    let g:ycm_key_list_select_completion = []
 
 Plug 'SirVer/UltiSnips'
     let g:UltiSnipsUsePythonVersion=2
-    let g:UltiSnipsExpandTrigger="<c-j>"
+    let g:UltiSnipsExpandTrigger="<Tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
     let g:UltiSnipsEditSplit="vertical"
