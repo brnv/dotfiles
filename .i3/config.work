@@ -1,7 +1,7 @@
+
 bindsym $mod+1 workspace 1
 bindsym $mod+q workspace 2
 bindsym $mod+a workspace 3
-
 bindsym $mod+2 workspace 4
 bindsym $mod+w workspace 5
 bindsym $mod+s workspace 6
@@ -9,7 +9,13 @@ bindsym $mod+s workspace 6
 workspace 1 output HDMI-2
 workspace 2 output HDMI-2
 workspace 3 output HDMI-2
-
 workspace 4 output VGA-1
 workspace 5 output VGA-1
 workspace 6 output VGA-1
+
+bindcode $mod+Shift+10 move container to workspace 1
+bindcode $mod+Shift+24 move container to workspace 2
+bindcode $mod+Shift+38 move container to workspace 3
+bindcode $mod+Shift+11 move container to workspace 4
+bindcode $mod+Shift+25 move container to workspace 5
+bindcode $mod+Shift+39 move container to workspace 6

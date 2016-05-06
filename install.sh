@@ -47,6 +47,7 @@ function post_install {
     xsetup
     screens-setup
     sound-setup
+    i3-msg restart
 }
 
 cleanup
