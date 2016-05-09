@@ -33,10 +33,11 @@ alias mplayer="mplayer -zoom"
 alias rto='rtorrent "$(/usr/bin/ls --color=never -t ~/Downloads/*.torrent | head -n1)"'
 alias sw="sudo wifi-menu"
 alias ag="ag --hidden"
+alias ipa="ip a"
 
 # android tools
-alias alc="sudo adb logcat"
-alias ad="sudo adb devices"
+alias alc="adb logcat"
+alias ad="adb devices"
 
 # pipe shortcuts
 alias -g C="| cut"
@@ -65,17 +66,17 @@ bindkey "^U" undo
 bindkey "^T" prepend-sudo
 
 # docker aliases
-alias d="sudo docker"
-alias dps="sudo docker ps"
-alias dpsa="sudo docker ps -a"
-alias dr="sudo docker run -i -t"
-alias de="sudo docker exec -i -t"
-alias dl="sudo docker logs"
+alias d="docker"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dr="docker run -i -t"
+alias de="docker exec -i -t"
+alias dl="docker logs"
 alias dlf="docker logs --follow"
 alias da="docker attach --no-stdin"
-alias drm="sudo docker rm"
-alias dst="sudo docker stop"
-alias dbld="sudo docker build -t"
+alias drm="docker rm"
+alias dst="docker stop"
+alias dbld="docker build -t"
 
 #bitbucket
 alias bpr="bitbucket pull-request"
@@ -123,6 +124,7 @@ context-aliases:match is_inside_git_repo
     alias po="git push origin"
     alias pom="git push origin master"
     alias plo="git pull --rebase origin"
+    alias plom="git pull --rebase origin master"
     alias pl="git pull"
     alias plos="git stash && git pull --rebase origin && git stash pop"
     alias plr="git pull --rebase"
@@ -139,6 +141,8 @@ context-aliases:match is_inside_git_repo
     alias rod="git rebase origin/development"
     alias co="git checkout"
     alias rso="git remote show origin"
-    alias gs="git submodule"
-    alias gsi="git submodule init"
-    alias gsu="git submodule update"
+    alias m="git submodule"
+    alias ms="git submodule sync"
+    alias mi="git submodule init"
+    alias mu="git submodule update"
+    alias br="git branch"
