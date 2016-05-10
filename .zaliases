@@ -34,6 +34,8 @@ alias rto='rtorrent "$(/usr/bin/ls --color=never -t ~/Downloads/*.torrent | head
 alias sw="sudo wifi-menu"
 alias ag="ag --hidden"
 alias ipa="ip a"
+alias sp="sudo pon"
+alias spf="sudo poff"
 
 # android tools
 alias alc="adb logcat"
