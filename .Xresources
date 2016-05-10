@@ -15,9 +15,9 @@ URxvt.iso14755_52: False
 URxvt.internalBorder: 0
 URxvt.perl-ext-common: -scrollback-selection,url-select,keyboard-select,autocomplete-ALL-the-things
 URxvt.url-select.launcher: /usr/bin/firefox
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-C-S: perl:keyboard-select:search
+URxvt.keysym.Mod4-u: perl:url-select:select_next
+URxvt.keysym.Mod4-Escape: perl:keyboard-select:activate
+URxvt.keysym.Mod4-S: perl:keyboard-select:search
 URxvt.buffered: false
 URxvt.pointerBlank: true
 URxvt.buffered: false
