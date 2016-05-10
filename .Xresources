@@ -2,9 +2,11 @@ URxvt.loginShell: true
 URxvt.transparent: false
 URxvt.scrollBar: false
 URxvt.cursorBlink: false
-URxvt.saveLines: 4096
-URxvt.font: xft:Monaco:style=Regular:pixelsize=12
-URxvt.boldFont: xft:Monaco:style=Bold:pixelsize=12
+URxvt.saveLines: 0
+URxvt.font: xft:Monaco:pixelsize=12:antialias=false
+URxvt.boldFont: xft:Monaco:style=Bold:pixelsize=12:antialias=false
+URxvt.italicFont:
+URxvt.boldItalicFont:
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.termName: rxvt-unicode-256color
@@ -15,8 +17,14 @@ URxvt.perl-ext-common: -scrollback-selection,url-select,keyboard-select,autocomp
 URxvt.url-select.launcher: /usr/bin/firefox
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-S: perl:keyboard-select:search
-URxvt.keysym.M-slash: perl:aAtt:WORD-complete
-URxvt.keysym.M-question: perl:aAtt:skeleton-complete
+URxvt.keysym.M-C-S: perl:keyboard-select:search
 URxvt.buffered: false
-URxvt.modifier: mod4
+URxvt.pointerBlank: true
+URxvt.buffered: false
+URxvt.depth: 24
+
+# autocomplete-ALL-the-things
+URxvt.keysym.Mod4-Tab: autocomplete-ALL-the-things:WORD-complete
+URxvt.keysym.Mod4-ISO_Left_Tab: autocomplete-ALL-the-things:skeleton-complete
+URxvt.keysym.Mod4-comma: autocomplete-ALL-the-things:suffix-complete
+URxvt.keysym.Mod4-period: autocomplete-ALL-the-things:surround-complete
