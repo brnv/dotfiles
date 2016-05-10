@@ -95,7 +95,29 @@ sub on_user_command {
             $matcher                = generate_matcher('.*?');
             $char_class_at_end      = '\w';
             $char_class_to_complete = '\S';
+        } elsif ($cmd eq 'suffix-complete') {
+            # Fuzzy completion of an completing suffixes, like
+            # completing test=hello from /blah/hello.
+            $char_class_before      = '\S';
+            $matcher                = generate_matcher('\S*');
+            $char_class_at_end      = '\S';
+            $char_class_to_complete = '\S';
+        } elsif ($cmd eq 'surround-complete') {
+            # Completing contents of quotes and braces.
+
+            # Here we are using three named groups: s, b, r for quotes, braces
+            # and parenthesis.
+            $char_class_before      = '((?<q>["\'])|(?<b>\[)|(?<p>\())';
+
+            $matcher                = generate_matcher('.*?');
+
+            # Here we match text till enclosing pair, using perl conditionals in
+            # regexps (?(condition)yes-expression|no-expression).
+            # \0 is used to hack concatenation with '*' later in the code.
+            $char_class_at_end      = '.*?(.(?=(?(<b>)\]|((?(<p>)\)|\g{q})))))\0';
+            $char_class_to_complete = '\S';
         }
+
 
         my ($row, $col) = $self->screen_cur(); # get cursor coordinates
 
@@ -143,16 +165,44 @@ sub conditional_leave {
     my ($self, $event, $keysym) = @_;
 
     my $keyname = $self->XKeysymToString($keysym);
-    # if ASCII, ignore ctrl etc.
-    if (($event->{'state'} < 2 && $keysym <= 127) ||
-        $keyname eq "Return" ||
-        $keyname eq "BackSpace" ||
-        $keyname eq "Delete" ||
-        $keyname eq "Tab" ||
-        $keyname eq "Up" ||
-        $keyname eq "Down" ||
-        $keyname eq "Left" ||
-        $keyname eq "Right") {
+    $_ = $keyname;
+
+    if ($keyname eq "Escape") {
+        undo_completion($self);
+        $self->disable("key_press");
+        return 1;
+    }
+
+    my $ShiftMask   = (1<<0);
+    my $ControlMask = (1<<2);
+    my $Mod1Mask    = (1<<3);
+    my $Mod4Mask    = (1<<6);
+    my $Mod5Mask    = (1<<7);
+
+    my $modifier_mask = $ControlMask
+                      | $Mod1Mask  # Alt
+                      | $Mod5Mask  # AltGr
+                      | $Mod4Mask; # Super
+
+    # Stop the completion mode only when either a alphanumeric key is
+    # pressed (regardless of any modifiers) or a printable key is
+    # pressed without any modifiers. It is needed because the
+    # key_press hooks are processed before the user_command hooks and
+    # stopping on every printable character would break the completion
+    # chaining. For this to work, the actions must be bound to the
+    # symbol characters with some modifiers (for example
+    # Ctrl+Alt+slash).
+    if (/^\w$/ ||
+        (!($event->{state} & $modifier_mask) &&
+         ($keysym <= 127          ||
+          $keyname eq "Return"    ||
+          $keyname eq "BackSpace" ||
+          $keyname eq "Delete"    ||
+          $keyname eq "Tab"       ||
+          $keyname eq "Up"        ||
+          $keyname eq "Down"      ||
+          $keyname eq "Left"      ||
+          $keyname eq "Right"))) {
 
         leave($self);
         $self->disable("key_press");
@@ -288,17 +338,22 @@ sub find_match {
 
         $_ = $line->t;
 
+        my ($cursor_row, $cursor_column) = $self->screen_cur();
+        if ($i == $cursor_row) {
+            $_ = substr $line, 0, $cursor_column;
+        }
+
         # find all the matches in the current line
         my $match;
-        push @{$self->{matches_in_row}}, $match while ($_, $match) = /
+        push @{$self->{matches_in_row}}, $+{match} while ($_, $match) = /
                                                                          (.*${char_class_before})
-                                                                         (
+                                                                         (?<match>
                                                                              ${regexp}
                                                                              ${char_class_at_end}*
                                                                          )
                                                                      /ix;
         # corner case: match at the very beginning of line
-        push @{$self->{matches_in_row}}, $1 if $line->t =~ /^($regexp$char_class_at_end*)/i;
+        push @{$self->{matches_in_row}}, $+{match} if $line->t =~ /^(${char_class_before}){0}(?<match>$regexp$char_class_at_end*)/i;
 
         if (@{$self->{matches_in_row}}) {
             # remember which row should be searched next
