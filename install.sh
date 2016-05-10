@@ -55,4 +55,8 @@ install_i3_config
 install
 post_install
 
+if [ -e $dotfiles/root_install.sh ]; then
+    $dotfiles/root_install.sh
+fi
+
 echo done
