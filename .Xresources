@@ -23,6 +23,9 @@ URxvt.pointerBlank: true
 URxvt.buffered: false
 URxvt.depth: 24
 
+URxvt.keysym.Mod4-n: string:\033\033[24~
+URxvt.keysym.Mod4-slash: string:\033\033[24~?
+
 # autocomplete-ALL-the-things
 URxvt.keysym.Mod4-Tab: autocomplete-ALL-the-things:WORD-complete
 URxvt.keysym.Mod4-ISO_Left_Tab: autocomplete-ALL-the-things:skeleton-complete
