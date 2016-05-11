@@ -202,6 +202,7 @@ nmap <leader>v :split<CR>
 nmap <F11> :read !xsel<CR>
 map <leader>; <ESC>$a;<ESC>
 map <leader>g :GoFmt<CR>
+map <leader>. :!go build<CR>
 "map <C-b> <C-^>
 
 " Motions
