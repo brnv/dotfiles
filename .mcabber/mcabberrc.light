@@ -1,4 +1,4 @@
-set color_background   = 15
+set color_background   = 255
 set color_general      = 244
 set color_info         = 244
 set color_log          = 244
@@ -8,9 +8,10 @@ set color_msghl        = 136
 set color_bgstatus     = 254
 set color_status       = 166
 set color_roster       = 8
-set color_bgrostersel  = 33
-set color_rostersel    = bright254
-set color_rosterselmsg = 254
-set color_rosternewmsg = 4
+set color_bgrostersel  = 136
+set color_rostersel    = 15
+set color_rosterselmsg = bright15
+set color_rosternewmsg = bright16
 color roster o * bright29
-color roster and * 14
+color roster f * 28
+color roster and * 168
