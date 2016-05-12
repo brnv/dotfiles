@@ -8,6 +8,7 @@ if ! zgen saved; then
     zgen load seletskiy/zsh-hijack
     zgen load seletskiy/zsh-autosuggestions
     zgen load seletskiy/zsh-syntax-highlighting
+    zgen load kovetskiy/zsh-smart-ssh
 
     zgen save
 fi
@@ -38,6 +39,7 @@ export GITHUB=$HOME/sources/github.com
 export TERM=rxvt-unicode-256color
 export ERLC=erlc
 export EDITOR=vim
+export BACKGROUND=`cat ~/.background`
 
 source ~/.zaliases
 
