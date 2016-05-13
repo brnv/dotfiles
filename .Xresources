@@ -14,11 +14,11 @@ URxvt.iso14755: False
 URxvt.iso14755_52: False
 URxvt.internalBorder: 0
 URxvt.perl-ext-common: -scrollback-selection,url-select,keyboard-select,autocomplete-ALL-the-things
-URxvt.url-select.launcher: /usr/bin/firefox
-URxvt.keysym.Mod4-u: perl:url-select:select_next
+URxvt.url-select.launcher: i3-sensible-browser
+URxvt.url-select.autocopy: true
+URxvt.keysym.Mod4-apostrophe: url-select:select_next
 URxvt.keysym.Mod4-Escape: perl:keyboard-select:activate
 URxvt.keysym.Mod4-S: perl:keyboard-select:search
-URxvt.buffered: false
 URxvt.pointerBlank: true
 URxvt.buffered: false
 URxvt.depth: 24
@@ -26,7 +26,6 @@ URxvt.depth: 24
 URxvt.keysym.Mod4-n: string:\033\033[24~
 URxvt.keysym.Mod4-slash: string:\033\033[24~?
 
-# autocomplete-ALL-the-things
 URxvt.keysym.Mod4-Tab: autocomplete-ALL-the-things:WORD-complete
 URxvt.keysym.Mod4-ISO_Left_Tab: autocomplete-ALL-the-things:skeleton-complete
 URxvt.keysym.Mod4-comma: autocomplete-ALL-the-things:suffix-complete
