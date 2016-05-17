@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -eu
+
+debug=(bi)
+
+test=(ze ci no xa pano)
+
+dev=(vo mu papa)
+
+hosts=(${debug[*]} ${test[*]} ${dev[*]})
+
+execute-command() {
+    local host=$1
+    local cmd=$2
+
+    echo $host:~ \$ $cmd
+    ssh $host "$cmd"
+    echo
+}
+
+for host in ${hosts[*]}; do
+    execute-command ya$host.yard.s "$@"
+done
