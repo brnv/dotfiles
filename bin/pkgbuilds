@@ -1,0 +1,35 @@
+#!/bin/bash
+
+pkgbuilds="pkgbuild.s/v1/build"
+githost="git@git.rn"
+project="devops"
+repo=$1
+branch=${2:-master}
+
+eval $(
+    curl -Ns \
+        http://$pkgbuilds/$githost:$project/$repo.git?environ=BRANCH=$branch \
+        | tee /dev/tty \
+        | awk -f <( cat - <<'AWK'
+            $0 ~ /error/ { exit 1 }
+            $0 ~ /Updated version: \S+ \S+$/ {
+                print "match=\""; print $0; print "\""
+            }
+AWK
+    )
+)
+
+version=$(
+    echo $match | rev | cut -f1 -d' ' | rev
+)
+
+if [ -e $version ]; then
+    exit
+fi
+
+repos="repo.s/arch-ngs/latest/arch-ngs/x86_64"
+project="devops"
+package=$repo-$version-x86_64.pkg.tar.xz
+
+echo $ curl -s -o ./$package http://$repos/$package
+curl -s -o ./$package http://$repos/$package
