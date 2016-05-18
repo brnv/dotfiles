@@ -11,6 +11,7 @@ bindsym $mod+space exec marvex -c
 bindsym $mod+Return exec ssh-work
 bindsym $mod+Ctrl+q kill
 bindsym $mod+r exec dmenu_run
+bindsym Ctrl+b exec xsel-primary-to-clipboard
 
 bindsym Ctrl+Home focus left
 bindsym Ctrl+Prior focus up
