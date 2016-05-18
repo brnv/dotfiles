@@ -135,6 +135,7 @@ context-aliases:match is_inside_git_repo
     alias rsh="git reset --hard"
     alias st="git stash"
     alias stp="git stash pop"
+    alias std="git stash drop"
     alias r="git remote"
     alias rb="git rebase"
     alias rbc="git rebase --continue"
