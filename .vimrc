@@ -116,7 +116,44 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'Shougo/vimshell.vim'
 
 Plug 'seletskiy/vim-autosurround'
-    inoremap ( (<C-O>:call AutoSurround(")")<CR>
+    " oh, how I like to remap different plugin mappings
+    au User _OverwriteMatchemMappings
+        \ autocmd VimEnter,BufEnter,FileType *
+            \ inoremap <buffer> ( (<C-R>=AutoSurround(")")?'':g:MatchemMatchStart()<CR>
+
+    au User _OverwriteMatchemMappings
+        \ autocmd VimEnter,BufEnter,FileType *
+            \ inoremap <buffer> { {<C-R>=AutoSurround("}")?'':g:MatchemMatchStart()<CR>
+
+    au User _OverwriteMatchemMappings
+        \ autocmd VimEnter,BufEnter,FileType * call AutoSurroundInitMappings()
+
+    au User _VimrcRunAfterPlugEnd doautocmd User _OverwriteMatchemMappings
+
+    doautocmd User _OverwriteMatchemMappings
+
+Plug 'seletskiy/matchem'
+    " required to be setup before ultisnips inclusion
+    let g:UltiSnipsJumpForwardTrigger = '<C-J>'
+    let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
+
+    " wow, \<lt>lt>c-o> will expand to \<lt>c-o> by feedkeys, and then to
+    " <c-o> by matchem.
+    au User _VimrcRunAfterPlugEnd inoremap <expr> <C-O> (
+        \ pumvisible()
+            \ ? feedkeys("\<C-N>")
+            \ : feedkeys("\<C-R>=g:MatchemRepeatFixupFlush('\<lt>lt>c-o>')\<CR>\<C-O>", 'n')
+        \ ) ? '' : ''
+
+
+    au User _VimrcRunAfterPlugEnd inoremap <Tab>
+        \ <c-r>=g:MatchemRepeatFixupFlush('<lt>c-j>')<cr>
+        \<c-r>=UltiSnips#ExpandSnippet()<cr>
+
+    au User _VimrcRunAfterPlugEnd snoremap <Tab>
+        \ <c-g><esc>:call UltiSnips#SaveLastVisualSelection()<cr>gvs
+
+    au User UltiSnipsEnterFirstSnippet call g:MatchemRepeatFixupFlush('<lt>c-j>')
 
 Plug 'takac/vim-hardtime'
     let g:list_of_insert_keys = []
