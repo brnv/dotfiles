@@ -81,15 +81,19 @@ copy() {
     fi
 }
 
+remove() {
+    local file=$(format-root-file $1)
+
+    echo sudo rm -rf $file
+
+    if ! $dryrun; then
+        sudo rm -rf $file
+    fi
+}
+
 clear() {
     for file in $(git-ls-files rootfs); do
-        root_file=$(format-root-file $file)
-
-        echo sudo rm -rf $root_file
-
-        if ! $dryrun; then
-            sudo rm -rf $root_file
-        fi
+        remove $file
     done
 }
 
