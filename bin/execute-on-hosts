@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -u
 
 debug=(bi)
 
@@ -10,15 +10,28 @@ dev=(vo mu papa)
 
 hosts=(${debug[*]} ${test[*]} ${dev[*]})
 
+check-error() {
+    local error_code=$1
+
+    if [ $error_code == 1 ]; then
+        echo
+        echo fail, error code: $error_code
+        exit 1
+    fi
+}
+
 execute-command() {
     local host=$1
     local cmd=$2
 
     echo $host:~ \$ $cmd
     ssh $host "$cmd"
+    check-error $?
     echo
 }
 
 for host in ${hosts[*]}; do
     execute-command ya$host.yard.s "$@"
 done
+
+echo ok
