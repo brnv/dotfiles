@@ -2,6 +2,8 @@
 
 set -u
 
+trap "exit 130" SIGINT
+
 debug=(bi)
 
 test=(ze ci no xa pano)
