@@ -38,6 +38,8 @@ alias ipa="ip a"
 alias sp="sudo pon"
 alias spf="sudo poff"
 alias p="pkgbuilds"
+alias e="execute-on-hosts"
+alias sz="source ~/.zshrc"
 
 # android tools
 alias alc="adb logcat"
