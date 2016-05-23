@@ -12,7 +12,7 @@ alias gob="go build"
 # user shortcuts
 alias am=alsamixer
 alias b="acpi"
-alias ps="ps auxf"
+alias psa="/bin/ps auxf"
 alias -g sctl="sudo systemctl"
 alias ssh='TERM=xterm ssh'
 alias sus="sudo systemctl suspend"
@@ -40,6 +40,12 @@ alias spf="sudo poff"
 alias p="pkgbuilds"
 alias e="execute-on-hosts"
 alias sz="source ~/.zshrc"
+
+# pacman shortcuts
+alias ps="sudo pacman -S --noconfirm"
+alias pss="sudo pacman -S -s"
+alias pqs="sudo pacman -Qs"
+alias pq="sudo pacman -Q"
 
 # android tools
 alias alc="adb logcat"
