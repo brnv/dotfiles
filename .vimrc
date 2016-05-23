@@ -167,6 +167,18 @@ Plug 'takac/vim-hardtime'
 Plug 'vim-scripts/grep.vim'
     nnoremap <silent> <F3> yaw:Grep <C-R>" *<CR>
 
+Plug 'kovetskiy/vim-hacks'
+
+" go get github.com/kovetskiy/gotags
+Plug 'kovetskiy/synta'
+    func! _go_build()
+        echo "go build"
+        GoFmt
+        execute 'w'
+        GoBuild
+    endfunc!
+    map <leader>g :call _go_build()<CR>
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
@@ -242,10 +254,7 @@ nmap <leader>v :split<CR>
 "nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
 nmap <F11> :read !xsel<CR>
 map <leader>; <ESC>$a;<ESC>
-map <leader>g :GoFmt<CR>
-map <leader>. :!go build<CR>
 "map <C-b> <C-^>
-
 " Motions
 map <M-j> <Esc>
 nnoremap <C-j> <C-f>
