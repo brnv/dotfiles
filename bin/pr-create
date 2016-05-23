@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -ue
+
+if [[ -z "${@}" ]]; then
+    echo specify destination branch
+    exit 1
+fi
+
+if [ $# == 1 ]; then
+    dst_branch=$1
+    src_branch=$(git symbolic-ref HEAD --short)
+elif [ $# == 2 ]; then
+    src_branch=$1
+    dst_branch=$2
+else
+    echo what?
+    exit 1
+fi
+
+if [ $src_branch == $dst_branch ]; then
+    echo same branches
+    exit 1
+fi
+
+echo $ bitbucket pull-request $src_branch $dst_branch
+pr_url=$(bitbucket pull-request $src_branch $dst_branch)
+echo "  > "$pr_url
+
+echo $ curl http://snob.s/hsd:rn:ngs:engineers/$pr_url
+curl http://snob.s/hsd:rn:ngs:engineers/$pr_url
