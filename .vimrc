@@ -179,6 +179,8 @@ Plug 'kovetskiy/synta'
     endfunc!
     map <leader>g :call _go_build()<CR>
 
+Plug 'kovetskiy/vim-bash'
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
