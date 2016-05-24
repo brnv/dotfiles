@@ -53,3 +53,6 @@ HANDLER_RUS="RIGHTSHIFT"
         -first "$HANDLER_ENG" -second "$HANDLER_RUS" \
         | systemd-cat -t shift-shift
 } &
+
+pkill xclipboard-sync
+xclipboard-sync &
