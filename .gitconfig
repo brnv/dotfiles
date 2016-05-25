@@ -1,9 +1,10 @@
 [user]
-	email = baranov.alxy@gmail.com
-	name = Alexey Baranov
+    email = baranov.alxy@gmail.com
+    name = Alexey Baranov
 [core]
-	editor = vim
+    excludesfile = ~/.gitignore_global
+    editor = vim
 [push]
-	default = simple
+    default = simple
 [url "git@github.com"]
-	insteadOf = "gh"
+    insteadOf = "gh"
