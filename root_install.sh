@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -u
+set -euo pipefail
 
 dotfiles=~/.dotfiles
 hostname=`hostname`
@@ -81,6 +81,17 @@ copy() {
     fi
 }
 
+should-remove() {
+    local file=$1
+
+    if [[ -e $(format-root-file $file) ]]; then
+        echo 1
+        exit
+    fi
+
+    echo
+}
+
 remove() {
     local file=$(format-root-file $1)
 
@@ -91,14 +102,11 @@ remove() {
     fi
 }
 
-clear() {
-    for file in $(git-ls-files rootfs); do
-        remove $file
-    done
-}
-
 install() {
     for file in $(git-ls-files rootfs); do
+        if [ $(should-remove $file) ]; then
+            remove $file
+        fi
         if [ $(should-copy $file) ]; then
             copy $file
         fi
@@ -108,7 +116,5 @@ install() {
 if $dryrun; then
     echo list of commands to be executed
 fi
-
-clear
 
 install
