@@ -172,10 +172,36 @@ Plug 'kovetskiy/vim-hacks'
 " go get github.com/kovetskiy/gotags
 Plug 'kovetskiy/synta'
     func! _go_build()
-        echo "go build"
-        GoFmt
-        execute 'w'
-        GoBuild
+
+    echo "go build"
+    execute "w"
+    let g:go_errors = []
+
+        py << CODE
+import subprocess
+
+build = subprocess.Popen(
+    ["go", "build"],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.PIPE,
+    close_fds=True
+)
+
+_, stderr = build.communicate()
+lines = stderr.split('\n')
+if len(lines) > 1:
+    lines = lines[1:]
+    vim.vars['go_errors'] = lines
+CODE
+
+    let g:errors = go#tool#ParseErrors(g:go_errors)
+
+    call setqflist(g:errors)
+
+    call synta#quickfix#reset()
+    if len(g:errors) > 0
+        call synta#quickfix#go(0)
+    endif
     endfunc!
     map <leader>g :call _go_build()<CR>
 
