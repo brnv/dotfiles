@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+key=$1
+vpn=off
+terminal="marvex -c"
+
+if [[ ! -z $(ip a | grep ppp) ]]; then
+    vpn=on
+fi
+
+if [[ $vpn == on ]] && [[ $key == space ]]; then
+    terminal=ssh-work
+fi
+
+exec $terminal
