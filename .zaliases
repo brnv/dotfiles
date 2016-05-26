@@ -2,14 +2,14 @@
 
 context-aliases:init
 
-# go shortcuts
+# go
 alias gog="go get"
 alias gogu="go get -u"
 alias goi="go install"
 alias gor="go run"
 alias gob="go build"
 
-# user shortcuts
+# user
 alias am=alsamixer
 alias b="acpi"
 alias psa="/bin/ps auxf"
@@ -41,17 +41,21 @@ alias pb="pkgbuilds"
 alias e="execute-on-hosts"
 alias sz="source ~/.zshrc"
 
-# pacman shortcuts
-alias ps="sudo pacman -S --noconfirm"
+# pacman
+alias ps="sudo pacman -Sy --noconfirm"
 alias pss="sudo pacman -S -s"
 alias pqs="sudo pacman -Qs"
 alias pq="sudo pacman -Q"
+alias pr="sudo pacman -R"
+
+# pkgfile
+alias pks="pkgfile -s"
 
 # android tools
 alias alc="adb logcat"
 alias ad="adb devices"
 
-# pipe shortcuts
+# |
 alias -g C="| cut"
 alias -g G="| grep"
 alias -g L="| less"
@@ -62,7 +66,7 @@ alias -g S="| sort"
 alias -g U="| uniq"
 alias -g W="| wc"
 
-# git aliases
+# git
 alias gi="git init"
 alias gc="git clone"
 
@@ -77,7 +81,7 @@ alias h="bindkey L"
 bindkey "^U" undo
 bindkey "^T" prepend-sudo
 
-# docker aliases
+# docker
 alias d="docker"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
@@ -90,10 +94,10 @@ alias drm="docker rm"
 alias dst="docker stop"
 alias dbld="docker build -t"
 
-#bitbucket
+# bitbucket
 alias bpr="bitbucket pull-request"
 
-#fastcd
+# fastcd
 alias vicd="fastcd ~/.vim/plugins/ 1"
 alias gocd="fastcd $GOPATH/src/ 3"
 
