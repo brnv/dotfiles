@@ -9,6 +9,9 @@ alias goi="go install"
 alias gor="go run"
 alias gob="go build"
 
+# bash
+alias bg="bash get"
+
 # user
 alias am=alsamixer
 alias b="acpi"
@@ -161,6 +164,7 @@ context-aliases:match is_inside_git_repo
     alias rom="git rebase origin/master"
     alias rod="git rebase origin/development"
     alias co="git checkout"
+    alias com="git checkout master"
     alias rso="git remote show origin"
     alias m="git submodule"
     alias ms="git submodule sync"
