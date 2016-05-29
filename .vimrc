@@ -12,6 +12,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
+map <leader>p :PlugUpdate<CR>
+
 call plug#begin('~/.vim/plugins')
 
 Plug 'FooSoft/vim-argwrap'
@@ -172,6 +174,7 @@ Plug 'kovetskiy/vim-hacks'
 " go get github.com/kovetskiy/gotags
 Plug 'kovetskiy/synta'
     func! _go_build()
+    GoFmt
 
     echo "go build"
     execute "w"
