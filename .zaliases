@@ -51,6 +51,9 @@ alias pqs="sudo pacman -Qs"
 alias pq="sudo pacman -Q"
 alias pr="sudo pacman -R"
 
+# yaourt
+alias ys="yaourt -S --noconfirm"
+
 # pkgfile
 alias pks="pkgfile -s"
 
@@ -173,5 +176,6 @@ context-aliases:match is_inside_git_repo
     alias ms="git submodule sync"
     alias mi="git submodule init"
     alias mu="git submodule update"
+    alias mui="git submodule update --recursive --init"
     alias br="git branch"
     alias f="git fetch"
