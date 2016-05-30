@@ -59,9 +59,12 @@ alias alc="adb logcat"
 alias ad="adb devices"
 
 # |
+alias -g EO="2>&1"
+alias -g G=" EO | grep"
+alias -g L=" EO | less"
+alias EN="2>/dev/null"
+
 alias -g C="| cut"
-alias -g G="| grep"
-alias -g L="| less"
 alias -g H="| head"
 alias -g T="| tail"
 alias -g X="| xargs"
