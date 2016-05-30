@@ -2,7 +2,12 @@ set nocompatible
 
 syntax on
 
-let mapleader="\<space>"
+let g:mapleader="\<space>"
+let mapleader=g:mapleader
+
+augroup operations
+    au!
+augroup end
 
 " Plug.vim section
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -174,19 +179,21 @@ Plug 'kovetskiy/vim-hacks'
 " go get github.com/kovetskiy/gotags
 Plug 'kovetskiy/synta'
 
-	au operations FileType go nmap <buffer> <Leader>f :GoFmt<CR>
-	au operations FileType go nmap <buffer> <Leader>h :GoDoc<CR>
-	au operations FileType go nmap <buffer> gdg :GoDef<CR>
-	au operations FileType go nmap <buffer> gdl :call go#def#JumpMode('vsplit')<C
-	au operations FileType go nmap <buffer> gdk :call go#def#JumpMode('split')<CR
+    au operations VimEnter,WinEnter,BufRead,BufNewFile * set nofoldenable
 
-	au operations FileType go nmap <buffer> <Leader>, :call synta#go#build()<CR>
-	au operations FileType go imap <buffer> <Leader>, <ESC>:call synta#go#build()
-	au operations FileType go nmap <buffer> <Leader>l :GoLint .<CR>
+    au operations FileType go nmap <buffer> <Leader>f :GoFmt<CR>
+    au operations FileType go nmap <buffer> <Leader>h :GoDoc<CR>
+    au operations FileType go nmap <buffer> gdg :GoDef<CR>
+    au operations FileType go nmap <buffer> gdl :call go#def#JumpMode('vsplit')<C
+    au operations FileType go nmap <buffer> gdk :call go#def#JumpMode('split')<CR
 
-	au operations FileType go nmap <buffer> <C-T> :call synta#quickfix#next()<CR>
-	au operations FileType go nmap <buffer> <C-E><C-R> :call synta#quickfix#prev(
-	au operations FileType go nmap <buffer> <C-E><C-T> :call synta#quickfix#error
+    au operations FileType go nmap <buffer> <Leader>, :call synta#go#build()<CR>
+    au operations FileType go imap <buffer> <Leader>, <ESC>:call synta#go#build()
+    au operations FileType go nmap <buffer> <Leader>l :GoLint .<CR>
+
+    au operations FileType go nmap <buffer> <C-T> :call synta#quickfix#next()<CR>
+    au operations FileType go nmap <buffer> <C-E><C-R> :call synta#quickfix#prev(
+    au operations FileType go nmap <buffer> <C-E><C-T> :call synta#quickfix#error
 
 Plug 'kovetskiy/vim-bash'
 
