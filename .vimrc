@@ -255,6 +255,11 @@ set cc=80,120
 filetype plugin indent on
 
 " Speeding up work
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+
 map <leader>r :so ~/.vimrc<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
 map <leader>j <Space>cl
@@ -275,11 +280,7 @@ map <leader>; <ESC>$a;<ESC>
 "map <C-b> <C-^>
 " Motions
 map <M-j> <Esc>
-nnoremap <C-j> <C-f>
-nmap <C-j> <S-]>
-nmap <C-k> <S-[>
 vnoremap <S-Tab> %
-vmap <C-k> <C-b>
 
 " Miscellaneous
 let g:EclimCompletionMethod = 'omnifunc'
