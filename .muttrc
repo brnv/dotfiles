@@ -1,37 +1,25 @@
+source ~/.mutt/accounts
+mailboxes =INBOX
+
 set ssl_verify_dates=no
 set ssl_verify_host=no
 set sleep_time=0
-
-mailboxes =INBOX
+set index_format="%4C %Z %{%d/%m %T} %-20.20L %s"
+set sendmail="/usr/bin/msmtp"
+set sleep_time=0
+set markers=no
+set editor="vim"
+set imap_check_subscribed=yes
+unset imap_passive
+set header_cache="~/.mutt_headers_cache"
+set mail_check=300
+set sort=threads
+set metoo
 
 alternative_order text/plain text/html
 auto_view text/html
 
-set sleep_time=0
-set index_format="%4C %Z %{%d/%m %T} %-20.20L %s"
-
-set header_cache="~/.mutt_headers_cache"
-
-set sendmail="/usr/bin/msmtp"
-
-source ~/.mutt/accounts
-
-set markers=no
-
-set editor="vim"
-
-set imap_check_subscribed
-unset imap_passive
-
-# Reduce polling frequency to a sane level
-set mail_check=60
-
-set sort=threads
-
-#set alias_file=~/.mutt_aliases
-#source $alias_file
-source ~/.mutt/theme_light
-set metoo
+source ~/.mutt/theme_$BACKGROUND
 
 bind index \e[7~ first-entry
 bind index \e[8~ last-entry
