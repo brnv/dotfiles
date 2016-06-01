@@ -261,6 +261,7 @@ nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 nmap <C-c> <C-w>-
 nmap <C-e> <C-w>+
+nmap == <C-w>=
 
 map <leader>r :so ~/.vimrc<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
