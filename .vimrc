@@ -259,8 +259,8 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
-nmap <C-x> <C-w>-
-nmap <C-c> <C-w>+
+nmap <C-c> <C-w>-
+nmap <C-e> <C-w>+
 
 map <leader>r :so ~/.vimrc<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
