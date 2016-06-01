@@ -134,6 +134,11 @@ function ssh-helper() {
     ssh-urxvt -t $prefix"${host%%$remove_suffix}"$suffix "${@}"
 }
 
+alias bl='batrak -L'
+alias bd='batrak -M 21 -n'
+alias kc='jira-issue-create-schedule-current'
+alias kn='jira-issue-create-schedule-next'
+
 autoload is_inside_git_repo
 context-aliases:match is_inside_git_repo
     alias s="git status -s"

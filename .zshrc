@@ -63,3 +63,14 @@ zle -N word-prepend-dot-slash word_prepend_dot_slash
 function word_prepend_dot_slash() {
 	# todo
 }
+
+jira-issue-create-schedule-current() {
+    local label_date=$(date +'%Y-%B' | tr '[:upper:]' '[:lower:]')
+    jira-issue-create -l schedule -l $label_date "$@"
+}
+
+jira-issue-create-schedule-next() {
+    local label_date=$(date +'%Y-%B' --date='next month' \
+        | tr '[:upper:]' '[:lower:]')
+    jira-issue-create -l schedule -l $label_date "$@"
+}
