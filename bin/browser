@@ -1,0 +1,5 @@
+#!/bin/bash
+
+URL="$(sed 's/^\(git+ssh\|ssh\|git\):\/\///' <<< "$1")"
+
+exec i3-sensible-browser "$URL"
