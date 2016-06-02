@@ -1,0 +1,5 @@
+username = "a.baranov"
+password = ""
+jira_api_url = "http://jira.rn/rest/api/2"
+project_name = "DEVOPS"
+filter_id = 16047
