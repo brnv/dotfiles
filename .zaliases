@@ -159,7 +159,7 @@ context-aliases:match is_inside_git_repo
     alias plo="git pull --rebase origin"
     alias plom="git pull --rebase origin master"
     alias pl="git pull"
-    alias plos="git stash && git pull --rebase origin && git stash pop"
+    alias ploms="git stash && git pull --rebase origin master && git stash pop"
     alias plr="git pull --rebase"
     alias grm="git rm"
     alias rs="git reset"
