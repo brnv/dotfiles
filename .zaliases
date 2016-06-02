@@ -173,7 +173,7 @@ context-aliases:match is_inside_git_repo
     alias rbo="git rebase origin"
     alias rbon="git rebase --onto"
     alias b="git blame"
-    alias rom="git rebase origin/master"
+    alias rom="git stash && git rebase origin/master && git stash pop"
     alias rod="git rebase origin/development"
     alias co="git checkout"
     alias com="git checkout master"
