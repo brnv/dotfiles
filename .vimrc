@@ -295,6 +295,7 @@ nmap <C-l> <C-w>l
 nmap <C-c> <C-w>-
 nmap <C-e> <C-w>+
 nmap == <C-w>=
+nmap -- <C-w>-
 nmap <S-J> }
 nmap <S-K> {
 
