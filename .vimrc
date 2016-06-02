@@ -55,6 +55,38 @@ Plug 'osyo-manga/vim-over'
     vmap H :OverCommandLine s/<CR>
     nmap H :OverCommandLine %s//&<CR>
 
+    nmap <Leader><Leader> :call _search_clear_highlighting()<CR>
+    noremap n :call _search_cursorhold_register()<CR>n
+
+    augroup _search_cursorhold_events
+        au!
+    augroup end
+
+    func! _search_clear_highlighting()
+        call feedkeys(":nohlsearch\<CR>")
+    endfunc!
+
+    func! _search_cursorhold_do()
+        if &updatetime != g:updatetime
+            exec "set updatetime =" . g:updatetime
+        endif
+
+        augroup _search_cursorhold_events
+            au!
+        augroup end
+
+        call _search_clear_highlighting()
+    endfunc!
+
+    func! _search_cursorhold_register()
+        set updatetime=2000
+
+        augroup _search_cursorhold_events
+            au!
+            au CursorHold * call _search_cursorhold_do()
+        augroup end
+    endfunc!
+
 Plug 'fatih/vim-go', { 'for': 'go' }
     let g:go_fmt_command = "goimports"
     let g:go_fmt_autosave = 1
@@ -246,9 +278,9 @@ set lcs=trail:·,tab:\ \
 set expandtab
 set relativenumber
 set number
-set timeoutlen=400
+set timeoutlen=150
 set splitright
-set updatetime=1000
+let g:updatetime=150
 set showtabline=1
 set cc=80,120
 
@@ -289,7 +321,6 @@ vnoremap <S-Tab> %
 
 " Miscellaneous
 let g:EclimCompletionMethod = 'omnifunc'
-nnoremap <Bslash> :nohl<CR>
 nnoremap q: <NOP>
 
 " Autocommands
