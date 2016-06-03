@@ -33,7 +33,7 @@ alias task="python /usr/lib/python3.4/site-packages/t.py --task-dir ~/.tasks --l
 alias t="translator"
 alias kill9="kill -9"
 alias i="issue"
-alias mplayer="mplayer -zoom"
+alias m="mplayer -zoom"
 alias rto='rtorrent "$(/usr/bin/ls --color=never -t ~/Downloads/*.torrent | head -n1)"'
 alias sw="sudo wifi-menu"
 alias ag="ag --hidden"
@@ -135,8 +135,15 @@ function ssh-helper() {
     ssh-urxvt -t $prefix"${host%%$remove_suffix}"$suffix "${@}"
 }
 
+function batrak-move() {
+    local transition="$1"
+    local issue="$2"
+    batrak -M $issue $transition
+}
+
+alias bll='batrak -L -f 16053'
 alias bl='batrak -L'
-alias bd='batrak -M 21 -n'
+alias bd='batrak-move 21'
 alias kc='jira-issue-create-schedule-current'
 alias kn='jira-issue-create-schedule-next'
 
