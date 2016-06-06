@@ -279,9 +279,9 @@ set lcs=trail:·,tab:\ \
 set expandtab
 set relativenumber
 set number
-set timeoutlen=150
+set timeoutlen=300
 set splitright
-let g:updatetime=150
+let g:updatetime=300
 set showtabline=1
 set cc=80,120
 
@@ -298,6 +298,8 @@ nmap == <C-w>=
 nmap -- <C-w>_
 map <S-J> }
 map <S-K> {
+map <leader>m :mess<CR>
+map <leader><leader> :nohlsearch<CR> :mess clear<CR>
 
 map <leader>r :so ~/.vimrc<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
@@ -309,7 +311,7 @@ nmap <leader>t :read !date<CR>
 map Q qq
 map ! :g//norm @q<CR>
 nmap <leader>n :vsplit<CR>
-nmap <leader>m :vnew<CR>:VimShell<CR>mysql<CR>
+"nmap <leader>m :vnew<CR>:VimShell<CR>mysql<CR>
 map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 nmap # #N
 nmap <leader>v :split<CR>
