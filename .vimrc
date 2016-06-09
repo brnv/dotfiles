@@ -230,6 +230,9 @@ Plug 'kovetskiy/synta'
 
 Plug 'kovetskiy/vim-bash'
 
+Plug 'seletskiy/ashium'
+    nmap <C-M><C-M> :py ashium.commit()<CR>
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
