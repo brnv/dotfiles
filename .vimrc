@@ -233,6 +233,13 @@ Plug 'kovetskiy/vim-bash'
 Plug 'seletskiy/ashium'
     nmap <C-M><C-M> :py ashium.commit()<CR>
 
+    augroup review_setting
+        au!
+        au FileType diff nnoremap <buffer> <CR> o<C-R>=(getline('.')[0] == '#')
+            \ ? ' '
+            \ : '# '<CR>
+    augroup end
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
