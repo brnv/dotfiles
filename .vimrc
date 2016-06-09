@@ -41,7 +41,7 @@ Plug 'SirVer/UltiSnips'
     \   $HOME . '/.vim/UltiSnips',
     \]
     vmap <leader>sa :<C-w>UltiSnipsEdit<CR>Go<CR>s<C-J><C-r>*<C-J>
-    map <leader>s :UltiSnipsEdit<CR>G
+    "map <leader>s :UltiSnipsEdit<CR>G
 
 Plug 'tpope/vim-fugitive'
 
@@ -238,6 +238,7 @@ Plug 'seletskiy/ashium'
         au FileType diff nnoremap <buffer> <CR> o<C-R>=(getline('.')[0] == '#')
             \ ? ' '
             \ : '# '<CR>
+        au FileType diff nnoremap <leader>s /^+$<CR>
     augroup end
 
 "Plug 'hallettj/jslint.vim'
@@ -309,7 +310,7 @@ nmap -- <C-w>_
 map <S-J> }
 map <S-K> {
 map <leader>m :mess<CR>
-map <leader><leader> :nohlsearch<CR> :mess clear<CR>
+nmap \ :nohlsearch<CR> :mess clear<CR>
 
 map <leader>r :so ~/.vimrc<CR>
 map <leader>~ :tabnew ~/.vimrc<CR>
