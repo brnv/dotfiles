@@ -29,6 +29,7 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'Valloric/YouCompleteMe'
     let g:ycm_key_list_select_completion = []
+    let g:ycm_collect_identifiers_from_tags_files = 1
 
 Plug 'SirVer/UltiSnips'
     let g:UltiSnipsUsePythonVersion=2
@@ -241,6 +242,8 @@ Plug 'seletskiy/ashium'
         au FileType diff nnoremap <leader>s /^+$<CR>
     augroup end
 
+Plug 'kovetskiy/ycm-sh'
+
 "Plug 'hallettj/jslint.vim'
 "Plug 'Shougo/vimproc'
 "Plug 'seletskiy/vim-nunu'
@@ -295,6 +298,7 @@ set splitright
 let g:updatetime=300
 set showtabline=1
 set cc=80,120
+set tags=./.tags;/
 
 filetype plugin indent on
 
