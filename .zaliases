@@ -50,10 +50,12 @@ alias ps="sudo pacman -Sy --noconfirm"
 alias pss="sudo pacman -S -s"
 alias pqs="sudo pacman -Qs"
 alias pq="sudo pacman -Q"
+alias pqo="pacman -Qo"
 alias pr="sudo pacman -R"
 
 # yaourt
 alias ys="yaourt -S --noconfirm"
+alias yss="yaourt -Ss"
 
 # pkgfile
 alias pks="pkgfile -s"
