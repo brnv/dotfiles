@@ -143,11 +143,14 @@ function batrak-move() {
     batrak -M $issue $transition
 }
 
+# batrak
 alias bll='batrak -L -f 16053'
 alias bl='batrak -L'
 alias bd='batrak-move 21'
 alias kc='jira-issue-create-schedule-current'
 alias kn='jira-issue-create-schedule-next'
+
+source ~/.zsh/aliases/ash.zsh
 
 autoload is_inside_git_repo
 context-aliases:match is_inside_git_repo
