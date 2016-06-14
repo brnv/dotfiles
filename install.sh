@@ -30,6 +30,7 @@ cleanup() {
     rm ~/.mutt
     rm ~/.rack
     rm ~/.icons
+    rm ~/.zsh
 }
 
 install_i3_config() {
