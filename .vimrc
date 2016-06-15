@@ -18,6 +18,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 map <leader>p :PlugUpdate<CR>
+map <leader>c :PlugClean<CR>
 
 call plug#begin('~/.vim/plugins')
 
