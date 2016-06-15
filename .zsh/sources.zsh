@@ -8,5 +8,6 @@ source "${HOME}/.zsh/aliases/vim.zsh"
 source "${HOME}/.zsh/aliases/ssh.zsh"
 source "${HOME}/.zsh/aliases/batrak.zsh"
 source "${HOME}/.zsh/aliases/ash.zsh"
-source "${HOME}/.zsh/aliases/git.zsh"
 source "${HOME}/.zsh/aliases/misc.zsh"
+
+source "${HOME}/.zsh/aliases/git_context.zsh"

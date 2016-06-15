@@ -1,4 +1,5 @@
 alias v="vim ~/.vimrc"
 alias z="vim ~/.zshrc"
-alias za="vim ~/.zsh/zaliases.zsh"
-alias vs="vim .vim/plugins/snippets/go.snippets"
+alias za="vim ~/.zsh/aliases/"
+alias zs="vim ~/.zsh/sources.zsh"
+alias vgs="vim .vim/plugins/snippets/go.snippets"
