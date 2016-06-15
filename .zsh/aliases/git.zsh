@@ -31,6 +31,7 @@ context-aliases:match is_inside_git_repo
     alias r="git remote"
     alias rb="git rebase"
     alias rbc="git rebase --continue"
+    alias rba="git rebase --abort"
     alias rbo="git rebase origin"
     alias rbon="git rebase --onto"
     alias b="git blame"
