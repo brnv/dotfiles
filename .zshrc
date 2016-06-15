@@ -9,6 +9,7 @@ if ! zgen saved; then
     zgen load seletskiy/zsh-autosuggestions
     zgen load seletskiy/zsh-syntax-highlighting
     zgen load kovetskiy/zsh-smart-ssh
+    zgen load brnv/zsh-vim-dir
 
     zgen save
 fi
