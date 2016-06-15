@@ -1,0 +1,42 @@
+package main
+
+import (
+	"github.com/docopt/docopt-go"
+	"github.com/kovetskiy/lorg"
+)
+
+var (
+	log     lorg.Logger
+	version string
+)
+
+
+func main() {
+	const usage = \`tool-name
+
+tool-description.
+
+Usage:
+	tool-name
+	tool-name --version
+	tool-name -h | --help
+
+Options:
+	--version  Show version.
+	-h --help  Show this help.
+\`
+
+	_, err := docopt.Parse(usage, nil, true, "tool-name "+version, false)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func setupLogger(logLevel lorg.Level) {
+	logger := lorg.NewLog()
+	logger.SetLevel(logLevel)
+	logger.SetFormat(
+		lorg.NewFormat(\`[${level}] ${file}:${line} %s\`),
+	)
+	log = logger
+}
