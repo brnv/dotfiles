@@ -21,7 +21,6 @@ else
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 fi
 
-
 HISTFILE=~/.zsh_history
 HISTSIZE=1500
 eval $(dircolors ~/.dircolors.$(cat ~/.background))
@@ -32,7 +31,7 @@ eval $(dircolors ~/.dircolors.$(cat ~/.background))
 source "${HOME}/.zsh/exports.zsh"
 
 context-aliases:init
-source "${HOME}/.zsh/zaliases.zsh"
+source "${HOME}/.zsh/sources.zsh"
 
 #ZSH_THEME="daveverwer"
 PROMPT='%{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$) '

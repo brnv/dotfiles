@@ -1,0 +1,7 @@
+alias ps="sudo pacman -Sy --noconfirm"
+alias pss="sudo pacman -S -s"
+alias pqs="sudo pacman -Qs"
+alias pql="sudo pacman -Ql"
+alias pq="sudo pacman -Q"
+alias pqo="pacman -Qo"
+alias pr="sudo pacman -R"

@@ -1,0 +1,5 @@
+alias gog="go get"
+alias gogu="go get -u"
+alias goi="go install"
+alias gor="go run"
+alias gob="go build"
