@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euo pipefail
+
+bash get github.com/reconquest/import 2>/dev/null || true
+
+source ./vendor/github.com/reconquest/import.bash/import.bash
+
+import "github.com/reconquest/test-runner"
+import "github.com/reconquest/tests.sh"
+import "github.com/reconquest/sudo"
+
+:main() {
+    tests:init
+    test-runner:run "${@}"
+}
+
+:main "${@}"
