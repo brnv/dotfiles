@@ -2,5 +2,6 @@ alias vv="vim ~/.vimrc"
 alias vz="vim ~/.zshrc"
 alias vza="vim ~/.zsh/aliases/"
 alias vzs="vim ~/.zsh/sources.zsh"
-alias vgs="vim .vim/plugins/snippets/go.snippets"
+
+alias vs="vim-dir ~/.vim/plugins/snippets/"
 alias va="vim-dir ~/.dotfiles/.zsh/aliases/"
