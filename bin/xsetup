@@ -58,3 +58,5 @@ pkill xclipboard-sync
 xclipboard-sync &
 
 screens-setup
+
+i3-msg restart
