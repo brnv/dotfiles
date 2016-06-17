@@ -56,3 +56,5 @@ HANDLER_RUS="RIGHTSHIFT"
 
 pkill xclipboard-sync
 xclipboard-sync &
+
+screens-setup
