@@ -8,3 +8,4 @@ export TERM=rxvt-unicode-256color
 export ERLC=erlc
 export EDITOR=vim
 export BACKGROUND=`cat ~/.background`
+export BROWSER=i3-sensible-browser
