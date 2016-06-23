@@ -11,3 +11,6 @@ source "${HOME}/.zsh/aliases/ash.zsh"
 source "${HOME}/.zsh/aliases/misc.zsh"
 
 source "${HOME}/.zsh/aliases/git_context.zsh"
+
+source "${HOME}/.dotfiles/deadfiles/zsh/sed-replace.zsh"
+
