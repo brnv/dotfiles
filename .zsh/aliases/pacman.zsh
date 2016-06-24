@@ -1,4 +1,5 @@
 alias ps="sudo pacman -Sy --noconfirm"
+alias psu="sudo pacman -Syu"
 alias pss="sudo pacman -S -s"
 alias pqs="sudo pacman -Qs"
 alias pql="sudo pacman -Ql"
