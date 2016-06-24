@@ -1,2 +1,2 @@
 alias ys="yaourt -S --noconfirm"
-alias yss="yaourt -Ss"
+alias yss="yaourt -S --nameonly -s"
