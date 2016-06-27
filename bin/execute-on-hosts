@@ -10,7 +10,14 @@ test=(ze ci no xa pano)
 
 dev=(vo mu papa)
 
-hosts=(${debug[*]} ${test[*]} ${dev[*]})
+mongo=(pavo pare)
+
+hosts=(
+    ${debug[*]}
+    ${test[*]}
+    ${dev[*]}
+    ${mongo[*]}
+)
 
 check-error() {
     local error_code=$1
