@@ -2,15 +2,16 @@
 
 set -euo pipefail
 
-key=$1
+key_input=$1
 vpn=off
 terminal="marvex -c"
+key_invoke_work="return"
 
 if [[ ! -z $(ip a | grep ppp) ]]; then
     vpn=on
 fi
 
-if [[ $vpn == on ]] && [[ $key == space ]]; then
+if [[ $vpn == on ]] && [[ $key_input == $key_invoke_work ]]; then
     terminal=ssh-work
 fi
 
