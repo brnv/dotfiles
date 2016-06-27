@@ -66,3 +66,5 @@ jira-issue-create-schedule-next() {
         | tr '[:upper:]' '[:lower:]')
     jira-issue-create -l schedule -l $label_date "$@"
 }
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
