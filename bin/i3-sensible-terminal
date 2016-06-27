@@ -12,7 +12,7 @@ if [[ ! -z $(ip a | grep ppp) ]]; then
 fi
 
 if [[ $vpn == on ]] && [[ $key_input == $key_invoke_work ]]; then
-    terminal=ssh-work
+    terminal="marvex -c -b /home/brnv/bin/urxvt-work"
 fi
 
 exec $terminal
