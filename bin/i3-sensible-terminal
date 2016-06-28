@@ -2,17 +2,14 @@
 
 set -euo pipefail
 
-key_input=$1
-vpn=off
-terminal="marvex -c"
-key_invoke_work="return"
-
-if [[ ! -z $(ip a | grep ppp) ]]; then
-    vpn=on
+if [[ $# == 0 ]]; then
+   echo fok you, whats why, beatch
+   exit 1
 fi
 
-if [[ $vpn == on ]] && [[ $key_input == $key_invoke_work ]]; then
-    terminal="marvex -c -b /home/brnv/bin/urxvt-work"
-fi
 
-exec $terminal
+if [[ ! -z $(ip a | grep ppp) ]] && [[ "return" == $1 ]]; then
+    marvex-work
+else
+    marvex -c
+fi

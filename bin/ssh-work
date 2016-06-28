@@ -1,6 +1,7 @@
 #!/bin/bash
 
-tmux_id=$(echo $TMUX | rev | cut -d'/' -f1 | tr ',' '-' | rev)
+tmux_id=$(
+    echo $TMUX | rev | cut -d'/' -f1 | tr ',' '-' | rev
+)
 
-/bin/ssh -XY -t a.baranov@192.168.44.128 \
-    "export TMUX_ID=$tmux_id; exec $SHELL ${@}"
+ssh -XY -t a.baranov@192.168.44.128 "export TMUX_ID=$tmux_id; \$SHELL"
