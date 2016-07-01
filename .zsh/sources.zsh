@@ -10,6 +10,7 @@ source "${HOME}/.zsh/aliases/batrak.zsh"
 source "${HOME}/.zsh/aliases/ash.zsh"
 source "${HOME}/.zsh/aliases/misc.zsh"
 source "${HOME}/.zsh/aliases/stacket.zsh"
+source "${HOME}/.zsh/aliases/knife.zsh"
 
 source "${HOME}/.zsh/aliases/git_context.zsh"
 
