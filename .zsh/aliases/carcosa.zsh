@@ -1,1 +1,1 @@
-alias ca="carcosa -A"
+alias ca="carcosa -A -c"
