@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if (tmux-buffer-matches "Press ENTER" 5); then
+    tmux send-keys Enter
+    exit
+fi
+
+tmux send-keys q

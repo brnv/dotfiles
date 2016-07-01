@@ -1,0 +1,29 @@
+#!/bin/bash
+
+window_id=$(xdotool getwindowfocus getwindowname)
+
+match_pattern=$1
+
+check_limit=-1
+if [ ! -z $2 ]; then
+    check_limit=$(($2 + 1))
+fi
+
+IFS=$'\n' buffer=($(tmux capture-pane -p -t $window_id | tac))
+
+index=0
+for line in ${buffer[@]}
+do
+    if [[ $index == $check_limit ]]; then
+        break
+    fi
+
+    if [[ $line =~ $match_pattern ]]; then
+        /bin/true
+        exit
+    fi
+
+    index=$(($index + 1))
+done
+
+/bin/false
