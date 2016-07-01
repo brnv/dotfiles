@@ -1,3 +1,11 @@
+if ! [ -d ~/.zgen ]; then
+    git clone git@github.com:tarjoilija/zgen.git ~/.zgen
+fi
+
+if ! [ -d ~/.vim/tmp ]; then
+    mkdir -p ~/.vim/tmp
+fi
+
 source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
