@@ -11,5 +11,5 @@ export BACKGROUND=`cat ~/.background`
 export BROWSER=i3-sensible-browser
 
 if ! [ -z $TMUX ] && [ -z $TMUX_ID ]; then
-    export TMUX_ID=`hostname`.$(tmux display-message -p "#S")
+    export TMUX_ID=$(tmux display-message -p "#S")
 fi
