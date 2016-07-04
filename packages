@@ -11,3 +11,5 @@ aur/ash-mailcap
 aur/ash-mailcap-autoview
 extra/w3m
 carcosa
+notify-osd
+dunst

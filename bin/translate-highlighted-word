@@ -1,0 +1,10 @@
+#!/bin/bash
+
+word=$(xclip -o)
+
+if [[ -z $word ]]; then
+    echo "no word specified"
+    exit
+fi
+
+translator -e $word

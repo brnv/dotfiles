@@ -55,7 +55,9 @@ HANDLER_RUS="RIGHTSHIFT"
 } &
 
 pkill xclipboard-sync
-xclipboard-sync &
+~/bin/xclipboard-sync &
+pkill dunst
+dunst -config ~/.dunstrc &
 
 screens-setup
 
