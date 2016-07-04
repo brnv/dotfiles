@@ -46,3 +46,5 @@ shift+h cut-left,warp
 shift+j cut-down,warp
 shift+k cut-up,warp
 shift+l cut-right,warp
+
+b warp,click 1,click 1,sh "translate-highlighted-word"
