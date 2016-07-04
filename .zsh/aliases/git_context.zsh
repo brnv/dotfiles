@@ -10,7 +10,7 @@ context-aliases:match is_inside_git_repo
     alias dc="git diff --cached"
     alias c="git commit -m"
     alias cmi="git commit -m \"initial commit\""
-    alias ca="git commit --amend"
+    alias cam="git commit --amend"
     alias sh="git show"
     alias l="git log --graph --decorate --oneline --all"
     alias p="git push"
