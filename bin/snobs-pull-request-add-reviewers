@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl http://snob.s/hsd:rn:ngs:engineers/$1
