@@ -13,6 +13,9 @@ source "${HOME}/.zsh/aliases/stacket.zsh"
 source "${HOME}/.zsh/aliases/knife.zsh"
 source "${HOME}/.zsh/aliases/carcosa.zsh"
 source "${HOME}/.zsh/aliases/dunst.zsh"
+source "${HOME}/.zsh/aliases/sudo.zsh"
+source "${HOME}/.zsh/aliases/systemctl.zsh"
+source "${HOME}/.zsh/aliases/zfs.zsh"
 
 source "${HOME}/.zsh/aliases/git_context.zsh"
 
