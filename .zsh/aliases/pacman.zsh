@@ -6,6 +6,7 @@ alias pss="ps -s"
 
 alias pq="pacman -Q"
 alias pqs="pq -s"
+alias pqi="pq -i"
 alias pql="pq -l"
 alias pqo="pq -o"
 
