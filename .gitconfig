@@ -1,5 +1,6 @@
 [user]
-    email = baranov.alxy@gmail.com
+    ;email = baranov.alxy@gmail.com
+    email = a.baranov@office.ngs.ru
     name = Alexey Baranov
 [core]
     excludesfile = ~/.gitignore_global
