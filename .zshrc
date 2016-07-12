@@ -19,6 +19,7 @@ if ! zgen saved; then
     zgen load kovetskiy/zsh-smart-ssh
     zgen load brnv/zsh-vim-dir
     zgen load kovetskiy/zsh-quotes
+    zgen load brnv/zsh-too-long
 
     zgen save
 fi
