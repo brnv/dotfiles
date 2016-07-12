@@ -20,6 +20,7 @@ if ! zgen saved; then
     zgen load brnv/zsh-vim-dir
     zgen load kovetskiy/zsh-quotes
     zgen load brnv/zsh-too-long
+    zgen load seletskiy/zsh-prompt-lambda17
 
     zgen save
 fi
@@ -74,6 +75,12 @@ jira-issue-create-schedule-next() {
     local label_date=$(date +'%Y-%B' --date='next month' \
         | tr '[:upper:]' '[:lower:]')
     jira-issue-create -l schedule -l $label_date "$@"
+}
+
+{
+    autoload -Uz promptinit
+    promptinit
+    prompt lambda17
 }
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
