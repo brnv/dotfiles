@@ -48,15 +48,11 @@ post_install() {
     ln -sf ~/.fonts ~/.local/share/fonts
     fc-cache -f
     localectl set-locale LANG=en_US.utf8
-    xsetup
-    screens-setup
     sound-setup
-    i3-msg restart
+    xsetup
 }
 
 cleanup
 install_i3_config
 install
 post_install
-
-echo done
