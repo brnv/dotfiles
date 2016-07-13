@@ -1,3 +1,11 @@
 #!/bin/bash
 
-exec google-chrome-stable "${@}"
+cmd="google-chrome-stable"
+
+opt_new_window="--new-window"
+if [[ $1 == $opt_new_window ]]; then
+    cmd="$cmd $opt_new_window"
+    shift
+fi
+
+exec $cmd "${@}"

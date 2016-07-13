@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" == 0 ]; then
+    exit 1
+fi
+
+query=$1
+
+confluence_url="http://confluence.rn/dosearchsite.action?queryString=$query"
+
+i3-sensible-browser --new-window $confluence_url
