@@ -112,7 +112,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 
     function! GoBuildAndExecute()
         if synta#go#build() == "[Go] Building done"
-            silent ! "exec-main-go-cmd-in-tmux-split"
+            silent ! "tmux-split-cmd"
         endif
     endfunction
 

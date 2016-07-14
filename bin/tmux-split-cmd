@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cmd=$(cat tmux.cmd)
+
+tmux kill-pane -t 1 >/dev/null 2>&1 || true
+
+tmux split-window -h -c `pwd` -p 50 "$cmd; sleep 5m"
+
+tmux last-pane
