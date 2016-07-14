@@ -164,9 +164,27 @@ Plug 'scrooloose/syntastic', { 'for': 'php' }
     au FileType php map <leader>c :SyntasticCheck phpmd<CR>
     augroup end
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-    map <C-P> :FZF -m<CR>
-    "@TODO: follow symlinks & dotfiles visible
+Plug 'junegunn/fzf', {'do': './install --all' }
+
+Plug 'kovetskiy/fzf.vim'
+    map <C-P> :FZF<CR>
+
+    let g:fzf_prefer_tmux = 1
+    let g:fzf_colors =
+    \ { 'fg':      [240],
+      \ 'bg':      [234],
+      \ 'hl':      [248],
+      \ 'fg+':     [220],
+      \ 'bg+':     [236],
+      \ 'hl+':     [220],
+      \ 'info':    [1],
+      \ 'prompt':  [15],
+      \ 'pointer': [220],
+      \ 'spinner': [1],
+      \ 'header':  ['Comment'] }
+    let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit' }
 
 "Plug 'wookiehanover/jshint.vim', { 'for': 'javascript' }
 "    let g:JSHintUpdateWriteOnly=1
