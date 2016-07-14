@@ -80,7 +80,7 @@ jira-issue-create-schedule-next() {
 {
     autoload -Uz promptinit
     promptinit
-    prompt lambda17
+    prompt lambda17 214 black ☫
 }
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
