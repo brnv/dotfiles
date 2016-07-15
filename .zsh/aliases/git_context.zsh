@@ -48,3 +48,4 @@ context-aliases:match is_inside_git_repo
     alias mui="git submodule update --recursive --init"
     alias br="git branch"
     alias f="git fetch"
+    alias t="git tag"
