@@ -111,6 +111,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
     au operations FileType go nmap <buffer> <C-E><C-T> :call synta#quickfix#error()<CR>
 
     function! GoBuildAndExecute()
+        execute ":w"
         if synta#go#build() == "[Go] Building done"
             silent ! "tmux-split-cmd"
         endif
@@ -362,6 +363,8 @@ map <leader>; <ESC>$a;<ESC>
 " Motions
 map <M-j> <Esc>
 vnoremap <S-Tab> %
+
+map <leader>e :silent ! "tmux-split-cmd"<CR>
 
 " Miscellaneous
 let g:EclimCompletionMethod = 'omnifunc'
