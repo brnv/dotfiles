@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+
+stationFrom=${1:-"Новосибирск-Главный"}
+stationTo=${2:-"Совхозная"}
+date=${3:-$(date +%d.%m.%Y)}
+
+param_dispatch="dispatch=$(iconv -t cp1251 <(echo $stationFrom))"
+param_arrival="arrival=$(iconv -t cp1251 <(echo $stationTo))"
+param_date="date=$date"
+
+temp=$(mktemp)
+
+scheduleURL="http://www.express-prigorod.ru/schedule-new/"
+
+curl -s -G $scheduleURL \
+    --data-urlencode "$param_dispatch" \
+    --data-urlencode "$param_arrival" \
+    | xmllint --html --nowarning --xpath '//table[@id="schedule"]' - \
+    2> /dev/null 1> $temp
+
+i3-sensible-browser --new-window $temp
