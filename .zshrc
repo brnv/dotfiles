@@ -80,7 +80,11 @@ jira-issue-create-schedule-next() {
 {
     autoload -Uz promptinit
     promptinit
-    prompt lambda17 214 black ☫
+    if [[ $(hostname) == "work" ]]; then
+        prompt lambda17 196 black ☫
+    else
+        prompt lambda17 220 black ☫
+    fi
 }
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
