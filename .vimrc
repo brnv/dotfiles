@@ -241,10 +241,10 @@ Plug 'seletskiy/matchem'
 Plug 'takac/vim-hardtime'
     let g:list_of_insert_keys = []
     let g:list_of_visual_keys = []
-    let g:list_of_normal_keys = []
+    let g:list_of_normal_keys = ["j", "k", "h", "l"]
 
     let g:hardtime_showerr = 1
-    let g:hardtime_timeout = 5000
+    let g:hardtime_timeout = 100
     let g:hardtime_default_on = 1
 
 Plug 'vim-scripts/grep.vim'
