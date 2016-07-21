@@ -9,7 +9,7 @@ URxvt.italicFont:
 URxvt.boldItalicFont:
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
-URxvt.termName: rxvt-unicode-256color
+URxvt.termName: screen-256color
 URxvt.iso14755: False
 URxvt.iso14755_52: False
 URxvt.internalBorder: 0
