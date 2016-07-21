@@ -16,6 +16,7 @@ source "${HOME}/.zsh/aliases/dunst.zsh"
 source "${HOME}/.zsh/aliases/sudo.zsh"
 source "${HOME}/.zsh/aliases/systemctl.zsh"
 source "${HOME}/.zsh/aliases/zfs.zsh"
+source "${HOME}/.zsh/aliases/host.zsh"
 
 source "${HOME}/.zsh/aliases/git_context.zsh"
 
