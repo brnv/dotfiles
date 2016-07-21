@@ -20,4 +20,4 @@ curl -s -G $scheduleURL \
     | xmllint --html --nowarning --xpath '//table[@id="schedule"]' - \
     2> /dev/null 1> $temp
 
-i3-sensible-browser --new-window $temp
+w3m -I cp1251 -dump -T text/html -cols $(tput cols) $temp
