@@ -161,6 +161,7 @@ Plug 'reconquest/snippets'
 
 Plug 'kovetskiy/vim-ski'
     let g:skeletons_dir=$HOME.'/.vim/skeletons/'
+    let g:skeletons_use_by_default=0
 
 Plug 'kovetskiy/vim-go-utils', { 'for': 'go' }
     inoremap <C-E> <C-R>=GoCompleteSnippet()<CR>
