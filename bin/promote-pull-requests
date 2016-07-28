@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+promote_text=$(
+    ash inbox author \
+    | awk '$6 = "%"' \
+    | awk -F"%" '
+        {
+            pr_url = gensub(/(\w+)\/(.+)\/(\S+).+/,
+                "http://git.rn/projects/\\1/repos/\\2/pull-requests/\\3",
+                "g", $1);
+
+            recipients = gensub(/(\S+)/, "<@\\1>", "g", $2);
+
+            if (recipients != "")
+                print recipients ", гляньте " pr_url;
+        }
+    ' | sed 's/d.shashkov/denis.shashkov/' \
+      | sed 's/a.platonov/andrey.platonov/' \
+      | sed 's/m.prokopchuk/theairkit/'
+)
+
+:main() {
+    echo '{"username":"a.baranov"}' \
+        | slack-tool -i -k $(get-local-slack-token) -C reviews -m "$promote_text"
+}
+
+:main "${@}"
