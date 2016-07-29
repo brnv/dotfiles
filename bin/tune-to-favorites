@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -euo pipefail
+
+favorites_dir=~/mp3/favorites
+
+default_band="Collection"
+
+if [ $# == 0 ]; then
+    echo "$(basename $0) <songfile> <band:-$default_band>"
+    exit 229
+fi
+
+songfile=$1
+if ! [ -e "$songfile" ]; then
+    echo provided song file not exists in directory
+    exit 1
+fi
+
+band=${2:-$default_band}
+band_dir=$favorites_dir/$band
+mkdir -p "$band_dir"
+
+if ! [ -z "$(find "$band_dir" -name "*$songfile*" -exec stat '{}' \;)" ]; then
+    echo song already been added to favorites
+    exit 1
+fi
+
+next_id=$(
+    find "$band_dir" | wc -l | xargs -n1 -I{} seq -f "%02g" {} {}
+)
+
+songname="$next_id - $songfile"
+
+cp "$songfile" "$band_dir/$songname"
