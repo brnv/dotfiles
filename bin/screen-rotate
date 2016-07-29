@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [ $# == 0 ]; then
+    exit 1
+fi
+
+direction=$1
+
+output=$(
+    i3-msg -t get_workspaces \
+    | jq --raw-output '.[] | select(.focused == true) | .output'
+)
+
+xrandr --output $output --rotate $1
