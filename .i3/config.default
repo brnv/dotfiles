@@ -11,6 +11,7 @@ bindsym $mod+space exec i3-sensible-terminal space
 bindsym $mod+Return exec i3-sensible-terminal return
 bindsym $mod+b exec "translate-highlighted-word; xdotool key Escape"
 bindsym $mod+Ctrl+q kill
+bindsym Ctrl+Right exec i3-sensible-browser
 bindsym $mod+r exec dmenu_run
 bindsym Ctrl+b exec xsel-primary-to-clipboard
 bindsym $mod+x exec carcosa-ui
