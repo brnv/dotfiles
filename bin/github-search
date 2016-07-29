@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$#" == 0 ]; then
+    exit 1
+fi
+
+query=$1
+github_url="https://github.com/search?utf8=%E2%9C%93&q=$query"
+i3-sensible-browser --new-window $github_url
