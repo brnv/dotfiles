@@ -1,0 +1,1 @@
+alias mp="makepkg"

@@ -18,6 +18,7 @@ source "${HOME}/.zsh/aliases/systemctl.zsh"
 source "${HOME}/.zsh/aliases/zfs.zsh"
 source "${HOME}/.zsh/aliases/host.zsh"
 source "${HOME}/.zsh/aliases/ip.zsh"
+source "${HOME}/.zsh/aliases/makepkg.zsh"
 
 source "${HOME}/.zsh/aliases/git_context.zsh"
 
