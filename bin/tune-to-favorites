@@ -2,34 +2,126 @@
 
 set -euo pipefail
 
-favorites_dir=~/mp3/favorites
+:get-favorites-filename() {
+    local file="$1"
+    local artist_dir="$2"
+    local album_title="$3"
+    local album_release_year="$4"
 
-default_band="Collection"
+    next_id=$(
+        find "$artist_dir" | wc -l | xargs -n1 -I{} seq -f "%02g" {} {}
+    )
 
-if [ $# == 0 ]; then
-    echo "$(basename $0) <songfile> <band:-$default_band>"
-    exit 229
-fi
+    prefix="$next_id"
 
-songfile=$1
-if ! [ -e "$songfile" ]; then
-    echo provided song file not exists in directory
-    exit 1
-fi
+    if ! [[ -z $album_release_year ]]; then
+        prefix="$prefix. ($album_release_year)"
+    fi
 
-band=${2:-$default_band}
-band_dir=$favorites_dir/$band
-mkdir -p "$band_dir"
+    if ! [[ -z $album_title ]]; then
+        prefix="$prefix. $album_title"
+    fi
 
-if ! [ -z "$(find "$band_dir" -name "*$songfile*" -exec stat '{}' \;)" ]; then
-    echo song already been added to favorites
-    exit 1
-fi
+    echo "$prefix. $file"
+}
 
-next_id=$(
-    find "$band_dir" | wc -l | xargs -n1 -I{} seq -f "%02g" {} {}
-)
+:parse-ffmpeg-output-data() {
+    local file="$1"
+    local data="$2"
+    local default_value="${3:-}"
 
-songname="$next_id - $songfile"
+    value=$(
+        ffmpeg -i "$file" 2>& 1 \
+        | grep "$data" \
+        | cut -d':' -f2 \
+        | xargs
+    )
 
-cp "$songfile" "$band_dir/$songname"
+    if [[ -z $value ]]; then
+        value=$default_value
+    fi
+
+    echo $value
+}
+
+:get-album-release-year() {
+    local file="$1"
+    local default_value="${2:-}"
+
+    :parse-ffmpeg-output-data "$file" "date " "$default_value"
+}
+
+:get-album-title() {
+    local file="$1"
+    local default_value="${2:-}"
+
+    :parse-ffmpeg-output-data "$file" "album\s*:" "$default_value"
+}
+
+:get-artist-name() {
+    local file="$1"
+    local default_value="${2:-}"
+
+    :parse-ffmpeg-output-data "$file" " artist" "$default_value"
+}
+
+:get-artist-dir() {
+    local artist="$1"
+    local basedir="/home/`whoami`/mp3/favorites"
+
+    echo "$basedir/$artist"
+}
+
+:check-if-exist() {
+    local file="$1"
+    local artist_dir="$2"
+
+    if ! [[ -d "$artist_dir" ]]; then
+        exit
+    fi
+
+    find "$artist_dir" -name "*$file*" -exec stat '{}' \;
+}
+
+:main() {
+    local file="$1"
+    local album_title="${2:-}"
+    local album_release_year="${3:-}"
+
+    if ! [[ -f $file ]]; then
+        echo "given file not exist in current directory"
+        exit 1
+    fi
+
+    artist=$(:get-artist-name "$file")
+    if [[ -z $artist ]]; then
+        echo "can't get artist name from file"
+        exit 1
+    fi
+
+    artist_dir=$(:get-artist-dir "$artist")
+
+    if ! [ -z "$(:check-if-exist "$file" "$artist_dir")" ]; then
+        echo "song already been added to favorites"
+        exit 1
+    fi
+
+    mkdir -p "$artist_dir"
+
+    if [[ -z $album_title ]]; then
+        album_title=$(:get-album-title "$file")
+    fi
+
+    if [[ -z $album_release_year ]]; then
+        album_release_year=$(:get-album-release-year "$file")
+    fi
+
+    file_copy=$(
+        :get-favorites-filename "$file" "$artist_dir" \
+            "$album_title" "$album_release_year"
+    )
+
+    cp "$file" "$artist_dir/$file_copy"
+}
+
+:main "${@}"
