@@ -31,10 +31,7 @@ set -euo pipefail
     local default_value="${3:-}"
 
     value=$(
-        ffmpeg -i "$file" 2>& 1 \
-        | grep "$data" \
-        | cut -d':' -f2 \
-        | xargs
+        ffmpeg -i "$file" 2>&1 | grep "$data" | cut -d':' -f2 | xargs
     )
 
     if [[ -z $value ]]; then
@@ -94,6 +91,7 @@ set -euo pipefail
     fi
 
     artist=$(:get-artist-name "$file")
+
     if [[ -z $artist ]]; then
         echo "can't get artist name from file"
         exit 1
