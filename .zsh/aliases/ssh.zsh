@@ -14,12 +14,21 @@ alias -s s='ssh-helper "" .s .s'
 alias -s ru='ssh-helper "" .ru .ru'
 alias -s p='ssh-helper "" .p .in.ngs.ru'
 alias -s x='ssh-helper "" .x ""'
-function ssh-helper() {
+
+ssh-helper() {
     local prefix="$1"
     local host="$4"
     local remove_suffix="$2"
     local suffix="$3"
     shift 4
 
-    ssh-urxvt -t $prefix"${host%%$remove_suffix}"$suffix "${@}"
+    ssh-enhanced $prefix"${host%%$remove_suffix}"$suffix "${@}"
+}
+
+ssh-enhanced() {
+    local hostname="$1"
+    tmux set status on
+    tmux set status-left "# $hostname"
+    smash -z "$@"
+    tmux set status off
 }
