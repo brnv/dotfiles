@@ -2,28 +2,57 @@
 
 set -euo pipefail
 
-promote_text=$(
-    ash inbox author \
-    | awk '$6 = "%"' \
-    | awk -F"%" '
-        {
-            pr_url = gensub(/(\w+)\/(.+)\/(\S+).+/,
-                "http://git.rn/projects/\\1/repos/\\2/pull-requests/\\3",
-                "g", $1);
+:get-awk-program() {
+echo $(cat - <<-'AWK'
+    {
+        pr_url = gensub(/(\w+)\/(.+)\/(\S+).+/,
+            "http://git.rn/projects/\\1/repos/\\2/pull-requests/\\3",
+            "g", $1);
 
-            recipients = gensub(/(\S+)/, "<@\\1>", "g", $2);
+        recipients = gensub(/(\S+)/, "<@\\1>", "g", $2);
 
-            if (recipients != "")
-                print recipients ", гляньте " pr_url;
-        }
-    ' | sed 's/d.shashkov/denis.shashkov/' \
-      | sed 's/a.platonov/andrey.platonov/' \
-      | sed 's/m.prokopchuk/theairkit/'
+        if (recipients != "")
+            print recipients ", гляньте " pr_url;
+    }
+AWK
 )
+}
+
+:change-slack-names() {
+    local input="$1"
+
+    echo "$input" \
+    | sed 's/d.shashkov/denis.shashkov/g' \
+    | sed 's/a.platonov/andrey.platonov/g' \
+    | sed 's/m.prokopchuk/theairkit/g'
+}
+
+:get-recipients-string() {
+    local input="$1"
+
+    echo "$input" \
+    | awk '$6 = "%"' \
+    | awk -F"%" -f <(echo $(:get-awk-program))
+}
+
+:get-pull-requests() {
+    local pattern="$1"
+    ash inbox author | grep -E "$pattern"
+}
 
 :main() {
+    local channel="${1:-reviews}"
+    local pr="${2:-}"
+
+    pull_requests=$(:get-pull-requests "$pr")
+
+    promote_text=$(
+        :change-slack-names "$(:get-recipients-string "$pull_requests")"
+    )
+
     echo '{"username":"a.baranov"}' \
-        | slack-tool -i -k $(get-local-slack-token) -C reviews -m "$promote_text"
+        | slack-tool -i -k $(get-local-slack-token) \
+            -C "$channel" -m "$promote_text"
 }
 
 :main "${@}"
