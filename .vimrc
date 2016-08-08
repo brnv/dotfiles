@@ -13,7 +13,7 @@ augroup end
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !mkdir -p ~/.vim/autoload
     silent !curl -fLo ~/.vim/autoload/plug.vim
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
 
@@ -326,6 +326,8 @@ let g:updatetime=300
 set showtabline=1
 set cc=80,120
 set tags=./.tags;/
+
+let g:vim_indent_cont=shiftwidth()
 
 filetype plugin indent on
 
