@@ -1,6 +1,7 @@
 alias ps="sudo pacman -S --noconfirm"
 alias psy="ps -y"
 alias psyy="psy -y"
+alias psys="psy -s"
 alias psyu="psy -u"
 alias psu="ps -u"
 alias pss="ps -s"
