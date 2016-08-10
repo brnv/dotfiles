@@ -29,5 +29,5 @@ export -f :print-repo-head
 export -f :get-git-project-name
 export -f :get-commit-hash
 
-find $(pwd) -type d -name ".git" \
+find $(pwd) -name ".git" \
     | xargs -I{} sh -c ":print-repo-head {}"
