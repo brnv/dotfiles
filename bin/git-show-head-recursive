@@ -1,0 +1,33 @@
+#!/bin/bash
+
+:get-git-project-name() {
+    local path="$1"
+
+    echo $path | rev | cut -d'/' -f2 | rev
+}
+
+:get-commit-hash() {
+    local path="$1"
+
+    git --git-dir $path show HEAD | cut -d" " -f2 | head -n1
+}
+
+:print-repo-head() {
+    local path="${1:-}"
+    if [[ -z $path ]]; then
+        return
+    fi
+
+    :get-git-project-name $path
+    :get-commit-hash $path
+
+    echo
+}
+
+# TODO fix this
+export -f :print-repo-head
+export -f :get-git-project-name
+export -f :get-commit-hash
+
+find $(pwd) -type d -name ".git" \
+    | xargs -I{} sh -c ":print-repo-head {}"
