@@ -6,3 +6,5 @@ alias vze="vim ~/.zsh/exports.zsh"
 
 alias vs="vim-dir ~/.vim/plugins/snippets/"
 alias va="vim-dir ~/.dotfiles/.zsh/aliases/"
+
+alias vim="vim -o"
