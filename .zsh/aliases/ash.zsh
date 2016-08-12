@@ -20,3 +20,4 @@ function ash-action-project-pull-request() {
 }
 
 alias ard="ash-action-project-pull-request deployerd review"
+alias aad="ash-action-project-pull-request deployerd approve"
