@@ -108,13 +108,18 @@ Plug 'fatih/vim-go', { 'for': 'go' }
     au operations FileType go nmap <buffer> gdl :call go#def#JumpMode('vsplit')<CR>
     au operations FileType go nmap <buffer> gdk :call go#def#JumpMode('split')<CR>
 
-    au operations FileType go nmap <buffer> <Leader>, :call synta#go#build()<CR>
-    au operations FileType go imap <buffer> <Leader>, <ESC>:call synta#go#build()<CR>
+    au operations FileType go nmap <buffer> <Leader>, :call GoSaveNBuild()<CR>
+    au operations FileType go imap <buffer> <Leader>, <ESC>:call GoSaveNBuild()<CR>
     au operations FileType go nmap <buffer> <Leader>l :GoLint .<CR>
 
     au operations FileType go nmap <buffer> <C-T> :call synta#quickfix#next()<CR>
     au operations FileType go nmap <buffer> <C-E><C-R> :call synta#quickfix#prev()<CR>
     au operations FileType go nmap <buffer> <C-E><C-T> :call synta#quickfix#error()<CR>
+
+    function! GoSaveNBuild()
+        execute ":w"
+        call synta#go#build()
+    endfunction
 
 Plug 'tpope/vim-surround'
     nmap <leader>( <ESC>ysw)
@@ -123,7 +128,6 @@ Plug 'tpope/vim-surround'
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'cespare/vim-toml'
-Plug 'majutsushi/tagbar'
 Plug 'junegunn/seoul256.vim'
 Plug 'Shougo/unite.vim'
 
