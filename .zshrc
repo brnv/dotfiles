@@ -81,17 +81,11 @@ jira-issue-create-schedule-next() {
     autoload -Uz promptinit
     promptinit
 
-    prompt_bg="black"
-    if [[ $(background) == "light" ]]; then
-        prompt_bg="white"
-    fi
+    prompt lambda17
 
-    sign_color="220"
-    if [[ $(hostname) == "work" ]]; then
-        sign_color="196"
-    fi
-
-    prompt lambda17 $sign_color $prompt_bg ☫
+    zstyle "lambda17:05-sign" text "☫"
+    zstyle "lambda17:05-sign" fg "$(lambda17:color 12 0)"
+    zstyle "lambda17:00-banner" bg "$(lambda17:color 19 0)"
 }
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
