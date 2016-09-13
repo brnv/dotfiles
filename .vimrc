@@ -47,9 +47,15 @@ Plug 'SirVer/UltiSnips'
 
 Plug 'tpope/vim-fugitive'
 
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+    let g:airline#extensions#whitespace#symbol = '☼'
     let g:airline_powerline_fonts = 1
-    let g:Powerline_symbols = 'fancy'
+    let g:airline_skip_empty_sections = 1
+    let g:airline#extensions#whitespace#checks = ['indent', 'trailing']
+
+Plug 'reconquest/vim-colorscheme'
+    let g:airline_theme = 'reconquest'
 
 Plug 'kana/vim-smartinput'
 
@@ -102,20 +108,13 @@ Plug 'fatih/vim-go', { 'for': 'go' }
     au operations FileType go nmap <buffer> gdl :call go#def#JumpMode('vsplit')<CR>
     au operations FileType go nmap <buffer> gdk :call go#def#JumpMode('split')<CR>
 
-    au operations FileType go nmap <buffer> <Leader>, :call GoBuildAndExecute()<CR>
-    au operations FileType go imap <buffer> <Leader>, <ESC>:call GoBuildAndExecute()<CR>
+    au operations FileType go nmap <buffer> <Leader>, :call synta#go#build()<CR>
+    au operations FileType go imap <buffer> <Leader>, <ESC>:call synta#go#build()<CR>
     au operations FileType go nmap <buffer> <Leader>l :GoLint .<CR>
 
     au operations FileType go nmap <buffer> <C-T> :call synta#quickfix#next()<CR>
     au operations FileType go nmap <buffer> <C-E><C-R> :call synta#quickfix#prev()<CR>
     au operations FileType go nmap <buffer> <C-E><C-T> :call synta#quickfix#error()<CR>
-
-    function! GoBuildAndExecute()
-        execute ":w"
-        if synta#go#build() == "[Go] Building done"
-            silent ! "tmux-split-cmd"
-        endif
-    endfunction
 
 Plug 'tpope/vim-surround'
     nmap <leader>( <ESC>ysw)
@@ -367,11 +366,14 @@ map <leader>; <ESC>$a;<ESC>
 map <M-j> <Esc>
 vnoremap <S-Tab> %
 
-map <leader>e :silent ! "tmux-split-cmd"<CR>
-
 " Miscellaneous
 let g:EclimCompletionMethod = 'omnifunc'
 nnoremap q: <NOP>
+
+augroup colorschemes
+    au!
+    au FileType go colorscheme reconquest
+augroup end
 
 " Autocommands
 augroup starting_cursor_position
