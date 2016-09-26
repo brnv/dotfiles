@@ -7,3 +7,6 @@
 [submodule "rootfs/usr/share/X11/xkb"]
 	path = rootfs/usr/share/X11/xkb
 	url = https://github.com/reconquest/rex
+[submodule ".secrets"]
+	path = .secrets
+	url = git@github.com:brnv/secrets
