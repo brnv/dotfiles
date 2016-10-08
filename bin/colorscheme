@@ -4,6 +4,7 @@ declare -A colorschemes
 
 colorschemes[seoul256]=1
 colorschemes[solarized]=1
+colorschemes[reconquest]=1
 
 if [[ ${colorschemes[$1]} -eq 1 ]]; then $();
 else
