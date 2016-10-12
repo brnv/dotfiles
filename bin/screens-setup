@@ -2,8 +2,4 @@
 
 redshift -l55.2:82.55 -o
 
-if [ `hostname` = "work" ]; then
-    xrandr --output HDMI-2 --rotate normal --left-of VGA-1
-fi
-
 pkill keynav; keynav
