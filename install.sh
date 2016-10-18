@@ -35,7 +35,7 @@ cleanup() {
 
 install_i3_config() {
     cp `pwd`/.i3/config.default `pwd`/.i3/config
-    cat `pwd`/.i3/config.`hostname` >> `pwd`/.i3/config
+    cat `pwd`/.i3/config.`cat ~/.workspaces` >> `pwd`/.i3/config
     cat `pwd`/.i3/config.`cat ~/.background` >> `pwd`/.i3/config
 }
 
