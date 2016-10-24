@@ -20,6 +20,8 @@ if ! zgen saved; then
     zgen load brnv/zsh-too-long
     zgen load seletskiy/zsh-prompt-lambda17
     zgen load seletskiy/zsh-syntax-highlighting
+
+    # seletskiy/zsh-autosuggestions should be last in list
     zgen load seletskiy/zsh-autosuggestions
 
     zgen save
