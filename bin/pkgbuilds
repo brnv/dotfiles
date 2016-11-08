@@ -27,7 +27,7 @@ if [ -e $version ]; then
     exit
 fi
 
-repos="repo.s/arch-ngs/latest/arch-ngs/x86_64"
+repos="repo.s/arch-ngs/testing/arch-ngs/x86_64"
 project="devops"
 package=$repo-$version-x86_64.pkg.tar.xz
 
