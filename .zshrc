@@ -21,8 +21,7 @@ if ! zgen saved; then
     zgen load seletskiy/zsh-prompt-lambda17
     zgen load seletskiy/zsh-syntax-highlighting
 
-    # seletskiy/zsh-autosuggestions should be last in list
-    zgen load seletskiy/zsh-autosuggestions
+    zgen load seletskiy/zsh-autosuggestions # should be last here
 
     zgen save
 fi
