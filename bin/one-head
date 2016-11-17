@@ -1,5 +1,5 @@
 #!/bin/bash
 
-xrandr --output eDP --mode 1366x768 --output HDMI-0 --off
+xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --off
 
 xsetup
