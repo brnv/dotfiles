@@ -1,2 +1,0 @@
-#!/bin/bash
-sudo tee /sys/class/backlight/radeon_bl0/brightness <<< $1 > /dev/null
