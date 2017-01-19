@@ -30,6 +30,7 @@ context-aliases:match is_inside_git_repo
     alias std="git stash drop"
     alias r="git remote"
     alias rb="git rebase"
+    alias rbi="git rebase --interactive"
     alias rbc="git rebase --continue"
     alias rba="git rebase --abort"
     alias rbo="git rebase origin"
