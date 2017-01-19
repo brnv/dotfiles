@@ -31,5 +31,8 @@ repos="repo.s/arch-ngs/testing/arch-ngs/x86_64"
 project="devops"
 package=$repo-$version-x86_64.pkg.tar.xz
 
-echo $ curl -s -o ./$package http://$repos/$package
-curl -s -o ./$package http://$repos/$package
+mkdir -p /tmp/pkgbuilds
+
+echo $ curl -s -o /tmp/pkgbuilds/$package http://$repos/$package
+
+curl -s -o /tmp/pkgbuilds/$package http://$repos/$package
