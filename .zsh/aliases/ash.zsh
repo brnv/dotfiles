@@ -5,6 +5,7 @@ function ash-action() {
     ash $subject $action
 }
 
+alias a="ash"
 alias ai="ash inbox"
 alias al="ash-action ls"
 alias ar="ash-action review"

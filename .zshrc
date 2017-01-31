@@ -20,6 +20,7 @@ if ! zgen saved; then
     zgen load brnv/zsh-too-long
     zgen load seletskiy/zsh-prompt-lambda17
     zgen load seletskiy/zsh-syntax-highlighting
+    zgen load seletskiy/zsh-ash-completion
 
     zgen load seletskiy/zsh-autosuggestions # should be last here
 
