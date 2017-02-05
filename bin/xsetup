@@ -5,7 +5,7 @@ localectl set-locale LANG=en_US.utf8
 timedatectl set-ntp 1
 
 xrdb ~/.Xresources && xrdb -merge \
-	~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
+    ~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
 
 export XAUTHORITY=~/.Xauthority
 export DISPLAY=${DISPLAY:-:0.0}
@@ -60,5 +60,11 @@ pkill dunst
 dunst -config ~/.dunstrc &
 
 screens-setup
+
+if grep --quiet open /proc/acpi/button/lid/LID/state; then
+    dual-head || one-head
+else
+    hdmi-head
+fi
 
 i3-msg restart
