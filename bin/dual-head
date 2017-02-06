@@ -4,15 +4,15 @@ if [ $(xrandr --verbose | grep "\bconnected" | wc -l) == 1 ]; then
     exit 1
 fi
 
-if grep --quiet closed /proc/acpi/button/lid/LID/state; then
-    exit 1
-fi
-
 if [[ $(hostname) == "work" ]]; then
     /usr/bin/xrandr \
-        --output VGA-1 --rotate left --mode 1920x1080 --left-of HDMI-2 \
+        --output VGA-1 --mode 1920x1080 --left-of HDMI-2 \
         --output HDMI-2 --mode 1920x1080
 else
+    if grep --quiet closed /proc/acpi/button/lid/LID/state; then
+        exit 1
+    fi
+
     /usr/bin/xrandr \
         --output eDP-1 --mode 1920x1080 --left-of HDMI-2 \
         --output HDMI-2 --mode 1920x1080
