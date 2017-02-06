@@ -61,10 +61,14 @@ dunst -config ~/.dunstrc &
 
 screens-setup
 
-if grep --quiet open /proc/acpi/button/lid/LID/state; then
-    dual-head || one-head
+if [[ "$(hostname)" == "work" ]]; then
+    dual-head
 else
-    hdmi-head
+    if grep --quiet open /proc/acpi/button/lid/LID/state; then
+        dual-head || one-head
+    else
+        hdmi-head
+    fi
 fi
 
 i3-msg restart
