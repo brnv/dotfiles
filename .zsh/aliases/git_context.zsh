@@ -51,3 +51,4 @@ context-aliases:match is_inside_git_repo
     alias brd="git branch -D"
     alias f="git fetch"
     alias t="git tag"
+    alias cop="git checkout pkgbuild"
