@@ -1,42 +1,37 @@
 package main
 
 import (
-	"github.com/docopt/docopt-go"
+	"github.com/kovetskiy/godocs"
 	"github.com/kovetskiy/lorg"
 )
 
 var (
-	log     lorg.Logger
-	version string
+	logger  = lorg.NewLog()
+	version = "[manual build]"
 )
 
-
-func main() {
-	const usage = \`tool-name
-
-tool-description.
+const usage = \`name
 
 Usage:
-	tool-name
-	tool-name --version
-	tool-name -h | --help
+    name [options]
+    name -h | --help
 
 Options:
-	--version  Show version.
-	-h --help  Show this help.
+    --debug    Enable debug output.
+    --trace    Enable trace output.
+    -h --help  Show this help.
 \`
 
-	_, err := docopt.Parse(usage, nil, true, "tool-name "+version, false)
-	if err != nil {
-		panic(err)
-	}
-}
+func main() {
+	args := godocs.MustParse(usage, version, godocs.UsePager)
 
-func setupLogger(logLevel lorg.Level) {
-	logger := lorg.NewLog()
-	logger.SetLevel(logLevel)
-	logger.SetFormat(
-		lorg.NewFormat(\`[${level}] ${file}:${line} %s\`),
-	)
-	log = logger
+	logger.SetIndentLines(true)
+
+	if args["--debug"].(bool) {
+		logger.SetLevel(lorg.LevelDebug)
+	}
+
+	if args["--trace"].(bool) {
+		logger.SetLevel(lorg.LevelTrace)
+	}
 }
