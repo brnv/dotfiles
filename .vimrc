@@ -17,6 +17,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
+if empty(glob('~/.vim/tmp'))
+    silent !mkdir -p ~/.vim/tmp
+endif
+
 map <leader>p :PlugUpdate<CR>
 map <leader>c :PlugClean<CR>
 
