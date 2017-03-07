@@ -40,6 +40,8 @@ eval $(dircolors ~/.dircolors.$(cat ~/.background))
 
 source "${HOME}/.zsh/exports.zsh"
 
+unalias -a
+
 context-aliases:init
 source "${HOME}/.zsh/sources.zsh"
 
