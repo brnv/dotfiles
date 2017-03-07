@@ -49,4 +49,7 @@ new_window 1pixel
 
 bindsym $mod+Ctrl+r exec "redshift -l55.2:82.55 -o"
 
-bindsym Ctrl+F12 exec xsetup
+bindsym Ctrl+F9 exec xsetup
+bindsym Ctrl+F10 exec "amixer set Master toggle"
+bindsym Ctrl+F11 exec "amixer set Master 10%-"
+bindsym Ctrl+F12 exec "amixer set Master 10%+"
