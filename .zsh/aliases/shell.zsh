@@ -24,3 +24,6 @@ alias pks="pkgfile -s"
 alias bpr="bitbucket pull-request"
 alias bg="bash get"
 alias ss="sed-replace"
+alias ls='/usr/bin/ls --almost-all --color --classify'
+alias ll='/usr/bin/ls -lA --color --human-readable -p'
+alias lt='/usr/bin/ls -lt --color --human-readable -p'
