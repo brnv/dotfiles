@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sudo brctl addbr br0
+
+sudo brctl addif br0 enp3s0
+
+sudo ip addr flush dev enp3s0
+
+sudo ip link set up dev br0
+
+sudo ip addr add dev br0 192.168.44.128/24 broadcast 192.168.44.255
+
+sudo ip route add dev br0 via 192.168.44.1 default
