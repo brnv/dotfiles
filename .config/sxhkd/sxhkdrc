@@ -9,3 +9,6 @@ control + F11
 
 control + F12
 	amixer set Master 10%+
+
+super + period
+    kuake --terminal
