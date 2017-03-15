@@ -1,0 +1,11 @@
+control + F9
+	xsetup
+
+control + F10
+	amixer set Master toggle
+
+control + F11
+	amixer set Master 10%-
+
+control + F12
+	amixer set Master 10%+

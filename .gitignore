@@ -1,5 +1,5 @@
 .mcabber/histo/*
-.config/
+.config/*
 .vim/plugins/
 .vim/autoload/
 .i3/config
@@ -9,3 +9,5 @@
 .vim/tmp
 .vim/eclim
 .vim/plugin
+
+!.config/sxhkd
