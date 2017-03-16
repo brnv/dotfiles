@@ -12,3 +12,9 @@ control + F12
 
 super + period
     kuake --terminal
+
+super + space
+    marvex -c
+
+super + Return
+    marvex -e "exec ssh-work"
