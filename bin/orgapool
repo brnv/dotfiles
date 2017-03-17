@@ -1,0 +1,5 @@
+#!/bin/bash
+
+curl -s http://container.s:8081/v2/h | \
+    jq --raw-output ".data | keys | .[]" | \
+    orgalorg --read-stdin --password --command "$@"
