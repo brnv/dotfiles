@@ -267,15 +267,6 @@ Plug 'kovetskiy/vim-bash'
 
 Plug 'seletskiy/ashium'
     nmap <C-M><C-M> :py ashium.commit()<CR>
-
-    augroup review_setting
-        au!
-        au FileType diff nnoremap <buffer> <CR> o<C-R>=(getline('.')[0] == '#')
-            \ ? ' '
-            \ : '# '<CR>
-        au FileType diff nnoremap <leader>s /^+$<CR>
-    augroup end
-
 Plug 'kovetskiy/ycm-sh'
 
 "Plug 'hallettj/jslint.vim'
@@ -361,11 +352,11 @@ map <leader>q <Esc>:q<CR>
 nmap <leader>t :read !date<CR>
 map Q qq
 map ! :g//norm @q<CR>
-nmap <leader>n :vsplit<CR>
+nmap <leader>n :vnew<CR>
 "nmap <leader>m :vnew<CR>:VimShell<CR>mysql<CR>
 map <leader>k v$:s/->/->\r\t\t\t<CR>\:retab<CR>
 nmap # #N
-nmap <leader>v :split<CR>
+nmap <leader>v :new<CR>
 "nmap <F11> :set paste<CR>i<C-R>*<Esc>:set nopaste<CR>
 nmap <F11> :read !xsel<CR>
 map <leader>; <ESC>$a;<ESC>
