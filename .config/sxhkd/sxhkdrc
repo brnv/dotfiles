@@ -1,14 +1,17 @@
-control + F9
-	xsetup
+control + F1
+	notify-send -t 1000 "Sound $(amixer set Master toggle | grep -E -o "\[(on|off)\]" | uniq)"
 
-control + F10
-	amixer set Master toggle
+control + F2
+	notify-send -t 1000 "Volume down $(volume down | grep -o "\[.*%\]" | uniq)"
 
-control + F11
-	amixer set Master 10%-
+control + F3
+	notify-send -t 1000 "Volume up $(volume up | grep -o "\[.*%\]" | uniq)"
+
+control + F4
+	notify-send -t 5000 "$(date)"
 
 control + F12
-	amixer set Master 10%+
+	xsetup
 
 super + period
     kuake --terminal
@@ -18,3 +21,7 @@ super + space
 
 super + Return
     marvex -e "exec ssh-work"
+
+control + Pause
+	sudo systemctl suspend
+
