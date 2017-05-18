@@ -14,7 +14,7 @@ control + F12
 	xsetup
 
 super + period
-    kuake --terminal
+    kuake --terminal --bottom
 
 super + space
     marvex -c
