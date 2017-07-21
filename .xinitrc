@@ -8,4 +8,6 @@ fi
 
 sxhkd &
 
+sudo ~/bin/iptables_tor_setup
+
 exec i3

@@ -1,0 +1,7 @@
+Log notice syslog
+DataDirectory /var/lib/tor
+VirtualAddrNetworkIPv4 10.192.0.0/10
+AutomapHostsOnResolve 1
+TransPort 9040
+DNSPort 9053
+ExcludeExitNodes {RU},{UA},{BY}
