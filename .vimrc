@@ -26,6 +26,8 @@ map <leader>c :PlugClean<CR>
 
 call plug#begin('~/.vim/plugins')
 
+Plug 'Rip-Rip/clang_complete'
+
 Plug 'FooSoft/vim-argwrap'
     nnoremap <silent> <leader>a :ArgWrap<CR>
     let g:argwrap_tail_comma = 1
