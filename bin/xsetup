@@ -1,8 +1,8 @@
 #!/bin/bash
 
-localectl set-locale LANG=en_US.utf8
+sudo localectl set-locale LANG=en_US.utf8
 
-timedatectl set-ntp 1
+sudo timedatectl set-ntp 1
 
 xrdb ~/.Xresources && xrdb -merge \
     ~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
@@ -52,8 +52,9 @@ HANDLER_RUS="RIGHTSHIFT"
         | systemd-cat -t shift-shift
 } &
 
-pkill xclipboard-sync
-~/bin/xclipboard-sync &
+killall -9 xcsyncd
+systemd-cat -t xcsyncd xcsyncd &
+
 pkill dunst
 dunst -config ~/.dunstrc &
 
