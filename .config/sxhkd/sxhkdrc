@@ -16,11 +16,8 @@ control + F12
 super + period
     kuake --terminal --bottom
 
-super + space
-    marvex -c
-
 super + Return
-    marvex -e "exec ssh-work"
+    marvex -c
 
 control + Pause
 	sudo systemctl suspend
