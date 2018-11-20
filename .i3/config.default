@@ -1,17 +1,10 @@
 set $mod Mod4
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-
 floating_modifier $mod
 
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
-bindsym $mod+b exec "translate-highlighted-word; xdotool key Escape"
-bindsym $mod+Ctrl+q kill
-bindsym Ctrl+Right exec i3-sensible-browser
 bindsym $mod+r exec dmenu_run
-bindsym Ctrl+b exec xsel-primary-to-clipboard
 bindsym $mod+x exec carcosa-ui
 
 bindsym Ctrl+Home focus left
@@ -35,14 +28,9 @@ bindsym $mod+Ctrl+e layout toggle split
 
 bindsym $mod+Shift+space floating toggle
 
-# notifications
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-bindsym Execute exec slock
+bindsym $mod+Ctrl+q kill
 
 hide_edge_borders both
 
 new_window 1pixel
 
-bindsym $mod+Ctrl+r exec "redshift -l55.2:82.55 -o"
