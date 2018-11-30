@@ -1,32 +1,38 @@
-URxvt.loginShell: true
-URxvt.transparent: false
-URxvt.scrollBar: false
-URxvt.cursorBlink: false
-URxvt.saveLines: 0
-URxvt.font: xft:Monaco:pixelsize=12:antialias=false
-URxvt.boldFont: xft:Monaco:style=Bold:pixelsize=12:antialias=false
-URxvt.italicFont:
-URxvt.boldItalicFont:
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.termName: screen-256color
-URxvt.iso14755: False
-URxvt.iso14755_52: False
-URxvt.internalBorder: 0
-URxvt.perl-ext-common: -scrollback-selection,url-select,keyboard-select,autocomplete-ALL-the-things
-URxvt.url-select.launcher: i3-sensible-browser
-URxvt.url-select.autocopy: true
-URxvt.keysym.Mod4-apostrophe: url-select:select_next
-URxvt.keysym.Mod4-Escape: perl:keyboard-select:activate
-URxvt.keysym.Mod4-S: perl:keyboard-select:search
-URxvt.pointerBlank: true
+URxvt.iso14755: off
+URxvt.iso14755_52: off
+
+URxvt.perl-lib: /home/operator/.urxvt/ext/perl
+
 URxvt.buffered: false
-URxvt.depth: 24
 
-URxvt.keysym.Mod4-n: string:\033\033[24~
-URxvt.keysym.Mod4-slash: string:\033\033[24~?
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Left: \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
 
-URxvt.keysym.Mod4-Tab: autocomplete-ALL-the-things:WORD-complete
-URxvt.keysym.Mod4-ISO_Left_Tab: autocomplete-ALL-the-things:skeleton-complete
-URxvt.keysym.Mod4-comma: autocomplete-ALL-the-things:suffix-complete
-URxvt.keysym.Mod4-period: autocomplete-ALL-the-things:surround-complete
+URxvt.perl-ext-common: clipboard,default
+
+URxvt.keysym.Mod4-c: perl:clipboard:copy
+URxvt.keysym.Mod4-v: perl:clipboard:paste
+URxvt.clipboard.copycmd:  clipboard-copy
+URxvt.clipboard.pastecmd: xsel --output --clipboard
+
+URxvt.title: rxvt-unicode
+URxvt.saveLines: 10000
+
+URxvt.font: xft:Iosevka:size=10,style=regular
+URxvt.boldFont: xft:Iosevka:size=10,style=bold
+URxvt.italicFont: xft:Iosevka:size=10,style=italic
+URxvt.boldItalicFont: xft:Iosevka:size=10,style=bold
+URxvt.lineSpace: -5
+
+URxvt.underlineColor: blue
+URxvt.cursorBlink: true
+URxvt.scrollBar: false
+URxvt.troughColor: #100000
+
+URxvt.transparent: false
+
+Xft.dpi: 96
+
+st.font: Fira Code:pixelsize=14:style=regular:antialias=true:autohint=true

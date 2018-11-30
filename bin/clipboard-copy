@@ -1,0 +1,5 @@
+#!/bin/bash
+
+input=$(sed 's/[ \t]*$//')
+echo -n "$input" | xsel --input --clipboard
+echo -n "$input" | xsel --input --primary

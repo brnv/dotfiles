@@ -1,0 +1,51 @@
+#! perl -w
+
+# Usage:
+# URxvt.perl-ext-common: clipboard
+# URxvt.keysym.Mod4-c: perl:clipboard:copy
+# URxvt.keysym.Mod4-v: perl:clipboard:paste
+# URxvt.keysym.Mod4-F: perl:clipboard:sync_paste
+
+# consult command "xmodmap" to see what your modifier mapped into.
+
+sub copy {
+    my ($self) = @_;
+    my $pid = open( pout, "| xclip -selection clipboard" ) or die "fork";
+    print pout $self->selection;
+    close(pout) or die "close";
+}
+
+sub paste {
+    my ($self) = @_;
+    my $content = `clipboard-paste`;
+
+    $self->tt_write($content);
+}
+
+sub sync {
+    `xclip -o -selection primary | xclip -selection clipboard`;
+}
+
+sub sync_paste {
+    my ($self) = @_;
+
+    $self->sync();
+    $self->paste();
+}
+
+sub on_action {
+    my ($self, $action) = @_;
+
+    on_user_command($self, "clipboard:" . $action);
+}
+
+sub on_user_command {
+    my ($self, $cmd) = @_;
+    if ($cmd eq "clipboard:copy") {
+        $self->copy;
+    }
+    if ($cmd eq "clipboard:paste") {
+        $self->paste;
+    }
+}
+
