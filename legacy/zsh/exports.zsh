@@ -1,4 +1,4 @@
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/go
 export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$PATH
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH=$HOME/.composer/vendor/bin:$PATH
