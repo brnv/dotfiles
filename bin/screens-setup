@@ -1,5 +1,8 @@
 #!/bin/bash
 
-redshift -l55.2:82.55 -o
+redshift -x
+#redshift -l43.6028:39.7342 -o
+redshift -l55.0084:82.9357 -o
 
-pkill keynav; keynav
+pkill keynav
+keynav daemonize

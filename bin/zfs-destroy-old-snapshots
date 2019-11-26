@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+:log() {
+    printf "$(highlight bold)» zfs: %s$(highlight reset)\n" "$*"
+}
+
+:main() {
+    threshold=20
+
+    all_snapshots="$(sudo zfs list -t snapshot -H -o name | grep backup_)"
+    all_count=$(wc -l <<< "$all_snapshots")
+
+    removing_count=$(($all_count-$threshold))
+
+    if [ $removing_count -le 0 ]; then
+        exit 0
+    fi
+
+    head -n $removing_count <<< "$all_snapshots" \
+        | while read snapshot; do
+            :log "autoremoving snapshot $snapshot"
+            sudo zfs destroy -- "$snapshot"
+        done
+
+}
+
+:main "${@}"

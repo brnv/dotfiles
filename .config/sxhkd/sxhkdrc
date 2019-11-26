@@ -1,24 +1,116 @@
-control + F1
-	notify-send -t 1000 "Sound $(amixer set Master toggle | grep -E -o "\[(on|off)\]" | uniq)"
-
-control + F2
-	notify-send -t 1000 "Volume down $(volume down | grep -o "\[.*%\]" | uniq)"
-
-control + F3
-	notify-send -t 1000 "Volume up $(volume up | grep -o "\[.*%\]" | uniq)"
-
-control + F4
-	notify-send -t 5000 "$(date)"
-
-control + F12
-	xsetup
-
-super + period
-    kuake --terminal --bottom
-
 super + Return
-    marvex -c
+	terminal
+
+shift + super + Return
+	terminal -d
+
+control + Return
+	terminal-with-cwd
+
+super + r
+	modal-run -matching normal
+
+super + shift + r
+	modal-run --terminal
+
+shift + Delete
+	kill-focus
+
+super + control + s
+	browser
+
+super + control + w
+	chrome-todoist
+
+super + control + d
+	upwork
+
+super + b
+	clipboard-sync-trim
+
+super + F1
+	screenshot
+
+super + F2
+	screenshot deepin
+
+control + F10
+	brightness toggle
+
+super + 8
+	;volume down
+
+super + 9
+	;volume up
+
+super + control + 0
+	;pa-switch-profile active output:hdmi-stereo output:analog-stereo
+
+alt + control + d
+	notification-information-basic
+
+super + control + e
+	translator
+
+super + control + t
+	toggle translator-watcher
+
+alt + Tab
+	i3re -w 500
+
+super + Tab
+	rofi -show window
+
+super + 5
+	carcosa-ui
+
+control + super + 5
+	carcosa-ui clipboard
+
+super + 6
+	carcosa-new-password
+
+super + 7
+	carcosa-qr
+
+control + Delete
+	environment-setup
+
+super + grave
+	kuake-bottom
+
+super + backslash
+	kuake --focus --center --middle --height 90 --width 75
+
+super + equal
+	kuake --terminal --class top --top --middle --height 30 --width 50
+
+control + F5
+	upwork-switch
+
+control + F6
+	VOLUME=30000 headset
+
+control + F7
+	openvpn-toggle
+
+control + F8
+	brightness down
+
+control + F9
+	brightness up
+
+control + F11
+	jidle-toggle
+#
+control + F12
+	SUSPEND_NOTIFY_TIMEOUT=60 upwork-suspend
 
 control + Pause
-	sudo systemctl suspend
+	screen-lock -suspend
 
+control + super + Insert
+	screen-lock -suspend
+
+#shift + F1
+#	chrome-netflix

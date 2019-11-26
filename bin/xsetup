@@ -31,7 +31,7 @@ setxkbmap \
         "level5-menu"`            # use menu for level5 switch as well`\
         "ctrl-shift-caps"`        # remap ctrl/shift/caps` \
         "terminate(ctrl_alt_bksp)"`# terminate X on ctrl+alt+bs`\
-        "esc-to-execute"`     # esc to lock screen`\
+        "esc-to-tilde"`     # esc to lock screen`\
         "fast-copy-paste"`    # alt+c -> ctrl+c, alt+v -> shift+ins`\
         | sed 's/ /+/g') \
     -compat \
@@ -60,14 +60,14 @@ dunst -config ~/.dunstrc &
 
 screens-setup
 
-if [[ "$(hostname)" == "work" ]]; then
-    dual-head
-else
-    if grep --quiet open /proc/acpi/button/lid/LID/state; then
-        dual-head || one-head
-    else
-        hdmi-head
-    fi
-fi
+#if [[ "$(hostname)" == "work" ]]; then
+    #dual-head
+#else
+    #if grep --quiet open /proc/acpi/button/lid/LID/state; then
+        #dual-head || one-head
+    #else
+        #hdmi-head
+    #fi
+#fi
 
 i3-msg restart

@@ -1,5 +1,33 @@
 #!/bin/bash
 
-URL="$(sed 's/^\(git+ssh\|ssh\|git\):\/\///' <<< "$1")"
+url=$(sed -r 's#^(git+ssh|ssh|git)://(\w+@)?##' <<< "$1")
+params="${@:2}"
 
-exec i3-sensible-browser "$URL"
+scheme=$(grep -Po '^\w+://' <<< "$url")
+if [[ "$scheme" != "http://"
+   && "$scheme" != "https://"
+   && "$scheme" != "ftp://"
+   && "$scheme" != "file://"
+   && "$scheme" != "" ]]; then
+    notify-send "URL" "$url"
+
+    exit 1
+fi
+
+browser="chromium"
+if [[ "$url" ]]; then
+    exec $browser "$url"
+else
+    exec "$browser"
+fi
+
+#if [[ ! "${BROWSER_PROFILE:-}" ]]; then
+#    if [[ "$DISPLAY" != ":0" ]]; then
+#        BROWSER_PROFILE=mgx
+#    else
+#        BROWSER_PROFILE=default
+#    fi
+#fi
+
+#set -x
+#exec firefox-beta -P ${BROWSER_PROFILE:-default} "$url"

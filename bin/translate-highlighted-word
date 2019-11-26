@@ -7,4 +7,4 @@ if [[ -z $word ]]; then
     exit
 fi
 
-translator -e $word
+translator $word

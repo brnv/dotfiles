@@ -19,7 +19,7 @@ cleanup() {
     rm ~/.fonts
     rm ~/.local/share/fonts
     rm ~/.terminfo
-    rm ~/.i3
+    #rm ~/.i3
     rm ~/.vim
     rm ~/.mcabber
     rm ~/bin
@@ -33,11 +33,11 @@ cleanup() {
     rm ~/.zsh
 }
 
-install_i3_config() {
-    cp `pwd`/.i3/config.default `pwd`/.i3/config
-    cat `pwd`/.i3/config.`cat ~/.workspaces` >> `pwd`/.i3/config
-    cat `pwd`/.i3/config.`cat ~/.background` >> `pwd`/.i3/config
-}
+#install_i3_config() {
+    #cp `pwd`/.i3/config.default `pwd`/.i3/config
+    #cat `pwd`/.i3/config.`cat ~/.workspaces` >> `pwd`/.i3/config
+    #cat `pwd`/.i3/config.`cat ~/.background` >> `pwd`/.i3/config
+#}
 
 install() {
     export -f set_link
@@ -53,6 +53,6 @@ post_install() {
 }
 
 cleanup
-install_i3_config
+#install_i3_config
 install
 post_install

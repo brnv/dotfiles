@@ -2,7 +2,6 @@
 .config/*
 .vim/plugins/
 .vim/autoload/
-.i3/config
 .rack/*dll
 .rack/delay
 .mutt/accounts

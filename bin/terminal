@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PROFILE=$(cat ~/.config/profile)
+if [[ "$PROFILE" == "laptop" ]]; then
+    exec marvex \
+        -s -b urxvt \
+        --terminal '@path --title "@title" -e @command' -r 0 "${@}"
+else
+    urxvt || konsole
+fi

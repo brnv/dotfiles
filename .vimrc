@@ -115,7 +115,7 @@ Plug 'scrooloose/nerdcommenter'
     "let g:ycm_key_list_select_completion=['<DOWN>']
 
     "let g:ycm_collect_identifiers_from_tags_files = 1
-    ""let g:ycm_collect_identifiers_from_comments_and_strings = 1
+    "let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
     "let g:ycm_seed_identifiers_with_syntax = 1
     "let g:ycm_use_ultisnips_completer = 0
@@ -134,6 +134,7 @@ Plug 'kovetskiy/synta'
 "if has('nvim')
     "Plug 'zchee/nvim-go', { 'do': 'make'}
 "else
+
 Plug 'fatih/vim-go', {'for': 'go'}
     let g:go_template_autocreate = 0
 
@@ -151,7 +152,7 @@ Plug 'fatih/vim-go', {'for': 'go'}
 
     let g:go_doc_keywordprg_enabled = 0
     let g:go_def_mapping_enabled = 0
-    let g:go_def_mode = 'guru'
+    let g:go_def_mode = 'godef'
 
     "let g:go_highlight_functions = 0
 
@@ -670,7 +671,7 @@ set lazyredraw
 set ttyfast
 
 set number
-set norelativenumber
+set relativenumber
 
 set history=500
 
