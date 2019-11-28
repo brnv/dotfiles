@@ -1180,6 +1180,7 @@ ssha() {
     alias 'l'='ls'
     alias 'v'='vim'
     alias 'vi'='vim'
+    alias 'vim'='nvim'
     alias 'se'='sed -r'
     alias 'py'='python'
     alias 'py2'='python2'

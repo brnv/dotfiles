@@ -11,3 +11,6 @@
 .vim/runtime
 
 !.config/sxhkd
+!.config/nvim
+!.config/dunst
+!.config/user-dirs.dirs
