@@ -29,6 +29,33 @@ let g:vim_indent_cont = shiftwidth()
 
 let g:py_modules = []
 
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+    func! _expand_snippet()
+        let g:_expand_snippet = 1
+        call UltiSnips#ExpandSnippet()
+        let g:_expand_snippet = 0
+
+        if g:ulti_expand_res == 0
+            if pumvisible() && !empty(v:completed_item)
+                return coc#_select_confirm()
+            else
+                call coc#refresh()
+                let col = col('.') - 1
+                if !col || getline('.')[col - 1]  =~# '\s'
+                    return "\<tab>"
+                end
+            end
+        else
+            call coc#refresh()
+            return ""
+        end
+
+        return "\<c-n>"
+    endfunc
+
+    inoremap <silent> <Tab> <c-r>=_expand_snippet()<cr>
+    xnoremap <silent> <Tab> <Esc>:call UltiSnips#SaveLastVisualSelection()<cr>gvs
+
 Plug 'kovetskiy/vim-hacks'
 
 Plug 'junegunn/fzf', {'do': './install --all'}
@@ -119,10 +146,6 @@ Plug 'scrooloose/nerdcommenter'
 
     "let g:ycm_seed_identifiers_with_syntax = 1
     "let g:ycm_use_ultisnips_completer = 0
-
-Plug 'maralla/completor.vim'
-    let g:completor_gocode_binary = $HOME . '/go/bin/gocode'
-    let g:completor_python_binary = '/usr/bin/python3'
 
 Plug 'kovetskiy/synta'
     let g:synta_go_highlight_calls = 0
@@ -224,7 +247,7 @@ Plug 'sirver/ultisnips', { 'frozen': 1 }
 
     let g:UltiSnipsSnippetDirectories = [
     \      g:snippets_reconquest,
-	\      g:snippets_dotfiles,
+    \      g:snippets_dotfiles,
     \]
 
     let g:UltiSnipsEnableSnipMate = 0
@@ -531,10 +554,6 @@ Plug 'kovetskiy/sxhkd-vim'
 
 Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
 
-Plug 'brooth/far.vim'
-    nmap <Leader>a :Farp<CR>
-    au operations FileType far_vim nmap <buffer> <Leader>d :Fardo<CR>
-
 "Plug 'kovetskiy/vim-autoresize'
 
 Plug 'ddrscott/vim-side-search'
@@ -712,6 +731,7 @@ au operations VimEnter,WinEnter,BufRead,BufNewFile * au! matchparen
 set noequalalways
 set winminheight=0
 set clipboard=unnamedplus
+set signcolumn=yes
 
 set tags=./.tags;/
 
