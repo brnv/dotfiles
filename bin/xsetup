@@ -11,7 +11,7 @@ export XAUTHORITY=~/.Xauthority
 export DISPLAY=${DISPLAY:-:0.0}
 
 xset b off && xset s off
-xset r rate 120 100
+xset r rate 140 100
 
 setxkbmap \
     -keycodes \
