@@ -107,7 +107,7 @@ control + F12
 	SUSPEND_NOTIFY_TIMEOUT=60 upwork-suspend
 
 control + Pause
-	screen-lock -suspend
+	systemctl suspend
 
 control + super + Insert
 	screen-lock -suspend

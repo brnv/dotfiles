@@ -24,6 +24,25 @@ nnoremap <Leader><Leader>u :PlugUpdate<CR>
 "    au!
 call plug#begin('~/.vim/bundle')
 
+if $BACKGROUND == "dark"
+    Plug 'reconquest/vim-colorscheme'
+    func! _setup_colorscheme()
+        colorscheme reconquest
+    endfunc!
+endif
+
+if $BACKGROUND == "light"
+    Plug 'nightsense/seagrey'
+    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
+    Plug 'rakr/vim-one'
+
+    func! _setup_colorscheme()
+        set background="light"
+        colorscheme PaperColor
+    endfunc!
+endif
+
 " set up indent/vim.vim
 let g:vim_indent_cont = shiftwidth()
 
@@ -93,59 +112,7 @@ Plug 'itchyny/lightline.vim'
         let g:lightline.colorscheme = 'wombat'
     endif
 
-
-if $BACKGROUND == "dark"
-    Plug 'reconquest/vim-colorscheme'
-    func! _setup_colorscheme()
-        colorscheme reconquest
-    endfunc!
-endif
-
 Plug 'scrooloose/nerdcommenter'
-"if has('nvim')
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  "set guicursor=
-"else
-  "Plug 'Shougo/deoplete.nvim'
-"endif
-
-"Plug 'fishbullet/deoplete-ruby'
-"Plug 'roxma/nvim-yarp'
-"Plug 'roxma/vim-hug-neovim-rpc'
-
-"Plug 'zchee/deoplete-go', { 'do': 'make'}
-"    let g:deoplete#enable_at_startup = 1
-"
-"    func! _setup_deoplete()
-"        call deoplete#custom#source(
-"            \ '_', 'min_pattern_length', 1)
-"
-"		call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-"		call deoplete#custom#source('_', 'sorters', [])
-"
-"        " unlimited candidate length
-"		call deoplete#custom#source('_', 'max_kind_width', 0)
-"		call deoplete#custom#source('_', 'max_menu_width', 0)
-"		call deoplete#custom#source('_', 'max_abbr_width', 0)
-"    endfunc!
-"
-"    augroup _setup_deoplete
-"        au!
-"        au VimEnter * call _setup_deoplete()
-"    augroup end
-
-"Plug 'Valloric/YouCompleteMe'
-    "let g:ycm_server_python_interpreter = '/usr/bin/python3'
-    "let g:ycm_show_diagnostics_ui = 0
-    "let g:ycm_confirm_extra_conf = 0
-    "let g:ycm_key_list_previous_completion=['<UP>']
-    "let g:ycm_key_list_select_completion=['<DOWN>']
-
-    "let g:ycm_collect_identifiers_from_tags_files = 1
-    "let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
-    "let g:ycm_seed_identifiers_with_syntax = 1
-    "let g:ycm_use_ultisnips_completer = 0
 
 Plug 'kovetskiy/synta'
     let g:synta_go_highlight_calls = 0
@@ -153,10 +120,6 @@ Plug 'kovetskiy/synta'
     let g:synta_use_sbuffer = 0
     let g:synta_use_go_fast_build = 0
     let g:synta_go_build_recursive = 1
-
-"if has('nvim')
-    "Plug 'zchee/nvim-go', { 'do': 'make'}
-"else
 
 Plug 'fatih/vim-go', {'for': 'go'}
     let g:go_template_autocreate = 0
@@ -215,26 +178,11 @@ Plug 'fatih/vim-go', {'for': 'go'}
 
     au operations FileType go nmap <silent><buffer> <c-p> :call synta#go#build()<CR>
     au operations FileType go imap <silent><buffer> <c-p> <ESC>:w<CR>:call synta#go#build()<CR>
-"endif
-
 
 Plug 'elzr/vim-json', { 'for': 'json' }
     au operations BufNewFile,BufRead *.json set filetype=json
 
 Plug 'vim-scripts/l9'
-
-"Plug 'kovetskiy/vim-cucu'
-"Plug 'seletskiy/vim-nunu'
-Plug 'seletskiy/matchem'
-    au User _overwrite_matchem
-        \ au VimEnter,BufEnter,FileType *
-        \ inoremap <expr> <DOWN>  pumvisible() ? "\<C-N>" : "\<DOWN>"
-
-    au User _overwrite_matchem
-        \ au VimEnter,BufEnter,FileType *
-        \ inoremap <expr> <UP>    pumvisible() ? "\<C-P>" : "\<UP>"
-
-    doau User _overwrite_matchem
 
 Plug 'sirver/ultisnips', { 'frozen': 1 }
     let g:UltiSnipsJumpForwardTrigger="<C-J>"
@@ -251,7 +199,7 @@ Plug 'sirver/ultisnips', { 'frozen': 1 }
     \]
 
     let g:UltiSnipsEnableSnipMate = 0
-    let g:UltiSnipsExpandTrigger="<TAB>"
+    let g:UltiSnipsExpandTrigger = '<nul>'
     let g:UltiSnipsEditSplit="horizontal"
 
     func! _snippets_stop()
@@ -294,7 +242,6 @@ Plug 'pangloss/vim-javascript', { 'for': 'js' }
 Plug 'danro/rename.vim'
     nnoremap <Leader><Leader>r :noautocmd Rename<Space>
 
-
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     au operations BufRead,BufNewFile *.md set filetype=markdown
     au operations BufRead,BufNewFile *.md set fo-=l
@@ -304,17 +251,7 @@ Plug 'AndrewRadev/sideways.vim'
     nnoremap <leader>h :SidewaysLeft<cr>
     "nnoremap <leader>l :SidewaysRight<cr>
 
-
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
-
-"Plug 'terryma/vim-multiple-cursors'
-    "function! Multiple_cursors_before()
-        "let b:deoplete_disable_auto_complete = 1
-    "endfunction
-
-    "function! Multiple_cursors_after()
-        "let b:deoplete_disable_auto_complete = 0
-    "endfunction
 
 Plug 'justinmk/vim-sneak'
     " bullshit
@@ -340,17 +277,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
     vnoremap <C-T> :Tabularize /
 
-"Plug 'kovetskiy/urxvt.vim'
-    "au operations FileType go nmap <buffer>
-        "\ <Leader>h :call urxvt#put('go build')<CR>
-
-
 Plug 'reconquest/vim-pythonx'
     let g:pythonx_highlight_completion = 0
 
     vnoremap <C-x>v :python px.langs.go.transform.to_variable()<CR>
-
-
 
 Plug 'reconquest/snippets'
     "au operations FileType go nmap <buffer>
@@ -365,7 +295,7 @@ Plug 'reconquest/snippets'
     "au operations FileType go nmap <buffer>
          "\ <Leader>gl :py px.go.goto_prev_var()<CR>
 
-	au operations VimEnter * py
+    au operations VimEnter * py
         \   import vim;
         \   import px;
         \   import snippets;
@@ -410,32 +340,9 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoShow' }
 
 Plug 'kovetskiy/kb-train', { 'on': 'Train' }
 
-if $BACKGROUND == "light"
-    Plug 'nightsense/seagrey'
-    Plug 'NLKNguyen/papercolor-theme'
-    Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
-    Plug 'rakr/vim-one'
-
-    func! _setup_colorscheme()
-        set background="light"
-        colorscheme PaperColor
-    endfunc!
-endif
-
 Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
 
 Plug 'seletskiy/ashium'
-
-"Plug 'klen/python-mode', {'for': 'python'}
-"    let g:pymode_rope_complete_on_dot = 0
-"    let g:pymode_lint = 1
-"    let g:pymode_lint_on_write = 1
-"    let g:pymode_run = 0
-"    let g:pymode_rope_lookup_project = 0
-"    let g:pymode_rope_project_root = $HOME . '/ropeproject/'
-"    let g:pymode_folding = 0
-
-"Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 Plug 'yssl/QFEnter'
 
@@ -448,8 +355,6 @@ Plug 'rust-lang/rust.vim', {'for': 'rust' }
 Plug 'rhysd/vim-go-impl'
 
 Plug 'wellle/targets.vim'
-
-"Plug 'kovetskiy/ycm-sh', {'for': 'sh'}
 
 "Plug 'lokikl/vim-ctrlp-ag'
     let g:grep_last_query = ""
@@ -497,34 +402,6 @@ Plug 'kovetskiy/vim-bash'
 
     "au operations BufWritePost * call _tags_sh()
 
-"Plug 'seletskiy/vim-autosurround'
-    "func! _ultisnips_enter()
-        "let v:char="	"
-        "call UltiSnips#TrackChange()
-        "let v:char=""
-        "call UltiSnips#TrackChange()
-        "return """
-    "endfunc!
-
-    "nnoremap o o<C-R>=_ultisnips_enter()<CR>
-    "nnoremap O O<C-R>=_ultisnips_enter()<CR>
-
-    "au User _overwrite_matchem
-        "\ au VimEnter,BufEnter,FileType *
-        "\ inoremap <CR> <C-R>=g:MatchemExpandCr(1)<CR><C-R>=_ultisnips_enter()<CR>
-
-    "au User _overwrite_matchem
-        "\ au VimEnter,BufEnter,FileType *
-        "\ inoremap <buffer> ( (<C-R>=AutoSurround(")") ? "" : g:MatchemMatchStart()<CR>
-
-    "au User _overwrite_matchem
-        "\ autocmd VimEnter,BufEnter,FileType * call AutoSurroundInitMappings()
-
-
-    "au User plugins_loaded doau User _overwrite_matchem
-    "doau User _overwrite_matchem
-
-
 Plug 'FooSoft/vim-argwrap', {'on': 'ArgWrap'}
     au operations BufRead,BufNewFile *.go let b:argwrap_tail_comma = 1
 
@@ -554,8 +431,6 @@ Plug 'kovetskiy/sxhkd-vim'
 
 Plug 'PotatoesMaster/i3-vim-syntax', {'for': 'i3'}
 
-"Plug 'kovetskiy/vim-autoresize'
-
 Plug 'ddrscott/vim-side-search'
     nnoremap <Leader>s :SideSearch<space>
 
@@ -564,8 +439,8 @@ Plug 'ddrscott/vim-side-search'
         normal zz
     endfunc!
 
-    noremap <silent> <Tab>   :bNext<CR>:call _random_line()<CR>
-    noremap <silent> <S-Tab> :bprev<CR>:call _random_line()<CR>
+    "noremap <silent> <Tab>   :bNext<CR>:call _random_line()<CR>
+    "noremap <silent> <S-Tab> :bprev<CR>:call _random_line()<CR>
 
 Plug 'lambdalisue/gina.vim'
 
@@ -585,19 +460,7 @@ Plug 'kovetskiy/ale'
     let g:ale_fix_on_save = 1
     " au operations BufRead,BufNewFile *.go
 
-
-"Plug 'romainl/vim-cool'
 Plug 'rhysd/vim-crystal'
-
-Plug 'vim-ruby/vim-ruby'
-func! _setup_ruby()
-	setlocal shiftwidth=2
-    setlocal cc=120
-endfunc!
-
-au operations BufRead,BufNewFile *.rb call _setup_ruby()
-
-Plug 'ruby-formatter/rufo-vim'
 
 Plug 'mg979/vim-visual-multi'
     let g:VM_no_meta_mappings = 1
@@ -646,7 +509,6 @@ Plug 'lambdalisue/gina.vim'
     let g:gina#command#blame#formatter#format="%su%=%au on %ti %ma%in"
 
 Plug 'tpope/vim-dispatch'
-
     func! _setup_java()
         setlocal errorformat=[ERROR]\ %f:[%l\\,%v]\ %m
     endfunc!
@@ -656,7 +518,136 @@ Plug 'tpope/vim-dispatch'
     au operations FileType java nmap <silent><buffer> ; :cn<CR>
     au operations FileType java nmap <silent><buffer> <Leader>; :cN<CR>
 
-Plug 'fvictorio/vim-extract-variable'
+"if has('nvim')
+    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "set guicursor=
+"else
+    "Plug 'Shougo/deoplete.nvim'
+"endif
+
+"Plug 'fishbullet/deoplete-ruby'
+"Plug 'roxma/nvim-yarp'
+"Plug 'roxma/vim-hug-neovim-rpc'
+
+"Plug 'zchee/deoplete-go', { 'do': 'make'}
+"let g:deoplete#enable_at_startup = 1
+
+"func! _setup_deoplete()
+    "call deoplete#custom#source(
+        "\ '_', 'min_pattern_length', 1)
+
+    "call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+    "call deoplete#custom#source('_', 'sorters', [])
+
+    "" unlimited candidate length
+    "call deoplete#custom#source('_', 'max_kind_width', 0)
+    "call deoplete#custom#source('_', 'max_menu_width', 0)
+    "call deoplete#custom#source('_', 'max_abbr_width', 0)
+"endfunc!
+
+"augroup _setup_deoplete
+    "au!
+    "au VimEnter * call _setup_deoplete()
+"augroup end
+
+"Plug 'Valloric/YouCompleteMe'
+    "let g:ycm_server_python_interpreter = '/usr/bin/python3'
+    "let g:ycm_show_diagnostics_ui = 0
+    "let g:ycm_confirm_extra_conf = 0
+    "let g:ycm_key_list_previous_completion=['<UP>']
+    "let g:ycm_key_list_select_completion=['<DOWN>']
+
+    "let g:ycm_collect_identifiers_from_tags_files = 1
+    "let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+    "let g:ycm_seed_identifiers_with_syntax = 1
+    "let g:ycm_use_ultisnips_completer = 0
+"if has('nvim')
+    "Plug 'zchee/nvim-go', { 'do': 'make'}
+"else
+
+"Plug 'terryma/vim-multiple-cursors'
+    "function! Multiple_cursors_before()
+        "let b:deoplete_disable_auto_complete = 1
+    "endfunction
+
+    "function! Multiple_cursors_after()
+        "let b:deoplete_disable_auto_complete = 0
+    "endfunction
+
+"Plug 'kovetskiy/urxvt.vim'
+    "au operations FileType go nmap <buffer>
+        "\ <Leader>h :call urxvt#put('go build')<CR>
+
+"Plug 'klen/python-mode', {'for': 'python'}
+    "let g:pymode_rope_complete_on_dot = 0
+    "let g:pymode_lint = 1
+    "let g:pymode_lint_on_write = 1
+    "let g:pymode_run = 0
+    "let g:pymode_rope_lookup_project = 0
+    "let g:pymode_rope_project_root = $HOME . '/ropeproject/'
+    "let g:pymode_folding = 0
+
+"Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+
+"Plug 'kovetskiy/ycm-sh', {'for': 'sh'}
+
+"Plug 'seletskiy/vim-autosurround'
+    "func! _ultisnips_enter()
+        "let v:char="	"
+        "call UltiSnips#TrackChange()
+        "let v:char=""
+        "call UltiSnips#TrackChange()
+        "return """
+    "endfunc!
+
+    "nnoremap o o<C-R>=_ultisnips_enter()<CR>
+    "nnoremap O O<C-R>=_ultisnips_enter()<CR>
+
+    "au User _overwrite_matchem
+        "\ au VimEnter,BufEnter,FileType *
+        "\ inoremap <CR> <C-R>=g:MatchemExpandCr(1)<CR><C-R>=_ultisnips_enter()<CR>
+
+    "au User _overwrite_matchem
+        "\ au VimEnter,BufEnter,FileType *
+        "\ inoremap <buffer> ( (<C-R>=AutoSurround(")") ? "" : g:MatchemMatchStart()<CR>
+
+    "au User _overwrite_matchem
+        "\ autocmd VimEnter,BufEnter,FileType * call AutoSurroundInitMappings()
+
+
+    "au User plugins_loaded doau User _overwrite_matchem
+    "doau User _overwrite_matchem
+
+"Plug 'kovetskiy/vim-autoresize'
+
+"Plug 'romainl/vim-cool'
+
+"Plug 'vim-ruby/vim-ruby'
+    "func! _setup_ruby()
+        "setlocal shiftwidth=2
+        "setlocal cc=120
+    "endfunc!
+
+    "au operations BufRead,BufNewFile *.rb call _setup_ruby()
+
+"Plug 'kovetskiy/vim-cucu'
+
+"Plug 'seletskiy/vim-nunu'
+
+"Plug 'seletskiy/matchem'
+    "au User _overwrite_matchem
+        "\ au VimEnter,BufEnter,FileType *
+        "\ inoremap <expr> <DOWN>  pumvisible() ? "\<C-N>" : "\<DOWN>"
+
+    "au User _overwrite_matchem
+        "\ au VimEnter,BufEnter,FileType *
+        "\ inoremap <expr> <UP>    pumvisible() ? "\<C-P>" : "\<UP>"
+
+    "doau User _overwrite_matchem
+"Plug 'ruby-formatter/rufo-vim'
+
+"Plug 'fvictorio/vim-extract-variable'
 
 "augroup end
 call plug#end()
@@ -986,4 +977,3 @@ nnoremap <Leader>x :vsp <C-R>=expand('%:h')<CR>/
 nnoremap <Leader>t :vsp<Space>
 
 noh
-
