@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if grep -q "#" /usr/share/X11/xkb/symbols/esc-to-tilde; then
+    sudo sed -i '3,7{s/#//}' /usr/share/X11/xkb/symbols/esc-to-tilde
+else
+    sudo sed -i '3,7{s/^/#/}' /usr/share/X11/xkb/symbols/esc-to-tilde
+fi
+
+/home/operator/dotfiles/bin/xsetup
