@@ -70,4 +70,7 @@ screens-setup
     #fi
 #fi
 
+systemctl --user import-environment DISPLAY XAUTHORITY
+systemctl --user restart i3-battery-nagbar.service
+
 i3-msg restart
