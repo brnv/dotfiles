@@ -52,9 +52,6 @@ HANDLER_RUS="RIGHTSHIFT"
         | systemd-cat -t shift-shift
 } &
 
-killall -9 xcsyncd
-systemd-cat -t xcsyncd xcsyncd &
-
 pkill dunst
 dunst -config ~/.dunstrc &
 
@@ -73,5 +70,6 @@ screens-setup
 systemctl --user import-environment DISPLAY XAUTHORITY
 systemctl --user restart i3-battery-nagbar.service
 systemctl --user restart keynav.service
+systemctl --user restart xcsyncd.service
 
 i3-msg restart
