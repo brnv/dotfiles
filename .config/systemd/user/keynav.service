@@ -1,0 +1,9 @@
+[Unit]
+Description=launch keynav
+
+[Service]
+ExecStart=/usr/bin/keynav
+Restart=always
+
+[Install]
+WantedBy=xorg.target

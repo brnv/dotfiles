@@ -10,6 +10,8 @@
 .vim/bundle
 .vim/runtime
 
+!.config/systemd
+.config/systemd/user/xorg.target.wants
 !.config/sxhkd
 !.config/nvim
 !.config/dunst

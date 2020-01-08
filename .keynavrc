@@ -1,7 +1,5 @@
 clear
 
-daemonize
-
 super+semicolon start, grid 4x4
 
 Escape end

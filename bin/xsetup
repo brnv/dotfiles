@@ -72,5 +72,6 @@ screens-setup
 
 systemctl --user import-environment DISPLAY XAUTHORITY
 systemctl --user restart i3-battery-nagbar.service
+systemctl --user restart keynav.service
 
 i3-msg restart
