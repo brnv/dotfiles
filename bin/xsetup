@@ -67,9 +67,10 @@ screens-setup
     #fi
 #fi
 
-systemctl --user import-environment DISPLAY XAUTHORITY
+systemctl --user import-environment DISPLAY XAUTHORITY PATH
 systemctl --user restart i3-battery-nagbar.service
 systemctl --user restart keynav.service
 systemctl --user restart xcsyncd.service
+systemctl --user restart sxhkd.service
 
 i3-msg restart
