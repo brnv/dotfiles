@@ -1,4 +1,0 @@
-#!/bin/bash
-
-WINEPREFIX=~/.wine32-studio WINEARCH=win32 \
-    wine ~/.wine32-studio/drive_c/Program\ Files/REAPER/reaper.exe
