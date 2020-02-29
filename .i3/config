@@ -100,7 +100,7 @@ for_window [title="^feh "]       floating enable
 for_window [title="^sxiv"]       floating disable
 for_window [title="Viewer"]      floating disable
 
-client.focused            #0008ff #0008ff #0008ff #0008ff
+client.focused            #6a0dad #6a0dad #6a0dad #6a0dad
 client.focused_inactive   #000000   #000000   #000000   #000000
 client.unfocused          #000000   #000000   #000000   #000000
 set $primary DP1
