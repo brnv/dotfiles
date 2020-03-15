@@ -42,5 +42,6 @@
         "scaffoldSnippetSources": {
             "vetur": "V"
         }
-    }
+    },
+    "sourcekit.commandPath": "/usr/bin/sourcekit-lsp"
 }

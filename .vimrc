@@ -24,6 +24,11 @@ nnoremap <Leader><Leader>u :PlugUpdate<CR>
 "    au!
 call plug#begin('~/.vim/bundle')
 
+Plug 'vim-syntastic/syntastic', {'for': 'swift'}
+
+Plug 'keith/swift.vim', {'for': 'swift'}
+    let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+
 if $BACKGROUND == "dark"
     Plug 'reconquest/vim-colorscheme'
     func! _setup_colorscheme()
