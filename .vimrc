@@ -24,6 +24,8 @@ nnoremap <Leader><Leader>u :PlugUpdate<CR>
 "    au!
 call plug#begin('~/.vim/bundle')
 
+Plug 'chr4/nginx.vim'
+
 Plug 'vim-syntastic/syntastic', {'for': 'swift'}
 
 Plug 'keith/swift.vim', {'for': 'swift'}
@@ -50,8 +52,6 @@ endif
 
 " set up indent/vim.vim
 let g:vim_indent_cont = shiftwidth()
-
-let g:py_modules = []
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
     func! _expand_snippet()
@@ -282,8 +282,9 @@ Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
     vnoremap <C-T> :Tabularize /
 
-Plug 'reconquest/vim-pythonx'
+Plug 'reconquest/vim-pythonx', { 'do' : ':UpdateRemotePlugins' }
     let g:pythonx_highlight_completion = 0
+    let g:pythonx_go_info_mode = 'coc'
 
     vnoremap <C-x>v :python px.langs.go.transform.to_variable()<CR>
 
@@ -299,20 +300,6 @@ Plug 'reconquest/snippets'
 
     "au operations FileType go nmap <buffer>
          "\ <Leader>gl :py px.go.goto_prev_var()<CR>
-
-    au operations VimEnter * py
-        \   import vim;
-        \   import px;
-        \   import snippets;
-        \   [
-        \       vim.command("call add(g:py_modules, '%s')" % library)
-        \       for library in px.libs()
-        \   ]
-        \   and
-        \   [
-        \       vim.command("call add(g:py_modules, '%s')" % library)
-        \       for library in px.libs('snippets')
-        \   ]
 
 Plug 'kovetskiy/vim-empty-lines'
     nnoremap <silent> <Leader><Leader>j :call DelEmptyLineBelow()<CR>
