@@ -53,7 +53,7 @@ endif
 " set up indent/vim.vim
 let g:vim_indent_cont = shiftwidth()
 
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'kovetskiy/coc.nvim', {'do': { -> coc#util#install()}}
     func! _expand_snippet()
         let g:_expand_snippet = 1
         call UltiSnips#ExpandSnippet()
@@ -127,25 +127,49 @@ Plug 'kovetskiy/synta'
     let g:synta_go_build_recursive = 1
 
 Plug 'fatih/vim-go', {'for': 'go'}
-    let g:go_template_autocreate = 0
-
-    let g:go_fmt_fail_silently = 0
     let g:go_fmt_command = "goimports"
+    let g:go_rename_command = 'gopls'
+    let g:go_snippet_engine = "skip"
     let g:go_fmt_autosave = 0
-    let g:go_bin_path = $GOPATH . "/bin"
-    let g:go_metalinter_command="golangci-lint run"
-    let g:go_list_type = "quickfix"
-    let g:go_auto_type_info = 0
-    let g:go_gocode_autobuild = 1
-
-    "let g:go_auto_type_info = 1
-    "let go_auto_sameids = 1
-
-    let g:go_doc_keywordprg_enabled = 0
+    let g:go_fmt_fail_silently = 1
+    let g:go_metalinter_command="gometalinter -D golint --cyclo-over 15"
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_template_autocreate = 0
     let g:go_def_mapping_enabled = 0
     let g:go_def_mode = 'godef'
 
-    "let g:go_highlight_functions = 0
+    let g:go_list_type = "quickfix"
+
+    func! _goto_prev_func()
+        call search('^func ', 'b')
+        nohlsearch
+        normal zt
+    endfunc!
+
+    func! _goto_next_func()
+        call search('^func ', '')
+        nohlsearch
+        normal zt
+    endfunc!
+
+    augroup vim_go_custom
+        au!
+        au FileType go nmap <buffer> <Leader>h :GoDoc<CR>
+        "au FileType go nmap <silent><buffer> gd :GoDef<CR>
+        au FileType go nmap <silent><buffer> gl :call go#def#Jump('vsplit', 0)<CR>
+        au FileType go nmap <silent><buffer> gk :call go#def#Jump('split', 0)<CR>
+
+        au FileType go nmap <silent><buffer> <C-Y> :w<CR>:call synta#go#build()<CR>
+        au FileType go imap <silent><buffer> <C-Y> <ESC>:w<CR>:call synta#go#build()<CR>
+    augroup end
+
+    let g:go_bin_path = $GOPATH . "/bin"
+
+    "let g:go_auto_type_info = 0
+    "let g:go_gocode_autobuild = 1
+    "let go_auto_sameids = 1
+    "let g:go_doc_keywordprg_enabled = 0
 
     "func! _remove_go_dummy_syn()
         "syn clear goImaginary
@@ -161,39 +185,27 @@ Plug 'fatih/vim-go', {'for': 'go'}
 
     "au operations BufEnter *.go call _remove_go_dummy_syn()
 
-    func! _goto_prev_func()
-        call search('^func ', 'b')
-        nohlsearch
-        normal zt
-    endfunc!
+    "au operations FileType go nmap <buffer><silent> <C-Q> :call _goto_prev_func()<CR>
 
-    func! _goto_next_func()
-        call search('^func ', '')
-        nohlsearch
-        normal zt
-    endfunc!
+    "au operations FileType go let w:go_stack = 'fix that shit'
+    "au operations FileType go let w:go_stack_level = 'fix that shit'
+    "au operations FileType go nmap <silent><buffer> gd :GoDef<CR>
+    "au operations FileType go nmap <silent><buffer> gl :call go#def#Jump('vsplit')<CR>
+    "au operations FileType go nmap <silent><buffer> gk :call go#def#Jump('split')<CR>
 
-    au operations FileType go nmap <buffer><silent> <C-Q> :call _goto_prev_func()<CR>
-
-    au operations FileType go let w:go_stack = 'fix that shit'
-    au operations FileType go let w:go_stack_level = 'fix that shit'
-    au operations FileType go nmap <silent><buffer> gd :GoDef<CR>
-    au operations FileType go nmap <silent><buffer> gl :call go#def#Jump('vsplit')<CR>
-    au operations FileType go nmap <silent><buffer> gk :call go#def#Jump('split')<CR>
-
-    au operations FileType go nmap <silent><buffer> <c-p> :call synta#go#build()<CR>
-    au operations FileType go imap <silent><buffer> <c-p> <ESC>:w<CR>:call synta#go#build()<CR>
+    "au operations FileType go nmap <silent><buffer> <c-p> :call synta#go#build()<CR>
+    "au operations FileType go imap <silent><buffer> <c-p> <ESC>:w<CR>:call synta#go#build()<CR>
 
 Plug 'elzr/vim-json', { 'for': 'json' }
     au operations BufNewFile,BufRead *.json set filetype=json
 
 Plug 'vim-scripts/l9'
 
-Plug 'sirver/ultisnips', { 'frozen': 1 }
+Plug 'seletskiy/ultisnips'
     let g:UltiSnipsJumpForwardTrigger="<C-J>"
     let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
-    let g:UltiSnipsUsePythonVersion = 2
+    let g:UltiSnipsUsePythonVersion = 3
 
     let g:snippets_dotfiles = $HOME . '/.vim/snippets/'
     let g:snippets_reconquest = $HOME . '/.vim/bundle/snippets/'
@@ -967,5 +979,8 @@ endfunc!
 
 nnoremap <Leader>x :vsp <C-R>=expand('%:h')<CR>/
 nnoremap <Leader>t :vsp<Space>
+
+inoremap <expr> <DOWN> pumvisible() ? "\<C-N>" : "\<DOWN>"
+inoremap <expr> <UP>   pumvisible() ? "\<C-P>" : "\<UP>"
 
 noh
