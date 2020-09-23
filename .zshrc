@@ -1295,6 +1295,12 @@ ssha() {
         alias 'gcom'='git checkout master'
         alias 'glo'='git log --oneline --graph --decorate --all'
         alias 'gl'='PAGER=cat git log --oneline --graph --decorate --all --max-count=30'
+        alias o="git log --color=always --graph --all \
+            --format='format:%C(yellow)%h%Cblue %cr %Cred%d %Creset%s' \
+            --date=relative \
+            | sed -re 's/([^/ ])(HEAD)/\\1\x1b[48;5;53;38;5;15;1m \\2 \x1b[0;31m/' \
+            | sed -re 's/ ago //' \
+            | less -RSX"
         alias 'gd'='git diff'
         alias 'gnt'='git init'
         alias 'gdh'='git diff HEAD'
