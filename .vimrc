@@ -292,8 +292,9 @@ Plug 'pangloss/vim-javascript', { 'for': 'js' }
         au BufNewFile,BufRead *.json set filetype=json
         au BufNewFile,BufRead *.ts,*.js,*.tsx setlocal ts=2 sts=2 sw=2 expandtab
 
-        au FileType javascript,typescript,typescriptreact nnoremap <silent><buffer> <c-p> :call _format_typescript()<CR>
-        au FileType javascript,typescript,typescriptreact nnoremap <silent><buffer> <c-s> :w<CR>:call _save_typescript()<CR>
+        au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <silent><buffer> <c-p> :call _format_typescript()<CR>
+        au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <silent><buffer> <c-s> :w<CR>:call _save_typescript()<CR>
+        au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <silent><buffer> <c-a> :CocAction<CR>
     augroup end
 
     func! _filter_typescript_codeactions(titles)
@@ -304,8 +305,14 @@ Plug 'pangloss/vim-javascript', { 'for': 'js' }
         let ids = []
         for i in range(0, len(a:titles)-1)
             let title = a:titles[i]
-            if match(title, '^Import') != -1
+
+            if match(title, "Import default 'React'") != -1
+                continue
+            endif
+
+            if match(title, '^Import') != -1 || match(title, '^Add ') != -1 || match(title, '^Remove import ') != -1
                 call add(ids, i)
+                break
             endif
         endfor
 
