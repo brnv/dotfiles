@@ -1,6 +1,6 @@
 {
     "suggest.noselect": true,
-    "suggest.enablePreselect":false,
+    "suggest.enablePreselect": false,
     "diagnostic.errorSign": "\\ ‼",
     "diagnostic.warningSign": "\\ ∴",
     "diagnostic.infoSign": "\\ ∙",
@@ -22,14 +22,28 @@
     "languageserver": {
         "bash": {
             "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh", "bash"],
-            "ignoredRootPaths": ["~"]
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh",
+                "bash"
+            ],
+            "ignoredRootPaths": [
+                "~"
+            ]
         },
         "ccls": {
             "command": "ccls",
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
-            "rootPatterns": [".ccls"],
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls"
+            ],
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
@@ -43,5 +57,6 @@
             "vetur": "V"
         }
     },
-    "sourcekit.commandPath": "/usr/bin/sourcekit-lsp"
+    "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
 }

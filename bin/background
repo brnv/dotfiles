@@ -10,7 +10,8 @@ declare -A backgrounds
 backgrounds[light]=1
 backgrounds[dark]=1
 
-if [[ ${backgrounds[$1]} -eq 1 ]]; then $();
+if [[ ${backgrounds[$1]} -eq 1 ]]; then
+    true
 else
 	echo wrong argument
 	exit 1

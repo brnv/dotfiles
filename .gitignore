@@ -1,14 +1,16 @@
-.mcabber/histo/*
-.config/*
-.vim/plugins/
-.vim/autoload/
-.rack/*dll
-.rack/delay
-.mutt/accounts
-.vim/tmp
-.vim/eclim
-.vim/bundle
-.vim/runtime
+/.mcabber/histo/*
+/.config/*
+/.vim/plugins/
+/.vim/autoload/
+/.rack/*dll
+/.rack/delay
+/.mutt/accounts
+/.vim/tmp
+/.vim/eclim
+/.vim/bundle
+/.vim/runtime
+/.mcabber/mcabberrc.theme
+/.mcabber/mcabber.fifo
 
 !.config/systemd
 .config/systemd/user/xorg.target.wants
