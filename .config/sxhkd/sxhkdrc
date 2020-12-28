@@ -114,3 +114,6 @@ control + super + Insert
 
 #shift + F1
 #	chrome-netflix
+
+super + control + x
+	xsetup
