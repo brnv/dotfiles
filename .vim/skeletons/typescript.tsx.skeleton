@@ -1,13 +1,17 @@
-import React from 'react';
-import { Layout, Text } from '@ui-kitten/components';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { Props } from 'react';
+import { Layout, TopNavigation, Divider } from '@ui-kitten/components';
+import { tt } from '../util/locale';
+import { BackButton } from '../components/BackButton';
 
-export const _ = () => {
+export const NewScreen = ({ navigation }: Props) => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Layout>
-        <Text category="h1">New Screen</Text>
-      </Layout>
-    </SafeAreaView>
+    <>
+      <TopNavigation
+        title={tt('new_screen_title')}
+        accessoryLeft={() => <BackButton navigation={navigation} />}
+      />
+      <Divider />
+      <Layout style={{ flex: 1 }} />
+    </>
   );
 };
