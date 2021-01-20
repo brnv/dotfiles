@@ -59,7 +59,8 @@ alt + Tab
 	i3re -w 500
 
 super + Tab
-	rofi -show window
+	xoal
+	#rofi -show window
 
 super + 5
 	carcosa-ui
@@ -77,7 +78,7 @@ control + Delete
 	environment-setup
 
 super + grave
-	kuake-bottom
+	kuake --terminal --class bottom --bottom --middle --height 30 --width 50
 
 super + backslash
 	kuake --focus --center --middle --height 90 --width 75

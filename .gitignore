@@ -15,6 +15,6 @@
 !.config/systemd
 .config/systemd/user/xorg.target.wants
 !.config/sxhkd
-!.config/nvim
 !.config/dunst
 !.config/user-dirs.dirs
+!.config/coc/extensions/package.json
