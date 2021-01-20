@@ -11,6 +11,7 @@
 /.vim/runtime
 /.mcabber/mcabberrc.theme
 /.mcabber/mcabber.fifo
+**/*.pyc
 
 !.config/systemd
 .config/systemd/user/xorg.target.wants
