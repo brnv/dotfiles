@@ -19,5 +19,3 @@ augroup end
 
 nnoremap <Leader><Leader>i :PlugInstall<CR>
 nnoremap <Leader><Leader>u :PlugUpdate<CR>
-
-

@@ -31,6 +31,7 @@ endfunc!
 
 nnoremap <silent> <c-t> :call _select_file()<CR>
 nnoremap <silent> <c-e><c-t> :call _select_file_cwd()<CR>
+nnoremap <silent> <c-g> :call _select_buffer()<CR>
 
 let g:grep_last_query = ""
 

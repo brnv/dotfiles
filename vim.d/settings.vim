@@ -92,7 +92,7 @@ au operations BufWritePost ~/.vimrc
 au operations BufWritePost */.config/sxhkd/sxhkdrc silent !pkill -USR1 sxhkd
 au operations BufWritePost */.i3/config silent !i3-msg restart
 
-set cc=80,100
+"set cc=80,100
 
 au operations BufRead *.noml set ft=noml.dracula
 

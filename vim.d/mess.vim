@@ -21,9 +21,6 @@
     "map <silent> <c-t> :call _ctrlp()<CR>
     "
 
-"Plug 'itchyny/lightline.vim'
-    "source ~/dotfiles/vim.d/46-lightline.vim
-
 Plug 'kovetskiy/synta'
     let g:synta_go_highlight_calls = 0
     let g:synta_go_highlight_calls_funcs = 1
@@ -242,35 +239,6 @@ Plug 'rust-lang/rust.vim', {'for': 'rust' }
 Plug 'rhysd/vim-go-impl'
 
 Plug 'wellle/targets.vim'
-
-Plug 'lokikl/vim-ctrlp-ag'
-    let g:grep_last_query = ""
-
-    func! _grep(query)
-        let g:grep_last_query = a:query
-
-        let @/ = a:query
-        call fzf#vim#ag(a:query, {'options': '--delimiter : --nth 4..'})
-    endfunc!
-
-    func! _grep_word()
-        let l:word = expand('<cword>')
-        call _grep(l:word)
-    endfunc!
-
-    func! _grep_slash()
-        let l:slash = strpart(@/, 2)
-        call _grep(l:slash)
-    endfunc!
-
-    func! _grep_recover()
-        call _grep(g:grep_last_query)
-    endfunc!
-
-    command! -nargs=* Grep call _grep(<q-args>)
-
-    nnoremap <C-F> :Grep<CR>
-    nnoremap <C-E><C-F> :call _grep_word()<CR>
 
 Plug 'kovetskiy/vim-bash'
     "nmap gd <C-]>
