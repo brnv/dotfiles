@@ -10,3 +10,6 @@
 [submodule ".secrets"]
 	path = .secrets
 	url = git@github.com:brnv/secrets
+[submodule "source"]
+	path = source
+	url = git@github.com:kovetskiy/dotfiles
