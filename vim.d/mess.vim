@@ -21,13 +21,6 @@
     "map <silent> <c-t> :call _ctrlp()<CR>
     "
 
-Plug 'kovetskiy/synta'
-    let g:synta_go_highlight_calls = 0
-    let g:synta_go_highlight_calls_funcs = 1
-    let g:synta_use_sbuffer = 0
-    let g:synta_use_go_fast_build = 0
-    let g:synta_go_build_recursive = 1
-
 Plug 'fatih/vim-go', {'for': 'go'}
     let g:go_fmt_command = "goimports"
     let g:go_rename_command = 'gopls'
@@ -100,57 +93,6 @@ Plug 'fatih/vim-go', {'for': 'go'}
 
 Plug 'vim-scripts/l9'
 
-Plug 'seletskiy/ultisnips'
-    let g:UltiSnipsJumpForwardTrigger="<C-J>"
-    let g:UltiSnipsJumpBackwardTrigger="<C-K>"
-
-    let g:UltiSnipsUsePythonVersion = 3
-
-    let g:snippets_dotfiles = $HOME . '/.vim/snippets/'
-    let g:snippets_reconquest = $HOME . '/.vim/bundle/snippets/'
-
-    let g:UltiSnipsSnippetDirectories = [
-    \      g:snippets_reconquest,
-    \      g:snippets_dotfiles,
-    \]
-
-    let g:UltiSnipsEnableSnipMate = 0
-    let g:UltiSnipsExpandTrigger = '<nul>'
-    let g:UltiSnipsEditSplit="horizontal"
-
-    func! _snippets_stop()
-        python "UltiSnips_Manager._leave_buffer()"
-    endfunc!
-
-    func! _snippets_get_filetype()
-        let l:dot = strridx(&filetype, ".")
-        if l:dot != -1
-            return strpart(&filetype, 0, dot)
-        endif
-
-        return &filetype
-    endfunc!
-
-    func! _snippets_open_dotfiles()
-        split
-        execute "edit" g:snippets_dotfiles .
-            \ _snippets_get_filetype() . ".snippets"
-    endfunc!
-
-    func! _snippets_open_reconquest()
-        split
-        execute "edit" g:snippets_reconquest .
-            \ _snippets_get_filetype() .  ".snippets"
-    endfunc!
-
-    nnoremap <C-E><C-D> :call _snippets_open_dotfiles()<CR>
-    nnoremap <C-E><C-S> :call _snippets_open_reconquest()<CR>
-
-    smap <C-E> <C-V><ESC>a
-    smap <C-B> <C-V>o<ESC>i
-
-    au operations FileType snippets set textwidth=0
-
 Plug 'tpope/vim-surround'
 
 Plug 'danro/rename.vim'
@@ -190,8 +132,6 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
     vnoremap <C-T> :Tabularize /
-
-Plug 'reconquest/snippets'
 
 Plug 'kovetskiy/vim-empty-lines'
     nnoremap <silent> <Leader><Leader>j :call DelEmptyLineBelow()<CR>

@@ -7,6 +7,10 @@ if $BACKGROUND == "dark"
     endfunc!
 endif
 
+"source ~/dotfiles/vim.d/mess.vim
+"
+"
+
 Plug 'kovetskiy/ale'
     let g:ale_enabled = 0
     let g:ale_fixers = {
@@ -73,8 +77,23 @@ Plug 'lokikl/vim-ctrlp-ag'
     nnoremap <C-F> :Grep<CR>
     nnoremap <C-E><C-F> :call _grep_word()<CR>
 
-"source ~/dotfiles/vim.d/mess.vim
-
 Plug 'danro/rename.vim'
+
+Plug 'sirver/ultisnips', { 'frozen': 1 }
+Plug 'reconquest/snippets'
+    source /home/operator/dotfiles/source/vim.d/50-snippets.vim
+
+Plug 'kovetskiy/synta'
+    let g:synta_go_highlight_calls = 0
+    let g:synta_go_highlight_calls_funcs = 1
+    let g:synta_use_sbuffer = 0
+    let g:synta_use_go_fast_build = 0
+    let g:synta_go_build_recursive = 1
+
+Plug 'FooSoft/vim-argwrap', {'on': 'ArgWrap'}
+
+source /home/operator/dotfiles/source/vim.d/63-langs-go.vim
+
+Plug 'tpope/vim-surround'
 
 call plug#end()
