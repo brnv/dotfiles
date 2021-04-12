@@ -23,6 +23,7 @@ export GEM_HOME=${RUBYDIR}/gems
 BIN=(
     "$HOME/bin"
     "$HOME/bin/rewrite"
+    "$HOME/.guts/bin/"
     "$HOME/wbin/"
     "$HOME/sources/jewfiles/bin"
     "$HOME/dotfiles/deadfiles/bin"

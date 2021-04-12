@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/bin/environment-variables
+
 sudo localectl set-locale LANG=en_US.utf8
 
 sudo timedatectl set-ntp 1
