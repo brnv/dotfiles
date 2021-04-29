@@ -18,5 +18,6 @@
 !.config/sxhkd
 !.config/dunst
 !.config/i3gator/
+!.config/nvim/
 !.config/user-dirs.dirs
 !.config/coc/extensions/package.json

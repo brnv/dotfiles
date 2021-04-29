@@ -13,7 +13,7 @@
     "coc-python": ">=1.2.13",
     "coc-sourcekit": ">=0.0.3",
     "coc-tslint-plugin": ">=1.1.2",
-    "coc-tsserver": ">=1.6.6",
+    "coc-tsserver": ">=1.7.0",
     "coc-xml": ">=1.14.0"
   }
 }

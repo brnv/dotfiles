@@ -58,5 +58,6 @@
         }
     },
     "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "typescript.autoClosingTags": true
 }
