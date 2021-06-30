@@ -15,6 +15,7 @@ export BROWSER="$HOME/bin/browser"
 
 export GOROOT=""
 export GOPATH="$HOME/go"
+export GO111MODULE=auto
 
 export RUBYDIR=/opt/ruby/2.5.0
 export RUBYPATH=${RUBYDIR}/bin
