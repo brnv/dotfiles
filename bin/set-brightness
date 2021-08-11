@@ -1,0 +1,24 @@
+#!/bin/bash
+
+dir=""
+
+if [ -d /sys/class/backlight/amdgpu_bl0 ]; then
+    dir="amdgpu_bl0"
+fi
+
+if [ -d /sys/class/backlight/intel_backlight ]; then
+    dir="intel_backlight"
+fi
+
+file="/sys/class/backlight/${dir}/brightness"
+
+if [ ! -e ${file} ]; then
+    ls ${file}
+    exit 1
+fi
+
+sudo tee ${file} <<< ${1}
+
+if [ $? != 0 ]; then
+    echo max: $(cat /sys/class/backlight/${dir}/max_brightness 2>&1)
+fi
