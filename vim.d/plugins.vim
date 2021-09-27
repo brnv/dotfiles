@@ -96,4 +96,6 @@ source /home/operator/dotfiles/source/vim.d/63-langs-go.vim
 
 Plug 'tpope/vim-surround'
 
+source ~/dotfiles/vim.d/063-langs-go.vim
+
 call plug#end()

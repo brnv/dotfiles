@@ -117,7 +117,7 @@ control + super + Pause
     sudo systemctl reboot
 
 control + shift + super + Pause
-    sudo systemctl shutdown
+    sudo systemctl poweroff
 
 control + super + Insert
 	screen-lock -suspend
