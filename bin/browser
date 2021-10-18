@@ -14,7 +14,7 @@ if [[ "$scheme" != "http://"
     exit 1
 fi
 
-browser="chromium"
+browser="google-chrome-stable"
 if [[ "$url" ]]; then
     exec $browser "$url"
 else
