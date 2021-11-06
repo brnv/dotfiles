@@ -1177,6 +1177,7 @@ ssha() {
     alias 'history'='fc -ln 0'
     alias 'rf'='rm -rf'
     alias 'ls'='ls -lah --group-directories-first -v --color=always'
+    alias 't'='tree --dirsfirst'
     alias 'l'='ls'
     alias 'v'='vim'
     alias 'vi'='vim'
