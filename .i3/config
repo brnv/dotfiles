@@ -114,3 +114,5 @@ workspace 4 output $primary
 workspace s output $primary
 
 workspace q output $primary
+
+exec /home/operator/bin/xrandr-output-setup
