@@ -28,7 +28,7 @@ _python_plugins = vim.eval("g:_python_plugins")
 if _python_plugins not in sys.path:
     sys.path.append(vim.eval("g:_python_plugins"))
 import cocx
-result = cocx.coc_filter_typescript_actions(vim.eval('a:titles'))
+result = cocx.cocx_filter_typescript_actions(vim.eval('a:titles'))
 PYTHON
 
     return pyxeval('result')
