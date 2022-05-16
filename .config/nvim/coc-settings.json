@@ -59,5 +59,7 @@
     },
     "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-    "typescript.autoClosingTags": true
+    "typescript.autoClosingTags": true,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.importModuleSpecifier": "non-relative"
 }
