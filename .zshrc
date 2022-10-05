@@ -1102,6 +1102,8 @@ ssha() {
     alias 'srcd'='cd ~/sources/'
     alias 'ol'=':mplayer:dir-audio'
     alias 'zl'='zfs list'
+    alias 'zls'='zfs list -t snapshot'
+    alias 'zd'='sudo zfs destroy'
     alias 'gia'=':gitignore:add'
     alias 'pk'=':process:kill'
     alias 'wa'=':watcher'
@@ -1133,7 +1135,7 @@ ssha() {
     alias 'g'='guess'
     alias 'cs'=':cd-sources'
     alias 'pmp'='sudo pacman -U $(/bin/ls -t *.pkg.*)'
-    alias 'psyuz'='psyu --ignore linux,zfs-linux-git,zfs-utils-linux-git,spl-linux-git,spl-utils-linux-git'
+    alias 'psyuz'='psyu --ignore linux,zfs-linux-git,zfs-utils-linux-git,spl-linux-git,spl-utils-linux-git,zfs-utils'
     alias 'mkl'='sudo mkinitcpio -p linux'
     alias 'x'=':launch-binary'
     alias 'wh'='which'
@@ -1202,6 +1204,8 @@ ssha() {
 
     alias '/'=':search'
     alias '/g'=':search:go'
+
+    alias 'd'='docker-compose up --build'
 
     # :aur
     {

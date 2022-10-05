@@ -1,6 +1,7 @@
 clear
 
 super+semicolon start, grid 4x4
+super+apostrophe start, windowzoom, grid 4x4
 
 Escape end
 

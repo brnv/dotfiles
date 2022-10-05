@@ -53,3 +53,6 @@ nnoremap <expr><down> coc#float#has_scroll() ? coc#float#scroll(1) : "\<down>"
 nnoremap <expr><up> coc#float#has_scroll() ? coc#float#scroll(0) : "\<up>"
 inoremap <expr><down> coc#float#has_scroll() ? coc#float#scroll(1) : "\<down>"
 inoremap <expr><up> coc#float#has_scroll() ? coc#float#scroll(0) : "\<up>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

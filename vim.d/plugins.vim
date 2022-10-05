@@ -3,7 +3,7 @@ call plug#begin('~/.vim/bundle')
 if $BACKGROUND == "dark"
     Plug 'reconquest/vim-colorscheme'
     func! _setup_colorscheme()
-        colorscheme reconquest
+        colorscheme reconquest_greenish
     endfunc!
 endif
 
@@ -26,7 +26,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
     source ~/dotfiles/vim.d/11-fzf.vim
 
-Plug 'kovetskiy/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
     source ~/dotfiles/vim.d/40-coc.vim
 
 Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}

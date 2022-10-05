@@ -2,7 +2,7 @@
 Description=battery nagbar service
 
 [Service]
-ExecStart=/usr/bin/i3-battery-nagbar
+ExecStart=/usr/bin/i3-battery-nagbar --uevent /sys/class/power_supply/BAT1/uevent
 
 [Install]
 WantedBy=xorg.target

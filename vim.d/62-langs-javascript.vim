@@ -13,8 +13,7 @@ augroup _code_typescript
     au BufNewFile,BufRead *.json set filetype=json
     au BufNewFile,BufRead *.ts,*.jsx,*.js,*.tsx setlocal ts=2 sts=2 sw=2 expandtab
 
-    au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <silent><buffer> <c-p> :call _format_typescript()<CR>
-    au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <silent><buffer> <c-s> :call _save_typescript()<CR>:w<CR>
+    au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <silent><buffer> <c-s> :CocCommand prettier.formatFile<CR>:w<CR>
     au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <silent><buffer> <c-a> :CocCommand tsserver.organizeImports<CR>
 augroup end
 

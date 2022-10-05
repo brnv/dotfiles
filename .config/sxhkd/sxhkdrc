@@ -120,7 +120,7 @@ control + shift + super + Pause
     sudo systemctl poweroff
 
 control + super + Insert
-	screen-lock -suspend
+    toggle-vpn
 
 #shift + F1
 #	chrome-netflix

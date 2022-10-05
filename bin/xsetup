@@ -37,7 +37,7 @@ setxkbmap \
         "fast-copy-paste"`    # alt+c -> ctrl+c, alt+v -> shift+ins`\
         | sed 's/ /+/g') \
     -compat \
-        "allow-control-leds+complete+fast-copy-paste+hjkl" \
+        "complete+fast-copy-paste+hjkl" \
     -print | (
         xkbcomp - $DISPLAY
     )

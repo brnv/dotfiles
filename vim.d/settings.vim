@@ -320,5 +320,5 @@ endfunc!
 nnoremap <Leader>x :vsp <C-R>=expand('%:h')<CR>/
 nnoremap <Leader>t :vsp<Space>
 
-inoremap <expr> <DOWN> pumvisible() ? "\<C-N>" : "\<DOWN>"
-inoremap <expr> <UP>   pumvisible() ? "\<C-P>" : "\<UP>"
+inoremap <expr> <DOWN> coc#pum#visible() ? coc#pum#next(1) : "\<DOWN>"
+inoremap <expr> <UP>   coc#pum#visible() ? coc#pum#prev(1) : "\<UP>"
