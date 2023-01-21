@@ -1206,6 +1206,7 @@ ssha() {
     alias '/g'=':search:go'
 
     alias 'd'='docker-compose up --build'
+    alias 'p8'='ping 8.8.8.8'
 
     # :aur
     {

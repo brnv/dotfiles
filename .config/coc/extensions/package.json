@@ -14,8 +14,12 @@
     "coc-sourcekit": ">=0.0.3",
     "coc-tslint-plugin": ">=1.2.0",
     "coc-tsserver": ">=1.11.11",
-    "coc-xml": ">=1.14.1"
+    "coc-xml": ">=1.14.1",
+    "coc-html": ">=1.8.0",
+    "coc-yaml": ">=1.9.0",
+    "coc-omnisharp": ">=0.0.28"
   },
   "disabled": [],
-  "locked": []
+  "locked": [],
+  "lastUpdate": 1674327236243
 }

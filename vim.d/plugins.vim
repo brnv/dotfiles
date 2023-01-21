@@ -36,7 +36,7 @@ Plug 'reconquest/vim-pythonx', { 'do' : ':UpdateRemotePlugins' }
     let g:pythonx_go_info_mode = 'coc'
 
 Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 
 Plug 'scrooloose/nerdcommenter'
@@ -95,6 +95,37 @@ Plug 'FooSoft/vim-argwrap', {'on': 'ArgWrap'}
 source /home/operator/dotfiles/source/vim.d/63-langs-go.vim
 
 Plug 'tpope/vim-surround'
+
+Plug 'OmniSharp/omnisharp-vim'
+    let g:OmniSharp_server_use_mono = 1
+    " OmniSharp: {{{
+    let g:OmniSharp_popup_position = 'peek'
+    if has('nvim')
+      let g:OmniSharp_popup_options = {
+      \ 'winblend': 30,
+      \ 'winhl': 'Normal:Normal,FloatBorder:ModeMsg',
+      \ 'border': 'rounded'
+      \}
+    else
+      let g:OmniSharp_popup_options = {
+      \ 'highlight': 'Normal',
+      \ 'padding': [0],
+      \ 'border': [1],
+      \ 'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+      \ 'borderhighlight': ['ModeMsg']
+      \}
+    endif
+    let g:OmniSharp_popup_mappings = {
+    \ 'sigNext': '<C-n>',
+    \ 'sigPrev': '<C-p>',
+    \ 'pageDown': ['<C-f>', '<PageDown>'],
+    \ 'pageUp': ['<C-b>', '<PageUp>']
+    \}
+
+    let g:OmniSharp_highlight_groups = {
+    \ 'ExcludedCode': 'NonText'
+    \}
+    " }}}
 
 source ~/dotfiles/vim.d/063-langs-go.vim
 

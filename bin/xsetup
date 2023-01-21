@@ -5,6 +5,7 @@ source ~/bin/environment-variables
 sudo localectl set-locale LANG=en_US.utf8
 
 sudo timedatectl set-ntp 1
+sudo timedatectl set-timezone Europe/Moscow
 
 xrdb ~/.Xresources && xrdb -merge \
     ~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
@@ -76,3 +77,11 @@ systemctl --user restart xcsyncd.service
 systemctl --user restart sxhkd.service
 
 i3-msg restart
+
+if [[ ! -z $(lsusb | grep "04d9:0207 Holtek Semiconductor, Inc. USB-HID Keyboard") ]]; then
+    xinput | grep "AT Translated Set 2 keyboard" | cut -f2 | cut -d"=" -f2 | xargs xinput disable
+fi
+
+if [[ ! -z $(lsusb | grep "25a7:fa49 Areson Technology Corp 2.4G Dual Mode Mouse") ]]; then
+    xinput | grep "ELAN1203:00 04F3:307A Touchpad" | cut -f2 | cut -d"=" -f2 | xargs xinput disable
+fi
