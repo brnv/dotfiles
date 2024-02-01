@@ -2,4 +2,4 @@
 
 redshift -x
 #redshift -l43.6028:39.7342 -o
-redshift -l55.0084:82.9357 -o
+#redshift -l55.0084:82.9357 -o

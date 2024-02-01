@@ -14,6 +14,6 @@ else
     fi
 
     /usr/bin/xrandr \
-        --output eDP1 --mode 1920x1080 --right-of HDMI2 \
-        --output HDMI2 --mode 1920x1080
+        --output eDP-1 --mode 1920x1080 \
+        --output HDMI-1 --mode 1920x1080
 fi

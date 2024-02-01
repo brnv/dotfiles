@@ -5,7 +5,7 @@ source ~/bin/environment-variables
 sudo localectl set-locale LANG=en_US.utf8
 
 sudo timedatectl set-ntp 1
-sudo timedatectl set-timezone Europe/Moscow
+sudo timedatectl set-timezone Asia/Yerevan #Europe/Moscow #Asia/Novosibirsk 
 
 xrdb ~/.Xresources && xrdb -merge \
     ~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
@@ -78,7 +78,7 @@ systemctl --user restart sxhkd.service
 
 i3-msg restart
 
-if [[ ! -z $(lsusb | grep "04d9:0207 Holtek Semiconductor, Inc. USB-HID Keyboard") ]]; then
+if [[ ! -z $(lsusb | grep "04d9:0207 Holtek Semiconductor, Inc.") ]]; then
     xinput | grep "AT Translated Set 2 keyboard" | cut -f2 | cut -d"=" -f2 | xargs xinput disable
 fi
 

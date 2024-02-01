@@ -1135,7 +1135,7 @@ ssha() {
     alias 'g'='guess'
     alias 'cs'=':cd-sources'
     alias 'pmp'='sudo pacman -U $(/bin/ls -t *.pkg.*)'
-    alias 'psyuz'='psyu --ignore linux,zfs-linux-git,zfs-utils-linux-git,spl-linux-git,spl-utils-linux-git,zfs-utils'
+    alias 'psyuz'='psyu --ignore linux,zfs-linux-git,zfs-utils-linux-git,spl-linux-git,spl-utils-linux-git,zfs-utils,zfs-linux'
     alias 'mkl'='sudo mkinitcpio -p linux'
     alias 'x'=':launch-binary'
     alias 'wh'='which'
@@ -1252,6 +1252,7 @@ ssha() {
         alias 'gcp'='git cherry-pick'
         alias 'gcl'='git clone'
         alias 'gh'='git show'
+        alias 'ghn'='git show --name-only'
         alias 'gd'='git diff'
         alias 'gdo'='git diff origin/master'
         alias 'gs'='git status --short'
@@ -1265,7 +1266,7 @@ ssha() {
         alias 'gpl'='git pull'
         alias 'gpr'='git pull --rebase'
         alias 'gur'='git pull --rebase origin'
-        alias 'gf'='git fetch'
+        alias 'gf'='git fetch --prune'
         alias 'gcn'='git commit'
         alias gcn!='git commit --amend'
         alias 'gc'='git-commit'
@@ -1671,3 +1672,8 @@ function precmd () {
   window_title="\033]0;${PWD##*/}\007"
   echo -ne "$window_title"
 }
+
+source /opt/google-cloud-cli/completion.zsh.inc
+source /opt/google-cloud-cli/path.zsh.inc
+
+source /usr/share/nvm/init-nvm.sh

@@ -27,7 +27,7 @@ URxvt.boldItalicFont: xft:Iosevka:size=10,style=bold
 URxvt.lineSpace: 0
 
 URxvt.underlineColor: blue
-URxvt.cursorBlink: true
+URxvt.cursorBlink: false
 URxvt.scrollBar: false
 URxvt.troughColor: #100000
 

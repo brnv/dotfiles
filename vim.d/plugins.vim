@@ -10,14 +10,23 @@ endif
 "source ~/dotfiles/vim.d/mess.vim
 "
 "
+Plug 'majutsushi/tagbar'
 
-Plug 'kovetskiy/ale'
+Plug 'dense-analysis/ale'
+    function! FormatCS(buffer) abort
+        return {
+        \   'command': 'dotnet-csharpier'
+        \}
+    endfunction
+
+    au operations VimEnter * execute ale#fix#registry#Add('csfmt', 'FormatCS', ['cs'], 'csfmt for cs')
+
     let g:ale_enabled = 0
     let g:ale_fixers = {
-    \    'json': 'fixjson'
+    \    'json': 'fixjson',
+    \    'cs': 'csfmt'
     \}
-    let g:ale_fix_on_save = 0
-    let g:ale_linters = {}
+    "let g:ale_fix_on_save = 1
 
 Plug 'pangloss/vim-javascript', { 'for': 'js' }
     source ~/dotfiles/vim.d/62-langs-javascript.vim

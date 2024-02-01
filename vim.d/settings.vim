@@ -7,7 +7,6 @@ filetype plugin indent on
 set shortmess+=sAIc
 
 set encoding=utf-8
-set printencoding=cp1251
 set fileformat=unix
 
 set textwidth=79

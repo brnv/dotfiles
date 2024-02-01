@@ -25,9 +25,6 @@ super + control + w
 super + control + d
 	upwork
 
-super + b
-	clipboard-sync-trim
-
 super + F1
 	screenshot
 

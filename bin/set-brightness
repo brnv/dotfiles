@@ -2,8 +2,8 @@
 
 dir=""
 
-if [ -d /sys/class/backlight/amdgpu_bl0 ]; then
-    dir="amdgpu_bl0"
+if [ -d /sys/class/backlight/amdgpu_bl2 ]; then
+    dir="amdgpu_bl2"
 fi
 
 if [ -d /sys/class/backlight/intel_backlight ]; then
