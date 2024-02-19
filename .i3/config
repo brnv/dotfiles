@@ -1,26 +1,41 @@
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
+set $alt Mod4
+
+bindsym $alt+q workspace q
+bindsym $alt+w workspace w
+bindsym $alt+e workspace e
+bindsym $alt+a workspace a
+bindsym $alt+s workspace s
+bindsym $alt+d workspace d
+bindcode $alt+Shift+24 move container to workspace q
+bindcode $alt+Shift+25 move container to workspace w
+bindcode $alt+Shift+26 move container to workspace e
+bindcode $alt+Shift+38 move container to workspace a
+bindcode $alt+Shift+39 move container to workspace s
+bindcode $alt+Shift+40 move container to workspace d
+
 gaps inner 3
 gaps outer 2
 smart_gaps on
 
 #hide_edge_borders both
 #font pango:Monaco 1
-new_window 1pixel
-focus_follows_mouse yes
+new_window pixel
+#focus_follows_mouse yes
 
 set $win Mod1
-set $alt Mod4
 
 floating_modifier $alt
 
-bindsym $alt+Shift+r restart
-bindsym $alt+b sticky toggle
+#bindsym $alt+Shift+r restart
+#bindsym $alt+b sticky toggle
 
-bindsym Shift+BackSpace exec window-kill-focused
 bindsym $alt+Ctrl+q kill
 
 bindsym $alt+Escape floating toggle
+
+# ------ stopped here
 
 bindsym Ctrl+Home  focus left
 bindsym Ctrl+Next  focus down
@@ -34,29 +49,6 @@ bindsym Ctrl+Shift+End   move right
 
 bindsym $alt+f fullscreen
 
-bindsym $alt+1 workspace 1
-bindsym $alt+2 workspace 2
-bindsym $alt+3 workspace 3
-bindsym $alt+4 workspace 4
-
-bindsym $alt+q workspace q
-bindsym $alt+w workspace w
-bindsym $alt+e workspace e
-bindsym $alt+a workspace a
-bindsym $alt+s workspace s
-bindsym $alt+d workspace d
-bindsym $alt+z workspace z
-bindsym $alt+c workspace c
-
-bindcode $alt+Shift+10 move container to workspace 1
-bindcode $alt+Shift+11 move container to workspace 2
-bindcode $alt+Shift+12 move container to workspace 3
-bindcode $alt+Shift+24 move container to workspace q
-bindcode $alt+Shift+25 move container to workspace w
-bindcode $alt+Shift+26 move container to workspace e
-bindcode $alt+Shift+38 move container to workspace a
-bindcode $alt+Shift+39 move container to workspace s
-bindcode $alt+Shift+40 move container to workspace d
 
 #bindsym pause workspace q; exec "browser http://cs543100.vk.me/v543100237/50df/joWgtvxgsRo.jpg"
 

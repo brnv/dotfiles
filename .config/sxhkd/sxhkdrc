@@ -122,5 +122,8 @@ control + super + Insert
 super + control + x
 	xsetup
 
+super + x
+	notification
+
 super + control n
     /usr/bin/urxvt -e alsamixer -c 2

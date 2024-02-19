@@ -1,26 +1,19 @@
 clear
 
-super+semicolon start, grid 4x4
+super+semicolon start, grid 3x3
 super+apostrophe start, windowzoom, grid 4x4
 
 Escape end
 
-1 cell-select 1x1,warp
-2 cell-select 2x1,warp
-3 cell-select 3x1,warp
-4 cell-select 4x1,warp
-q cell-select 1x2,warp
-w cell-select 2x2,warp
-e cell-select 3x2,warp
-r cell-select 4x2,warp
-a cell-select 1x3,warp
-s cell-select 2x3,warp
-d cell-select 3x3,warp
-f cell-select 4x3,warp
-z cell-select 1x4,warp
-x cell-select 2x4,warp
-c cell-select 3x4,warp
-v cell-select 4x4,warp
+q cell-select 1x1,warp
+w cell-select 2x1,warp
+e cell-select 3x1,warp
+a cell-select 1x2,warp
+s cell-select 2x2,warp
+d cell-select 3x2,warp
+z cell-select 1x3,warp
+x cell-select 2x3,warp
+c cell-select 3x3,warp
 
 shift+space warp,drag 1
 
