@@ -2,18 +2,28 @@
 
 source ~/bin/environment-variables
 
-sudo localectl set-locale LANG=en_US.utf8
-
+localectl set-locale LANG=en_US.utf8
 sudo timedatectl set-ntp 1
 
-xrdb ~/.Xresources && xrdb -merge \
-    ~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
+xrdb ~/.Xresources
+xrdb -merge ~/.Xresources.colors/seoul256/dark
 
 export XAUTHORITY=~/.Xauthority
 export DISPLAY=${DISPLAY:-:0.0}
 
-xset b off && xset s off
+xset b off
+xset s off
 xset r rate 140 100
+
+setxkbmap -layout us,ru
+setxkbmap -option altwin:swap_lalt_lwin
+
+xmodmap -e "remove lock = Caps_Lock"
+xmodmap -e "keysym Caps_Lock = Control_L"
+xmodmap -e "add control = Control_L"
+xmodmap -e "keycode 9 = Tab"
+xmodmap -e "keycode 50 = Escape"
+xmodmap -e "keycode 37 = Shift_L"
 
 sudo pkill shift-shift
 
@@ -31,16 +41,6 @@ pkill dunst
 dunst -config ~/.dunstrc &
 
 screens-setup
-
-#if [[ "$(hostname)" == "work" ]]; then
-    #dual-head
-#else
-    #if grep --quiet open /proc/acpi/button/lid/LID/state; then
-        #dual-head || one-head
-    #else
-        #hdmi-head
-    #fi
-#fi
 
 systemctl --user import-environment DISPLAY XAUTHORITY PATH GOPATH
 systemctl --user restart i3-battery-nagbar.service
