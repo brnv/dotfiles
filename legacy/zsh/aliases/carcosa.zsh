@@ -1,5 +1,0 @@
-alias cc="carcosa -c"
-alias cca="carcosa -c -A"
-alias ccs="carcosa -c -S"
-alias ccl="carcosa -c -L"
-alias ccr="carcosa -c -R"

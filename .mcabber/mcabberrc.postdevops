@@ -1,8 +1,0 @@
-alias r = roster search reviews@
-alias g = roster search general@
-
-set otr = 1
-otrpolicy e.kovetskiy@postdevops.xmpp.slack.com always
-otrpolicy s.seletskiy@postdevops.xmpp.slack.com always
-alias sq = otr smpq .
-alias sr = otr smpr .

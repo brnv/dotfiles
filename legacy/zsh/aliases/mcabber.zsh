@@ -1,1 +1,0 @@
-alias mo='mcabber-postdevops'
