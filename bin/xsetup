@@ -5,7 +5,6 @@ source ~/bin/environment-variables
 sudo localectl set-locale LANG=en_US.utf8
 
 sudo timedatectl set-ntp 1
-sudo timedatectl set-timezone Asia/Yerevan #Europe/Moscow #Asia/Novosibirsk 
 
 xrdb ~/.Xresources && xrdb -merge \
     ~/.Xresources.colors/`cat ~/.colorscheme`/`cat ~/.background`
@@ -15,33 +14,6 @@ export DISPLAY=${DISPLAY:-:0.0}
 
 xset b off && xset s off
 xset r rate 140 100
-
-setxkbmap \
-    -keycodes \
-        "evdev+aliases(qwerty)" \
-    -symbols $(echo \
-        "pc+us+ru:2"`             # common layout settings`\
-        "level3(lwin_switch)"`    # use win as lvl3 modifier`\
-        "mod4-lvl3"`              # use lvl3 as mod4`\
-        "hjkl"`                   # map mod3+hjkl to arrow keys`\
-        "hjkl(caret)"`            # mod3+u-]: home/end/insert/delete/pgup/pkdown`\
-        "hjkl(rctrl-rshift)"`     # remap right ctrl to right shift`\
-        "hjkl(fast-enter)"`       # mod3+m -> enter`\
-        "capslock(swapescape)"`   # use capslock as esc`\
-        "altwin(swap_lalt_lwin)"`   # swap alt and win`\
-        "hjkl(fast-numpad)"`      # 1234qwerdf -> 1234567890`\
-        "rshift-ralt"`            # swap rshift and ralt`\
-        "level5-menu"`            # use menu for level5 switch as well`\
-        "ctrl-shift-caps"`        # remap ctrl/shift/caps` \
-        "terminate(ctrl_alt_bksp)"`# terminate X on ctrl+alt+bs`\
-        "esc-to-tilde"`     # esc to lock screen`\
-        "fast-copy-paste"`    # alt+c -> ctrl+c, alt+v -> shift+ins`\
-        | sed 's/ /+/g') \
-    -compat \
-        "complete+fast-copy-paste+hjkl" \
-    -print | (
-        xkbcomp - $DISPLAY
-    )
 
 sudo pkill shift-shift
 
