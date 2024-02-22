@@ -15,7 +15,8 @@ xset b off
 xset s off
 xset r rate 140 100
 
-setxkbmap -layout us,ru
+setxkbmap -option
+setxkbmap -layout us
 setxkbmap -option altwin:swap_lalt_lwin
 
 xmodmap -e "remove lock = Caps_Lock"
@@ -41,7 +42,8 @@ HANDLER_RUS="RIGHTSHIFT"
 pkill dunst
 dunst -config ~/.dunstrc &
 
-screens-setup
+redshift -x
+redshift -O 4000K
 
 systemctl --user import-environment DISPLAY XAUTHORITY PATH GOPATH
 systemctl --user restart i3-battery-nagbar.service
