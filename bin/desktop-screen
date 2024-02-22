@@ -1,7 +1,0 @@
-#!/bin/bash
-
-/usr/bin/xrandr \
-    --output DP-4 --mode 2560x1440 \
-    --output eDP1 --off
-
-/home/operator/bin/xsetup

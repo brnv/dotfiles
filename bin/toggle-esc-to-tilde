@@ -6,4 +6,4 @@ else
     sudo sed -i '3,7{s/^/#/}' /usr/share/X11/xkb/symbols/esc-to-tilde
 fi
 
-/home/operator/dotfiles/bin/xsetup
+/home/operator/dotfiles/bin/env-setup

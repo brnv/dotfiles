@@ -4,6 +4,6 @@ set -x
 
 exec >/tmp/log 2>&1
 
-xsetup
+env-setup
 
 exec i3
