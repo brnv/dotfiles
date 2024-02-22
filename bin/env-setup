@@ -24,6 +24,7 @@ xmodmap -e "add control = Control_L"
 xmodmap -e "keycode 9 = Tab"
 xmodmap -e "keycode 50 = Escape"
 xmodmap -e "keycode 37 = Shift_L"
+xmodmap -e "keycode 65 = space underscore"
 
 sudo pkill shift-shift
 
