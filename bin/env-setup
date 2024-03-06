@@ -1,5 +1,7 @@
 #!/bin/bash
 
+dunstify -u low "env-setup"
+
 source ~/bin/environment-variables
 
 localectl set-locale LANG=en_US.utf8
@@ -53,7 +55,7 @@ systemctl --user restart sxhkd.service
 
 i3-msg restart
 
-if [[ ! -z $(lsusb | grep "04d9:0207 Holtek Semiconductor, Inc.") ]]; then
+if [[ ! -z $(lsusb | grep "04d9:0175 Holtek Semiconductor, Inc.") ]]; then
     xinput | grep "AT Translated Set 2 keyboard" | cut -f2 | cut -d"=" -f2 | xargs xinput disable
 fi
 
