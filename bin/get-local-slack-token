@@ -1,3 +1,0 @@
-#!/bin/bash
-
-cat ~/.slack_token
