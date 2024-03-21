@@ -44,9 +44,6 @@ HANDLER_RUS="RIGHTSHIFT"
 pkill dunst
 dunst -config ~/.dunstrc &
 
-redshift -x
-redshift -O 3700K
-
 systemctl --user import-environment DISPLAY XAUTHORITY PATH GOPATH
 systemctl --user restart i3-battery-nagbar.service
 systemctl --user restart keynav.service
